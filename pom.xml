@@ -116,6 +116,29 @@
 
 	</dependencies>
 
+	<profiles>
+		<profile>
+			<id>dev</id>
+			<properties>
+				<activatedProperties>dev</activatedProperties>
+			</properties>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+		</profile>
+		<profile>
+			<id>amazon</id>
+			<properties>
+				<activatedProperties>amazon</activatedProperties>
+			</properties>
+		</profile>
+		<profile>
+			<id>arure</id>
+			<properties>
+				<activatedProperties>arure</activatedProperties>
+			</properties>
+		</profile>
+	</profiles>
 
 	<build>
 		<plugins>
