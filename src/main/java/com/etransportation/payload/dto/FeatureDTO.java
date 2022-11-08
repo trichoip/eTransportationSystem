@@ -8,8 +8,6 @@ import lombok.Data;
 public class FeatureDTO {
 
     private Long id;
-    @JsonIgnore
     private String name;
-    @JsonIgnore
     private String icon;
 }
