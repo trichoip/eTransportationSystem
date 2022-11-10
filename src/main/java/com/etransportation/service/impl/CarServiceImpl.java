@@ -157,7 +157,7 @@ public class CarServiceImpl implements CarService {
                 carDetailInfoResponse.setTotalRating(Double.valueOf(
                                 new DecimalFormat("#0.0").format(review.stream()
                                                 .mapToInt(r -> r.getStarReview()).average()
-                                                .orElse(0.0))));
+                                                .orElse(5.0))));
                 return carDetailInfoResponse;
 
         }
@@ -172,7 +172,8 @@ public class CarServiceImpl implements CarService {
                                         + c.getAddress().getCity().getName());
                         carInfoResponse.setName(c.getModel().getName() + " " + c.getYearOfManufacture());
                         if (c.getCarImages().size() == 0) {
-                                carInfoResponse.setCarImage("https://n1-cstg.mioto.vn/g/2018/03/17/16/52.jpg");
+                                carInfoResponse.setCarImage(
+                                                "https://assetscdn1.paytm.com/images/catalog/product/K/KI/KIDLIMOUSINE-DISKSE1140676506C2066/1565610984539_0..jpg");
                         } else {
                                 carInfoResponse.setCarImage(c.getCarImages()
                                                 .get(new Random().nextInt(c.getCarImages().size()))
@@ -185,7 +186,7 @@ public class CarServiceImpl implements CarService {
                         carInfoResponse.setTotalRating(Double.valueOf(
                                         new DecimalFormat("#0.0").format(review.stream()
                                                         .mapToInt(r -> r.getStarReview()).average()
-                                                        .orElse(0.0))));
+                                                        .orElse(5.0))));
                         return carInfoResponse;
                 }).collect(Collectors.toList());
 
@@ -205,7 +206,8 @@ public class CarServiceImpl implements CarService {
                                         + c.getAddress().getCity().getName());
                         carShortInfoResponse.setName(c.getModel().getName() + " " + c.getYearOfManufacture());
                         if (c.getCarImages().size() == 0) {
-                                carShortInfoResponse.setCarImage("https://n1-cstg.mioto.vn/g/2018/03/17/16/52.jpg");
+                                carShortInfoResponse.setCarImage(
+                                                "https://assetscdn1.paytm.com/images/catalog/product/K/KI/KIDLIMOUSINE-DISKSE1140676506C2066/1565610984539_0..jpg");
                         } else {
                                 carShortInfoResponse.setCarImage(c.getCarImages()
                                                 .get(new Random().nextInt(c.getCarImages().size()))
@@ -218,7 +220,7 @@ public class CarServiceImpl implements CarService {
                         carShortInfoResponse.setTotalRating(Double.valueOf(
                                         new DecimalFormat("#0.0").format(review.stream()
                                                         .mapToInt(r -> r.getStarReview()).average()
-                                                        .orElse(0.0))));
+                                                        .orElse(5.0))));
 
                         return carShortInfoResponse;
                 }).collect(Collectors.toList());
@@ -251,7 +253,8 @@ public class CarServiceImpl implements CarService {
                         carInfoResponse.setAddressInfo(c.getAddress().getDistrict().getName() + ", "
                                         + c.getAddress().getCity().getName());
                         if (c.getCarImages().size() == 0) {
-                                carInfoResponse.setCarImage("https://n1-cstg.mioto.vn/g/2018/03/17/16/52.jpg");
+                                carInfoResponse.setCarImage(
+                                                "https://assetscdn1.paytm.com/images/catalog/product/K/KI/KIDLIMOUSINE-DISKSE1140676506C2066/1565610984539_0..jpg");
                         } else {
                                 carInfoResponse.setCarImage(c.getCarImages()
                                                 .get(new Random().nextInt(c.getCarImages().size()))
@@ -264,7 +267,7 @@ public class CarServiceImpl implements CarService {
                         carInfoResponse.setTotalRating(Double.valueOf(
                                         new DecimalFormat("#0.0").format(review.stream()
                                                         .mapToInt(r -> r.getStarReview()).average()
-                                                        .orElse(0.0))));
+                                                        .orElse(5.0))));
 
                         return carInfoResponse;
                 }).collect(Collectors.toList());
@@ -315,7 +318,8 @@ public class CarServiceImpl implements CarService {
                                         + c.getAddress().getCity().getName());
                         carShortInfoResponse.setName(c.getModel().getName() + " " + c.getYearOfManufacture());
                         if (c.getCarImages().size() == 0) {
-                                carShortInfoResponse.setCarImage("https://n1-cstg.mioto.vn/g/2018/03/17/16/52.jpg");
+                                carShortInfoResponse.setCarImage(
+                                                "https://assetscdn1.paytm.com/images/catalog/product/K/KI/KIDLIMOUSINE-DISKSE1140676506C2066/1565610984539_0..jpg");
                         } else {
                                 carShortInfoResponse.setCarImage(c.getCarImages()
                                                 .get(new Random().nextInt(c.getCarImages().size()))
@@ -327,7 +331,7 @@ public class CarServiceImpl implements CarService {
                         carShortInfoResponse.setTotalRating(Double.valueOf(
                                         new DecimalFormat("#0.0").format(review.stream()
                                                         .mapToInt(r -> r.getStarReview()).average()
-                                                        .orElse(0.0))));
+                                                        .orElse(5.0))));
 
                         return carShortInfoResponse;
                 }).collect(Collectors.toList());
@@ -357,7 +361,8 @@ public class CarServiceImpl implements CarService {
                         carShortInfoResponse.setName(c.getModel().getName() + " " + c.getYearOfManufacture());
 
                         if (c.getCarImages().size() == 0) {
-                                carShortInfoResponse.setCarImage("https://n1-cstg.mioto.vn/g/2018/03/17/16/52.jpg");
+                                carShortInfoResponse.setCarImage(
+                                                "https://assetscdn1.paytm.com/images/catalog/product/K/KI/KIDLIMOUSINE-DISKSE1140676506C2066/1565610984539_0..jpg");
                         } else {
                                 carShortInfoResponse.setCarImage(c.getCarImages()
                                                 .get(new Random().nextInt(c.getCarImages().size()))
@@ -370,55 +375,9 @@ public class CarServiceImpl implements CarService {
                         carShortInfoResponse.setTotalRating(Double.valueOf(
                                         new DecimalFormat("#0.0").format(review.stream()
                                                         .mapToInt(r -> r.getStarReview()).average()
-                                                        .orElse(0.0))));
+                                                        .orElse(5.0))));
                         return carShortInfoResponse;
                 }).collect(Collectors.toList());
-
-                if (filter.getPriceBetween() == null || filter.getPriceBetween().length != 2) {
-                        filter.setPriceBetween(new Double[] { 0.0, 4000.0 });
-                }
-                DoubleSummaryStatistics dt = DoubleStream
-                                .of(ArrayUtils.toPrimitive(filter.getPriceBetween()))
-                                .summaryStatistics();
-
-                if (filter.getTransmission() != null) {
-                        switch (filter.getTransmission()) {
-                                case "Số tự động":
-                                        break;
-                                case "Số sàn":
-                                        break;
-                                default:
-                                        filter.setTransmission("");
-                                        break;
-                        }
-                } else {
-                        filter.setTransmission("");
-                }
-
-                if (filter.getFuel() != null) {
-                        switch (filter.getFuel()) {
-                                case "Xăng":
-                                        break;
-                                case "Dầu diesel":
-                                        break;
-                                default:
-                                        filter.setFuel("");
-                                        break;
-                        }
-                } else {
-                        filter.setFuel("");
-                }
-
-                if (filter.getSeatsIn() == null || filter.getSeatsIn().length == 0) {
-                        filter.setSeatsIn(new Integer[] { 4, 5, 7 });
-                }
-
-                if (filter.getYearOfManufactureBetween() == null || filter.getYearOfManufactureBetween().length != 2) {
-                        filter.setYearOfManufactureBetween(new Integer[] { 0, 5000 });
-                }
-
-                IntSummaryStatistics tt = IntStream.of(ArrayUtils.toPrimitive(filter.getYearOfManufactureBetween()))
-                                .summaryStatistics();
 
                 PagingResponse<CarShortInfoResponse> pagingResponse = PagingResponse
                                 .<CarShortInfoResponse>builder()
@@ -427,20 +386,26 @@ public class CarServiceImpl implements CarService {
                                 .totalPage(cars.getTotalPages())
                                 .totalItem(cars.getTotalElements())
                                 .contends(listCarInfoResponse)
-                                .carBrands(carRepository
-                                                .findAllBrandByAddressCityIdAndCarStatus(filter
-                                                                .getCity().getId(), CarStatus.ACTIVE, dt.getMin(),
-                                                                dt.getMax(), "%" + filter.getTransmission() + "%",
-                                                                "%" + filter.getFuel() + "%", filter.getSeatsIn(),
-                                                                tt.getMin(), tt.getMax()))
-                                .carModels(carRepository
-                                                .findAllModelByAddressCityIdAndCarStatus(filter
-                                                                .getCity().getId(), CarStatus.ACTIVE, dt.getMin(),
-                                                                dt.getMax(), "%" + filter.getTransmission() + "%",
-                                                                "%" + filter.getFuel() + "%", filter.getSeatsIn(),
-                                                                tt.getMin(), tt.getMax(),
-                                                                filter.getBrand_Id()))
+                                // .carBrands(carRepository
+                                // .findAllBrandAndCountByFilterSearch(listIdCarBrands))
+                                // .carModels(carRepository
+                                // .findAllModelAndCountByFilterSearch(listIdCarModels,
+                                // filter.getBrand_Id()))
                                 .build();
+
+                filter.setModel_Id_In(null);
+                List<Car> carsListForModels = carRepository.findAll(filterSearchCar(filter));
+                Long[] listIdCarModels = carsListForModels.stream().map(c -> c.getId()).toArray(Long[]::new);
+                pagingResponse.setCarModels(carRepository
+                                .findAllModelAndCountByFilterSearch(listIdCarModels,
+                                                filter.getBrand_Id()));
+
+                filter.setBrand_Id(null);
+                List<Car> carsListForBrands = carRepository.findAll(filterSearchCar(filter));
+                Long[] listIdCarBrands = carsListForBrands.stream().map(c -> c.getId()).toArray(Long[]::new);
+                pagingResponse.setCarBrands(carRepository
+                                .findAllBrandAndCountByFilterSearch(listIdCarBrands));
+
                 return pagingResponse;
         }
 
@@ -519,7 +484,7 @@ public class CarServiceImpl implements CarService {
                                 .totalStarAverage(Double.valueOf(
                                                 new DecimalFormat("#0.0").format(listReviewByCarResponse.stream()
                                                                 .mapToInt(r -> r.getStarReview()).average()
-                                                                .orElse(0.0))))
+                                                                .orElse(5.0))))
                                 .build();
 
                 return pagingResponse;

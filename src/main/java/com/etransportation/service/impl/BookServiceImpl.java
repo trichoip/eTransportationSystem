@@ -185,7 +185,8 @@ public class BookServiceImpl implements BookService {
                 + book.getCar().getAddress().getCity().getName());
 
         if (book.getCar().getCarImages().size() == 0) {
-            bookDetailsInfoResponse.getCar().setCarImage("https://n1-cstg.mioto.vn/g/2018/03/17/16/52.jpg");
+            bookDetailsInfoResponse.getCar().setCarImage(
+                    "https://assetscdn1.paytm.com/images/catalog/product/K/KI/KIDLIMOUSINE-DISKSE1140676506C2066/1565610984539_0..jpg");
         } else {
             bookDetailsInfoResponse.getCar().setCarImage(book.getCar().getCarImages()
                     .get(new Random().nextInt(book.getCar().getCarImages().size()))
