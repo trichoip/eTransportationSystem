@@ -12,12 +12,6 @@ public class filterSearchCar {
 
     private IdDTO city;
 
-    private IdDTO district;
-
-    private IdDTO ward;
-
-    private String street;
-
     private FilterType sortPriceType;
 
     private Double[] priceBetween;

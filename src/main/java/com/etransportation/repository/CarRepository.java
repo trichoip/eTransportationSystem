@@ -32,24 +32,19 @@ public interface CarRepository extends JpaRepository<Car, Long>, JpaSpecificatio
         Page<Car> findCarByFamous(@Param("status") String statusCar, Pageable pageable);
 
         @Query("SELECT new com.etransportation.payload.dto.CarBrandDTO(br.id, br.name, count(br.id))"
-                        + " FROM Car c JOIN c.address a JOIN a.city ci JOIN c.model mo JOIN mo.brand br"
-                        + " WHERE ci.id = ?1 AND c.status = ?2 AND c.price BETWEEN ?3 AND ?4 AND c.transmission like ?5"
-                        + " AND c.fuel like ?6 AND c.seats in ?7 AND c.yearOfManufacture BETWEEN ?8 AND ?9"
+                        + " FROM CarBrand br JOIN br.carModels mo JOIN mo.cars c"
+                        + " WHERE c.id in ?1"
                         + " GROUP BY br.id, br.name"
                         + " ORDER BY count(br.id) DESC")
-        List<CarBrandDTO> findAllBrandByAddressCityIdAndCarStatus(Long id, CarStatus status, double min, double max,
-                        String transmission, String fuel, Integer[] seats, int minyear, int maxyear);
+        List<CarBrandDTO> findAllBrandAndCountByFilterSearch(Long[] carId);
 
         @Query("SELECT new com.etransportation.payload.dto.CarModelDTO(mo.id, mo.name, count(mo.id))"
-                        + " FROM Car c JOIN c.address a JOIN a.city ci JOIN c.model mo JOIN mo.brand br"
-                        + " WHERE ci.id = ?1 AND c.status = ?2 AND c.price BETWEEN ?3 AND ?4 AND c.transmission like ?5"
-                        + " AND c.fuel like ?6 AND c.seats in ?7 AND c.yearOfManufacture BETWEEN ?8 AND ?9"
+                        + " FROM CarBrand br JOIN br.carModels mo JOIN mo.cars c"
+                        + " WHERE c.id in ?1"
                         + " GROUP BY mo.id, mo.name, br.id"
-                        + " HAVING br.id = ?10"
+                        + " HAVING br.id = ?2"
                         + " ORDER BY count(mo.id) DESC")
-        List<CarModelDTO> findAllModelByAddressCityIdAndCarStatus(Long id, CarStatus status, double min, double max,
-                        String transmission, String fuel, Integer[] seats, int minyear, int maxyear,
-                        Long brand_Id);
+        List<CarModelDTO> findAllModelAndCountByFilterSearch(Long[] carId, Long _BrandId);
 
         Page<Car> findAllByLikeAccounts_Id(Long accountId, Pageable pageable);
 
