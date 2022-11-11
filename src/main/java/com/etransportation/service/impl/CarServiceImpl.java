@@ -1,25 +1,16 @@
 package com.etransportation.service.impl;
 
-import static com.etransportation.filter.CarSpecification.*;
+import static com.etransportation.filter.CarSpecification.filterSearchCar;
 
 import java.text.DecimalFormat;
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.DoubleSummaryStatistics;
-import java.util.HashSet;
-import java.util.IntSummaryStatistics;
 import java.util.List;
-import java.util.OptionalDouble;
 import java.util.Random;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
-import java.util.stream.DoubleStream;
-import java.util.stream.IntStream;
 
-import org.apache.commons.lang3.ArrayUtils;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeToken;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,13 +18,11 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
-import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.etransportation.enums.BookStatus;
 import com.etransportation.enums.CarStatus;
-import com.etransportation.filter.Car_;
 import com.etransportation.model.Address;
 import com.etransportation.model.Car;
 import com.etransportation.model.CarBrand;
@@ -41,15 +30,12 @@ import com.etransportation.model.CarImage;
 import com.etransportation.model.Feature;
 import com.etransportation.model.Review;
 import com.etransportation.model.Ward;
-import com.etransportation.mybean.CarBean;
-import com.etransportation.payload.dto.CarBrandDTO;
 import com.etransportation.payload.dto.CarModelDTO;
-import com.etransportation.payload.dto.IdDTO;
 import com.etransportation.payload.request.CarBrowsingRequest;
 import com.etransportation.payload.request.CarRegisterRequest;
 import com.etransportation.payload.request.CarUpdateInfoRequest;
+import com.etransportation.payload.request.FilterCarSearchRequest;
 import com.etransportation.payload.request.PagingRequest;
-import com.etransportation.payload.request.filterSearchCar;
 import com.etransportation.payload.response.CarBrandResponse;
 import com.etransportation.payload.response.CarDetailInfoResponse;
 import com.etransportation.payload.response.CarShortInfoResponse;
@@ -349,7 +335,7 @@ public class CarServiceImpl implements CarService {
 
         @Override
         @Transactional
-        public Object filterCar(filterSearchCar filter, PagingRequest pagingRequest) {
+        public Object filterCar(FilterCarSearchRequest filter, PagingRequest pagingRequest) {
 
                 Pageable pageable = PageRequest.of(pagingRequest.getPage() - 1, pagingRequest.getSize());
                 Page<Car> cars = carRepository.findAll(filterSearchCar(filter), pageable);

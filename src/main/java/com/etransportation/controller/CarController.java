@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.etransportation.payload.request.CarUpdateInfoRequest;
 import com.etransportation.payload.request.CarRegisterRequest;
 import com.etransportation.payload.request.PagingRequest;
-import com.etransportation.payload.request.filterSearchCar;
+import com.etransportation.payload.request.FilterCarSearchRequest;
 import com.etransportation.payload.response.CarBrandResponse;
 import com.etransportation.payload.response.CarShortInfoResponse;
 import com.etransportation.service.CarService;
@@ -75,7 +75,7 @@ public class CarController {
     }
 
     @PostMapping("/search")
-    public ResponseEntity<?> filterCar(@RequestBody filterSearchCar filter, PagingRequest pagingRequest) {
+    public ResponseEntity<?> filterCar(@RequestBody FilterCarSearchRequest filter, PagingRequest pagingRequest) {
         return ResponseEntity.ok(carService.filterCar(filter, pagingRequest));
     }
 

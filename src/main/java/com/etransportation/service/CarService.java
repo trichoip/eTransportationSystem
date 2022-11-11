@@ -6,7 +6,7 @@ import com.etransportation.payload.request.CarBrowsingRequest;
 import com.etransportation.payload.request.CarUpdateInfoRequest;
 import com.etransportation.payload.request.CarRegisterRequest;
 import com.etransportation.payload.request.PagingRequest;
-import com.etransportation.payload.request.filterSearchCar;
+import com.etransportation.payload.request.FilterCarSearchRequest;
 import com.etransportation.payload.response.CarBrandResponse;
 import com.etransportation.payload.response.CarDetailInfoResponse;
 import com.etransportation.payload.response.CarShortInfoResponse;
@@ -29,7 +29,7 @@ public interface CarService {
 
     public void carBrowsing(CarBrowsingRequest carBrowsingRequest);
 
-    public Object filterCar(filterSearchCar filter, PagingRequest pagingRequest);
+    public Object filterCar(FilterCarSearchRequest filter, PagingRequest pagingRequest);
 
     public void updateCar(CarUpdateInfoRequest carInfo);
 

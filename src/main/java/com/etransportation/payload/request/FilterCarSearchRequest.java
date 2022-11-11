@@ -2,15 +2,18 @@ package com.etransportation.payload.request;
 
 import java.util.List;
 
+import com.etransportation.enums.CarStatus;
 import com.etransportation.enums.FilterType;
 import com.etransportation.payload.dto.IdDTO;
 
 import lombok.Data;
 
 @Data
-public class filterSearchCar {
+public class FilterCarSearchRequest {
 
     private IdDTO city;
+
+    private CarStatus status;
 
     private FilterType sortPriceType;
 

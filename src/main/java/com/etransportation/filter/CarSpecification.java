@@ -30,7 +30,7 @@ import com.etransportation.model.CarBrand;
 import com.etransportation.model.CarModel;
 import com.etransportation.model.City;
 import com.etransportation.model.Feature;
-import com.etransportation.payload.request.filterSearchCar;
+import com.etransportation.payload.request.FilterCarSearchRequest;
 
 public class CarSpecification {
 
@@ -130,15 +130,33 @@ public class CarSpecification {
         };
     }
 
-    public static Specification<Car> filterSearchCar(filterSearchCar filter) {
+    public static Specification<Car> filterSearchCar(FilterCarSearchRequest filter) {
         return (root, query, cb) -> {
             // khoi tao List<Predicate>
             List<Predicate> predicates = new ArrayList<>();
             Subquery<Car> carSubquery = query.subquery(Car.class);
             Root<Car> rootCarSub = carSubquery.from(Car.class);
             carSubquery.select(rootCarSub.get(Car_.ID));
-            // get all car STATUS is ACTIVE
-            predicates.add(cb.equal(rootCarSub.get(Car_.STATUS), CarStatus.ACTIVE));
+
+            if (filter.getStatus() != null) {
+                switch (filter.getStatus()) {
+                    case ACTIVE:
+                        predicates.add(cb.equal(rootCarSub.get(Car_.STATUS), filter.getStatus()));
+                        break;
+                    case DENIED:
+                        predicates.add(cb.equal(rootCarSub.get(Car_.STATUS), filter.getStatus()));
+                        break;
+                    case PENDING_APPROVAL:
+                        predicates.add(cb.equal(rootCarSub.get(Car_.STATUS), filter.getStatus()));
+                        break;
+                    case PAUSE:
+                        predicates.add(cb.equal(rootCarSub.get(Car_.STATUS), filter.getStatus()));
+                        break;
+                    default:
+                        break;
+                }
+            }
+
             // get all car is between price
             if (filter.getPriceBetween() != null && filter.getPriceBetween().length == 2) {
                 DoubleSummaryStatistics dt = DoubleStream
