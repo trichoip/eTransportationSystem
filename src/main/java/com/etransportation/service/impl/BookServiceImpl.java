@@ -64,7 +64,7 @@ public class BookServiceImpl implements BookService {
     @Transactional
     public void bookCar(BookRequest bookRequest) {
         Calendar cal = Calendar.getInstance();
-        cal.set(Calendar.HOUR_OF_DAY, 0);
+        cal.set(Calendar.DAY_OF_MONTH, cal.get(Calendar.DAY_OF_MONTH) - 1);
 
         accountRepository.findById(bookRequest.getAccount().getId())
                 .orElseThrow(() -> new IllegalArgumentException("Account not found"));
@@ -80,6 +80,12 @@ public class BookServiceImpl implements BookService {
             if (bookRequest.getStartDate().after(bookRequest.getEndDate())) {
                 throw new IllegalArgumentException("book end date is not before start date");
             }
+        }
+
+        List<Book> isBooked = bookRepository.existsByBook(bookRequest.getCar().getId(), BookStatus.SUCCESS,
+                bookRequest.getStartDate(), bookRequest.getEndDate());
+        if (isBooked.size() != 0) {
+            throw new IllegalArgumentException("Xe đã được book trong khoảng thời gian này");
         }
 
         Book book = modelMapper.map(bookRequest, Book.class);
@@ -233,7 +239,7 @@ public class BookServiceImpl implements BookService {
                         cal.getTime(), book.getCar().getId(), BookStatus.SUCCESS, extendBookCar.getEndDate(),
                         book.getEndDate());
         if (checkBook) {
-            throw new IllegalArgumentException("đã có xe book trong khoảng thời gian này");
+            throw new IllegalArgumentException("Xe đã được book trong khoảng thời gian này");
         }
         book.setEndDate(extendBookCar.getEndDate());
         bookRepository.save(book);
