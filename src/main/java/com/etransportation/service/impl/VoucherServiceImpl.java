@@ -50,9 +50,10 @@ public class VoucherServiceImpl implements VoucherService {
     public void save(VoucherRequest voucherRequest) {
         Calendar cal = Calendar.getInstance();
         cal.set(Calendar.HOUR_OF_DAY, 0);
+        voucherRequest.setCode(voucherRequest.getCode().toUpperCase());
 
         voucherRepository.findByCode(voucherRequest.getCode()).ifPresent(voucher -> {
-            throw new IllegalArgumentException("Voucher code already exists");
+            throw new IllegalArgumentException("Mã khuyến mãi đã tồn tại");
         });
 
         if (!voucherRequest.getStartDate().after(cal.getTime()) || !voucherRequest.getEndDate().after(cal.getTime())) {

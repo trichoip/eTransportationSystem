@@ -40,7 +40,7 @@ public class BookController {
             return ResponseEntity.badRequest().body(errorList);
         }
         bookService.bookCar(bookRequest);
-        return ResponseEntity.ok("Book car successfully");
+        return ResponseEntity.ok("Thuê xe thành công");
     }
 
     @GetMapping("/{account-id}")
@@ -52,13 +52,16 @@ public class BookController {
     @PutMapping("/cancel/{book-id}")
     public ResponseEntity<?> cancelBookCar(@PathVariable(name = "book-id") Long bookId) {
         bookService.cancelBookCar(bookId);
-        return ResponseEntity.ok("Cancel book car successfully");
+        return ResponseEntity.ok("Hủy chuyến thành công");
     }
 
     @PostMapping("/review")
-    public ResponseEntity<?> reviewCar(@RequestBody ReviewCarRequest reviewCarRequest) {
+    public ResponseEntity<?> reviewCar(@Valid @RequestBody ReviewCarRequest reviewCarRequest, Errors errors) {
+        if (errors.hasErrors()) {
+            throw new IllegalArgumentException(errors.getFieldError().getDefaultMessage());
+        }
         bookService.reviewBookCar(reviewCarRequest);
-        return ResponseEntity.ok("Review car successfully");
+        return ResponseEntity.ok("Đánh giá thành công");
     }
 
     @GetMapping("/details/{book-id}")
@@ -69,7 +72,7 @@ public class BookController {
     @PutMapping("/extend")
     public ResponseEntity<?> extendBookCar(@RequestBody ExtendBookCar extendBookCar) {
         bookService.extendBookCar(extendBookCar);
-        return ResponseEntity.ok("extend book car successfully");
+        return ResponseEntity.ok("Gia hạn thành công");
     }
 
 }

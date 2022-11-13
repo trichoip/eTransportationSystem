@@ -45,11 +45,11 @@ public class CarController {
     @PostMapping
     public ResponseEntity<?> registerCar(@Valid @RequestBody CarRegisterRequest registerCarRequest, Errors errors) {
         if (errors.hasErrors()) {
-            throw new RuntimeException("feature " + errors.getFieldError().getDefaultMessage());
+            throw new RuntimeException(errors.getFieldError().getDefaultMessage());
         }
 
         carService.save(registerCarRequest);
-        return ResponseEntity.ok("Register car successfully");
+        return ResponseEntity.ok("Đăng ký thành công");
     }
 
     @GetMapping("details/{id}")
@@ -82,16 +82,16 @@ public class CarController {
     @PutMapping
     public ResponseEntity<?> updateCar(@Valid @RequestBody CarUpdateInfoRequest carInfoRequest, Errors errors) {
         if (errors.hasErrors()) {
-            throw new RuntimeException("feature " + errors.getFieldError().getDefaultMessage());
+            throw new RuntimeException(errors.getFieldError().getDefaultMessage());
         }
         carService.updateCar(carInfoRequest);
-        return ResponseEntity.ok("Update car successfully");
+        return ResponseEntity.ok("Cập nhật thành công");
     }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<?> deleteCar(@PathVariable Long id) {
         carService.deleteCar(id);
-        return ResponseEntity.ok("delete car successfully");
+        return ResponseEntity.ok("Xóa thành công");
     }
 
     @GetMapping("/review/{id}")

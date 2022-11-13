@@ -33,13 +33,13 @@ public class LikeController {
 
         }
 
-        return ResponseEntity.ok("like car successfully");
+        return ResponseEntity.ok("Xe đã được thêm vào danh sách yêu thích");
     }
 
     @DeleteMapping
     public ResponseEntity<?> cancelLikeCar(@RequestBody LikeCarRequest likeCarRequest) {
         likeService.cancelLikeCar(likeCarRequest);
-        return ResponseEntity.ok("cancel like car successfully");
+        return ResponseEntity.ok("Đã xóa xe khỏi danh sách yêu thích");
     }
 
     @GetMapping("/account/{id}")

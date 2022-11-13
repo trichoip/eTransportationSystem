@@ -9,7 +9,7 @@ import lombok.Data;
 @Data
 public class CarImageDTO {
 
-    @Length(min = 5)
-    @NotEmpty(message = "Image is required")
+    @Length(min = 5, message = "Xe ít nhất phải có 3 ảnh, vui lòng thêm ảnh cho xe")
+    @NotEmpty(message = "Xe ít nhất phải có 3 ảnh, vui lòng thêm ảnh cho xe")
     private String image;
 }

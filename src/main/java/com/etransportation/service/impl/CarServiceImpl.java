@@ -102,7 +102,7 @@ public class CarServiceImpl implements CarService {
         public void save(CarRegisterRequest carRegisterRequest) {
                 Car car = modelMapper.map(carRegisterRequest, Car.class);
                 Ward ward = wardRepository.findById(carRegisterRequest.getWard().getId())
-                                .orElseThrow(() -> new IllegalArgumentException("Ward not found"));
+                                .orElseThrow(() -> new IllegalArgumentException("Chưa nhập địa chỉ"));
                 Address address = Address
                                 .builder()
                                 .ward(ward)
@@ -401,7 +401,7 @@ public class CarServiceImpl implements CarService {
                 Car car = carRepository.findById(carInfo.getId())
                                 .orElseThrow(() -> new IllegalArgumentException("Car not found"));
                 Ward ward = wardRepository.findById(carInfo.getWard().getId())
-                                .orElseThrow(() -> new IllegalArgumentException("Ward not found"));
+                                .orElseThrow(() -> new IllegalArgumentException("Vui lòng nhập địa chỉ"));
                 modelMapper.map(carInfo, car);
                 car.getCarImages().clear();
                 car.getCarImages()
@@ -433,7 +433,7 @@ public class CarServiceImpl implements CarService {
                                 carRepository.delete(car);
                                 break;
                         default:
-                                throw new IllegalArgumentException("Car deletion is not allowed");
+                                throw new IllegalArgumentException("Vui lòng liên hệ admin để xóa xe");
 
                 }
         }

@@ -63,7 +63,7 @@ public class AccountServiceImpl implements AccountService {
     @Transactional
     public void register(AccountRegisterRequest registerRequest) {
         if (accountRepository.existsByUsername(registerRequest.getUsername())) {
-            throw new IllegalArgumentException("Username is already taken!");
+            throw new IllegalArgumentException("Username đã tồn Tại");
         }
         Account account = Account
                 .builder()
@@ -91,10 +91,10 @@ public class AccountServiceImpl implements AccountService {
 
         Account account = accountRepository
                 .findByUsername(loginRequest.getUsername())
-                .orElseThrow(() -> new IllegalArgumentException("Username is incorrect!"));
+                .orElseThrow(() -> new IllegalArgumentException("Username không chính xác!"));
 
         if (!bCryptPasswordEncoder.matches(loginRequest.getPassword(), account.getPassword())) {
-            throw new IllegalArgumentException("Password is incorrect!");
+            throw new IllegalArgumentException("Password không chính xác");
         }
 
         return modelMapper.map(account, LoginResponse.class);
@@ -107,7 +107,7 @@ public class AccountServiceImpl implements AccountService {
         Account account = accountRepository.findById(changePasswordRequest.getId())
                 .orElseThrow(() -> new IllegalArgumentException("Account is not found!"));
         if (!bCryptPasswordEncoder.matches(changePasswordRequest.getOldPassword(), account.getPassword())) {
-            throw new IllegalArgumentException("Old password is incorrect!");
+            throw new IllegalArgumentException("Mật khẩu cũ không chính xác!");
         }
         account.setPassword(bCryptPasswordEncoder.encode(changePasswordRequest.getNewPassword()));
         accountRepository.save(account);

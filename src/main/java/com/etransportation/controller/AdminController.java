@@ -63,7 +63,7 @@ public class AdminController {
             return ResponseEntity.badRequest().body(errorList);
         }
         voucherService.save(voucherRequest);
-        return ResponseEntity.ok("successfully");
+        return ResponseEntity.ok("Thêm mã khuyến mãi thành công");
     }
 
     @GetMapping("/voucher")
@@ -75,31 +75,31 @@ public class AdminController {
     @PutMapping("/browsing/car")
     public ResponseEntity<?> carBrowsing(@RequestBody CarBrowsingRequest carBrowsingRequest) {
         carService.carBrowsing(carBrowsingRequest);
-        return ResponseEntity.ok("car browsing successful");
+        return ResponseEntity.ok("Duyệt xe thành công");
     }
 
     @PutMapping("/block/account")
     public ResponseEntity<?> accountBrowsing(@RequestBody AccountBrowsingRequest accountBrowsingRequest) {
         accountService.accountBlock(accountBrowsingRequest);
-        return ResponseEntity.ok("account browsing successful");
+        return ResponseEntity.ok("Thay đổi status thành công");
     }
 
     @DeleteMapping("/account/role/{id}")
     public ResponseEntity<?> deleteRole(@PathVariable Long id) {
         accountService.deleteRole(id);
-        return ResponseEntity.ok("delete role admin successful");
+        return ResponseEntity.ok("Cập nhật thành công");
     }
 
     @PostMapping("/account/role/{id}")
     public ResponseEntity<?> addRole(@PathVariable Long id) {
         accountService.addRole(id);
-        return ResponseEntity.ok("add role admin successful");
+        return ResponseEntity.ok("Cập nhật thành công");
     }
 
     @PutMapping("/browsing/driverLincense")
     public ResponseEntity<?> accountDriverLincense(@RequestBody DLicenseBrowsingRequest dLicenseBrowsingRequest) {
         accountService.accountDriverLincense(dLicenseBrowsingRequest);
-        return ResponseEntity.ok("account driverLincense browsing successful");
+        return ResponseEntity.ok("Duyệt giấy phép lái xe thành công");
     }
 
 }

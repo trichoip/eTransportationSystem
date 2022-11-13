@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Set;
 
 import javax.validation.Valid;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 
@@ -16,8 +17,10 @@ import lombok.Data;
 public class CarRegisterRequest {
 
     private int seats;
+    @Min(value = 1, message = "Giá phải lớn hơn 0")
     private double price;
     private String fuel;
+    @NotEmpty(message = "Vui lòng nhập biển số.")
     private String licensePlates;
     private String description;
     private String transmission;
@@ -28,14 +31,15 @@ public class CarRegisterRequest {
     private double latitude;
 
     private IdDTO account;
-    private IdDTO model;
+
+    private @Valid IdDTO model;
     private IdDTO ward;
     private String street;
 
-    @Size(min = 1, max = 5, message = "Car must have at least 1 image and at most 5 images")
-    @NotEmpty(message = "Car must have at least one image")
+    @Size(min = 3, max = 10, message = "Xe ít nhất phải có 3 ảnh, vui lòng thêm ảnh cho xe")
+    @NotEmpty(message = "Xe ít nhất phải có 3 ảnh, vui lòng thêm ảnh cho xe")
     private List<@Valid CarImageDTO> carImages;
 
-    private Set<@Valid IdDTO> features;
+    private Set<IdDTO> features;
 
 }

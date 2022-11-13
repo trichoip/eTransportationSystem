@@ -217,8 +217,15 @@ public class BookServiceImpl implements BookService {
         Book book = bookRepository.findById(extendBookCar.getId())
                 .orElseThrow(() -> new IllegalArgumentException("Book not found"));
         book.getEndDate().setDate(book.getEndDate().getDate() + 1);
+        if (book.getStatus() == BookStatus.CANCEL) {
+            throw new IllegalArgumentException("Chuyến này đã bị hủy nên không thể gia hạn");
+        }
+
+        if (book.getEndDate().before(cal.getTime())) {
+            throw new IllegalArgumentException("Chuyến này đã hết hạn nên không thể gia hạn");
+        }
         if (extendBookCar.getEndDate().before(book.getEndDate())) {
-            throw new IllegalArgumentException("extend date must be after end date of book");
+            throw new IllegalArgumentException("Ngày gia hạn phải sau ngày trả xe");
         }
 
         Boolean checkBook = bookRepository

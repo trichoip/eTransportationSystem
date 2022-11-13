@@ -51,7 +51,7 @@ public class AccountController {
     public ResponseEntity<?> signup(@RequestBody AccountRegisterRequest registerRequest) {
         accountService.register(registerRequest);
         // return ResponseEntity.ok().body("Register successfully");
-        return ResponseEntity.ok("Register successfully");
+        return ResponseEntity.ok("Đăng ký thành công");
         // return new ResponseEntity<>("Register successfully", HttpStatus.OK);
     }
 
@@ -61,7 +61,7 @@ public class AccountController {
             throw new IllegalArgumentException("Error: Id is null!");
         }
         accountService.changePassword(changePasswordRequest);
-        return ResponseEntity.ok("Change Password successfully");
+        return ResponseEntity.ok("Thay đổi mật khẩu thành công");
     }
 
     @GetMapping("/{id}")
@@ -80,7 +80,7 @@ public class AccountController {
             throw new IllegalArgumentException("Id is null!");
         }
         accountService.updateInfoAccount(accountInfoRequest);
-        return ResponseEntity.ok("Update Account successfully");
+        return ResponseEntity.ok("Cập nhật thành công");
     }
 
     @GetMapping("/driver/{id}")
@@ -90,12 +90,16 @@ public class AccountController {
     }
 
     @PostMapping("/driver")
-    public ResponseEntity<?> updateDriverLicenseInfo(@RequestBody DriverLicenseInfoRequest driverLicenseInfoRequest) {
+    public ResponseEntity<?> updateDriverLicenseInfo(
+            @Valid @RequestBody DriverLicenseInfoRequest driverLicenseInfoRequest, Errors errors) {
+        if (errors.hasErrors()) {
+            throw new IllegalArgumentException(errors.getFieldError().getDefaultMessage());
+        }
         if (driverLicenseInfoRequest.getAccount_Id() == null) {
             throw new IllegalArgumentException("account Id is null!");
         }
         accountService.updateDriverLicenseInfo(driverLicenseInfoRequest);
-        return ResponseEntity.ok("update driver license info successfully");
+        return ResponseEntity.ok("Cập nhật thành công");
     }
 
 }

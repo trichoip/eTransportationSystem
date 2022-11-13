@@ -1,12 +1,15 @@
 package com.etransportation.payload.dto;
 
 import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 
 import lombok.Data;
 
 @Data
 public class IdDTO {
 
-    @Max(value = 30, message = "Id must be less than 30")
+    @Min(value = 1, message = "Vui lòng chọn mẫu xe")
     private Long id;
 }
