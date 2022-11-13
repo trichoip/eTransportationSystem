@@ -23,6 +23,8 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.etransportation.enums.BookStatus;
 import com.etransportation.enums.CarStatus;
+import com.etransportation.enums.RoleAccount;
+import com.etransportation.model.Account;
 import com.etransportation.model.Address;
 import com.etransportation.model.Car;
 import com.etransportation.model.CarBrand;
@@ -100,6 +102,12 @@ public class CarServiceImpl implements CarService {
         @Override
         @Transactional
         public void save(CarRegisterRequest carRegisterRequest) {
+                Account account = accountRepository.findById(carRegisterRequest.getAccount().getId())
+                                .orElseThrow(() -> new IllegalArgumentException("Account is not found!"));
+                if (account.getRoles().stream().anyMatch(r -> r.getName() == RoleAccount.ADMIN)) {
+                        throw new IllegalArgumentException("Chỉ user mới được đăng ký xe!");
+                }
+
                 Car car = modelMapper.map(carRegisterRequest, Car.class);
                 Ward ward = wardRepository.findById(carRegisterRequest.getWard().getId())
                                 .orElseThrow(() -> new IllegalArgumentException("Chưa nhập địa chỉ"));
@@ -143,7 +151,7 @@ public class CarServiceImpl implements CarService {
                 carDetailInfoResponse.setTotalRating(Double.valueOf(
                                 new DecimalFormat("#0.0").format(review.stream()
                                                 .mapToInt(r -> r.getStarReview()).average()
-                                                .orElse(5.0))));
+                                                .orElse(0.0))));
                 return carDetailInfoResponse;
 
         }
@@ -172,7 +180,7 @@ public class CarServiceImpl implements CarService {
                         carInfoResponse.setTotalRating(Double.valueOf(
                                         new DecimalFormat("#0.0").format(review.stream()
                                                         .mapToInt(r -> r.getStarReview()).average()
-                                                        .orElse(5.0))));
+                                                        .orElse(0.0))));
                         return carInfoResponse;
                 }).collect(Collectors.toList());
 
@@ -206,7 +214,7 @@ public class CarServiceImpl implements CarService {
                         carShortInfoResponse.setTotalRating(Double.valueOf(
                                         new DecimalFormat("#0.0").format(review.stream()
                                                         .mapToInt(r -> r.getStarReview()).average()
-                                                        .orElse(5.0))));
+                                                        .orElse(0.0))));
 
                         return carShortInfoResponse;
                 }).collect(Collectors.toList());
@@ -253,7 +261,7 @@ public class CarServiceImpl implements CarService {
                         carInfoResponse.setTotalRating(Double.valueOf(
                                         new DecimalFormat("#0.0").format(review.stream()
                                                         .mapToInt(r -> r.getStarReview()).average()
-                                                        .orElse(5.0))));
+                                                        .orElse(0.0))));
 
                         return carInfoResponse;
                 }).collect(Collectors.toList());
@@ -317,7 +325,7 @@ public class CarServiceImpl implements CarService {
                         carShortInfoResponse.setTotalRating(Double.valueOf(
                                         new DecimalFormat("#0.0").format(review.stream()
                                                         .mapToInt(r -> r.getStarReview()).average()
-                                                        .orElse(5.0))));
+                                                        .orElse(0.0))));
 
                         return carShortInfoResponse;
                 }).collect(Collectors.toList());
@@ -361,7 +369,7 @@ public class CarServiceImpl implements CarService {
                         carShortInfoResponse.setTotalRating(Double.valueOf(
                                         new DecimalFormat("#0.0").format(review.stream()
                                                         .mapToInt(r -> r.getStarReview()).average()
-                                                        .orElse(5.0))));
+                                                        .orElse(0.0))));
                         return carShortInfoResponse;
                 }).collect(Collectors.toList());
 
@@ -485,7 +493,7 @@ public class CarServiceImpl implements CarService {
                                 .totalStarAverage(Double.valueOf(
                                                 new DecimalFormat("#0.0").format(listReviewByCarResponse.stream()
                                                                 .mapToInt(r -> r.getStarReview()).average()
-                                                                .orElse(5.0))))
+                                                                .orElse(0.0))))
                                 .build();
 
                 return pagingResponse;
