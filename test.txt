@@ -1,13 +1,7 @@
--search
--remove account 
--remove car (active)
--review 
 -notication 
--show book 
 -email 
--gia han book 
 -validate phone
--
+
 
 
 - create sql server amazon
@@ -17,7 +11,6 @@
 - config mysql spring boot
 - deploy backend to docker
 - deploy backend to docker to amazon
-- prn211 pe
 - xin viec
 
 
