@@ -151,7 +151,7 @@ public class CarServiceImpl implements CarService {
         @Override
         @Transactional
         public List<CarShortInfoResponse> findAllCarByUserId(Long id) {
-                List<Car> cars = carRepository.findAllByAccount_Id(id);
+                List<Car> cars = carRepository.findAllByAccount_Id(id, Sort.by("registerDate").descending());
                 List<CarShortInfoResponse> listCarInfoResponse = cars.stream().map(c -> {
                         CarShortInfoResponse carInfoResponse = modelMapper.map(c, CarShortInfoResponse.class);
                         carInfoResponse.setAddressInfo(c.getAddress().getDistrict().getName() + ", "
@@ -396,6 +396,7 @@ public class CarServiceImpl implements CarService {
         }
 
         @Override
+        @Transactional
         public void updateCar(CarUpdateInfoRequest carInfo) {
 
                 Car car = carRepository.findById(carInfo.getId())
@@ -422,7 +423,10 @@ public class CarServiceImpl implements CarService {
         }
 
         @Override
+        @Transactional
         public void deleteCar(Long id) {
+                Calendar cal = Calendar.getInstance();
+                cal.set(Calendar.DAY_OF_MONTH, cal.get(Calendar.DAY_OF_MONTH) - 1);
                 Car car = carRepository.findById(id)
                                 .orElseThrow(() -> new IllegalArgumentException("Car not found"));
                 switch (car.getStatus()) {
@@ -432,6 +436,16 @@ public class CarServiceImpl implements CarService {
                         case DENIED:
                                 carRepository.delete(car);
                                 break;
+                        case ACTIVE:
+                                Boolean checkBooks = carRepository
+                                                .existsByIdAndBooks_EndDateGreaterThanEqualAndBooks_Status(id,
+                                                                cal.getTime(),
+                                                                BookStatus.SUCCESS);
+                                if (checkBooks) {
+                                        throw new IllegalArgumentException("Xe đang có lịch thuê nên không thể xóa");
+                                }
+                                carRepository.delete(car);
+                                break;
                         default:
                                 throw new IllegalArgumentException("Vui lòng liên hệ admin để xóa xe");
 
@@ -439,6 +453,7 @@ public class CarServiceImpl implements CarService {
         }
 
         @Override
+        @Transactional
         public Object getAllReviewByCarId(Long id, PagingRequest pagingRequest) {
                 Pageable pageable = PageRequest.of(pagingRequest.getPage() - 1, pagingRequest.getSize(),
                                 Sort.by("reviewDate").descending());

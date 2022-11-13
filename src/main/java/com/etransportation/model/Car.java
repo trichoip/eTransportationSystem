@@ -116,7 +116,7 @@ public class Car extends Base {
     @MapsId
     private Address address;
 
-    @OneToMany(mappedBy = "car", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "car", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Book> books = new ArrayList<Book>();
 
     @OneToMany(mappedBy = "car", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
@@ -136,7 +136,7 @@ public class Car extends Base {
 
     @PreRemove
     private void preRemove() {
-
+        this.likeAccounts.forEach(acc -> acc.getLikeCars().remove(this));
     }
 
     @PreUpdate

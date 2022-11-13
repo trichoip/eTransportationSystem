@@ -2,6 +2,7 @@ package com.etransportation.model;
 
 import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EntityListeners;
@@ -60,7 +61,7 @@ public class Book extends Base {
 
     // relationship
 
-    @OneToOne(mappedBy = "book", fetch = FetchType.LAZY)
+    @OneToOne(mappedBy = "book", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @PrimaryKeyJoinColumn
     private Review review;
 
