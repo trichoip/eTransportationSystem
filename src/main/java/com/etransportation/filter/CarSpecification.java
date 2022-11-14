@@ -137,7 +137,7 @@ public class CarSpecification {
             Subquery<Car> carSubquery = query.subquery(Car.class);
             Root<Car> rootCarSub = carSubquery.from(Car.class);
             carSubquery.select(rootCarSub.get(Car_.ID));
-
+            predicates.add(cb.equal(rootCarSub.get(Car_.STATUS), CarStatus.ACTIVE));
             if (filter.getStatus() != null) {
                 switch (filter.getStatus()) {
                     case ACTIVE:

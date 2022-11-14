@@ -49,7 +49,7 @@ public class VoucherServiceImpl implements VoucherService {
     @Transactional
     public void save(VoucherRequest voucherRequest) {
         Calendar cal = Calendar.getInstance();
-        cal.set(Calendar.HOUR_OF_DAY, 0);
+        cal.set(Calendar.DAY_OF_MONTH, cal.get(Calendar.DAY_OF_MONTH) - 1);
         voucherRequest.setCode(voucherRequest.getCode().toUpperCase());
 
         voucherRepository.findByCode(voucherRequest.getCode()).ifPresent(voucher -> {
