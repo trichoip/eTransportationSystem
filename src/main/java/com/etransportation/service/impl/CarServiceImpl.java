@@ -169,8 +169,11 @@ public class CarServiceImpl implements CarService {
                                 carInfoResponse.setCarImage(
                                                 "https://assetscdn1.paytm.com/images/catalog/product/K/KI/KIDLIMOUSINE-DISKSE1140676506C2066/1565610984539_0..jpg");
                         } else {
+                                // carInfoResponse.setCarImage(c.getCarImages()
+                                // .get(new Random().nextInt(c.getCarImages().size()))
+                                // .getImage());
                                 carInfoResponse.setCarImage(c.getCarImages()
-                                                .get(new Random().nextInt(c.getCarImages().size()))
+                                                .get(0)
                                                 .getImage());
                         }
 
@@ -204,8 +207,11 @@ public class CarServiceImpl implements CarService {
                                 carShortInfoResponse.setCarImage(
                                                 "https://assetscdn1.paytm.com/images/catalog/product/K/KI/KIDLIMOUSINE-DISKSE1140676506C2066/1565610984539_0..jpg");
                         } else {
+                                // carShortInfoResponse.setCarImage(c.getCarImages()
+                                // .get(new Random().nextInt(c.getCarImages().size()))
+                                // .getImage());
                                 carShortInfoResponse.setCarImage(c.getCarImages()
-                                                .get(new Random().nextInt(c.getCarImages().size()))
+                                                .get(0)
                                                 .getImage());
                         }
 
@@ -251,8 +257,11 @@ public class CarServiceImpl implements CarService {
                                 carInfoResponse.setCarImage(
                                                 "https://assetscdn1.paytm.com/images/catalog/product/K/KI/KIDLIMOUSINE-DISKSE1140676506C2066/1565610984539_0..jpg");
                         } else {
+                                // carInfoResponse.setCarImage(c.getCarImages()
+                                // .get(new Random().nextInt(c.getCarImages().size()))
+                                // .getImage());
                                 carInfoResponse.setCarImage(c.getCarImages()
-                                                .get(new Random().nextInt(c.getCarImages().size()))
+                                                .get(0)
                                                 .getImage());
                         }
 
@@ -316,8 +325,11 @@ public class CarServiceImpl implements CarService {
                                 carShortInfoResponse.setCarImage(
                                                 "https://assetscdn1.paytm.com/images/catalog/product/K/KI/KIDLIMOUSINE-DISKSE1140676506C2066/1565610984539_0..jpg");
                         } else {
+                                // carShortInfoResponse.setCarImage(c.getCarImages()
+                                // .get(new Random().nextInt(c.getCarImages().size()))
+                                // .getImage());
                                 carShortInfoResponse.setCarImage(c.getCarImages()
-                                                .get(new Random().nextInt(c.getCarImages().size()))
+                                                .get(0)
                                                 .getImage());
                         }
                         carShortInfoResponse.setTotalBook(c.getBooks().size());
@@ -359,8 +371,11 @@ public class CarServiceImpl implements CarService {
                                 carShortInfoResponse.setCarImage(
                                                 "https://assetscdn1.paytm.com/images/catalog/product/K/KI/KIDLIMOUSINE-DISKSE1140676506C2066/1565610984539_0..jpg");
                         } else {
+                                // carShortInfoResponse.setCarImage(c.getCarImages()
+                                // .get(new Random().nextInt(c.getCarImages().size()))
+                                // .getImage());
                                 carShortInfoResponse.setCarImage(c.getCarImages()
-                                                .get(new Random().nextInt(c.getCarImages().size()))
+                                                .get(0)
                                                 .getImage());
                         }
 

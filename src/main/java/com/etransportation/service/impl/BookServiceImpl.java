@@ -194,8 +194,11 @@ public class BookServiceImpl implements BookService {
             bookDetailsInfoResponse.getCar().setCarImage(
                     "https://assetscdn1.paytm.com/images/catalog/product/K/KI/KIDLIMOUSINE-DISKSE1140676506C2066/1565610984539_0..jpg");
         } else {
+            // bookDetailsInfoResponse.getCar().setCarImage(book.getCar().getCarImages()
+            // .get(new Random().nextInt(book.getCar().getCarImages().size()))
+            // .getImage());
             bookDetailsInfoResponse.getCar().setCarImage(book.getCar().getCarImages()
-                    .get(new Random().nextInt(book.getCar().getCarImages().size()))
+                    .get(0)
                     .getImage());
         }
         List<Review> review = reviewRepository.findAllByBook_Car_Id(book.getCar().getId());

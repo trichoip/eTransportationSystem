@@ -95,8 +95,11 @@ public class LikeServiceImpl implements LikeService {
                         if (c.getCarImages().size() == 0) {
                                 carShortInfoResponse.setCarImage("https://n1-cstg.mioto.vn/g/2018/03/17/16/52.jpg");
                         } else {
+                                // carShortInfoResponse.setCarImage(c.getCarImages()
+                                // .get(new Random().nextInt(c.getCarImages().size()))
+                                // .getImage());
                                 carShortInfoResponse.setCarImage(c.getCarImages()
-                                                .get(new Random().nextInt(c.getCarImages().size()))
+                                                .get(0)
                                                 .getImage());
                         }
 
