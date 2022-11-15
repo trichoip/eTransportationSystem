@@ -191,7 +191,8 @@ public class CarServiceImpl implements CarService {
         @Transactional
         public Object findAllCarByAdmin(PagingRequest pagingRequest) {
 
-                Pageable pageable = PageRequest.of(pagingRequest.getPage() - 1, pagingRequest.getSize());
+                Pageable pageable = PageRequest.of(pagingRequest.getPage() - 1, pagingRequest.getSize(),
+                                Sort.by("registerDate").descending());
                 Page<Car> cars = carRepository.findAll(pageable);
 
                 List<CarShortInfoResponse> listCarInfoResponse = cars.getContent().stream().map(c -> {
