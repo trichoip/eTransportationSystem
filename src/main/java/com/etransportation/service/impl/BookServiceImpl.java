@@ -118,8 +118,12 @@ public class BookServiceImpl implements BookService {
         List<BookShortInfoResponse> listBookShortInfoResponse = books.getContent().stream().map(b -> {
             BookShortInfoResponse bookShortInfoResponse = modelMapper.map(b, BookShortInfoResponse.class);
             bookShortInfoResponse.setCarName(b.getCar().getModel().getName() + " " + b.getCar().getYearOfManufacture());
-            bookShortInfoResponse.setCarImage(
-                    b.getCar().getCarImages().get(new Random().nextInt(b.getCar().getCarImages().size())).getImage());
+            // bookShortInfoResponse.setCarImage(
+            // b.getCar().getCarImages().get(new
+            // Random().nextInt(b.getCar().getCarImages().size())).getImage());
+            bookShortInfoResponse.setCarImage(b.getCar().getCarImages()
+                    .get(0)
+                    .getImage());
             long timeDiff = Math.abs(new Date().getTime() - b.getBookDate().getTime());
             long historyTime = TimeUnit.DAYS.convert(timeDiff, TimeUnit.MILLISECONDS);
             if (historyTime > 30 && historyTime < 365) {
