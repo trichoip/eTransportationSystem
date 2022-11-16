@@ -31,7 +31,7 @@ public interface CarRepository extends JpaRepository<Car, Long>, JpaSpecificatio
 
         Page<Car> findAllByStatus(CarStatus status, Pageable pageable);
 
-        @Query(nativeQuery = true, value = "SELECT * FROM Car WHERE id in (SELECT c.id FROM Car c INNER JOIN  book b on b.car_id = c.id WHERE c.status = :status GROUP BY c.id HAVING count(c.id) >= 1 ORDER BY count(c.id) DESC OFFSET 0 ROWS )", countQuery = "SELECT count(*) FROM Car WHERE id in (SELECT c.id FROM Car c INNER JOIN  book b on b.car_id = c.id WHERE c.status = :status GROUP BY c.id HAVING count(c.id) >= 1 ORDER BY count(c.id) DESC OFFSET 0 ROWS )")
+        @Query(nativeQuery = true, value = "SELECT * FROM Car WHERE id in (SELECT c.id FROM Car c INNER JOIN  book b ON b.car_id = c.id LEFT JOIN review r ON r.id = b.id WHERE c.status = :status GROUP BY c.id HAVING count(c.id) >= 3 AND AVG(r.star_review) >= 3 ORDER BY count(c.id) DESC OFFSET 0 ROWS )", countQuery = "SELECT count(*) FROM Car WHERE id in (SELECT c.id FROM Car c INNER JOIN  book b ON b.car_id = c.id LEFT JOIN review r ON r.id = b.id WHERE c.status = :status GROUP BY c.id HAVING count(c.id) >= 3 AND AVG(r.star_review) >= 3 ORDER BY count(c.id) DESC OFFSET 0 ROWS )")
         Page<Car> findCarByFamous(@Param("status") String statusCar, Pageable pageable);
 
         @Query("SELECT new com.etransportation.payload.dto.CarBrandDTO(br.id, br.name, count(br.id))"
