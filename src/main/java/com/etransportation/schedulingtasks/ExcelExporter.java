@@ -19,6 +19,8 @@ import org.apache.poi.xssf.usermodel.XSSFFont;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.springframework.util.ResourceUtils;
+import com.spire.xls.FileFormat;
+import com.spire.xls.Workbook;
 
 import com.etransportation.model.Book;
 
@@ -101,6 +103,7 @@ public class ExcelExporter {
         String currentDateTime = dateFormatter.format(new Date());
 
         String pathname = "books_" + currentDateTime + ".xlsx";
+        String pathnameHtml = "books_" + currentDateTime + ".html";
 
         File file = new File("reports/" + pathname);
 
@@ -110,6 +113,12 @@ public class ExcelExporter {
         OutputStream outputStream = new FileOutputStream(file);
         workbook.write(outputStream);
         workbook.close();
+
+        // Create a Workbook instance
+        Workbook workbook = new Workbook();
+        // Load an Excel file
+        workbook.loadFromFile("reports/" + pathname);
+        workbook.saveToFile("reports/" + pathnameHtml, FileFormat.HTML);
 
         outputStream.close();
 

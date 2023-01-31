@@ -48,7 +48,7 @@ public class ScheduledTasks {
         log.info("Task1 - " + new Date());
     }
 
-    @Scheduled(fixedDelay = 5000)
+    @Scheduled(fixedDelay = 10000)
     public void reportCurrentTime() throws IOException {
 
         List<Book> list = bookRepository.findAll();
