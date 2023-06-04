@@ -63,6 +63,12 @@
 			<scope>runtime</scope>
 		</dependency>
 		<dependency>
+			<groupId>com.mysql</groupId>
+			<artifactId>mysql-connector-j</artifactId>
+			<scope>runtime</scope>
+			<version>8.0.33</version>
+		</dependency>
+		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
 			<optional>true</optional>
@@ -160,6 +166,12 @@
 			<id>arure</id>
 			<properties>
 				<activatedProperties>arure</activatedProperties>
+			</properties>
+		</profile>
+		<profile>
+			<id>docker</id>
+			<properties>
+				<activatedProperties>docker</activatedProperties>
 			</properties>
 		</profile>
 	</profiles>

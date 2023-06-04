@@ -54,3 +54,7 @@
   // forenkey(child) onetoone khong can optional = false
   // primekey(father) onetoone thi can optional = false de fech lazy hieu qua 
   luu y: fetch = FetchType.LAZY, optional = false  nếu query father xong mà có xử lý gọi child ra thì nếu father có child thì sẽ không báo lỗi còn nếu father mà không có child thì sẽ có error 
+
+error: "like" ,"user"
+
+@org.springdoc.api.annotations.ParameterObject Pageable pageable
