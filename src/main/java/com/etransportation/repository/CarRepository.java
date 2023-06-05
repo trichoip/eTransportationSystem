@@ -31,8 +31,8 @@ public interface CarRepository extends JpaRepository<Car, Long>, JpaSpecificatio
   //mysql khong co  OFFSET 0 ROWS
   @Query(
     nativeQuery = true,
-    value = "SELECT * FROM Car WHERE id in (SELECT c.id FROM Car c INNER JOIN address a on a.id = c.id INNER JOIN city ci on ci.id = a.city_id LEFT JOIN book b on b.car_id = c.id  WHERE c.status = ?1 AND ci.code = ?2 GROUP BY c.id ORDER BY COUNT(c.id) DESC)",
-    countQuery = "SELECT count(*) FROM Car WHERE id in (SELECT c.id FROM Car c INNER JOIN address a on a.id = c.id INNER JOIN city ci on ci.id = a.city_id LEFT JOIN book b on b.car_id = c.id  WHERE c.status = ?1 AND ci.code = ?2 GROUP BY c.id ORDER BY COUNT(c.id) DESC)"
+    value = "SELECT * FROM car WHERE id in (SELECT c.id FROM car c INNER JOIN address a on a.id = c.id INNER JOIN city ci on ci.id = a.city_id LEFT JOIN book b on b.car_id = c.id  WHERE c.status = ?1 AND ci.code = ?2 GROUP BY c.id ORDER BY COUNT(c.id) DESC)",
+    countQuery = "SELECT count(*) FROM car WHERE id in (SELECT c.id FROM car c INNER JOIN address a on a.id = c.id INNER JOIN city ci on ci.id = a.city_id LEFT JOIN book b on b.car_id = c.id  WHERE c.status = ?1 AND ci.code = ?2 GROUP BY c.id ORDER BY COUNT(c.id) DESC)"
   )
   Page<Car> findCarByCityCodeSortByCountBookOfCar(String CarStatus, String code, Pageable pageable);
 
@@ -49,8 +49,8 @@ public interface CarRepository extends JpaRepository<Car, Long>, JpaSpecificatio
 
   @Query(
     nativeQuery = true,
-    value = "SELECT * FROM Car WHERE id in (SELECT c.id FROM Car c INNER JOIN  book b ON b.car_id = c.id LEFT JOIN review r ON r.id = b.id WHERE c.status = :status GROUP BY c.id HAVING count(c.id) >= 3 AND AVG(r.star_review) >= 3 ORDER BY count(c.id) DESC)",
-    countQuery = "SELECT count(*) FROM Car WHERE id in (SELECT c.id FROM Car c INNER JOIN  book b ON b.car_id = c.id LEFT JOIN review r ON r.id = b.id WHERE c.status = :status GROUP BY c.id HAVING count(c.id) >= 3 AND AVG(r.star_review) >= 3 ORDER BY count(c.id) DESC)"
+    value = "SELECT * FROM car WHERE id in (SELECT c.id FROM car c INNER JOIN  book b ON b.car_id = c.id LEFT JOIN review r ON r.id = b.id WHERE c.status = :status GROUP BY c.id HAVING count(c.id) >= 3 AND AVG(r.star_review) >= 3 ORDER BY count(c.id) DESC)",
+    countQuery = "SELECT count(*) FROM car WHERE id in (SELECT c.id FROM car c INNER JOIN  book b ON b.car_id = c.id LEFT JOIN review r ON r.id = b.id WHERE c.status = :status GROUP BY c.id HAVING count(c.id) >= 3 AND AVG(r.star_review) >= 3 ORDER BY count(c.id) DESC)"
   )
   Page<Car> findCarByFamous(@Param("status") String statusCar, Pageable pageable);
 
@@ -67,8 +67,13 @@ public interface CarRepository extends JpaRepository<Car, Long>, JpaSpecificatio
     "SELECT new com.etransportation.payload.dto.CarModelDTO(mo.id, mo.name, count(mo.id))" +
     " FROM CarBrand br JOIN br.carModels mo JOIN mo.cars c" +
     " WHERE c.id in ?1" +
-    " GROUP BY mo.id, mo.name, br.id" +
-    " HAVING br.id = ?2" +
+    //sql servel---------------------
+    // " GROUP BY mo.id, mo.name, br.id" +
+    // " HAVING br.id = ?2" +
+    //mysql and sqlserver------------------
+    " GROUP BY mo.id, mo.name" +
+    " HAVING MAX(br.id) = ?2" +
+    //--------------------
     " ORDER BY count(mo.id) DESC"
   )
   List<CarModelDTO> findAllModelAndCountByFilterSearch(Long[] carId, Long _BrandId);

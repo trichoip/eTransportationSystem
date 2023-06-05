@@ -1,0 +1,32 @@
+services:
+  backend:
+    image: dockerracdockerrac/etransportation-backend-springboot
+    restart: always
+    ports:
+      - 8080:8080
+    environment:
+      DB_HOST: db
+      DB_USERNAME: root
+      DB_PASSWORD: 12345
+      DB_DATABASE: etransportation
+  db:
+    image: dockerracdockerrac/etransportation-db-mysql
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - mysql_config:/etc/mysql/conf.d
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: 12345
+      MYSQL_DATABASE: etransportation
+  fontend:
+    image: dockerracdockerrac/etransportation-fontend-react
+    restart: always
+    ports:
+      - 3000:3000
+    environment:
+      # REACT_APP_API_URL: http://backend:8080/api
+      REACT_APP_API_URL: http://host.docker.internal:8080/api
+volumes:
+  mysql_data:
+  mysql_config:
