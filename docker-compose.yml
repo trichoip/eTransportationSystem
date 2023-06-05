@@ -1,3 +1,5 @@
+# docker compose down
+# docker-compose up -d
 services:
   backend:
     image: dockerracdockerrac/etransportation-backend-springboot
