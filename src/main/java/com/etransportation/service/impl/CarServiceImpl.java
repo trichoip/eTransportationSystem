@@ -37,13 +37,13 @@ import java.text.DecimalFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
-import java.util.Random;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeToken;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -53,6 +53,9 @@ import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class CarServiceImpl implements CarService {
+
+  @Value("${database}")
+  private String databaseType;
 
   @Autowired
   private CarBrandRepository carBrandRepository;
@@ -246,7 +249,19 @@ public class CarServiceImpl implements CarService {
     // List<Car> listCar =
     // carRepository.findAllByStatusAndAddress_City_Code(CarStatus.ACTIVE, code,
     // pageable);
-    Page<Car> listCar = carRepository.findCarByCityCodeSortByCountBookOfCar(CarStatus.ACTIVE.toString(), code, pageable);
+    Page<Car> listCar;
+    switch (databaseType) {
+      case "sqlserver":
+        listCar = carRepository.findCarByCityCodeSortByCountBookOfCarSqlServer(CarStatus.ACTIVE.toString(), code, pageable);
+        break;
+      case "mysql":
+        listCar = carRepository.findCarByCityCodeSortByCountBookOfCarMysql(CarStatus.ACTIVE.toString(), code, pageable);
+        break;
+      case "noconfigdatabase":
+        throw new IllegalArgumentException("no config database");
+      default:
+        throw new IllegalArgumentException("no config database (default)");
+    }
     List<CarShortInfoResponse> listCarInfoResponse = listCar
       .getContent()
       .stream()
@@ -308,8 +323,20 @@ public class CarServiceImpl implements CarService {
   @Transactional
   public Object findAllCarByGuest(PagingRequest pagingRequest) {
     Pageable pageable = PageRequest.of(pagingRequest.getPage() - 1, pagingRequest.getSize());
-    Page<Car> cars = carRepository.findCarByFamous(CarStatus.ACTIVE.toString(), pageable);
     // Page<Car> cars = carRepository.findAllByStatus(CarStatus.ACTIVE, pageable);
+    Page<Car> cars;
+    switch (databaseType) {
+      case "sqlserver":
+        cars = carRepository.findCarByFamousSqlServer(CarStatus.ACTIVE.toString(), pageable);
+        break;
+      case "mysql":
+        cars = carRepository.findCarByFamousMysql(CarStatus.ACTIVE.toString(), pageable);
+        break;
+      case "noconfigdatabase":
+        throw new IllegalArgumentException("no config database");
+      default:
+        throw new IllegalArgumentException("no config database (default)");
+    }
 
     List<CarShortInfoResponse> listCarInfoResponse = cars
       .getContent()
