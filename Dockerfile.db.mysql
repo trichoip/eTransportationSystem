@@ -1,5 +1,5 @@
 # syntax=docker/dockerfile:1
 FROM mysql:8.0.30
 ENV MYSQL_ROOT_PASSWORD=12345
-ENV MYSQL_DATABASE=etransportation
+ENV MYSQL_DATABASE=etransportationsystem
 COPY fulldata-mysql.sql /docker-entrypoint-initdb.d/

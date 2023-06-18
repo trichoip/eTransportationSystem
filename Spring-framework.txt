@@ -1,0 +1,199 @@
++lưu ý : 
+-nếu không thêm @ResponseBody thì api sẽ trả về page trong templates
++ 1 số nguyên tắc khi viết API:
+
+- Tên api phải là danh từ
+
+- http method phải đúng với thao tác
+
+Thêm: POST
+
+Sửa: PUT
+
+Xóa: DELETE
+
+Hiển thị dữ liệu: GET
+=====================================================================================================================================
++ANNOTATION:
+
+@RequestBody: nhận dữ liệu json được truyền từ client vào server
+
+@ResponseBody:được thêm vào trước các method của các controller để chỉ dẫn rằng method này sẽ trả về text(json, xml, text…) thay vì trả về page.
+
+
+@RequestMapping: tìm kiếm theo đúng URL của request từ client
+
+RequestMethod.POST: là 1 trong 4 HTTP method, POST được dùng trong các trường hợp thêm dữ liệu vào trong database
+
+@Controller: định nghĩa 1 java class thành 1 API web service trong spring boot, hiểu đơn giản là biến 1 java class thông thường thành 1 class controller của spring boot
+
+
+@RestController thay thế cho @Controller + @ResponseBody
+
+@PostMapping thay thế cho @RequestMapping + RequestMethod.POST
+
+localhost:8080/new/{id}
+
+@PathVariable("id") long id --> neu Variable giong name thi khong can ("id")
+
+Lưu ý: câu truy vấn sql select trong spring data jpa thì nếu truyền giá trị null thì nó sẽ select "is null" còn nếu truyên vào giá trị mà không có trong table thì trả về "null"
+
+===================================================================================================================================
+
++Spring Boot data jpa:
+-sql server config:
+
+    spring.datasource.url=jdbc:sqlserver://localhost;databaseName=UserManagement
+    spring.datasource.username=sa
+    spring.datasource.password=12345
+    spring.datasource.driver-class-name=com.microsoft.sqlserver.jdbc.SQLServerDriver
+    spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.SQLServer2016Dialect
+    spring.jpa.show-sql=true
+    spring.jpa.generate-ddl=true
+    spring.jpa.properties.hibernate.format_sql=true
+    spring.jpa.hibernate.ddl-auto=update
+
+    # sữa lỗi com.microsoft.sqlserver.jdbc.SQLServerException: có 3 cách
+    # cách 1: thêm vào cuối url,cách này dùng khi muốn sài jdbc10 trở lên --> ;encrypt=true;trustServerCertificate=true
+    # cách 2: cách này sẽ bỏ qua config khi chạy project --> spring.autoconfigure.exclude=org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
+    # cách 3: jdbc10 trớ lên hay bị lỗi, version mssql-jdbc mặc định là jdbc10 nên thêm jdbc9 trở xuống --> <version>8.2.0.jre8</version>
+
+
+    server.port=8080
+
+
+@Id : PRIMARY KEY, NOT NULL
+@GeneratedValue(strategy = GenerationType.IDENTITY) : tự động tăng --> IDENTITY(1,1),autocrement
+@Column : định nghĩ properties là colunm (nó lấy tên properties là tên colunm)
+@Column(length = 123, nullable = false) --> NVARCHAR(123) NOT NULL
+lưu ý:
+- jpa là thiết kế database bằng các java class entity như tạo table , colunm rùi xong nó generate vào sql
+- nếu tên colunm trong sql nó khác với tên properties trong java class DTO thì dùng -->  @Column(name = "userID")
+-nếu như có  class entity con  extend lại class entity cha thì trong string web class cha phải có --> @MappedSuperclass và abstract class  -- thì class con mới extend được entity class cha
+-trong string web không cần constructors 
+- khi đặt tên table trên spring data jpa thì không được đặt tên "user" , "admin"
+
+ 		spring.jpa.hibernate.ddl-auto=...... : dùng để thiết kế database từ entity
+		none :nó không làm gì cả, dùng khi mình đã thấy thiết kế database ổn rùi
+		create : nó sẽ drop table rùi create table
+		create-drop : nó xóa table rùi tạo lại table và lúc auto reset thì trước khi start lại thì nó xóa hết table
+		update  :update colunm table vào table có sẵn trên sql, nếu có colunm thì bỏ qua còn nếu chưa có thì add colunm mới vào table trên sql
+		validate : check xem table có tồn tại k không nếu không thì quăng ra exception
+
+
+
+
+
++@ManyToMany 
+giữa hai bảng A và B thì tạo ra bảng mới A_B có khóa chính của bảng A và bảng B
+
+user    1-n    role_user    n- 1    role
+
+table UserEntity:
+	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	@JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
+ 	private List<RoleEntity> roles1 = new ArrayList<>();
+
+table RoleEntity:
+	@ManyToMany(mappedBy = "roles1")
+	private List<UserEntity> users = new ArrayList<>();
+
+lưu ý:
+- có thể đảo ngược @ManyToMany của 2 bảng
+- joinColumns = @JoinColumn(name = "user_id") --> thì name là id của table hiện tại 
+ví dụ: trong class user thì name là user_id và ngược lại
+-inverseJoinColumns = @JoinColumn(name = "role_id")) --> name là table còn lại
+-@ManyToMany(mappedBy = "roles") -->mappedBy = tên  roles1 của --> private List<RoleEntity> roles1 = new ArrayList<>();
+-mappedBy = phải trùng với tên thuộc tính
+
+
++@OneToMany
+category 1-n  news
+table CategoryEntity:
+	@OneToMany(mappedBy = "category1")
+	private List<NewEntity> news = new ArrayList<>();
+
+table NewEntity:
+        @ManyToOne
+    @JoinColumn(name = "category_id")
+    private CategoryEntity category1;
+
+lưu ý: 1-n
+-bên 1 là --> @OneToMany(mappedBy = "category")
+-bên n là 	---> @ManyToOne
+    		---> @JoinColumn(name = "category_id")
+-mappedBy = phải trùng với tên thuộc tính
+
+
+-- để sử dụng các hàm trong class khác nhứ repository, service,...thì dùng --> @Autowired --> để nhúng class vào để sử dụng hàm
+ví dụ: 
+-tầng API gọi tầng service thì ta dùng  @Autowired  để nhúng class service vào class API
+@Autowired
+private ServiceClass service
+
+-tầng service gọi tầng repository thì ta dùng  @Autowired để nhúng class repository vào class service
+@Autowired
+private RepositoryClass repository
+
+-nhưng để sử dụng được @Autowired thì tầng được gọi phải khai báo các @Service , @Repository , @Componate
+ví dụ: 
+-tầng API gọi tầng service thì để dùng được  @Autowired để nhúng service vào api thì trong class service phải khai báo @Service
+-tầng service gọi tầng repository thì để dùng được  @Autowired để nhúng repository vào service thì trong class repository phải khai báo @Repository
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

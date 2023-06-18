@@ -1,6 +1,6 @@
 USE [master]
 GO
-/****** Object:  Database [ETransportationSystem]    Script Date: 24/03/2023 2:11:07 PM ******/
+/****** Object:  Database [ETransportationSystem]    Script Date: 16/11/2022 12:31:23 PM ******/
 CREATE DATABASE [ETransportationSystem]
 
 GO
@@ -77,7 +77,7 @@ ALTER DATABASE [ETransportationSystem] SET QUERY_STORE = OFF
 GO
 USE [ETransportationSystem]
 GO
-/****** Object:  Table [dbo].[account]    Script Date: 24/03/2023 2:11:07 PM ******/
+/****** Object:  Table [dbo].[account]    Script Date: 16/11/2022 12:31:24 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -105,7 +105,7 @@ PRIMARY KEY CLUSTERED
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[account_role]    Script Date: 24/03/2023 2:11:07 PM ******/
+/****** Object:  Table [dbo].[account_role]    Script Date: 16/11/2022 12:31:24 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -120,7 +120,7 @@ PRIMARY KEY CLUSTERED
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[address]    Script Date: 24/03/2023 2:11:07 PM ******/
+/****** Object:  Table [dbo].[address]    Script Date: 16/11/2022 12:31:24 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -141,7 +141,7 @@ PRIMARY KEY CLUSTERED
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[book]    Script Date: 24/03/2023 2:11:07 PM ******/
+/****** Object:  Table [dbo].[book]    Script Date: 16/11/2022 12:31:24 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -164,7 +164,7 @@ PRIMARY KEY CLUSTERED
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[brand]    Script Date: 24/03/2023 2:11:07 PM ******/
+/****** Object:  Table [dbo].[brand]    Script Date: 16/11/2022 12:31:24 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -178,7 +178,7 @@ PRIMARY KEY CLUSTERED
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[car]    Script Date: 24/03/2023 2:11:07 PM ******/
+/****** Object:  Table [dbo].[car]    Script Date: 16/11/2022 12:31:24 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -209,7 +209,7 @@ PRIMARY KEY CLUSTERED
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[car_feature]    Script Date: 24/03/2023 2:11:07 PM ******/
+/****** Object:  Table [dbo].[car_feature]    Script Date: 16/11/2022 12:31:24 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -224,7 +224,7 @@ PRIMARY KEY CLUSTERED
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[car_image]    Script Date: 24/03/2023 2:11:07 PM ******/
+/****** Object:  Table [dbo].[car_image]    Script Date: 16/11/2022 12:31:24 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -243,7 +243,7 @@ PRIMARY KEY CLUSTERED
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[city]    Script Date: 24/03/2023 2:11:07 PM ******/
+/****** Object:  Table [dbo].[city]    Script Date: 16/11/2022 12:31:24 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -259,7 +259,7 @@ PRIMARY KEY CLUSTERED
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[district]    Script Date: 24/03/2023 2:11:07 PM ******/
+/****** Object:  Table [dbo].[district]    Script Date: 16/11/2022 12:31:24 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -275,7 +275,7 @@ PRIMARY KEY CLUSTERED
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[driving_license]    Script Date: 24/03/2023 2:11:07 PM ******/
+/****** Object:  Table [dbo].[driving_license]    Script Date: 16/11/2022 12:31:24 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -297,7 +297,7 @@ PRIMARY KEY CLUSTERED
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[feature]    Script Date: 24/03/2023 2:11:07 PM ******/
+/****** Object:  Table [dbo].[feature]    Script Date: 16/11/2022 12:31:24 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -312,7 +312,7 @@ PRIMARY KEY CLUSTERED
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[like_table]    Script Date: 24/03/2023 2:11:07 PM ******/
+/****** Object:  Table [dbo].[like_table]    Script Date: 16/11/2022 12:31:24 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -322,7 +322,7 @@ CREATE TABLE [dbo].[like_table](
 	[car_id] [bigint] NOT NULL
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[model]    Script Date: 24/03/2023 2:11:07 PM ******/
+/****** Object:  Table [dbo].[model]    Script Date: 16/11/2022 12:31:24 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -337,7 +337,7 @@ PRIMARY KEY CLUSTERED
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[notification]    Script Date: 24/03/2023 2:11:07 PM ******/
+/****** Object:  Table [dbo].[notification]    Script Date: 16/11/2022 12:31:24 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -359,7 +359,7 @@ PRIMARY KEY CLUSTERED
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[review]    Script Date: 24/03/2023 2:11:07 PM ******/
+/****** Object:  Table [dbo].[review]    Script Date: 16/11/2022 12:31:24 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -379,7 +379,7 @@ PRIMARY KEY CLUSTERED
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[role]    Script Date: 24/03/2023 2:11:07 PM ******/
+/****** Object:  Table [dbo].[role]    Script Date: 16/11/2022 12:31:24 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -393,7 +393,7 @@ PRIMARY KEY CLUSTERED
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[voucher]    Script Date: 24/03/2023 2:11:07 PM ******/
+/****** Object:  Table [dbo].[voucher]    Script Date: 16/11/2022 12:31:24 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -418,7 +418,7 @@ PRIMARY KEY CLUSTERED
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[ward]    Script Date: 24/03/2023 2:11:07 PM ******/
+/****** Object:  Table [dbo].[ward]    Script Date: 16/11/2022 12:31:24 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -442,7 +442,7 @@ INSERT [dbo].[account] ([id], [avatar], [balance], [birth_date], [created_by], [
 GO
 INSERT [dbo].[account] ([id], [avatar], [balance], [birth_date], [created_by], [email], [gender], [join_date], [modified_by], [modified_date], [name], [password], [phone], [status], [thumnail], [username]) VALUES (3, N'https://lh3.googleusercontent.com/a/ALm5wu18IpMCDLtAR5JYn-aaZzL0uF5uBUGk2D4oV_23=s96-c', NULL, CAST(N'1999-01-06' AS Date), N'anonymousUser', N'choipubg10@gmail.com', N'MALE', CAST(N'2022-11-14' AS Date), N'anonymousUser', CAST(N'2022-11-14T23:51:11.0000000' AS DateTime2), N'Tri Tri', N'$2a$10$Wjx1FwSKs4trghBUkiDOZ.0UCx6PRUjujXuMlFuFaOUkKbyG8eQiu', NULL, N'ACTIVE', N'https://firebasestorage.googleapis.com/v0/b/etransportationsys-trichoip.appspot.com/o/images%2FCanh-dep-o-Nhat-Ban-Nui-Fuji-1.jpg92f54c9a-21da-477a-83d1-20a9deb114a0?alt=media&token=ce7ce2f0-33d2-4d8e-ae52-249d3d38a94e', N'choipubg10')
 GO
-INSERT [dbo].[account] ([id], [avatar], [balance], [birth_date], [created_by], [email], [gender], [join_date], [modified_by], [modified_date], [name], [password], [phone], [status], [thumnail], [username]) VALUES (4, N'https://lh3.googleusercontent.com/a/ALm5wu2LeZQ9Sk8-pji0CsYYA9HDClVL5nhUvIzJIYu5aQ=s96-c', NULL, CAST(N'1999-01-06' AS Date), N'anonymousUser', NULL, N'MALE', CAST(N'2022-11-15' AS Date), N'anonymousUser', CAST(N'2022-11-16T15:26:15.0000000' AS DateTime2), N'dragoncute', N'$2a$10$HwM4l7teXeRq8CmB.I5NtOEf9s/9oSRKl5rCYnLjJXcxeOet2qCLe', NULL, N'BLOCKED', N'https://firebasestorage.googleapis.com/v0/b/etransportationsys-trichoip.appspot.com/o/images%2FCanh-dep-o-Nhat-Ban-Nui-Fuji-1.jpg92f54c9a-21da-477a-83d1-20a9deb114a0?alt=media&token=ce7ce2f0-33d2-4d8e-ae52-249d3d38a94e', N'longpc')
+INSERT [dbo].[account] ([id], [avatar], [balance], [birth_date], [created_by], [email], [gender], [join_date], [modified_by], [modified_date], [name], [password], [phone], [status], [thumnail], [username]) VALUES (4, N'https://lh3.googleusercontent.com/a/ALm5wu2LeZQ9Sk8-pji0CsYYA9HDClVL5nhUvIzJIYu5aQ=s96-c', NULL, CAST(N'1999-01-06' AS Date), N'anonymousUser', NULL, N'MALE', CAST(N'2022-11-15' AS Date), N'anonymousUser', CAST(N'2022-11-15T00:05:39.0000000' AS DateTime2), N'dragoncute', N'$2a$10$HwM4l7teXeRq8CmB.I5NtOEf9s/9oSRKl5rCYnLjJXcxeOet2qCLe', NULL, N'ACTIVE', N'https://firebasestorage.googleapis.com/v0/b/etransportationsys-trichoip.appspot.com/o/images%2FCanh-dep-o-Nhat-Ban-Nui-Fuji-1.jpg92f54c9a-21da-477a-83d1-20a9deb114a0?alt=media&token=ce7ce2f0-33d2-4d8e-ae52-249d3d38a94e', N'longpc')
 GO
 INSERT [dbo].[account] ([id], [avatar], [balance], [birth_date], [created_by], [email], [gender], [join_date], [modified_by], [modified_date], [name], [password], [phone], [status], [thumnail], [username]) VALUES (5, N'https://lh3.googleusercontent.com/a/ALm5wu37zZJMPfUCGoaq03IMTJkrlFS9u_odwgywX3Utsg=s96-c', NULL, CAST(N'2001-03-30' AS Date), N'anonymousUser', N'ngoductuan30301@gmail.com', N'MALE', CAST(N'2022-11-15' AS Date), N'anonymousUser', CAST(N'2022-11-15T17:17:32.0000000' AS DateTime2), N'Đức Tuấn', N'$2a$10$uGvy/HRqfEIyII8Z5OoEUOe7uO0AFUk2pMbcGwuJCC2StQlSxP4iK', NULL, N'ACTIVE', N'https://firebasestorage.googleapis.com/v0/b/etransportationsys-trichoip.appspot.com/o/images%2FCanh-dep-o-Nhat-Ban-Nui-Fuji-1.jpg92f54c9a-21da-477a-83d1-20a9deb114a0?alt=media&token=ce7ce2f0-33d2-4d8e-ae52-249d3d38a94e', N'ngoductuan30301')
 GO
@@ -495,8 +495,6 @@ GO
 INSERT [dbo].[account_role] ([account_id], [role_id]) VALUES (1, 2)
 GO
 INSERT [dbo].[account_role] ([account_id], [role_id]) VALUES (2, 1)
-GO
-INSERT [dbo].[account_role] ([account_id], [role_id]) VALUES (2, 2)
 GO
 INSERT [dbo].[account_role] ([account_id], [role_id]) VALUES (3, 1)
 GO
@@ -552,7 +550,7 @@ INSERT [dbo].[account_role] ([account_id], [role_id]) VALUES (28, 1)
 GO
 SET IDENTITY_INSERT [dbo].[address] ON 
 GO
-INSERT [dbo].[address] ([id], [created_by], [created_date], [modified_by], [modified_date], [street], [city_id], [district_id], [ward_id]) VALUES (6, N'anonymousUser', CAST(N'2022-11-15' AS Date), N'anonymousUser', CAST(N'2023-03-15T19:58:37.0000000' AS DateTime2), N'string', 1, 1, 1)
+INSERT [dbo].[address] ([id], [created_by], [created_date], [modified_by], [modified_date], [street], [city_id], [district_id], [ward_id]) VALUES (6, N'anonymousUser', CAST(N'2022-11-15' AS Date), N'anonymousUser', CAST(N'2022-11-15T09:11:36.0000000' AS DateTime2), N'', 79, 775, 27385)
 GO
 INSERT [dbo].[address] ([id], [created_by], [created_date], [modified_by], [modified_date], [street], [city_id], [district_id], [ward_id]) VALUES (7, N'anonymousUser', CAST(N'2022-11-15' AS Date), N'anonymousUser', CAST(N'2022-11-15T09:16:37.0000000' AS DateTime2), N'', 79, 769, 26842)
 GO
@@ -771,8 +769,6 @@ GO
 INSERT [dbo].[address] ([id], [created_by], [created_date], [modified_by], [modified_date], [street], [city_id], [district_id], [ward_id]) VALUES (123, N'anonymousUser', CAST(N'2022-11-16' AS Date), N'anonymousUser', CAST(N'2022-11-16T12:20:59.0000000' AS DateTime2), N'', 79, 783, 27544)
 GO
 INSERT [dbo].[address] ([id], [created_by], [created_date], [modified_by], [modified_date], [street], [city_id], [district_id], [ward_id]) VALUES (124, N'anonymousUser', CAST(N'2022-11-16' AS Date), N'anonymousUser', CAST(N'2022-11-16T12:23:20.0000000' AS DateTime2), N'', 79, 777, 27457)
-GO
-INSERT [dbo].[address] ([id], [created_by], [created_date], [modified_by], [modified_date], [street], [city_id], [district_id], [ward_id]) VALUES (126, N'anonymousUser', CAST(N'2022-11-16' AS Date), N'anonymousUser', CAST(N'2022-11-16T15:24:52.0000000' AS DateTime2), N'', 1, 4, 145)
 GO
 SET IDENTITY_INSERT [dbo].[address] OFF
 GO
@@ -1084,7 +1080,7 @@ INSERT [dbo].[book] ([id], [book_date], [created_by], [end_date], [price], [star
 GO
 INSERT [dbo].[book] ([id], [book_date], [created_by], [end_date], [price], [start_date], [status], [total_price], [account_id], [car_id], [voucher_id]) VALUES (159, CAST(N'2020-11-16' AS Date), N'anonymousUser', CAST(N'2021-02-17' AS Date), 1400, CAST(N'2020-12-01' AS Date), N'SUCCESS', 3696, 26, 6, 4)
 GO
-INSERT [dbo].[book] ([id], [book_date], [created_by], [end_date], [price], [start_date], [status], [total_price], [account_id], [car_id], [voucher_id]) VALUES (160, CAST(N'2022-11-16' AS Date), N'anonymousUser', CAST(N'2023-01-25' AS Date), 690, CAST(N'2023-01-16' AS Date), N'CANCEL', 3450, 26, 54, NULL)
+INSERT [dbo].[book] ([id], [book_date], [created_by], [end_date], [price], [start_date], [status], [total_price], [account_id], [car_id], [voucher_id]) VALUES (160, CAST(N'2022-11-16' AS Date), N'anonymousUser', CAST(N'2023-01-21' AS Date), 690, CAST(N'2023-01-16' AS Date), N'SUCCESS', 3450, 26, 54, NULL)
 GO
 INSERT [dbo].[book] ([id], [book_date], [created_by], [end_date], [price], [start_date], [status], [total_price], [account_id], [car_id], [voucher_id]) VALUES (161, CAST(N'2022-11-16' AS Date), N'anonymousUser', CAST(N'2022-12-16' AS Date), 1300, CAST(N'2022-12-16' AS Date), N'SUCCESS', 1300, 5, 17, NULL)
 GO
@@ -1169,10 +1165,6 @@ GO
 INSERT [dbo].[book] ([id], [book_date], [created_by], [end_date], [price], [start_date], [status], [total_price], [account_id], [car_id], [voucher_id]) VALUES (201, CAST(N'2022-11-16' AS Date), N'anonymousUser', CAST(N'2022-11-18' AS Date), 950, CAST(N'2022-11-18' AS Date), N'SUCCESS', 950, 28, 36, NULL)
 GO
 INSERT [dbo].[book] ([id], [book_date], [created_by], [end_date], [price], [start_date], [status], [total_price], [account_id], [car_id], [voucher_id]) VALUES (202, CAST(N'2022-11-16' AS Date), N'anonymousUser', CAST(N'2022-11-27' AS Date), 950, CAST(N'2022-11-27' AS Date), N'SUCCESS', 950, 28, 36, NULL)
-GO
-INSERT [dbo].[book] ([id], [book_date], [created_by], [end_date], [price], [start_date], [status], [total_price], [account_id], [car_id], [voucher_id]) VALUES (203, CAST(N'2022-11-16' AS Date), N'anonymousUser', CAST(N'2022-11-30' AS Date), 900, CAST(N'2022-11-21' AS Date), N'CANCEL', 3864.96, 26, 63, 4)
-GO
-INSERT [dbo].[book] ([id], [book_date], [created_by], [end_date], [price], [start_date], [status], [total_price], [account_id], [car_id], [voucher_id]) VALUES (204, CAST(N'2022-11-16' AS Date), N'anonymousUser', CAST(N'2022-11-29' AS Date), 1630, CAST(N'2022-11-22' AS Date), N'SUCCESS', 5737.6, 26, 12, 4)
 GO
 SET IDENTITY_INSERT [dbo].[book] OFF
 GO
@@ -1264,22 +1256,23 @@ INSERT [dbo].[brand] ([id], [name]) VALUES (42, N'Zotye')
 GO
 SET IDENTITY_INSERT [dbo].[brand] OFF
 GO
-INSERT [dbo].[car] ([id], [created_by], [description], [fuel], [latitude], [license_plates], [longitude], [modified_by], [modified_date], [price], [register_date], [sale_month], [sale_week], [seats], [status], [transmission], [year_of_manufacture], [account_supplier_id], [model_id]) VALUES (6, N'anonymousUser', N'string', N'string', 0, N'51D-426.73', 0, N'anonymousUser', CAST(N'2023-03-15T19:58:37.0000000' AS DateTime2), 0, CAST(N'2022-10-11' AS Date), 0, 0, 5, N'ACTIVE', N'string', 2016, 2, 37)
+INSERT [dbo].[car] ([id], [created_by], [description], [fuel], [latitude], [license_plates], [longitude], [modified_by], [modified_date], [price], [register_date], [sale_month], [sale_week], [seats], [status], [transmission], [year_of_manufacture], [account_supplier_id], [model_id]) VALUES (6, N'anonymousUser', N'Xe Chevrolet spark Van 2 chỗ, xe gia đình không chạy dịch vụ, xe mới, nội thất sạch sẽ, tiện lợi cho 2 người đi phượt chở đồ thoải mái, về quê thăm gia đình ngon lành cành đào! Xe cực kỳ tiết kiệm xăng! Nhỏ gọn dễ di chuyển trên mọi nẽo đường!
+Nghe nhạc trên mọi hành trình, âm thanh sống động, trang bị camera hành trình, lùi...', N'Xăng', 0, N'51D-426.73', 0, N'anonymousUser', CAST(N'2022-11-15T10:06:34.0000000' AS DateTime2), 1400, CAST(N'2022-11-15' AS Date), 30, 10, 5, N'ACTIVE', N'Số tự động', 2016, 2, 37)
 GO
 INSERT [dbo].[car] ([id], [created_by], [description], [fuel], [latitude], [license_plates], [longitude], [modified_by], [modified_date], [price], [register_date], [sale_month], [sale_week], [seats], [status], [transmission], [year_of_manufacture], [account_supplier_id], [model_id]) VALUES (7, N'anonymousUser', N'Chevrolet Spark 2018 bản full option, có màn hình mylink. Kết nối bluetooth, camera lùi, cảm biến toàn xe
 Xe mới đăng kiểm tháng 10/2018.
 Xe chưa từng chạy dịch vụ, chỉ chạy trong gia đình
 Xe có bảo hiểm 2 chiều và thẻ cứu hộ chính hãng Chevrolet 3 năm.
 Xe rất mới, màu đỏ tươi, không dán quảng cáo hay logo gì của công ty. Nên rất phù hợp thuê xe đi du lịch, tiếp khách.
-Xe gia đình chạy, mới bảo dưỡng vào tháng 10/2019 nên chạy xe rất mượt.', N'Xăng', 0, N'71A-055.97', 0, N'anonymousUser', CAST(N'2022-11-15T10:06:39.0000000' AS DateTime2), 900, CAST(N'2022-10-11' AS Date), 60, 30, 5, N'ACTIVE', N'Số sàn', 2018, 22, 40)
+Xe gia đình chạy, mới bảo dưỡng vào tháng 10/2019 nên chạy xe rất mượt.', N'Xăng', 0, N'71A-055.97', 0, N'anonymousUser', CAST(N'2022-11-15T10:06:39.0000000' AS DateTime2), 900, CAST(N'2022-11-15' AS Date), 60, 30, 5, N'ACTIVE', N'Số sàn', 2018, 22, 40)
 GO
 INSERT [dbo].[car] ([id], [created_by], [description], [fuel], [latitude], [license_plates], [longitude], [modified_by], [modified_date], [price], [register_date], [sale_month], [sale_week], [seats], [status], [transmission], [year_of_manufacture], [account_supplier_id], [model_id]) VALUES (8, N'anonymousUser', N'Nhà ít đi nên mình muốn cho thuê xe Focus tự lái.
-Xe số tự động, rộng rãi, máy 1.8 rất khoẻ. Các bạn chạy về quê chở người chở đồ thì rất thoải mái.', N'Xăng', 0, N'30F-26957', 0, N'anonymousUser', CAST(N'2022-11-15T09:20:36.0000000' AS DateTime2), 639, CAST(N'2022-10-11' AS Date), 40, 40, 5, N'ACTIVE', N'Số tự động', 2015, 2, 29)
+Xe số tự động, rộng rãi, máy 1.8 rất khoẻ. Các bạn chạy về quê chở người chở đồ thì rất thoải mái.', N'Xăng', 0, N'30F-26957', 0, N'anonymousUser', CAST(N'2022-11-15T09:20:36.0000000' AS DateTime2), 639, CAST(N'2022-11-15' AS Date), 40, 40, 5, N'ACTIVE', N'Số tự động', 2015, 2, 29)
 GO
 INSERT [dbo].[car] ([id], [created_by], [description], [fuel], [latitude], [license_plates], [longitude], [modified_by], [modified_date], [price], [register_date], [sale_month], [sale_week], [seats], [status], [transmission], [year_of_manufacture], [account_supplier_id], [model_id]) VALUES (9, N'anonymousUser', N'
-Xe gia đình còn rất mới, nội thất sạch đẹp, rất tiết kiệm nhiên liệu, máy êm', N'Xăng', 0, N'51G-625.27', 0, N'anonymousUser', CAST(N'2022-11-15T09:21:25.0000000' AS DateTime2), 1450, CAST(N'2022-10-11' AS Date), 60, 60, 5, N'ACTIVE', N'Số sàn', 2017, 2, 40)
+Xe gia đình còn rất mới, nội thất sạch đẹp, rất tiết kiệm nhiên liệu, máy êm', N'Xăng', 0, N'51G-625.27', 0, N'anonymousUser', CAST(N'2022-11-15T09:21:25.0000000' AS DateTime2), 1450, CAST(N'2022-11-15' AS Date), 60, 60, 5, N'ACTIVE', N'Số sàn', 2017, 2, 40)
 GO
-INSERT [dbo].[car] ([id], [created_by], [description], [fuel], [latitude], [license_plates], [longitude], [modified_by], [modified_date], [price], [register_date], [sale_month], [sale_week], [seats], [status], [transmission], [year_of_manufacture], [account_supplier_id], [model_id]) VALUES (10, N'anonymousUser', N'Ford ecosport 2018! Xe gia đình sử dụng rất mới và sạch sẽ! Xe được trang bị nhiều công nghệ an toàn và hiện đại. Xe dc chăm sóc và bảo dưỡng thường xuyên', N'Xăng', 0, N'30F-44751', 0, N'anonymousUser', CAST(N'2022-11-15T09:25:57.0000000' AS DateTime2), 800, CAST(N'2022-10-11' AS Date), 60, 60, 5, N'ACTIVE', N'Số tự động', 2018, 2, 43)
+INSERT [dbo].[car] ([id], [created_by], [description], [fuel], [latitude], [license_plates], [longitude], [modified_by], [modified_date], [price], [register_date], [sale_month], [sale_week], [seats], [status], [transmission], [year_of_manufacture], [account_supplier_id], [model_id]) VALUES (10, N'anonymousUser', N'Ford ecosport 2018! Xe gia đình sử dụng rất mới và sạch sẽ! Xe được trang bị nhiều công nghệ an toàn và hiện đại. Xe dc chăm sóc và bảo dưỡng thường xuyên', N'Xăng', 0, N'30F-44751', 0, N'anonymousUser', CAST(N'2022-11-15T09:25:57.0000000' AS DateTime2), 800, CAST(N'2022-11-15' AS Date), 60, 60, 5, N'ACTIVE', N'Số tự động', 2018, 2, 43)
 GO
 INSERT [dbo].[car] ([id], [created_by], [description], [fuel], [latitude], [license_plates], [longitude], [modified_by], [modified_date], [price], [register_date], [sale_month], [sale_week], [seats], [status], [transmission], [year_of_manufacture], [account_supplier_id], [model_id]) VALUES (11, N'anonymousUser', N'Xe 7 chỗ gia đình, mới, đẹp. Đăng ký 06/2019. Xe êm ko ồn ù do đã gắn đối trọng. Bản Full Options :
 -2 cầu
@@ -1290,12 +1283,12 @@ INSERT [dbo].[car] ([id], [created_by], [description], [fuel], [latitude], [lice
 -2 dàn lạnh
 - cân bằng điện tử
 - hệ thống chống lật
-- hệ thống MyLink kết nối được với điện thoại, xem youtube', N'Dầu diesel', 0, N'51H-075.21', 0, N'anonymousUser', CAST(N'2022-11-15T09:27:52.0000000' AS DateTime2), 1900, CAST(N'2022-10-11' AS Date), 30, 10, 7, N'ACTIVE', N'Số sàn', 2019, 21, 41)
+- hệ thống MyLink kết nối được với điện thoại, xem youtube', N'Dầu diesel', 0, N'51H-075.21', 0, N'anonymousUser', CAST(N'2022-11-15T09:27:52.0000000' AS DateTime2), 1900, CAST(N'2022-11-15' AS Date), 30, 10, 7, N'ACTIVE', N'Số sàn', 2019, 21, 41)
 GO
 INSERT [dbo].[car] ([id], [created_by], [description], [fuel], [latitude], [license_plates], [longitude], [modified_by], [modified_date], [price], [register_date], [sale_month], [sale_week], [seats], [status], [transmission], [year_of_manufacture], [account_supplier_id], [model_id]) VALUES (12, N'anonymousUser', N'
-Xe Orlando đăng ký 11/2017 số Đồng Hồ hiện tại 35,000 Km. Xe còn rất mới do gia đình sử dụng ít đi lại. Đèn xe rất sáng. đi rất êm.', N'Dầu diesel', 0, N'51G-122.52', 0, N'anonymousUser', CAST(N'2022-11-15T09:30:47.0000000' AS DateTime2), 1630, CAST(N'2022-10-11' AS Date), 55, 50, 7, N'ACTIVE', N'Số sàn', 2017, 21, 39)
+Xe Orlando đăng ký 11/2017 số Đồng Hồ hiện tại 35,000 Km. Xe còn rất mới do gia đình sử dụng ít đi lại. Đèn xe rất sáng. đi rất êm.', N'Dầu diesel', 0, N'51G-122.52', 0, N'anonymousUser', CAST(N'2022-11-15T09:30:47.0000000' AS DateTime2), 1630, CAST(N'2022-11-15' AS Date), 55, 50, 7, N'ACTIVE', N'Số sàn', 2017, 21, 39)
 GO
-INSERT [dbo].[car] ([id], [created_by], [description], [fuel], [latitude], [license_plates], [longitude], [modified_by], [modified_date], [price], [register_date], [sale_month], [sale_week], [seats], [status], [transmission], [year_of_manufacture], [account_supplier_id], [model_id]) VALUES (13, N'anonymousUser', N'CHEVROLET COLORADO LTZ 2020', N'Dầu diesel', 0, N'29H-39168', 0, N'anonymousUser', CAST(N'2022-11-15T09:31:52.0000000' AS DateTime2), 950, CAST(N'2022-10-11' AS Date), 40, 40, 5, N'ACTIVE', N'Số tự động', 2020, 21, 34)
+INSERT [dbo].[car] ([id], [created_by], [description], [fuel], [latitude], [license_plates], [longitude], [modified_by], [modified_date], [price], [register_date], [sale_month], [sale_week], [seats], [status], [transmission], [year_of_manufacture], [account_supplier_id], [model_id]) VALUES (13, N'anonymousUser', N'CHEVROLET COLORADO LTZ 2020', N'Dầu diesel', 0, N'29H-39168', 0, N'anonymousUser', CAST(N'2022-11-15T09:31:52.0000000' AS DateTime2), 950, CAST(N'2022-11-15' AS Date), 40, 40, 5, N'ACTIVE', N'Số tự động', 2020, 21, 34)
 GO
 INSERT [dbo].[car] ([id], [created_by], [description], [fuel], [latitude], [license_plates], [longitude], [modified_by], [modified_date], [price], [register_date], [sale_month], [sale_week], [seats], [status], [transmission], [year_of_manufacture], [account_supplier_id], [model_id]) VALUES (14, N'anonymousUser', N'Kia Carens bản tự động full option.
 - Ghế da xịn, cửa sổ trời, ngồi 7c rộng rải, máy lạnh tê buốt.
@@ -1303,9 +1296,9 @@ INSERT [dbo].[car] ([id], [created_by], [description], [fuel], [latitude], [lice
 - Cam lùi, cam hành trình.
 - Xe gia đình không bị ám mùi xe.
 - Thường xuyên bảo trì bảo dưỡng và khử khuẩn.
-- Tiêu hao nhiên liêu: Nội thành [sdt] ; Ngoại thành [sdt]', N'Dầu diesel', 0, N'51G-122.52', 0, N'anonymousUser', CAST(N'2022-11-15T09:33:52.0000000' AS DateTime2), 1050, CAST(N'2022-10-11' AS Date), 40, 30, 7, N'ACTIVE', N'Số sàn', 2013, 21, 29)
+- Tiêu hao nhiên liêu: Nội thành [sdt] ; Ngoại thành [sdt]', N'Dầu diesel', 0, N'51G-122.52', 0, N'anonymousUser', CAST(N'2022-11-15T09:33:52.0000000' AS DateTime2), 1050, CAST(N'2022-11-15' AS Date), 40, 30, 7, N'ACTIVE', N'Số sàn', 2013, 21, 29)
 GO
-INSERT [dbo].[car] ([id], [created_by], [description], [fuel], [latitude], [license_plates], [longitude], [modified_by], [modified_date], [price], [register_date], [sale_month], [sale_week], [seats], [status], [transmission], [year_of_manufacture], [account_supplier_id], [model_id]) VALUES (15, N'anonymousUser', N'XE ĐẸP DÙNG ĐI TIẾP KHÁCH VIP', N'Dầu diesel', 0, N'30F-89098', 0, N'anonymousUser', CAST(N'2022-11-15T09:36:26.0000000' AS DateTime2), 1730, CAST(N'2022-10-11' AS Date), 60, 70, 5, N'ACTIVE', N'Số tự động', 2009, 21, 38)
+INSERT [dbo].[car] ([id], [created_by], [description], [fuel], [latitude], [license_plates], [longitude], [modified_by], [modified_date], [price], [register_date], [sale_month], [sale_week], [seats], [status], [transmission], [year_of_manufacture], [account_supplier_id], [model_id]) VALUES (15, N'anonymousUser', N'XE ĐẸP DÙNG ĐI TIẾP KHÁCH VIP', N'Dầu diesel', 0, N'30F-89098', 0, N'anonymousUser', CAST(N'2022-11-15T09:36:26.0000000' AS DateTime2), 1730, CAST(N'2022-11-15' AS Date), 60, 70, 5, N'ACTIVE', N'Số tự động', 2009, 21, 38)
 GO
 INSERT [dbo].[car] ([id], [created_by], [description], [fuel], [latitude], [license_plates], [longitude], [modified_by], [modified_date], [price], [register_date], [sale_month], [sale_week], [seats], [status], [transmission], [year_of_manufacture], [account_supplier_id], [model_id]) VALUES (16, N'anonymousUser', N'Một chiếc rộng rãi thoải mái cho cả gia đình', N'Dầu diesel', 0, N'51G-685.13', 0, N'anonymousUser', CAST(N'2022-11-15T09:40:37.0000000' AS DateTime2), 970, CAST(N'2022-11-13' AS Date), 56, 35, 7, N'ACTIVE', N'Số sàn', 2018, 20, 37)
 GO
@@ -1318,98 +1311,98 @@ Thương hiệu Pegeout đến từ pháp, với tiêu chuẩn châu âu ( Mới
 - kho nhạc nhiều thể loại với hệ thống âm thanh loa nổi tiếng Focal của pháp -8 loa
 - kết nối điện thoại thông minh aple carplay và androi microlink
 - Xe hỗ trợ : Cam hành trình trước và sau, canhr báo va chạm và phanh chủ động, hỗ trợ giữ làn, giới hạn tốc độ, ga tự động....không thiếu gì cả
-- Mọi vi phạm điều khoản thuê xe của quý khách đều đc thực hiện nghiêm chỉnh và chi tiết nhất.', N'Dầu diesel', 0, N'30H-78737', 0, N'anonymousUser', CAST(N'2022-11-15T09:41:08.0000000' AS DateTime2), 1300, CAST(N'2022-10-11' AS Date), 40, 35, 5, N'ACTIVE', N'Số tự động', 2022, 20, 35)
+- Mọi vi phạm điều khoản thuê xe của quý khách đều đc thực hiện nghiêm chỉnh và chi tiết nhất.', N'Dầu diesel', 0, N'30H-78737', 0, N'anonymousUser', CAST(N'2022-11-15T09:41:08.0000000' AS DateTime2), 1300, CAST(N'2022-11-15' AS Date), 40, 35, 5, N'ACTIVE', N'Số tự động', 2022, 20, 35)
 GO
-INSERT [dbo].[car] ([id], [created_by], [description], [fuel], [latitude], [license_plates], [longitude], [modified_by], [modified_date], [price], [register_date], [sale_month], [sale_week], [seats], [status], [transmission], [year_of_manufacture], [account_supplier_id], [model_id]) VALUES (18, N'anonymousUser', N'KIA RONDO Số tự động máy xăng mới lấy 19/09/2019 êm ái sạch sẽ xe nhà đi nên rất kỹ', N'Dầu diesel', 0, N'51G-962.68', 0, N'anonymousUser', CAST(N'2022-11-15T09:43:44.0000000' AS DateTime2), 1350, CAST(N'2022-10-11' AS Date), 50, 30, 5, N'ACTIVE', N'Số sàn', 2019, 20, 36)
+INSERT [dbo].[car] ([id], [created_by], [description], [fuel], [latitude], [license_plates], [longitude], [modified_by], [modified_date], [price], [register_date], [sale_month], [sale_week], [seats], [status], [transmission], [year_of_manufacture], [account_supplier_id], [model_id]) VALUES (18, N'anonymousUser', N'KIA RONDO Số tự động máy xăng mới lấy 19/09/2019 êm ái sạch sẽ xe nhà đi nên rất kỹ', N'Dầu diesel', 0, N'51G-962.68', 0, N'anonymousUser', CAST(N'2022-11-15T09:43:44.0000000' AS DateTime2), 1350, CAST(N'2022-11-15' AS Date), 50, 30, 5, N'ACTIVE', N'Số sàn', 2019, 20, 36)
 GO
-INSERT [dbo].[car] ([id], [created_by], [description], [fuel], [latitude], [license_plates], [longitude], [modified_by], [modified_date], [price], [register_date], [sale_month], [sale_week], [seats], [status], [transmission], [year_of_manufacture], [account_supplier_id], [model_id]) VALUES (19, N'anonymousUser', N'Xe sạch sẽ phục vụ nhiệt tình', N'Dầu diesel', 0, N'37A-43027', 0, N'anonymousUser', CAST(N'2022-11-15T09:45:27.0000000' AS DateTime2), 920, CAST(N'2022-10-11' AS Date), 50, 45, 5, N'ACTIVE', N'Số tự động', 2019, 20, 34)
+INSERT [dbo].[car] ([id], [created_by], [description], [fuel], [latitude], [license_plates], [longitude], [modified_by], [modified_date], [price], [register_date], [sale_month], [sale_week], [seats], [status], [transmission], [year_of_manufacture], [account_supplier_id], [model_id]) VALUES (19, N'anonymousUser', N'Xe sạch sẽ phục vụ nhiệt tình', N'Dầu diesel', 0, N'37A-43027', 0, N'anonymousUser', CAST(N'2022-11-15T09:45:27.0000000' AS DateTime2), 920, CAST(N'2022-11-15' AS Date), 50, 45, 5, N'ACTIVE', N'Số tự động', 2019, 20, 34)
 GO
-INSERT [dbo].[car] ([id], [created_by], [description], [fuel], [latitude], [license_plates], [longitude], [modified_by], [modified_date], [price], [register_date], [sale_month], [sale_week], [seats], [status], [transmission], [year_of_manufacture], [account_supplier_id], [model_id]) VALUES (20, N'anonymousUser', N'Xe Mazda 3 bản Sport đăng ký 12/2020, số tự động. Xe sạch sẽ thơm tho. Chủ xe nghiện độđã nâng cấp ghế massage & làm mát kèm sấy ghế, bi laser đi buổi tối yên tâm. Xe trang bị led nội thất và trần sao đẹp lung linh. Camera hành trình Vietmap cảnh báo giới hạn tốc độ, camera phạt nguội bằng giọng nói. Hệ thống giải trí qua cổng Apple Carplay, Android Auto, Bluetooth. Hệ thống âm thanh giải trí 8 loa Bose.', N'Dầu diesel', 0, N'98A-52323', 0, N'anonymousUser', CAST(N'2022-11-15T09:48:24.0000000' AS DateTime2), 950, CAST(N'2022-10-11' AS Date), 50, 45, 5, N'ACTIVE', N'Số tự động', 2020, 19, 36)
+INSERT [dbo].[car] ([id], [created_by], [description], [fuel], [latitude], [license_plates], [longitude], [modified_by], [modified_date], [price], [register_date], [sale_month], [sale_week], [seats], [status], [transmission], [year_of_manufacture], [account_supplier_id], [model_id]) VALUES (20, N'anonymousUser', N'Xe Mazda 3 bản Sport đăng ký 12/2020, số tự động. Xe sạch sẽ thơm tho. Chủ xe nghiện độđã nâng cấp ghế massage & làm mát kèm sấy ghế, bi laser đi buổi tối yên tâm. Xe trang bị led nội thất và trần sao đẹp lung linh. Camera hành trình Vietmap cảnh báo giới hạn tốc độ, camera phạt nguội bằng giọng nói. Hệ thống giải trí qua cổng Apple Carplay, Android Auto, Bluetooth. Hệ thống âm thanh giải trí 8 loa Bose.', N'Dầu diesel', 0, N'98A-52323', 0, N'anonymousUser', CAST(N'2022-11-15T09:48:24.0000000' AS DateTime2), 950, CAST(N'2022-11-15' AS Date), 50, 45, 5, N'ACTIVE', N'Số tự động', 2020, 19, 36)
 GO
-INSERT [dbo].[car] ([id], [created_by], [description], [fuel], [latitude], [license_plates], [longitude], [modified_by], [modified_date], [price], [register_date], [sale_month], [sale_week], [seats], [status], [transmission], [year_of_manufacture], [account_supplier_id], [model_id]) VALUES (21, N'anonymousUser', N'TOYOTA VIOS E 2020, xe mới sạch sẽ, bảo dưỡng định kỳ 5000km, vệ sinh trước khi giao khách. ', N'Dầu diesel', 0, N'49A-311.16', 0, N'anonymousUser', CAST(N'2022-11-15T09:48:26.0000000' AS DateTime2), 1020, CAST(N'2022-10-11' AS Date), 60, 60, 5, N'ACTIVE', N'Số sàn', 2020, 19, 32)
+INSERT [dbo].[car] ([id], [created_by], [description], [fuel], [latitude], [license_plates], [longitude], [modified_by], [modified_date], [price], [register_date], [sale_month], [sale_week], [seats], [status], [transmission], [year_of_manufacture], [account_supplier_id], [model_id]) VALUES (21, N'anonymousUser', N'TOYOTA VIOS E 2020, xe mới sạch sẽ, bảo dưỡng định kỳ 5000km, vệ sinh trước khi giao khách. ', N'Dầu diesel', 0, N'49A-311.16', 0, N'anonymousUser', CAST(N'2022-11-15T09:48:26.0000000' AS DateTime2), 1020, CAST(N'2022-11-15' AS Date), 60, 60, 5, N'ACTIVE', N'Số sàn', 2020, 19, 32)
 GO
-INSERT [dbo].[car] ([id], [created_by], [description], [fuel], [latitude], [license_plates], [longitude], [modified_by], [modified_date], [price], [register_date], [sale_month], [sale_week], [seats], [status], [transmission], [year_of_manufacture], [account_supplier_id], [model_id]) VALUES (22, N'anonymousUser', N'Mazda cx5 2.5 bản full. Xe giữ gìn sạch sẽ. Sang - xịn - mịn, thích hợp đi gia đình hoặc công việc xa gần.', N'Dầu diesel', 0, N'30F-17775', 0, N'anonymousUser', CAST(N'2022-11-15T09:53:36.0000000' AS DateTime2), 1200, CAST(N'2022-10-11' AS Date), 70, 60, 5, N'ACTIVE', N'Số tự động', 2018, 19, 39)
+INSERT [dbo].[car] ([id], [created_by], [description], [fuel], [latitude], [license_plates], [longitude], [modified_by], [modified_date], [price], [register_date], [sale_month], [sale_week], [seats], [status], [transmission], [year_of_manufacture], [account_supplier_id], [model_id]) VALUES (22, N'anonymousUser', N'Mazda cx5 2.5 bản full. Xe giữ gìn sạch sẽ. Sang - xịn - mịn, thích hợp đi gia đình hoặc công việc xa gần.', N'Dầu diesel', 0, N'30F-17775', 0, N'anonymousUser', CAST(N'2022-11-15T09:53:36.0000000' AS DateTime2), 1200, CAST(N'2022-11-15' AS Date), 70, 60, 5, N'ACTIVE', N'Số tự động', 2018, 19, 39)
 GO
 INSERT [dbo].[car] ([id], [created_by], [description], [fuel], [latitude], [license_plates], [longitude], [modified_by], [modified_date], [price], [register_date], [sale_month], [sale_week], [seats], [status], [transmission], [year_of_manufacture], [account_supplier_id], [model_id]) VALUES (23, N'anonymousUser', N'
 Cross corolla xe gầm cao nhập khẩu hoàn toàn 100%.
 Đặc biệt xe siêu mới lấy giữa tháng 9/2020 xu hướng đi trước thời đại và màu ghế sang trọng đẳng cấp (nâu đỏ)
 Hệ thống an toàn 7 túi khí và cảm biến an toàn
 Thương hiệu toyota trang bị hệ thống chỉ đường bằng giọng nói và cảnh báo vượt tốc độ
-Ghế trẻ em phù hợp cho trẻ từ 3-6 tuổi', N'Dầu diesel', 0, N'51H-365.68', 0, N'anonymousUser', CAST(N'2022-11-15T09:54:45.0000000' AS DateTime2), 1470, CAST(N'2022-10-11' AS Date), 70, 20, 5, N'ACTIVE', N'Số sàn', 2020, 19, 42)
+Ghế trẻ em phù hợp cho trẻ từ 3-6 tuổi', N'Dầu diesel', 0, N'51H-365.68', 0, N'anonymousUser', CAST(N'2022-11-15T09:54:45.0000000' AS DateTime2), 1470, CAST(N'2022-11-15' AS Date), 70, 20, 5, N'ACTIVE', N'Số sàn', 2020, 19, 42)
 GO
-INSERT [dbo].[car] ([id], [created_by], [description], [fuel], [latitude], [license_plates], [longitude], [modified_by], [modified_date], [price], [register_date], [sale_month], [sale_week], [seats], [status], [transmission], [year_of_manufacture], [account_supplier_id], [model_id]) VALUES (24, N'anonymousUser', N'HUYNDAI i10 2018', N'Dầu diesel', 0, N'30F-30524', 0, N'anonymousUser', CAST(N'2022-11-15T09:58:27.0000000' AS DateTime2), 600, CAST(N'2022-10-11' AS Date), 55, 60, 5, N'ACTIVE', N'Số tự động', 2018, 18, 32)
+INSERT [dbo].[car] ([id], [created_by], [description], [fuel], [latitude], [license_plates], [longitude], [modified_by], [modified_date], [price], [register_date], [sale_month], [sale_week], [seats], [status], [transmission], [year_of_manufacture], [account_supplier_id], [model_id]) VALUES (24, N'anonymousUser', N'HUYNDAI i10 2018', N'Dầu diesel', 0, N'30F-30524', 0, N'anonymousUser', CAST(N'2022-11-15T09:58:27.0000000' AS DateTime2), 600, CAST(N'2022-11-15' AS Date), 55, 60, 5, N'ACTIVE', N'Số tự động', 2018, 18, 32)
 GO
-INSERT [dbo].[car] ([id], [created_by], [description], [fuel], [latitude], [license_plates], [longitude], [modified_by], [modified_date], [price], [register_date], [sale_month], [sale_week], [seats], [status], [transmission], [year_of_manufacture], [account_supplier_id], [model_id]) VALUES (25, N'anonymousUser', N'HUYNDAI SANTA FE 2018', N'Dầu diesel', 0, N'30F-40858', 0, N'anonymousUser', CAST(N'2022-11-15T10:01:24.0000000' AS DateTime2), 1400, CAST(N'2022-10-11' AS Date), 70, 60, 7, N'ACTIVE', N'Số tự động', 2018, 18, 39)
+INSERT [dbo].[car] ([id], [created_by], [description], [fuel], [latitude], [license_plates], [longitude], [modified_by], [modified_date], [price], [register_date], [sale_month], [sale_week], [seats], [status], [transmission], [year_of_manufacture], [account_supplier_id], [model_id]) VALUES (25, N'anonymousUser', N'HUYNDAI SANTA FE 2018', N'Dầu diesel', 0, N'30F-40858', 0, N'anonymousUser', CAST(N'2022-11-15T10:01:24.0000000' AS DateTime2), 1400, CAST(N'2022-11-15' AS Date), 70, 60, 7, N'ACTIVE', N'Số tự động', 2018, 18, 39)
 GO
 INSERT [dbo].[car] ([id], [created_by], [description], [fuel], [latitude], [license_plates], [longitude], [modified_by], [modified_date], [price], [register_date], [sale_month], [sale_week], [seats], [status], [transmission], [year_of_manufacture], [account_supplier_id], [model_id]) VALUES (26, N'anonymousUser', N'Vinfast mãnh liệt tinh thần Việt!!!
 Vinfast Fadil là mẫu xe số tự động đời mới đăng kí tháng 10/2019
 Xe gia đình mới đẹp, nội thất nguyên bản, sạch sẽ bảo dưỡng thường xuyên, rửa xe miễn phí cho khách.
 Xe rộng rãi , an toàn, tiện nghi phù hợp cho gia đình đi du lịch hoặc công việc ở xa
-Xe được trang bị camera 360 giúp nhìn được xung quanh xe cùng với đó là màn hình giải trí android 11in với rất nhiều tính năng như vietmap, zingmp3, youtube,...', N'Xăng', 0, N'66A-101.89', 0, N'anonymousUser', CAST(N'2022-11-15T10:04:00.0000000' AS DateTime2), 1110, CAST(N'2022-10-11' AS Date), 30, 30, 4, N'ACTIVE', N'Số tự động', 2019, 18, 39)
+Xe được trang bị camera 360 giúp nhìn được xung quanh xe cùng với đó là màn hình giải trí android 11in với rất nhiều tính năng như vietmap, zingmp3, youtube,...', N'Xăng', 0, N'66A-101.89', 0, N'anonymousUser', CAST(N'2022-11-15T10:04:00.0000000' AS DateTime2), 1110, CAST(N'2022-11-15' AS Date), 30, 30, 4, N'ACTIVE', N'Số tự động', 2019, 18, 39)
 GO
 INSERT [dbo].[car] ([id], [created_by], [description], [fuel], [latitude], [license_plates], [longitude], [modified_by], [modified_date], [price], [register_date], [sale_month], [sale_week], [seats], [status], [transmission], [year_of_manufacture], [account_supplier_id], [model_id]) VALUES (27, N'anonymousUser', N'
 Xe số tự động, xe mới mua năm/2021, xe gia đình ít đi, chạy được 15.000km. Xe ít hao xăng 100km/6-7 lít.
-Có bản đồ cảnh báo tốc độ, camera hành trình, camera lùi. Màn hình lớn  zestech kết nối bluetooth, youtube giải trí.', N'Xăng', 0, N'65A-302.13', 0, N'anonymousUser', CAST(N'2022-11-15T10:07:47.0000000' AS DateTime2), 780, CAST(N'2022-10-11' AS Date), 60, 20, 4, N'ACTIVE', N'Số tự động', 2021, 18, 29)
+Có bản đồ cảnh báo tốc độ, camera hành trình, camera lùi. Màn hình lớn  zestech kết nối bluetooth, youtube giải trí.', N'Xăng', 0, N'65A-302.13', 0, N'anonymousUser', CAST(N'2022-11-15T10:07:47.0000000' AS DateTime2), 780, CAST(N'2022-11-15' AS Date), 60, 20, 4, N'ACTIVE', N'Số tự động', 2021, 18, 29)
 GO
 INSERT [dbo].[car] ([id], [created_by], [description], [fuel], [latitude], [license_plates], [longitude], [modified_by], [modified_date], [price], [register_date], [sale_month], [sale_week], [seats], [status], [transmission], [year_of_manufacture], [account_supplier_id], [model_id]) VALUES (28, N'anonymousUser', N'
 Xe số tự động, xe mới mua năm/2021, xe gia đình ít đi, chạy được 15.000km. Xe ít hao xăng 100km/6-7 lít.
-Có bản đồ cảnh báo tốc độ, camera hành trình, camera lùi. Màn hình lớn  zestech kết nối bluetooth, youtube giải trí.', N'Dầu diesel', 0, N'18A-05344', 0, N'anonymousUser', CAST(N'2022-11-15T10:07:50.0000000' AS DateTime2), 742, CAST(N'2022-10-11' AS Date), 70, 60, 5, N'ACTIVE', N'Số tự động', 2015, 18, 30)
+Có bản đồ cảnh báo tốc độ, camera hành trình, camera lùi. Màn hình lớn  zestech kết nối bluetooth, youtube giải trí.', N'Dầu diesel', 0, N'18A-05344', 0, N'anonymousUser', CAST(N'2022-11-15T10:07:50.0000000' AS DateTime2), 742, CAST(N'2022-11-15' AS Date), 70, 60, 5, N'ACTIVE', N'Số tự động', 2015, 18, 30)
 GO
 INSERT [dbo].[car] ([id], [created_by], [description], [fuel], [latitude], [license_plates], [longitude], [modified_by], [modified_date], [price], [register_date], [sale_month], [sale_week], [seats], [status], [transmission], [year_of_manufacture], [account_supplier_id], [model_id]) VALUES (29, N'anonymousUser', N'
 Xe số tự động, xe mới mua năm/2021, xe gia đình ít đi, chạy được 15.000km. Xe ít hao xăng 100km/6-7 lít.
-Có bản đồ cảnh báo tốc độ, camera hành trình, camera lùi. Màn hình lớn  zestech kết nối bluetooth, youtube giải trí.', N'Dầu diesel', 0, N'35A-09099', 0, N'anonymousUser', CAST(N'2022-11-15T10:10:29.0000000' AS DateTime2), 600, CAST(N'2022-10-11' AS Date), 65, 60, 5, N'ACTIVE', N'Số tự động', 2017, 17, 31)
+Có bản đồ cảnh báo tốc độ, camera hành trình, camera lùi. Màn hình lớn  zestech kết nối bluetooth, youtube giải trí.', N'Dầu diesel', 0, N'35A-09099', 0, N'anonymousUser', CAST(N'2022-11-15T10:10:29.0000000' AS DateTime2), 600, CAST(N'2022-11-15' AS Date), 65, 60, 5, N'ACTIVE', N'Số tự động', 2017, 17, 31)
 GO
 INSERT [dbo].[car] ([id], [created_by], [description], [fuel], [latitude], [license_plates], [longitude], [modified_by], [modified_date], [price], [register_date], [sale_month], [sale_week], [seats], [status], [transmission], [year_of_manufacture], [account_supplier_id], [model_id]) VALUES (30, N'anonymousUser', N'
 Xe số tự động, xe mới mua năm/2021, xe gia đình ít đi, chạy được 15.000km. Xe ít hao xăng 100km/6-7 lít.
-Có bản đồ cảnh báo tốc độ, camera hành trình, camera lùi. Màn hình lớn  zestech kết nối bluetooth, youtube giải trí.', N'Xăng', 0, N'83A-104.58', 0, N'anonymousUser', CAST(N'2022-11-15T10:11:14.0000000' AS DateTime2), 1350, CAST(N'2022-10-11' AS Date), 30, 10, 4, N'ACTIVE', N'Số sàn', 2020, 17, 32)
+Có bản đồ cảnh báo tốc độ, camera hành trình, camera lùi. Màn hình lớn  zestech kết nối bluetooth, youtube giải trí.', N'Xăng', 0, N'83A-104.58', 0, N'anonymousUser', CAST(N'2022-11-15T10:11:14.0000000' AS DateTime2), 1350, CAST(N'2022-11-15' AS Date), 30, 10, 4, N'ACTIVE', N'Số sàn', 2020, 17, 32)
 GO
-INSERT [dbo].[car] ([id], [created_by], [description], [fuel], [latitude], [license_plates], [longitude], [modified_by], [modified_date], [price], [register_date], [sale_month], [sale_week], [seats], [status], [transmission], [year_of_manufacture], [account_supplier_id], [model_id]) VALUES (31, N'anonymousUser', N'MITSUBISHI ATTRAGE 2021', N'Xăng', 0, N'65A-308.82', 0, N'anonymousUser', CAST(N'2022-11-15T10:14:06.0000000' AS DateTime2), 1630, CAST(N'2022-10-11' AS Date), 60, 31, 5, N'ACTIVE', N'Số sàn', 2021, 17, 33)
+INSERT [dbo].[car] ([id], [created_by], [description], [fuel], [latitude], [license_plates], [longitude], [modified_by], [modified_date], [price], [register_date], [sale_month], [sale_week], [seats], [status], [transmission], [year_of_manufacture], [account_supplier_id], [model_id]) VALUES (31, N'anonymousUser', N'MITSUBISHI ATTRAGE 2021', N'Xăng', 0, N'65A-308.82', 0, N'anonymousUser', CAST(N'2022-11-15T10:14:06.0000000' AS DateTime2), 1630, CAST(N'2022-11-15' AS Date), 60, 31, 5, N'ACTIVE', N'Số sàn', 2021, 17, 33)
 GO
-INSERT [dbo].[car] ([id], [created_by], [description], [fuel], [latitude], [license_plates], [longitude], [modified_by], [modified_date], [price], [register_date], [sale_month], [sale_week], [seats], [status], [transmission], [year_of_manufacture], [account_supplier_id], [model_id]) VALUES (32, N'anonymousUser', N'Xe Grand i10 đăng kí 2017.xe gia đình số sàn.sạch sẽ.cốp rộng', N'Dầu diesel', 0, N'18A-24812', 0, N'anonymousUser', CAST(N'2022-11-15T10:15:14.0000000' AS DateTime2), 600, CAST(N'2022-10-11' AS Date), 60, 55, 5, N'ACTIVE', N'Số tự động', 2017, 17, 34)
+INSERT [dbo].[car] ([id], [created_by], [description], [fuel], [latitude], [license_plates], [longitude], [modified_by], [modified_date], [price], [register_date], [sale_month], [sale_week], [seats], [status], [transmission], [year_of_manufacture], [account_supplier_id], [model_id]) VALUES (32, N'anonymousUser', N'Xe Grand i10 đăng kí 2017.xe gia đình số sàn.sạch sẽ.cốp rộng', N'Dầu diesel', 0, N'18A-24812', 0, N'anonymousUser', CAST(N'2022-11-15T10:15:14.0000000' AS DateTime2), 600, CAST(N'2022-11-15' AS Date), 60, 55, 5, N'ACTIVE', N'Số tự động', 2017, 17, 34)
 GO
-INSERT [dbo].[car] ([id], [created_by], [description], [fuel], [latitude], [license_plates], [longitude], [modified_by], [modified_date], [price], [register_date], [sale_month], [sale_week], [seats], [status], [transmission], [year_of_manufacture], [account_supplier_id], [model_id]) VALUES (33, N'anonymousUser', N'NISSAN NAVARA EL 2017', N'Dầu diesel', 0, N'51D-132.63', 0, N'anonymousUser', CAST(N'2022-11-15T10:18:23.0000000' AS DateTime2), 865, CAST(N'2022-10-11' AS Date), 50, 40, 5, N'ACTIVE', N'Số sàn', 2017, 17, 35)
+INSERT [dbo].[car] ([id], [created_by], [description], [fuel], [latitude], [license_plates], [longitude], [modified_by], [modified_date], [price], [register_date], [sale_month], [sale_week], [seats], [status], [transmission], [year_of_manufacture], [account_supplier_id], [model_id]) VALUES (33, N'anonymousUser', N'NISSAN NAVARA EL 2017', N'Dầu diesel', 0, N'51D-132.63', 0, N'anonymousUser', CAST(N'2022-11-15T10:18:23.0000000' AS DateTime2), 865, CAST(N'2022-11-15' AS Date), 50, 40, 5, N'ACTIVE', N'Số sàn', 2017, 17, 35)
 GO
 INSERT [dbo].[car] ([id], [created_by], [description], [fuel], [latitude], [license_plates], [longitude], [modified_by], [modified_date], [price], [register_date], [sale_month], [sale_week], [seats], [status], [transmission], [year_of_manufacture], [account_supplier_id], [model_id]) VALUES (34, N'anonymousUser', N'MITSUBISHI XPANDER 2019 AT SE (special edition) bản đặc biệt kỷ niệm 25 năm của Mitsubishi. (Máy xăng, loa độ từ hãng rất ổn)
-Xe đẹp, gọn gàng, phù hợp đi gia đình, công tác.', N'Dầu diesel', 0, N'30G-04223', 0, N'anonymousUser', CAST(N'2022-11-15T10:21:39.0000000' AS DateTime2), 900, CAST(N'2022-10-11' AS Date), 65, 55, 5, N'ACTIVE', N'Số tự động', 2019, 16, 36)
+Xe đẹp, gọn gàng, phù hợp đi gia đình, công tác.', N'Dầu diesel', 0, N'30G-04223', 0, N'anonymousUser', CAST(N'2022-11-15T10:21:39.0000000' AS DateTime2), 900, CAST(N'2022-11-15' AS Date), 65, 55, 5, N'ACTIVE', N'Số tự động', 2019, 16, 36)
 GO
 INSERT [dbo].[car] ([id], [created_by], [description], [fuel], [latitude], [license_plates], [longitude], [modified_by], [modified_date], [price], [register_date], [sale_month], [sale_week], [seats], [status], [transmission], [year_of_manufacture], [account_supplier_id], [model_id]) VALUES (35, N'anonymousUser', N'MORRIS GARAGES MG5 LUX 2022
-Xe mới mua sử dụng dc 2 tháng', N'Dầu diesel', 0, N'15K-00953', 0, N'anonymousUser', CAST(N'2022-11-15T10:24:12.0000000' AS DateTime2), 1000, CAST(N'2022-10-11' AS Date), 65, 60, 5, N'ACTIVE', N'Số tự động', 2022, 16, 37)
+Xe mới mua sử dụng dc 2 tháng', N'Dầu diesel', 0, N'15K-00953', 0, N'anonymousUser', CAST(N'2022-11-15T10:24:12.0000000' AS DateTime2), 1000, CAST(N'2022-11-15' AS Date), 65, 60, 5, N'ACTIVE', N'Số tự động', 2022, 16, 37)
 GO
 INSERT [dbo].[car] ([id], [created_by], [description], [fuel], [latitude], [license_plates], [longitude], [modified_by], [modified_date], [price], [register_date], [sale_month], [sale_week], [seats], [status], [transmission], [year_of_manufacture], [account_supplier_id], [model_id]) VALUES (36, N'anonymousUser', N'CÔNG TY TNHH DỊCH VỤ TỰ LÁI NGỌC ANH
 Cho thuê xe KIA K3 , xe mới 2022 bản full
-cam kết XE MỚI- GIÁ RẺ - THỦ TỤC ĐƠN GIẢN - GIAO XE MIỄN PHÍ TẬN NHÀ', N'Dầu diesel', 0, N'15A-95704', 0, N'anonymousUser', CAST(N'2022-11-15T10:27:26.0000000' AS DateTime2), 950, CAST(N'2022-10-11' AS Date), 54, 52, 5, N'ACTIVE', N'Số tự động', 2022, 16, 38)
+cam kết XE MỚI- GIÁ RẺ - THỦ TỤC ĐƠN GIẢN - GIAO XE MIỄN PHÍ TẬN NHÀ', N'Dầu diesel', 0, N'15A-95704', 0, N'anonymousUser', CAST(N'2022-11-15T10:27:26.0000000' AS DateTime2), 950, CAST(N'2022-11-15' AS Date), 54, 52, 5, N'ACTIVE', N'Số tự động', 2022, 16, 38)
 GO
 INSERT [dbo].[car] ([id], [created_by], [description], [fuel], [latitude], [license_plates], [longitude], [modified_by], [modified_date], [price], [register_date], [sale_month], [sale_week], [seats], [status], [transmission], [year_of_manufacture], [account_supplier_id], [model_id]) VALUES (37, N'anonymousUser', N'Lux A2.0 đăng kí lần đầu 1/4/2021
-Xe mới cứng, phù hợp cho cac đối tác làm ăn, du lịch, dã ngoại...', N'Dầu diesel', 0, N'15A-70229', 0, N'anonymousUser', CAST(N'2022-11-15T10:33:52.0000000' AS DateTime2), 1400, CAST(N'2022-10-11' AS Date), 30, 20, 5, N'ACTIVE', N'Số tự động', 2001, 16, 333)
+Xe mới cứng, phù hợp cho cac đối tác làm ăn, du lịch, dã ngoại...', N'Dầu diesel', 0, N'15A-70229', 0, N'anonymousUser', CAST(N'2022-11-15T10:33:52.0000000' AS DateTime2), 1400, CAST(N'2022-11-15' AS Date), 30, 20, 5, N'ACTIVE', N'Số tự động', 2001, 16, 333)
 GO
 INSERT [dbo].[car] ([id], [created_by], [description], [fuel], [latitude], [license_plates], [longitude], [modified_by], [modified_date], [price], [register_date], [sale_month], [sale_week], [seats], [status], [transmission], [year_of_manufacture], [account_supplier_id], [model_id]) VALUES (38, N'anonymousUser', N'
 Xe số tự động, xe mới mua năm/2021, xe gia đình ít đi, chạy được 15.000km. Xe ít hao xăng 100km/6-7 lít.
-Có bản đồ cảnh báo tốc độ, camera hành trình, camera lùi. Màn hình lớn  zestech kết nối bluetooth, youtube giải trí.', N'Dầu diesel', 0, N'51G-74974', 0, N'anonymousUser', CAST(N'2022-11-15T10:37:07.0000000' AS DateTime2), 1000, CAST(N'2022-10-11' AS Date), 40, 35, 7, N'ACTIVE', N'Số sàn', 2019, 15, 301)
+Có bản đồ cảnh báo tốc độ, camera hành trình, camera lùi. Màn hình lớn  zestech kết nối bluetooth, youtube giải trí.', N'Dầu diesel', 0, N'51G-74974', 0, N'anonymousUser', CAST(N'2022-11-15T10:37:07.0000000' AS DateTime2), 1000, CAST(N'2022-11-15' AS Date), 40, 35, 7, N'ACTIVE', N'Số sàn', 2019, 15, 301)
 GO
 INSERT [dbo].[car] ([id], [created_by], [description], [fuel], [latitude], [license_plates], [longitude], [modified_by], [modified_date], [price], [register_date], [sale_month], [sale_week], [seats], [status], [transmission], [year_of_manufacture], [account_supplier_id], [model_id]) VALUES (39, N'anonymousUser', N'
 Xe số tự động, xe mới mua năm/2021, xe gia đình ít đi, chạy được 15.000km. Xe ít hao xăng 100km/6-7 lít.
-Có bản đồ cảnh báo tốc độ, camera hành trình, camera lùi. Màn hình lớn  zestech kết nối bluetooth, youtube giải trí.', N'Dầu diesel', 0, N'51K-1303.69', 0, N'anonymousUser', CAST(N'2022-11-15T10:41:22.0000000' AS DateTime2), 875, CAST(N'2022-10-11' AS Date), 69, 25, 5, N'ACTIVE', N'Số sàn', 2022, 15, 248)
+Có bản đồ cảnh báo tốc độ, camera hành trình, camera lùi. Màn hình lớn  zestech kết nối bluetooth, youtube giải trí.', N'Dầu diesel', 0, N'51K-1303.69', 0, N'anonymousUser', CAST(N'2022-11-15T10:41:22.0000000' AS DateTime2), 875, CAST(N'2022-11-15' AS Date), 69, 25, 5, N'ACTIVE', N'Số sàn', 2022, 15, 248)
 GO
 INSERT [dbo].[car] ([id], [created_by], [description], [fuel], [latitude], [license_plates], [longitude], [modified_by], [modified_date], [price], [register_date], [sale_month], [sale_week], [seats], [status], [transmission], [year_of_manufacture], [account_supplier_id], [model_id]) VALUES (40, N'anonymousUser', N'
 Xe số tự động, xe mới mua năm/2021, xe gia đình ít đi, chạy được 15.000km. Xe ít hao xăng 100km/6-7 lít.
-Có bản đồ cảnh báo tốc độ, camera hành trình, camera lùi. Màn hình lớn  zestech kết nối bluetooth, youtube giải trí.', N'Dầu diesel', 0, N'97A-03672 ', 0, N'anonymousUser', CAST(N'2022-11-15T10:41:54.0000000' AS DateTime2), 563, CAST(N'2022-10-11' AS Date), 40, 35, 5, N'ACTIVE', N'Số sàn', 2020, 15, 90)
+Có bản đồ cảnh báo tốc độ, camera hành trình, camera lùi. Màn hình lớn  zestech kết nối bluetooth, youtube giải trí.', N'Dầu diesel', 0, N'97A-03672 ', 0, N'anonymousUser', CAST(N'2022-11-15T10:41:54.0000000' AS DateTime2), 563, CAST(N'2022-11-15' AS Date), 40, 35, 5, N'ACTIVE', N'Số sàn', 2020, 15, 90)
 GO
 INSERT [dbo].[car] ([id], [created_by], [description], [fuel], [latitude], [license_plates], [longitude], [modified_by], [modified_date], [price], [register_date], [sale_month], [sale_week], [seats], [status], [transmission], [year_of_manufacture], [account_supplier_id], [model_id]) VALUES (42, N'anonymousUser', N'
 Xe số tự động, xe mới mua năm/2021, xe gia đình ít đi, chạy được 15.000km. Xe ít hao xăng 100km/6-7 lít.
-Có bản đồ cảnh báo tốc độ, camera hành trình, camera lùi. Màn hình lớn  zestech kết nối bluetooth, youtube giải trí.', N'Dầu diesel', 0, N'51K-068.71', 0, N'anonymousUser', CAST(N'2022-11-15T10:44:34.0000000' AS DateTime2), 750, CAST(N'2022-10-11' AS Date), 45, 30, 5, N'ACTIVE', N'Số tự động', 2021, 15, 244)
+Có bản đồ cảnh báo tốc độ, camera hành trình, camera lùi. Màn hình lớn  zestech kết nối bluetooth, youtube giải trí.', N'Dầu diesel', 0, N'51K-068.71', 0, N'anonymousUser', CAST(N'2022-11-15T10:44:34.0000000' AS DateTime2), 750, CAST(N'2022-11-15' AS Date), 45, 30, 5, N'ACTIVE', N'Số tự động', 2021, 15, 244)
 GO
 INSERT [dbo].[car] ([id], [created_by], [description], [fuel], [latitude], [license_plates], [longitude], [modified_by], [modified_date], [price], [register_date], [sale_month], [sale_week], [seats], [status], [transmission], [year_of_manufacture], [account_supplier_id], [model_id]) VALUES (43, N'anonymousUser', N'
 Xe số tự động, xe mới mua năm/2021, xe gia đình ít đi, chạy được 15.000km. Xe ít hao xăng 100km/6-7 lít.
-Có bản đồ cảnh báo tốc độ, camera hành trình, camera lùi. Màn hình lớn  zestech kết nối bluetooth, youtube giải trí.', N'Dầu diesel', 0, N'60K-003.26', 0, N'anonymousUser', CAST(N'2022-11-15T10:52:07.0000000' AS DateTime2), 900, CAST(N'2022-10-11' AS Date), 35, 31, 5, N'ACTIVE', N'Số sàn', 2021, 15, 245)
+Có bản đồ cảnh báo tốc độ, camera hành trình, camera lùi. Màn hình lớn  zestech kết nối bluetooth, youtube giải trí.', N'Dầu diesel', 0, N'60K-003.26', 0, N'anonymousUser', CAST(N'2022-11-15T10:52:07.0000000' AS DateTime2), 900, CAST(N'2022-11-15' AS Date), 35, 31, 5, N'ACTIVE', N'Số sàn', 2021, 15, 245)
 GO
-INSERT [dbo].[car] ([id], [created_by], [description], [fuel], [latitude], [license_plates], [longitude], [modified_by], [modified_date], [price], [register_date], [sale_month], [sale_week], [seats], [status], [transmission], [year_of_manufacture], [account_supplier_id], [model_id]) VALUES (45, N'anonymousUser', N'Gia đình có xe Vinfast Fadil (số tự động) 2021.Đã tích hợp cam lùi,màn hình android cam hành trình. Bạn nào có như cầu thuê xin hãy đặt hoặc lh [sdt] Xin cảm ơn', N'Dầu diesel', 0, N'15A-81137', 0, N'anonymousUser', CAST(N'2022-11-15T10:54:22.0000000' AS DateTime2), 600, CAST(N'2022-10-11' AS Date), 60, 55, 5, N'ACTIVE', N'Số sàn', 2021, 14, 332)
+INSERT [dbo].[car] ([id], [created_by], [description], [fuel], [latitude], [license_plates], [longitude], [modified_by], [modified_date], [price], [register_date], [sale_month], [sale_week], [seats], [status], [transmission], [year_of_manufacture], [account_supplier_id], [model_id]) VALUES (45, N'anonymousUser', N'Gia đình có xe Vinfast Fadil (số tự động) 2021.Đã tích hợp cam lùi,màn hình android cam hành trình. Bạn nào có như cầu thuê xin hãy đặt hoặc lh [sdt] Xin cảm ơn', N'Dầu diesel', 0, N'15A-81137', 0, N'anonymousUser', CAST(N'2022-11-15T10:54:22.0000000' AS DateTime2), 600, CAST(N'2022-11-15' AS Date), 60, 55, 5, N'ACTIVE', N'Số sàn', 2021, 14, 332)
 GO
 INSERT [dbo].[car] ([id], [created_by], [description], [fuel], [latitude], [license_plates], [longitude], [modified_by], [modified_date], [price], [register_date], [sale_month], [sale_week], [seats], [status], [transmission], [year_of_manufacture], [account_supplier_id], [model_id]) VALUES (46, N'anonymousUser', N'
-Xe Hyundai số sàn đăng ký tháng 5 năm 2019 xe gia đình đẹp nguyên bản, xe bảo dưỡng thường xuyên rửa xe miễn phí cho khách. Xe rộng rãi an toàn thích hợp cho gia đình đi du lịch đi chơi. Trang bị cảm biến lùi hệ thống giải trí AV, cùng nhiều tiện nghi khác', N'Dầu diesel', 0, N'99A-47942', 0, N'anonymousUser', CAST(N'2022-11-15T10:57:36.0000000' AS DateTime2), 450, CAST(N'2022-10-11' AS Date), 45, 55, 5, N'ACTIVE', N'Số sàn', 2019, 14, 98)
+Xe Hyundai số sàn đăng ký tháng 5 năm 2019 xe gia đình đẹp nguyên bản, xe bảo dưỡng thường xuyên rửa xe miễn phí cho khách. Xe rộng rãi an toàn thích hợp cho gia đình đi du lịch đi chơi. Trang bị cảm biến lùi hệ thống giải trí AV, cùng nhiều tiện nghi khác', N'Dầu diesel', 0, N'99A-47942', 0, N'anonymousUser', CAST(N'2022-11-15T10:57:36.0000000' AS DateTime2), 450, CAST(N'2022-11-15' AS Date), 45, 55, 5, N'ACTIVE', N'Số sàn', 2019, 14, 98)
 GO
-INSERT [dbo].[car] ([id], [created_by], [description], [fuel], [latitude], [license_plates], [longitude], [modified_by], [modified_date], [price], [register_date], [sale_month], [sale_week], [seats], [status], [transmission], [year_of_manufacture], [account_supplier_id], [model_id]) VALUES (47, N'anonymousUser', N'Xe mazda 3 xe gia đình sạch sẽ 👍🏻👍🏻🏞', N'Xăng', 0, N'73A-08248', 0, N'anonymousUser', CAST(N'2022-11-15T10:58:47.0000000' AS DateTime2), 1000, CAST(N'2022-10-11' AS Date), 9, 16, 4, N'ACTIVE', N'Số tự động', 2015, 14, 164)
+INSERT [dbo].[car] ([id], [created_by], [description], [fuel], [latitude], [license_plates], [longitude], [modified_by], [modified_date], [price], [register_date], [sale_month], [sale_week], [seats], [status], [transmission], [year_of_manufacture], [account_supplier_id], [model_id]) VALUES (47, N'anonymousUser', N'Xe mazda 3 xe gia đình sạch sẽ 👍🏻👍🏻🏞', N'Xăng', 0, N'73A-08248', 0, N'anonymousUser', CAST(N'2022-11-15T10:58:47.0000000' AS DateTime2), 1000, CAST(N'2022-11-15' AS Date), 9, 16, 4, N'ACTIVE', N'Số tự động', 2015, 14, 164)
 GO
-INSERT [dbo].[car] ([id], [created_by], [description], [fuel], [latitude], [license_plates], [longitude], [modified_by], [modified_date], [price], [register_date], [sale_month], [sale_week], [seats], [status], [transmission], [year_of_manufacture], [account_supplier_id], [model_id]) VALUES (48, N'anonymousUser', N'Huynhdai santafe số tự động đăng ký thá 4/2018. Xe gia đình mới đep . Nội thất nguyen bản, sạch sẽ , bảo dưỡng thường xuyen, rửa xe miễn phi cho khách.Xe rộng  rãi,an toàn, tiện nghi phù hợp cho gia đình đi du lich . Xe được trang bị hệ thống đầy đủ và hiện đại', N'Xăng', 0, N'43A-33872', 0, N'anonymousUser', CAST(N'2022-11-15T11:02:57.0000000' AS DateTime2), 1062, CAST(N'2022-10-11' AS Date), 33, 26, 7, N'ACTIVE', N'Số tự động', 2018, 14, 106)
+INSERT [dbo].[car] ([id], [created_by], [description], [fuel], [latitude], [license_plates], [longitude], [modified_by], [modified_date], [price], [register_date], [sale_month], [sale_week], [seats], [status], [transmission], [year_of_manufacture], [account_supplier_id], [model_id]) VALUES (48, N'anonymousUser', N'Huynhdai santafe số tự động đăng ký thá 4/2018. Xe gia đình mới đep . Nội thất nguyen bản, sạch sẽ , bảo dưỡng thường xuyen, rửa xe miễn phi cho khách.Xe rộng  rãi,an toàn, tiện nghi phù hợp cho gia đình đi du lich . Xe được trang bị hệ thống đầy đủ và hiện đại', N'Xăng', 0, N'43A-33872', 0, N'anonymousUser', CAST(N'2022-11-15T11:02:57.0000000' AS DateTime2), 1062, CAST(N'2022-11-15' AS Date), 33, 26, 7, N'ACTIVE', N'Số tự động', 2018, 14, 106)
 GO
 INSERT [dbo].[car] ([id], [created_by], [description], [fuel], [latitude], [license_plates], [longitude], [modified_by], [modified_date], [price], [register_date], [sale_month], [sale_week], [seats], [status], [transmission], [year_of_manufacture], [account_supplier_id], [model_id]) VALUES (49, N'anonymousUser', N'xe đã dán thu phí ETC , rất tiện lợi
 suzuki xl7 xe gia đình sử dụng rất mới
@@ -1423,20 +1416,20 @@ camera lùi cảm biến
 các chức năng an toàn trên xe ABS , BA , ESP , EBD , O/D ( tính năng khi leo dốc đèo )
 •••••••••••••••• ĐẶC BIỆT ••••••••••••••
  KHÔNG PHỤ PHÍ RỬA XE
-(TRỪ TRƯỜNG HỢP XE QUÁ DƠ HOẶC CÓ MÙI)', N'Dầu diesel', 0, N'51A-13116', 0, N'anonymousUser', CAST(N'2022-11-15T11:03:27.0000000' AS DateTime2), 750, CAST(N'2022-10-11' AS Date), 60, 59, 7, N'ACTIVE', N'Số sàn', 2021, 14, 291)
+(TRỪ TRƯỜNG HỢP XE QUÁ DƠ HOẶC CÓ MÙI)', N'Dầu diesel', 0, N'51A-13116', 0, N'anonymousUser', CAST(N'2022-11-15T11:03:27.0000000' AS DateTime2), 750, CAST(N'2022-11-15' AS Date), 60, 59, 7, N'ACTIVE', N'Số sàn', 2021, 14, 291)
 GO
 INSERT [dbo].[car] ([id], [created_by], [description], [fuel], [latitude], [license_plates], [longitude], [modified_by], [modified_date], [price], [register_date], [sale_month], [sale_week], [seats], [status], [transmission], [year_of_manufacture], [account_supplier_id], [model_id]) VALUES (50, N'anonymousUser', N'Mercedes C250 Exclusive độ Full Body kit C63 ĐKLĐ T12/2017
 Xe cá nhân sử dụng, ít đi, giữ xe, Nội thất kem sang trọng, sạch sẽ, bảo dưỡng định kỳ thường xuyên, độ đẹp và chất.
 Xe rộng rãi, an toàn, tiện nghi, phù hợp cho dự tiệc và đám cưới
-Trang bị đầy đủ hệ thống an toàn, cảnh báo làn đường, cảnh báo va chạm, hệ thống giải trí 13 loa Burmester , gạt mưa và đèn auto, cửa sổ trời cùng rất nhiều tiện nghi khác', N'Dầu diesel', 0, N'51H-78329', 0, N'anonymousUser', CAST(N'2022-11-15T11:05:18.0000000' AS DateTime2), 750, CAST(N'2022-10-11' AS Date), 60, 59, 7, N'ACTIVE', N'Số sàn', 2017, 13, 187)
+Trang bị đầy đủ hệ thống an toàn, cảnh báo làn đường, cảnh báo va chạm, hệ thống giải trí 13 loa Burmester , gạt mưa và đèn auto, cửa sổ trời cùng rất nhiều tiện nghi khác', N'Dầu diesel', 0, N'51H-78329', 0, N'anonymousUser', CAST(N'2022-11-15T11:05:18.0000000' AS DateTime2), 750, CAST(N'2022-11-15' AS Date), 60, 59, 7, N'ACTIVE', N'Số sàn', 2017, 13, 187)
 GO
-INSERT [dbo].[car] ([id], [created_by], [description], [fuel], [latitude], [license_plates], [longitude], [modified_by], [modified_date], [price], [register_date], [sale_month], [sale_week], [seats], [status], [transmission], [year_of_manufacture], [account_supplier_id], [model_id]) VALUES (51, N'anonymousUser', N'Honda civic 2020 xe gia đình ít đi . Đẹp sạch sẻ', N'Xăng', 0, N'49A-31980', 0, N'anonymousUser', CAST(N'2022-11-15T11:06:11.0000000' AS DateTime2), 1100, CAST(N'2022-10-11' AS Date), 60, 14, 7, N'ACTIVE', N'Số tự động', 2020, 13, 81)
+INSERT [dbo].[car] ([id], [created_by], [description], [fuel], [latitude], [license_plates], [longitude], [modified_by], [modified_date], [price], [register_date], [sale_month], [sale_week], [seats], [status], [transmission], [year_of_manufacture], [account_supplier_id], [model_id]) VALUES (51, N'anonymousUser', N'Honda civic 2020 xe gia đình ít đi . Đẹp sạch sẻ', N'Xăng', 0, N'49A-31980', 0, N'anonymousUser', CAST(N'2022-11-15T11:06:11.0000000' AS DateTime2), 1100, CAST(N'2022-11-15' AS Date), 60, 14, 7, N'ACTIVE', N'Số tự động', 2020, 13, 81)
 GO
 INSERT [dbo].[car] ([id], [created_by], [description], [fuel], [latitude], [license_plates], [longitude], [modified_by], [modified_date], [price], [register_date], [sale_month], [sale_week], [seats], [status], [transmission], [year_of_manufacture], [account_supplier_id], [model_id]) VALUES (52, N'anonymousUser', N'Xe Ford Raptor 2 cầu, Bi-Turbo máy dầu, 5 chỗ, Camera 360, Racechip, khoang ghế sau trượt, đề nổ từ xa, 
 Khoang thùng bán tải rộng nhất hiện tại...
-Trang bị nắp thùng xe bán tải- Năp thùng cuộn', N'Xăng', 0, N'51H-11432', 0, N'anonymousUser', CAST(N'2022-11-15T11:09:47.0000000' AS DateTime2), 1652, CAST(N'2022-10-11' AS Date), 27, 18, 7, N'ACTIVE', N'Số tự động', 2020, 13, 68)
+Trang bị nắp thùng xe bán tải- Năp thùng cuộn', N'Xăng', 0, N'51H-11432', 0, N'anonymousUser', CAST(N'2022-11-15T11:09:47.0000000' AS DateTime2), 1652, CAST(N'2022-11-15' AS Date), 27, 18, 7, N'ACTIVE', N'Số tự động', 2020, 13, 68)
 GO
-INSERT [dbo].[car] ([id], [created_by], [description], [fuel], [latitude], [license_plates], [longitude], [modified_by], [modified_date], [price], [register_date], [sale_month], [sale_week], [seats], [status], [transmission], [year_of_manufacture], [account_supplier_id], [model_id]) VALUES (53, N'anonymousUser', N'Xe SsangYong nhà chạy kỹ, Đã gắn thêm thắng phụ bên phải cho người tập xe.', N'Dầu diesel', 0, N'51G-37016', 0, N'anonymousUser', CAST(N'2022-11-15T11:10:26.0000000' AS DateTime2), 690, CAST(N'2022-10-11' AS Date), 65, 55, 5, N'ACTIVE', N'Số sàn', 2017, 13, 277)
+INSERT [dbo].[car] ([id], [created_by], [description], [fuel], [latitude], [license_plates], [longitude], [modified_by], [modified_date], [price], [register_date], [sale_month], [sale_week], [seats], [status], [transmission], [year_of_manufacture], [account_supplier_id], [model_id]) VALUES (53, N'anonymousUser', N'Xe SsangYong nhà chạy kỹ, Đã gắn thêm thắng phụ bên phải cho người tập xe.', N'Dầu diesel', 0, N'51G-37016', 0, N'anonymousUser', CAST(N'2022-11-15T11:10:26.0000000' AS DateTime2), 690, CAST(N'2022-11-15' AS Date), 65, 55, 5, N'ACTIVE', N'Số sàn', 2017, 13, 277)
 GO
 INSERT [dbo].[car] ([id], [created_by], [description], [fuel], [latitude], [license_plates], [longitude], [modified_by], [modified_date], [price], [register_date], [sale_month], [sale_week], [seats], [status], [transmission], [year_of_manufacture], [account_supplier_id], [model_id]) VALUES (54, N'anonymousUser', N'
 Ssangyong XLV số tự động đăng ký 2019
@@ -1444,49 +1437,49 @@ Xe gia đình mới đẹp ít đi.
 Nội thất nguyên bản, sạch đẹp.
 Xe rộng rãi an toàn tiện nghi được bảo dưỡng thường xuyên.
 Hệ thống camera cảm biến lùi, gạt mưa tự động, hệ thống giải trí AV, phần mềm cảnh báo tốc độ điều hướng trên xa lộ. 
-Khoang sau rộng rãi để đuợc nhiều hành lý.', N'Dầu diesel', 0, N'51G-74928', 0, N'anonymousUser', CAST(N'2022-11-15T11:11:34.0000000' AS DateTime2), 690, CAST(N'2022-10-11' AS Date), 65, 55, 5, N'ACTIVE', N'Số sàn', 2018, 13, 276)
+Khoang sau rộng rãi để đuợc nhiều hành lý.', N'Dầu diesel', 0, N'51G-74928', 0, N'anonymousUser', CAST(N'2022-11-15T11:11:34.0000000' AS DateTime2), 690, CAST(N'2022-11-15' AS Date), 65, 55, 5, N'ACTIVE', N'Số sàn', 2018, 13, 276)
 GO
-INSERT [dbo].[car] ([id], [created_by], [description], [fuel], [latitude], [license_plates], [longitude], [modified_by], [modified_date], [price], [register_date], [sale_month], [sale_week], [seats], [status], [transmission], [year_of_manufacture], [account_supplier_id], [model_id]) VALUES (55, N'anonymousUser', N'Xe BEJING X7 với những tính năng công nghệ an toàn và ứng dụng hàng đầu trong phân khúc. Mang lại bạn sự hài lòng và tiện nghi.', N'Xăng', 0, N'61K-08711', 0, N'anonymousUser', CAST(N'2022-11-15T11:13:28.0000000' AS DateTime2), 1100, CAST(N'2022-10-11' AS Date), 65, 30, 5, N'ACTIVE', N'Số tự động', 2020, 12, 9)
+INSERT [dbo].[car] ([id], [created_by], [description], [fuel], [latitude], [license_plates], [longitude], [modified_by], [modified_date], [price], [register_date], [sale_month], [sale_week], [seats], [status], [transmission], [year_of_manufacture], [account_supplier_id], [model_id]) VALUES (55, N'anonymousUser', N'Xe BEJING X7 với những tính năng công nghệ an toàn và ứng dụng hàng đầu trong phân khúc. Mang lại bạn sự hài lòng và tiện nghi.', N'Xăng', 0, N'61K-08711', 0, N'anonymousUser', CAST(N'2022-11-15T11:13:28.0000000' AS DateTime2), 1100, CAST(N'2022-11-15' AS Date), 65, 30, 5, N'ACTIVE', N'Số tự động', 2020, 12, 9)
 GO
 INSERT [dbo].[car] ([id], [created_by], [description], [fuel], [latitude], [license_plates], [longitude], [modified_by], [modified_date], [price], [register_date], [sale_month], [sale_week], [seats], [status], [transmission], [year_of_manufacture], [account_supplier_id], [model_id]) VALUES (56, N'anonymousUser', N'TOYOTA VIOS E 2020, xe mới sạch sẽ, bảo dưỡng định kỳ 5000km, vệ sinh trước khi giao khách. 
 Phụ thu 300k nếu quý khách hút thuốc trong xe.
-Cảm ơn anh chị đã ủng hộ.', N'Dầu diesel', 0, N'49A-31116', 0, N'anonymousUser', CAST(N'2022-11-15T11:15:48.0000000' AS DateTime2), 650, CAST(N'2022-10-11' AS Date), 59, 55, 5, N'ACTIVE', N'Số sàn', 2020, 12, 320)
+Cảm ơn anh chị đã ủng hộ.', N'Dầu diesel', 0, N'49A-31116', 0, N'anonymousUser', CAST(N'2022-11-15T11:15:48.0000000' AS DateTime2), 650, CAST(N'2022-11-15' AS Date), 59, 55, 5, N'ACTIVE', N'Số sàn', 2020, 12, 320)
 GO
-INSERT [dbo].[car] ([id], [created_by], [description], [fuel], [latitude], [license_plates], [longitude], [modified_by], [modified_date], [price], [register_date], [sale_month], [sale_week], [seats], [status], [transmission], [year_of_manufacture], [account_supplier_id], [model_id]) VALUES (57, N'anonymousUser', N'BMW 320i 2015', N'Xăng', 0, N'51F-59389', 0, N'anonymousUser', CAST(N'2022-11-15T11:15:50.0000000' AS DateTime2), 1800, CAST(N'2022-10-11' AS Date), 67, 25, 5, N'ACTIVE', N'Số tự động', 2016, 12, 14)
+INSERT [dbo].[car] ([id], [created_by], [description], [fuel], [latitude], [license_plates], [longitude], [modified_by], [modified_date], [price], [register_date], [sale_month], [sale_week], [seats], [status], [transmission], [year_of_manufacture], [account_supplier_id], [model_id]) VALUES (57, N'anonymousUser', N'BMW 320i 2015', N'Xăng', 0, N'51F-59389', 0, N'anonymousUser', CAST(N'2022-11-15T11:15:50.0000000' AS DateTime2), 1800, CAST(N'2022-11-15' AS Date), 67, 25, 5, N'ACTIVE', N'Số tự động', 2016, 12, 14)
 GO
 INSERT [dbo].[car] ([id], [created_by], [description], [fuel], [latitude], [license_plates], [longitude], [modified_by], [modified_date], [price], [register_date], [sale_month], [sale_week], [seats], [status], [transmission], [year_of_manufacture], [account_supplier_id], [model_id]) VALUES (58, N'anonymousUser', N'Xe Captiva đậm chất Mỹ mang đến cảm giác lái đầm chắc. Kiểu dáng thể thao, nam tính, mạnh mẽ, rộng rãi 7 chỗ. Nhiều trang bị an toàn & hiện đại như: số tự động, ga tự động, phanh tay điện tử, cảm biến áp suất lốp, ABS, hỗ trợ đổ đèo, camera lùi, cảm biến trước sau, cảnh báo điểm mù, camera hành trình, bản đồ vietmap, chế độ lái Eco giúp tiết kiệm nhiên liệu, cửa sổ trời, kết nối Bluetooth & Apple Carplay, gạt mưa & đèn pha tự động... Đặc biệt xe có hệ thống điều hoà lọc ion khử khuẩn giúp không khí trong xe sạch sẽ và dễ chịu hơn.
 
 Xe gia đình chăm sóc & bảo dưỡng kỹ lưỡng, đầy đủ, sạch sẽ. 
 Phù hợp đi công tác, du lịch khắp nơi cùng gđ 7 người. Gầm cao, máy khoẻ sẽ mang lại những cảm giác thích thú & hài lòng khi cầm lái Captiva.
 
-*Lưu ý: Xe đăng ký kinh doanh nên biển số vàng.', N'Xăng', 0, N'51F-70954', 0, N'anonymousUser', CAST(N'2022-11-15T11:19:12.0000000' AS DateTime2), 950, CAST(N'2022-10-11' AS Date), 63, 9, 7, N'ACTIVE', N'Số tự động', 2016, 12, 31)
+*Lưu ý: Xe đăng ký kinh doanh nên biển số vàng.', N'Xăng', 0, N'51F-70954', 0, N'anonymousUser', CAST(N'2022-11-15T11:19:12.0000000' AS DateTime2), 950, CAST(N'2022-11-15' AS Date), 63, 9, 7, N'ACTIVE', N'Số tự động', 2016, 12, 31)
 GO
-INSERT [dbo].[car] ([id], [created_by], [description], [fuel], [latitude], [license_plates], [longitude], [modified_by], [modified_date], [price], [register_date], [sale_month], [sale_week], [seats], [status], [transmission], [year_of_manufacture], [account_supplier_id], [model_id]) VALUES (59, N'anonymousUser', N'CHEVROLET AVEO 2018 mới va đẹp. ít hao xăng. bảo dưỡng định kì. chủ xe dễ tính nếu khách hàng hợp tác dễ thương. hân hạnh được phục vụ.', N'Xăng', 0, N'67A-09029', 0, N'anonymousUser', CAST(N'2022-11-15T11:22:01.0000000' AS DateTime2), 550, CAST(N'2022-10-11' AS Date), 43, 14, 7, N'ACTIVE', N'Số sàn', 2018, 12, 29)
+INSERT [dbo].[car] ([id], [created_by], [description], [fuel], [latitude], [license_plates], [longitude], [modified_by], [modified_date], [price], [register_date], [sale_month], [sale_week], [seats], [status], [transmission], [year_of_manufacture], [account_supplier_id], [model_id]) VALUES (59, N'anonymousUser', N'CHEVROLET AVEO 2018 mới va đẹp. ít hao xăng. bảo dưỡng định kì. chủ xe dễ tính nếu khách hàng hợp tác dễ thương. hân hạnh được phục vụ.', N'Xăng', 0, N'67A-09029', 0, N'anonymousUser', CAST(N'2022-11-15T11:22:01.0000000' AS DateTime2), 550, CAST(N'2022-11-15' AS Date), 43, 14, 7, N'ACTIVE', N'Số sàn', 2018, 12, 29)
 GO
 INSERT [dbo].[car] ([id], [created_by], [description], [fuel], [latitude], [license_plates], [longitude], [modified_by], [modified_date], [price], [register_date], [sale_month], [sale_week], [seats], [status], [transmission], [year_of_manufacture], [account_supplier_id], [model_id]) VALUES (60, N'anonymousUser', N'CHEVROLET COLORADO 2019
 Động cơ thế hệ mới 2,5l. Tiết kiệm dầu
 Số tự động ,xe đăng ký lần đầu tháng 04/2019
-Đầy đủ tính năng an toàn', N'Dầu diesel', 0, N'51D-37045', 0, N'anonymousUser', CAST(N'2022-11-15T11:24:11.0000000' AS DateTime2), 730, CAST(N'2022-10-11' AS Date), 16, 20, 7, N'ACTIVE', N'Số sàn', 2019, 11, 33)
+Đầy đủ tính năng an toàn', N'Dầu diesel', 0, N'51D-37045', 0, N'anonymousUser', CAST(N'2022-11-15T11:24:11.0000000' AS DateTime2), 730, CAST(N'2022-11-15' AS Date), 16, 20, 7, N'ACTIVE', N'Số sàn', 2019, 11, 33)
 GO
-INSERT [dbo].[car] ([id], [created_by], [description], [fuel], [latitude], [license_plates], [longitude], [modified_by], [modified_date], [price], [register_date], [sale_month], [sale_week], [seats], [status], [transmission], [year_of_manufacture], [account_supplier_id], [model_id]) VALUES (61, N'anonymousUser', N'xe nhập nguyên chiếc , cứng cáp, máy êm.Nội thất da xịn đẹp sang trọng không hôi như nhiều xe mới bây giờ. Nhiều option điều khiển tự động. Độ an toàn cao do vỏ xe dày không mỏng như xe mới bây giờ. Đi nhin sang trọng. bảo dưỡng đinh kỳ 5.000km. cửa trời', N'Dầu diesel', 0, N'51F-36085', 0, N'anonymousUser', CAST(N'2022-11-15T11:27:00.0000000' AS DateTime2), 450, CAST(N'2022-10-11' AS Date), 60, 12, 7, N'ACTIVE', N'Số sàn', 2009, 11, 46)
+INSERT [dbo].[car] ([id], [created_by], [description], [fuel], [latitude], [license_plates], [longitude], [modified_by], [modified_date], [price], [register_date], [sale_month], [sale_week], [seats], [status], [transmission], [year_of_manufacture], [account_supplier_id], [model_id]) VALUES (61, N'anonymousUser', N'xe nhập nguyên chiếc , cứng cáp, máy êm.Nội thất da xịn đẹp sang trọng không hôi như nhiều xe mới bây giờ. Nhiều option điều khiển tự động. Độ an toàn cao do vỏ xe dày không mỏng như xe mới bây giờ. Đi nhin sang trọng. bảo dưỡng đinh kỳ 5.000km. cửa trời', N'Dầu diesel', 0, N'51F-36085', 0, N'anonymousUser', CAST(N'2022-11-15T11:27:00.0000000' AS DateTime2), 450, CAST(N'2022-11-15' AS Date), 60, 12, 7, N'ACTIVE', N'Số sàn', 2009, 11, 46)
 GO
-INSERT [dbo].[car] ([id], [created_by], [description], [fuel], [latitude], [license_plates], [longitude], [modified_by], [modified_date], [price], [register_date], [sale_month], [sale_week], [seats], [status], [transmission], [year_of_manufacture], [account_supplier_id], [model_id]) VALUES (62, N'anonymousUser', N'Xe Laceti 2010 còn mới, xe nhà đi ít, nội thất sạch sẽ, máy chạy êm, tiết kiệm nhiên liệu. Khoang xe rộng rãi cho 5 người, cốp xe rộng 500 lit.', N'Dầu diesel', 0, N'61A-88296', 0, N'anonymousUser', CAST(N'2022-11-15T11:29:25.0000000' AS DateTime2), 500, CAST(N'2022-10-11' AS Date), 56, 21, 7, N'ACTIVE', N'Số sàn', 2010, 11, 46)
+INSERT [dbo].[car] ([id], [created_by], [description], [fuel], [latitude], [license_plates], [longitude], [modified_by], [modified_date], [price], [register_date], [sale_month], [sale_week], [seats], [status], [transmission], [year_of_manufacture], [account_supplier_id], [model_id]) VALUES (62, N'anonymousUser', N'Xe Laceti 2010 còn mới, xe nhà đi ít, nội thất sạch sẽ, máy chạy êm, tiết kiệm nhiên liệu. Khoang xe rộng rãi cho 5 người, cốp xe rộng 500 lit.', N'Dầu diesel', 0, N'61A-88296', 0, N'anonymousUser', CAST(N'2022-11-15T11:29:25.0000000' AS DateTime2), 500, CAST(N'2022-11-15' AS Date), 56, 21, 7, N'ACTIVE', N'Số sàn', 2010, 11, 46)
 GO
 INSERT [dbo].[car] ([id], [created_by], [description], [fuel], [latitude], [license_plates], [longitude], [modified_by], [modified_date], [price], [register_date], [sale_month], [sale_week], [seats], [status], [transmission], [year_of_manufacture], [account_supplier_id], [model_id]) VALUES (63, N'anonymousUser', N'Xe Merc GLK 250 màu đỏ
 Nội thất mới, it hao nhien lieu, ít hao nhiên liệu, xe chạy êm, sạch sẽ
-', N'Dầu diesel', 0, N'51A-671.70', 0, N'anonymousUser', CAST(N'2022-11-15T11:31:16.0000000' AS DateTime2), 900, CAST(N'2022-10-11' AS Date), 50, 39, 5, N'ACTIVE', N'Số sàn', 2013, 11, 212)
+', N'Dầu diesel', 0, N'51A-671.70', 0, N'anonymousUser', CAST(N'2022-11-15T11:31:16.0000000' AS DateTime2), 900, CAST(N'2022-11-15' AS Date), 50, 39, 5, N'ACTIVE', N'Số sàn', 2013, 11, 212)
 GO
-INSERT [dbo].[car] ([id], [created_by], [description], [fuel], [latitude], [license_plates], [longitude], [modified_by], [modified_date], [price], [register_date], [sale_month], [sale_week], [seats], [status], [transmission], [year_of_manufacture], [account_supplier_id], [model_id]) VALUES (64, N'anonymousUser', N'MERCEDES C250 2017 sạch sẽ,thoáng mát', N'Dầu diesel', 0, N'51F-874.38', 0, N'anonymousUser', CAST(N'2022-11-15T11:34:22.0000000' AS DateTime2), 2079, CAST(N'2022-10-11' AS Date), 30, 30, 5, N'ACTIVE', N'Số sàn', 2017, 9, 187)
+INSERT [dbo].[car] ([id], [created_by], [description], [fuel], [latitude], [license_plates], [longitude], [modified_by], [modified_date], [price], [register_date], [sale_month], [sale_week], [seats], [status], [transmission], [year_of_manufacture], [account_supplier_id], [model_id]) VALUES (64, N'anonymousUser', N'MERCEDES C250 2017 sạch sẽ,thoáng mát', N'Dầu diesel', 0, N'51F-874.38', 0, N'anonymousUser', CAST(N'2022-11-15T11:34:22.0000000' AS DateTime2), 2079, CAST(N'2022-11-15' AS Date), 30, 30, 5, N'ACTIVE', N'Số sàn', 2017, 9, 187)
 GO
-INSERT [dbo].[car] ([id], [created_by], [description], [fuel], [latitude], [license_plates], [longitude], [modified_by], [modified_date], [price], [register_date], [sale_month], [sale_week], [seats], [status], [transmission], [year_of_manufacture], [account_supplier_id], [model_id]) VALUES (65, N'anonymousUser', N'honda city 2019 mới mua,sạch sẽ và đẹp nguyên bản nhé', N'Xăng', 0, N'51H-58918', 0, N'anonymousUser', CAST(N'2022-11-15T11:34:23.0000000' AS DateTime2), 850, CAST(N'2022-10-11' AS Date), 34, 23, 4, N'ACTIVE', N'Số tự động', 2019, 9, 80)
+INSERT [dbo].[car] ([id], [created_by], [description], [fuel], [latitude], [license_plates], [longitude], [modified_by], [modified_date], [price], [register_date], [sale_month], [sale_week], [seats], [status], [transmission], [year_of_manufacture], [account_supplier_id], [model_id]) VALUES (65, N'anonymousUser', N'honda city 2019 mới mua,sạch sẽ và đẹp nguyên bản nhé', N'Xăng', 0, N'51H-58918', 0, N'anonymousUser', CAST(N'2022-11-15T11:34:23.0000000' AS DateTime2), 850, CAST(N'2022-11-15' AS Date), 34, 23, 4, N'ACTIVE', N'Số tự động', 2019, 9, 80)
 GO
-INSERT [dbo].[car] ([id], [created_by], [description], [fuel], [latitude], [license_plates], [longitude], [modified_by], [modified_date], [price], [register_date], [sale_month], [sale_week], [seats], [status], [transmission], [year_of_manufacture], [account_supplier_id], [model_id]) VALUES (66, N'anonymousUser', N'MERCEDES CLA 200 2015 ', N'Xăng', 0, N'30H-890.76', 0, N'anonymousUser', CAST(N'2022-11-15T11:37:29.0000000' AS DateTime2), 1300, CAST(N'2022-10-11' AS Date), 25, 10, 5, N'ACTIVE', N'Số sàn', 2015, 9, 190)
+INSERT [dbo].[car] ([id], [created_by], [description], [fuel], [latitude], [license_plates], [longitude], [modified_by], [modified_date], [price], [register_date], [sale_month], [sale_week], [seats], [status], [transmission], [year_of_manufacture], [account_supplier_id], [model_id]) VALUES (66, N'anonymousUser', N'MERCEDES CLA 200 2015 ', N'Xăng', 0, N'30H-890.76', 0, N'anonymousUser', CAST(N'2022-11-15T11:37:29.0000000' AS DateTime2), 1300, CAST(N'2022-11-15' AS Date), 25, 10, 5, N'ACTIVE', N'Số sàn', 2015, 9, 190)
 GO
 INSERT [dbo].[car] ([id], [created_by], [description], [fuel], [latitude], [license_plates], [longitude], [modified_by], [modified_date], [price], [register_date], [sale_month], [sale_week], [seats], [status], [transmission], [year_of_manufacture], [account_supplier_id], [model_id]) VALUES (67, N'anonymousUser', N'
-MERCEDES C300', N'Xăng', 0, N'51A-767.88', 0, N'anonymousUser', CAST(N'2022-11-15T11:47:53.0000000' AS DateTime2), 2000, CAST(N'2022-10-11' AS Date), 30, 10, 5, N'ACTIVE', N'Số sàn', 2015, 9, 188)
+MERCEDES C300', N'Xăng', 0, N'51A-767.88', 0, N'anonymousUser', CAST(N'2022-11-15T11:47:53.0000000' AS DateTime2), 2000, CAST(N'2022-11-15' AS Date), 30, 10, 5, N'ACTIVE', N'Số sàn', 2015, 9, 188)
 GO
 INSERT [dbo].[car] ([id], [created_by], [description], [fuel], [latitude], [license_plates], [longitude], [modified_by], [modified_date], [price], [register_date], [sale_month], [sale_week], [seats], [status], [transmission], [year_of_manufacture], [account_supplier_id], [model_id]) VALUES (68, N'anonymousUser', N'Ford Ecosport số sàn. Xe gia đình nên chạy kỹ lưỡng, bảo dưỡng đầy đủ theo định kỳ hãng. 
-Nội thất đầy đủ, camera hành trình, mới - đẹp. Xe phù hợp đi du lịch gia đình tối đa 5 người.', N'Xăng', 0, N'51F-79905', 0, N'anonymousUser', CAST(N'2022-11-15T11:58:35.0000000' AS DateTime2), 850, CAST(N'2022-10-11' AS Date), 55, 31, 4, N'ACTIVE', N'Số sàn', 2016, 8, 53)
+Nội thất đầy đủ, camera hành trình, mới - đẹp. Xe phù hợp đi du lịch gia đình tối đa 5 người.', N'Xăng', 0, N'51F-79905', 0, N'anonymousUser', CAST(N'2022-11-15T11:58:35.0000000' AS DateTime2), 850, CAST(N'2022-11-15' AS Date), 55, 31, 4, N'ACTIVE', N'Số sàn', 2016, 8, 53)
 GO
 INSERT [dbo].[car] ([id], [created_by], [description], [fuel], [latitude], [license_plates], [longitude], [modified_by], [modified_date], [price], [register_date], [sale_month], [sale_week], [seats], [status], [transmission], [year_of_manufacture], [account_supplier_id], [model_id]) VALUES (69, N'anonymousUser', N'Ford Everest 2019-7 chỗ rộng rãi, cốp rộng, hàng 3 thoải mái
 Cam hàng trình, cam cập lề, cam de điều hướng
@@ -1497,51 +1490,51 @@ Sạch sẽ, tiện nghi. Kết nối Carplay, Android Auto
 Giờ nhận xe: sau 21h30
 Giờ trả xe: trước 20h
 Thu phí vệ sinh 300k nếu nôn ói, hút thuốc lá trong xe
-Xe có hỗ trợ bảo hiểm 2 chiều', N'Dầu diesel', 0, N'51H-09895', 0, N'anonymousUser', CAST(N'2022-11-15T12:01:00.0000000' AS DateTime2), 1600, CAST(N'2022-10-11' AS Date), 69, 24, 7, N'ACTIVE', N'Số sàn', 2019, 8, 55)
+Xe có hỗ trợ bảo hiểm 2 chiều', N'Dầu diesel', 0, N'51H-09895', 0, N'anonymousUser', CAST(N'2022-11-15T12:01:00.0000000' AS DateTime2), 1600, CAST(N'2022-11-15' AS Date), 69, 24, 7, N'ACTIVE', N'Số sàn', 2019, 8, 55)
 GO
 INSERT [dbo].[car] ([id], [created_by], [description], [fuel], [latitude], [license_plates], [longitude], [modified_by], [modified_date], [price], [register_date], [sale_month], [sale_week], [seats], [status], [transmission], [year_of_manufacture], [account_supplier_id], [model_id]) VALUES (70, N'anonymousUser', N'Xe Honda HRV sản xuất năm 2018
 Xe gia đình mới, ít sử dụng, nội thất nguyên bản, sạch sẽ , mới, bảo dưỡng thường xuyên.
 Xe rộng rãi, tiện nghi, an toàn, thích hợp cho gia đình.
-Xe trang bị hệ thống cảm biến lùi, gạt mưa tự động, đèn pha tự động,..', N'Dầu diesel', 0, N'51G-90901', 0, N'anonymousUser', CAST(N'2022-11-15T12:05:52.0000000' AS DateTime2), 850, CAST(N'2022-10-11' AS Date), 65, 36, 5, N'ACTIVE', N'Số sàn', 2019, 8, 84)
+Xe trang bị hệ thống cảm biến lùi, gạt mưa tự động, đèn pha tự động,..', N'Dầu diesel', 0, N'51G-90901', 0, N'anonymousUser', CAST(N'2022-11-15T12:05:52.0000000' AS DateTime2), 850, CAST(N'2022-11-15' AS Date), 65, 36, 5, N'ACTIVE', N'Số sàn', 2019, 8, 84)
 GO
-INSERT [dbo].[car] ([id], [created_by], [description], [fuel], [latitude], [license_plates], [longitude], [modified_by], [modified_date], [price], [register_date], [sale_month], [sale_week], [seats], [status], [transmission], [year_of_manufacture], [account_supplier_id], [model_id]) VALUES (71, N'anonymousUser', N'Xe mới sạch đẹp', N'Dầu diesel', 0, N'86A-16277', 0, N'anonymousUser', CAST(N'2022-11-15T12:13:34.0000000' AS DateTime2), 800, CAST(N'2022-10-11' AS Date), 72, 31, 5, N'ACTIVE', N'Số sàn', 2021, 8, 90)
+INSERT [dbo].[car] ([id], [created_by], [description], [fuel], [latitude], [license_plates], [longitude], [modified_by], [modified_date], [price], [register_date], [sale_month], [sale_week], [seats], [status], [transmission], [year_of_manufacture], [account_supplier_id], [model_id]) VALUES (71, N'anonymousUser', N'Xe mới sạch đẹp', N'Dầu diesel', 0, N'86A-16277', 0, N'anonymousUser', CAST(N'2022-11-15T12:13:34.0000000' AS DateTime2), 800, CAST(N'2022-11-15' AS Date), 72, 31, 5, N'ACTIVE', N'Số sàn', 2021, 8, 90)
 GO
 INSERT [dbo].[car] ([id], [created_by], [description], [fuel], [latitude], [license_plates], [longitude], [modified_by], [modified_date], [price], [register_date], [sale_month], [sale_week], [seats], [status], [transmission], [year_of_manufacture], [account_supplier_id], [model_id]) VALUES (72, N'anonymousUser', N'Huyndai Tucson  số tự động đăng kí tháng 11/2020
 Xe gia đinh mới đẹp , nội thất nguyên bản sạch sẽ , bảo dưỡng thường xuyên 
 Xe rộng rãi an toàn tiện nghi ,
-Xe trang bị hệ thống cảm biến lùi , gạt mưa tự động , đèn pha tự động , Camera hành trình .', N'Dầu diesel', 0, N'49A-60032', 0, N'anonymousUser', CAST(N'2022-11-15T12:16:03.0000000' AS DateTime2), 1100, CAST(N'2022-10-11' AS Date), 2, 11, 5, N'ACTIVE', N'Số sàn', 2020, 8, 108)
+Xe trang bị hệ thống cảm biến lùi , gạt mưa tự động , đèn pha tự động , Camera hành trình .', N'Dầu diesel', 0, N'49A-60032', 0, N'anonymousUser', CAST(N'2022-11-15T12:16:03.0000000' AS DateTime2), 1100, CAST(N'2022-11-15' AS Date), 2, 11, 5, N'ACTIVE', N'Số sàn', 2020, 8, 108)
 GO
 INSERT [dbo].[car] ([id], [created_by], [description], [fuel], [latitude], [license_plates], [longitude], [modified_by], [modified_date], [price], [register_date], [sale_month], [sale_week], [seats], [status], [transmission], [year_of_manufacture], [account_supplier_id], [model_id]) VALUES (73, N'anonymousUser', N'
-Mazda 2 màu trắng số tự động, đăng ký tháng 11/2016. Xe gia đình ít dử dụng, mới đẹp, nội thất nguyên bản, sạch sẽ, bão dưỡng thường xuyên, bảo hiểm 2 chiều đầy đủ. Xe rộng rãi, an toàn, tiện nghi, phù hợp cho gia đình du lịch hoặc công tác. Xe được trang bị hệ thống cảm biến lùi, gạt mưa tự động, đèn pha tự động, hệ thống giải trí cùng nhiều tiện nghi khác...', N'Xăng', 0, N'5H-041.59', 0, N'anonymousUser', CAST(N'2022-11-15T12:34:35.0000000' AS DateTime2), 780, CAST(N'2022-10-11' AS Date), 69, 30, 5, N'ACTIVE', N'Số sàn', 2016, 6, 162)
+Mazda 2 màu trắng số tự động, đăng ký tháng 11/2016. Xe gia đình ít dử dụng, mới đẹp, nội thất nguyên bản, sạch sẽ, bão dưỡng thường xuyên, bảo hiểm 2 chiều đầy đủ. Xe rộng rãi, an toàn, tiện nghi, phù hợp cho gia đình du lịch hoặc công tác. Xe được trang bị hệ thống cảm biến lùi, gạt mưa tự động, đèn pha tự động, hệ thống giải trí cùng nhiều tiện nghi khác...', N'Xăng', 0, N'5H-041.59', 0, N'anonymousUser', CAST(N'2022-11-15T12:34:35.0000000' AS DateTime2), 780, CAST(N'2022-11-15' AS Date), 69, 30, 5, N'ACTIVE', N'Số sàn', 2016, 6, 162)
 GO
 INSERT [dbo].[car] ([id], [created_by], [description], [fuel], [latitude], [license_plates], [longitude], [modified_by], [modified_date], [price], [register_date], [sale_month], [sale_week], [seats], [status], [transmission], [year_of_manufacture], [account_supplier_id], [model_id]) VALUES (74, N'anonymousUser', N'
 Mazda 3 số tự động đăng ký tháng 11/2020.
 Xe gia đình mới đẹp, nội thất zin, sạch sẽ, bão dưỡng thường xuyên. Rữa xe miễn phí cho khách.
 Xe rộng rãi, an toàn phù hợp cho gia đình du lịch. 
-Xe trang bị camera lùi, gạt mưa tự động, đèn pha tự động, camera hành trình cùng nhiều tiện nghi khác.', N'Xăng', 0, N'51H-494.94', 0, N'anonymousUser', CAST(N'2022-11-15T12:38:49.0000000' AS DateTime2), 850, CAST(N'2022-10-11' AS Date), 60, 24, 5, N'ACTIVE', N'Số sàn', 2020, 6, 164)
+Xe trang bị camera lùi, gạt mưa tự động, đèn pha tự động, camera hành trình cùng nhiều tiện nghi khác.', N'Xăng', 0, N'51H-494.94', 0, N'anonymousUser', CAST(N'2022-11-15T12:38:49.0000000' AS DateTime2), 850, CAST(N'2022-11-15' AS Date), 60, 24, 5, N'ACTIVE', N'Số sàn', 2020, 6, 164)
 GO
 INSERT [dbo].[car] ([id], [created_by], [description], [fuel], [latitude], [license_plates], [longitude], [modified_by], [modified_date], [price], [register_date], [sale_month], [sale_week], [seats], [status], [transmission], [year_of_manufacture], [account_supplier_id], [model_id]) VALUES (76, N'anonymousUser', N'Mazda-CX5 Luxury đăng kí tháng 9/2022
 Xe mới đẹp, bảo dưỡng thường xuyên, sạch sẽ…
 Xe rộng rãi, tiện nghi, phù hợp gia đình di du lịch.
-Xe có camera lùi, cảm biến va chạm, cửa sổ trời, camera hành trình, hệ thống giải trí và nhiều tiền nghi khác…', N'Xăng', 0, N'67A-211.45', 0, N'anonymousUser', CAST(N'2022-11-15T12:42:57.0000000' AS DateTime2), 1100, CAST(N'2022-10-11' AS Date), 30, 10, 5, N'ACTIVE', N'Số sàn', 2022, 6, 173)
+Xe có camera lùi, cảm biến va chạm, cửa sổ trời, camera hành trình, hệ thống giải trí và nhiều tiền nghi khác…', N'Xăng', 0, N'67A-211.45', 0, N'anonymousUser', CAST(N'2022-11-15T12:42:57.0000000' AS DateTime2), 1100, CAST(N'2022-11-15' AS Date), 30, 10, 5, N'ACTIVE', N'Số sàn', 2022, 6, 173)
 GO
 INSERT [dbo].[car] ([id], [created_by], [description], [fuel], [latitude], [license_plates], [longitude], [modified_by], [modified_date], [price], [register_date], [sale_month], [sale_week], [seats], [status], [transmission], [year_of_manufacture], [account_supplier_id], [model_id]) VALUES (79, N'anonymousUser', N'
 Mazda 6.2.0 Prenium bản full option mâm 19", năm sản xuất 2017, biển số Quận 3, TP.HCM.
 Xe gia đình ít sử dụng, đẹp như mới, nội thất nguyên bản, rất sạch sẽ, bảo dưỡng thường xuyên.
 Xe rất rộng rãi, an toàn, đầy đủ tiện nghi: Màn hình cảm ứng, màn hình HUB hỗ trợ lái xe, hệ thống giải trí kết nối USB, bluetooth, 11 loa Bose âm thanh nổi, kết nối điện thoại rảnh tay, bản đồ, ghế lái chỉnh điện, nhớ vị trí, rèm che nắng phía sau chỉnh điện, cửa sổ trời chỉnh điện...
-Xe trang bị rất nhiều option: Cảnh báo lệch làn, cảnh báo va chạm trước sau, cảnh báo điểm mù, cảm biến áp suất lốp, bơm bánh xe tự động, camera lùi, gạt mưa tự động, đèn pha tự động, phanh tay điện tử, cần sang số trên vô lăng, kiểm soát tốc độ tự động Cruiser Control... tất cả đều còn mới và hoạt động rất tốt.', N'Dầu diesel', 0, N'60A-811.64', 0, N'anonymousUser', CAST(N'2022-11-15T12:50:50.0000000' AS DateTime2), 1100, CAST(N'2022-10-11' AS Date), 40, 30, 5, N'ACTIVE', N'Số tự động', 2017, 6, 166)
+Xe trang bị rất nhiều option: Cảnh báo lệch làn, cảnh báo va chạm trước sau, cảnh báo điểm mù, cảm biến áp suất lốp, bơm bánh xe tự động, camera lùi, gạt mưa tự động, đèn pha tự động, phanh tay điện tử, cần sang số trên vô lăng, kiểm soát tốc độ tự động Cruiser Control... tất cả đều còn mới và hoạt động rất tốt.', N'Dầu diesel', 0, N'60A-811.64', 0, N'anonymousUser', CAST(N'2022-11-15T12:50:50.0000000' AS DateTime2), 1100, CAST(N'2022-11-15' AS Date), 40, 30, 5, N'ACTIVE', N'Số tự động', 2017, 6, 166)
 GO
 INSERT [dbo].[car] ([id], [created_by], [description], [fuel], [latitude], [license_plates], [longitude], [modified_by], [modified_date], [price], [register_date], [sale_month], [sale_week], [seats], [status], [transmission], [year_of_manufacture], [account_supplier_id], [model_id]) VALUES (80, N'anonymousUser', N'
 Mazda BT-50 số tự động 2017.
 Xe gia đình mới đẹp, nội thất nguyên bản, có màng hình aroid.
 Xe rộng rãi, an toàn, phù hợp gđ du lịch.
-Xe trang bị cảm biến lùi, camera lùi, camera hành trình, đèn tự động, gạt mưa tự động, hệ thống giải trí AV Cùng nhiều tiện nghi khác…', N'Dầu diesel', 0, N'60C-360.76', 0, N'anonymousUser', CAST(N'2022-11-15T13:02:45.0000000' AS DateTime2), 900, CAST(N'2022-10-11' AS Date), 30, 25, 5, N'ACTIVE', N'Số tự động', 2017, 6, 169)
+Xe trang bị cảm biến lùi, camera lùi, camera hành trình, đèn tự động, gạt mưa tự động, hệ thống giải trí AV Cùng nhiều tiện nghi khác…', N'Dầu diesel', 0, N'60C-360.76', 0, N'anonymousUser', CAST(N'2022-11-15T13:02:45.0000000' AS DateTime2), 900, CAST(N'2022-11-15' AS Date), 30, 25, 5, N'ACTIVE', N'Số tự động', 2017, 6, 169)
 GO
-INSERT [dbo].[car] ([id], [created_by], [description], [fuel], [latitude], [license_plates], [longitude], [modified_by], [modified_date], [price], [register_date], [sale_month], [sale_week], [seats], [status], [transmission], [year_of_manufacture], [account_supplier_id], [model_id]) VALUES (82, N'anonymousUser', N'MAZDA CX8 2021', N'Dầu diesel', 0, N'51H-903.98', 0, N'anonymousUser', CAST(N'2022-11-15T13:10:16.0000000' AS DateTime2), 1500, CAST(N'2022-10-11' AS Date), 35, 15, 5, N'ACTIVE', N'Số sàn', 2021, 6, 174)
+INSERT [dbo].[car] ([id], [created_by], [description], [fuel], [latitude], [license_plates], [longitude], [modified_by], [modified_date], [price], [register_date], [sale_month], [sale_week], [seats], [status], [transmission], [year_of_manufacture], [account_supplier_id], [model_id]) VALUES (82, N'anonymousUser', N'MAZDA CX8 2021', N'Dầu diesel', 0, N'51H-903.98', 0, N'anonymousUser', CAST(N'2022-11-15T13:10:16.0000000' AS DateTime2), 1500, CAST(N'2022-11-15' AS Date), 35, 15, 5, N'ACTIVE', N'Số sàn', 2021, 6, 174)
 GO
-INSERT [dbo].[car] ([id], [created_by], [description], [fuel], [latitude], [license_plates], [longitude], [modified_by], [modified_date], [price], [register_date], [sale_month], [sale_week], [seats], [status], [transmission], [year_of_manufacture], [account_supplier_id], [model_id]) VALUES (83, N'anonymousUser', N'MAZDA 3 Hatchback 2020', N'Dầu diesel', 0, N'51H-754.79', 0, N'anonymousUser', CAST(N'2022-11-15T13:19:40.0000000' AS DateTime2), 1000, CAST(N'2022-10-11' AS Date), 20, 10, 5, N'ACTIVE', N'Số sàn', 2020, 5, 165)
+INSERT [dbo].[car] ([id], [created_by], [description], [fuel], [latitude], [license_plates], [longitude], [modified_by], [modified_date], [price], [register_date], [sale_month], [sale_week], [seats], [status], [transmission], [year_of_manufacture], [account_supplier_id], [model_id]) VALUES (83, N'anonymousUser', N'MAZDA 3 Hatchback 2020', N'Dầu diesel', 0, N'51H-754.79', 0, N'anonymousUser', CAST(N'2022-11-15T13:19:40.0000000' AS DateTime2), 1000, CAST(N'2022-11-15' AS Date), 20, 10, 5, N'ACTIVE', N'Số sàn', 2020, 5, 165)
 GO
-INSERT [dbo].[car] ([id], [created_by], [description], [fuel], [latitude], [license_plates], [longitude], [modified_by], [modified_date], [price], [register_date], [sale_month], [sale_week], [seats], [status], [transmission], [year_of_manufacture], [account_supplier_id], [model_id]) VALUES (84, N'anonymousUser', N'ISUZU D-MAX LS 2021', N'Dầu diesel', 0, N'51D-590.46', 0, N'anonymousUser', CAST(N'2022-11-15T13:25:17.0000000' AS DateTime2), 950, CAST(N'2022-10-11' AS Date), 40, 30, 5, N'ACTIVE', N'Số sàn', 2021, 5, 111)
+INSERT [dbo].[car] ([id], [created_by], [description], [fuel], [latitude], [license_plates], [longitude], [modified_by], [modified_date], [price], [register_date], [sale_month], [sale_week], [seats], [status], [transmission], [year_of_manufacture], [account_supplier_id], [model_id]) VALUES (84, N'anonymousUser', N'ISUZU D-MAX LS 2021', N'Dầu diesel', 0, N'51D-590.46', 0, N'anonymousUser', CAST(N'2022-11-15T13:25:17.0000000' AS DateTime2), 950, CAST(N'2022-11-15' AS Date), 40, 30, 5, N'ACTIVE', N'Số sàn', 2021, 5, 111)
 GO
 INSERT [dbo].[car] ([id], [created_by], [description], [fuel], [latitude], [license_plates], [longitude], [modified_by], [modified_date], [price], [register_date], [sale_month], [sale_week], [seats], [status], [transmission], [year_of_manufacture], [account_supplier_id], [model_id]) VALUES (85, N'anonymousUser', N'
 Bán tải D-max LS Prestige 3.0,2 cầu, Số tự động (Công suất 177hp) đời 2020
@@ -1551,62 +1544,62 @@ Bán tải D-max LS Prestige 3.0,2 cầu, Số tự động (Công suất 177hp)
 3. Trang bị phụ trợ: Camera hành trình, camera cập lề, Camera lùi, cảm biến lùi. Màn hình cảm ứng có Apple Carplay.
 4. Tính năng an toàn: 6 túi khí, đầy đủ hệ thống an toàn như cân bằng điện tử, kiểm soát lực kéo, hỗ trợ xuống dốc,…
 5. Quan trọng là xe bán tải to bự và cao, nên chạy sẽ thoải mái hơn các xe mini khác
-6. Thùng xe không nắp', N'Dầu diesel', 0, N'51D-633.37', 0, N'anonymousUser', CAST(N'2022-11-15T13:30:26.0000000' AS DateTime2), 1000, CAST(N'2022-10-11' AS Date), 45, 25, 5, N'ACTIVE', N'Số sàn', 2020, 5, 112)
+6. Thùng xe không nắp', N'Dầu diesel', 0, N'51D-633.37', 0, N'anonymousUser', CAST(N'2022-11-15T13:30:26.0000000' AS DateTime2), 1000, CAST(N'2022-11-15' AS Date), 45, 25, 5, N'ACTIVE', N'Số sàn', 2020, 5, 112)
 GO
-INSERT [dbo].[car] ([id], [created_by], [description], [fuel], [latitude], [license_plates], [longitude], [modified_by], [modified_date], [price], [register_date], [sale_month], [sale_week], [seats], [status], [transmission], [year_of_manufacture], [account_supplier_id], [model_id]) VALUES (86, N'anonymousUser', N'Isuzu số sàn 7 chỗ sạch sẽ đa dụng, trang bị đầy đủ màn hình cam de, nghe nhạc giải trí, đầy đủ tiện nghi', N'Dầu diesel', 0, N'52F-2223', 0, N'anonymousUser', CAST(N'2022-11-15T13:35:01.0000000' AS DateTime2), 1000, CAST(N'2022-10-11' AS Date), 50, 51, 7, N'ACTIVE', N'Số sàn', 2007, 5, 113)
+INSERT [dbo].[car] ([id], [created_by], [description], [fuel], [latitude], [license_plates], [longitude], [modified_by], [modified_date], [price], [register_date], [sale_month], [sale_week], [seats], [status], [transmission], [year_of_manufacture], [account_supplier_id], [model_id]) VALUES (86, N'anonymousUser', N'Isuzu số sàn 7 chỗ sạch sẽ đa dụng, trang bị đầy đủ màn hình cam de, nghe nhạc giải trí, đầy đủ tiện nghi', N'Dầu diesel', 0, N'52F-2223', 0, N'anonymousUser', CAST(N'2022-11-15T13:35:01.0000000' AS DateTime2), 1000, CAST(N'2022-11-15' AS Date), 50, 51, 7, N'ACTIVE', N'Số sàn', 2007, 5, 113)
 GO
-INSERT [dbo].[car] ([id], [created_by], [description], [fuel], [latitude], [license_plates], [longitude], [modified_by], [modified_date], [price], [register_date], [sale_month], [sale_week], [seats], [status], [transmission], [year_of_manufacture], [account_supplier_id], [model_id]) VALUES (88, N'anonymousUser', N'Xe gia đình, mới, sạch sẽ, nội thất đẹp. Phù hợp cho các cá nhân doanh nghiệp đi du lịch, gặp gỡ đối tác làm ăn ...', N'Xăng', 0, N'88A-60032', 0, N'anonymousUser', CAST(N'2022-11-15T16:38:09.0000000' AS DateTime2), 2400, CAST(N'2022-10-11' AS Date), 38, 23, 5, N'ACTIVE', N'Số tự động', 2017, 5, 187)
+INSERT [dbo].[car] ([id], [created_by], [description], [fuel], [latitude], [license_plates], [longitude], [modified_by], [modified_date], [price], [register_date], [sale_month], [sale_week], [seats], [status], [transmission], [year_of_manufacture], [account_supplier_id], [model_id]) VALUES (88, N'anonymousUser', N'Xe gia đình, mới, sạch sẽ, nội thất đẹp. Phù hợp cho các cá nhân doanh nghiệp đi du lịch, gặp gỡ đối tác làm ăn ...', N'Xăng', 0, N'88A-60032', 0, N'anonymousUser', CAST(N'2022-11-15T16:38:09.0000000' AS DateTime2), 2400, CAST(N'2022-11-15' AS Date), 38, 23, 5, N'ACTIVE', N'Số tự động', 2017, 5, 187)
 GO
 INSERT [dbo].[car] ([id], [created_by], [description], [fuel], [latitude], [license_plates], [longitude], [modified_by], [modified_date], [price], [register_date], [sale_month], [sale_week], [seats], [status], [transmission], [year_of_manufacture], [account_supplier_id], [model_id]) VALUES (89, N'anonymousUser', N'Xe Lux A mới xe đăng kí tháng 10 năm 2021
 Xe gia đình sạch đẹp 
-Xe đi an toàn êm ái', N'Xăng', 0, N'29A-60032', 0, N'anonymousUser', CAST(N'2022-11-15T16:40:18.0000000' AS DateTime2), 1200, CAST(N'2022-10-11' AS Date), 79, 18, 5, N'ACTIVE', N'Số tự động', 2021, 2, 333)
+Xe đi an toàn êm ái', N'Xăng', 0, N'29A-60032', 0, N'anonymousUser', CAST(N'2022-11-15T16:40:18.0000000' AS DateTime2), 1200, CAST(N'2022-11-15' AS Date), 79, 18, 5, N'ACTIVE', N'Số tự động', 2021, 2, 333)
 GO
-INSERT [dbo].[car] ([id], [created_by], [description], [fuel], [latitude], [license_plates], [longitude], [modified_by], [modified_date], [price], [register_date], [sale_month], [sale_week], [seats], [status], [transmission], [year_of_manufacture], [account_supplier_id], [model_id]) VALUES (90, N'anonymousUser', N'KIA PICANTO 2008', N'Xăng', 0, N'15A-071.40', 0, N'anonymousUser', CAST(N'2022-11-15T16:40:57.0000000' AS DateTime2), 720, CAST(N'2022-10-11' AS Date), 50, 50, 5, N'ACTIVE', N'Số tự động', 2008, 2, 135)
+INSERT [dbo].[car] ([id], [created_by], [description], [fuel], [latitude], [license_plates], [longitude], [modified_by], [modified_date], [price], [register_date], [sale_month], [sale_week], [seats], [status], [transmission], [year_of_manufacture], [account_supplier_id], [model_id]) VALUES (90, N'anonymousUser', N'KIA PICANTO 2008', N'Xăng', 0, N'15A-071.40', 0, N'anonymousUser', CAST(N'2022-11-15T16:40:57.0000000' AS DateTime2), 720, CAST(N'2022-11-15' AS Date), 50, 50, 5, N'ACTIVE', N'Số tự động', 2008, 2, 135)
 GO
 INSERT [dbo].[car] ([id], [created_by], [description], [fuel], [latitude], [license_plates], [longitude], [modified_by], [modified_date], [price], [register_date], [sale_month], [sale_week], [seats], [status], [transmission], [year_of_manufacture], [account_supplier_id], [model_id]) VALUES (91, N'anonymousUser', N'Vios G sản xuất cuối 2018, màu vàng cát
-Xe gia đình đi, rất giữ gìn, không kinh doanh dịch vụ. Số cvt tiết kiệm nhiên liệu', N'Xăng', 0, N'30A-60032', 0, N'anonymousUser', CAST(N'2022-11-15T16:43:02.0000000' AS DateTime2), 700, CAST(N'2022-10-11' AS Date), 80, 19, 5, N'ACTIVE', N'Số tự động', 2018, 2, 321)
+Xe gia đình đi, rất giữ gìn, không kinh doanh dịch vụ. Số cvt tiết kiệm nhiên liệu', N'Xăng', 0, N'30A-60032', 0, N'anonymousUser', CAST(N'2022-11-15T16:43:02.0000000' AS DateTime2), 700, CAST(N'2022-11-15' AS Date), 80, 19, 5, N'ACTIVE', N'Số tự động', 2018, 2, 321)
 GO
-INSERT [dbo].[car] ([id], [created_by], [description], [fuel], [latitude], [license_plates], [longitude], [modified_by], [modified_date], [price], [register_date], [sale_month], [sale_week], [seats], [status], [transmission], [year_of_manufacture], [account_supplier_id], [model_id]) VALUES (92, N'anonymousUser', N'Kia Morning Si số sàn, đăng ký 10/2017. xe gia đình sử dụng.ổn định, tiết kiệm nhiên liệu.xe mới , đẹp..nội thất nguyên bản.', N'Xăng', 0, N'30E-890.20', 0, N'anonymousUser', CAST(N'2022-11-15T16:43:53.0000000' AS DateTime2), 735, CAST(N'2022-10-11' AS Date), 55, 40, 5, N'ACTIVE', N'Số sàn', 2017, 2, 133)
+INSERT [dbo].[car] ([id], [created_by], [description], [fuel], [latitude], [license_plates], [longitude], [modified_by], [modified_date], [price], [register_date], [sale_month], [sale_week], [seats], [status], [transmission], [year_of_manufacture], [account_supplier_id], [model_id]) VALUES (92, N'anonymousUser', N'Kia Morning Si số sàn, đăng ký 10/2017. xe gia đình sử dụng.ổn định, tiết kiệm nhiên liệu.xe mới , đẹp..nội thất nguyên bản.', N'Xăng', 0, N'30E-890.20', 0, N'anonymousUser', CAST(N'2022-11-15T16:43:53.0000000' AS DateTime2), 735, CAST(N'2022-11-15' AS Date), 55, 40, 5, N'ACTIVE', N'Số sàn', 2017, 2, 133)
 GO
-INSERT [dbo].[car] ([id], [created_by], [description], [fuel], [latitude], [license_plates], [longitude], [modified_by], [modified_date], [price], [register_date], [sale_month], [sale_week], [seats], [status], [transmission], [year_of_manufacture], [account_supplier_id], [model_id]) VALUES (93, N'anonymousUser', N'Kia Morning Si số sàn, đăng ký 10/2017. xe gia đình sử dụng.ổn định, tiết kiệm nhiên liệu.xe mới , đẹp..nội thất nguyên bản.', N'Xăng', 0, N'29A-400.32', 0, N'anonymousUser', CAST(N'2022-11-15T16:45:49.0000000' AS DateTime2), 800, CAST(N'2022-10-11' AS Date), 30, 40, 5, N'ACTIVE', N'Số sàn', 2011, 2, 132)
+INSERT [dbo].[car] ([id], [created_by], [description], [fuel], [latitude], [license_plates], [longitude], [modified_by], [modified_date], [price], [register_date], [sale_month], [sale_week], [seats], [status], [transmission], [year_of_manufacture], [account_supplier_id], [model_id]) VALUES (93, N'anonymousUser', N'Kia Morning Si số sàn, đăng ký 10/2017. xe gia đình sử dụng.ổn định, tiết kiệm nhiên liệu.xe mới , đẹp..nội thất nguyên bản.', N'Xăng', 0, N'29A-400.32', 0, N'anonymousUser', CAST(N'2022-11-15T16:45:49.0000000' AS DateTime2), 800, CAST(N'2022-11-15' AS Date), 30, 40, 5, N'ACTIVE', N'Số sàn', 2011, 2, 132)
 GO
 INSERT [dbo].[car] ([id], [created_by], [description], [fuel], [latitude], [license_plates], [longitude], [modified_by], [modified_date], [price], [register_date], [sale_month], [sale_week], [seats], [status], [transmission], [year_of_manufacture], [account_supplier_id], [model_id]) VALUES (94, N'anonymousUser', N'Thiết kế ngoại thất xe Zotye Z8
-Ở hình dáng bên ngoài, Zotye Z8 không khác gì một chiếc xe Range Rover 2021 – xe hơi hạng sang đến từ Anh quốc – từ đầu xe, lưới tản nhiệt, đèn pha… đều toát lên vẻ sang trọng. Zotye Z8 to lớn và đồ sộ với kích thước tổng thể 4425 x 1730 x 1500 mm, theo phong cách thể thao đa dụng, toát lên vẻ oai phong lịch lãm.', N'Xăng', 0, N'30G-369.70', 0, N'anonymousUser', CAST(N'2022-11-15T16:47:43.0000000' AS DateTime2), 1168, CAST(N'2022-10-11' AS Date), 57, 33, 4, N'ACTIVE', N'Số sàn', 2018, 2, 347)
+Ở hình dáng bên ngoài, Zotye Z8 không khác gì một chiếc xe Range Rover 2021 – xe hơi hạng sang đến từ Anh quốc – từ đầu xe, lưới tản nhiệt, đèn pha… đều toát lên vẻ sang trọng. Zotye Z8 to lớn và đồ sộ với kích thước tổng thể 4425 x 1730 x 1500 mm, theo phong cách thể thao đa dụng, toát lên vẻ oai phong lịch lãm.', N'Xăng', 0, N'30G-369.70', 0, N'anonymousUser', CAST(N'2022-11-15T16:47:43.0000000' AS DateTime2), 1168, CAST(N'2022-11-15' AS Date), 57, 33, 4, N'ACTIVE', N'Số sàn', 2018, 2, 347)
 GO
 INSERT [dbo].[car] ([id], [created_by], [description], [fuel], [latitude], [license_plates], [longitude], [modified_by], [modified_date], [price], [register_date], [sale_month], [sale_week], [seats], [status], [transmission], [year_of_manufacture], [account_supplier_id], [model_id]) VALUES (95, N'anonymousUser', N'Daewoo Matiz 2008 số sàn
 Nhỏ gọn, tiết kiệm xăng
-Hình thức đẹp, nội thất sạch sẽ', N'Xăng', 0, N'31F-8069', 0, N'anonymousUser', CAST(N'2022-11-15T16:50:08.0000000' AS DateTime2), 740, CAST(N'2022-10-15' AS Date), 60, 60, 4, N'ACTIVE', N'Số sàn', 2008, 2, 49)
+Hình thức đẹp, nội thất sạch sẽ', N'Xăng', 0, N'31F-8069', 0, N'anonymousUser', CAST(N'2022-11-15T16:50:08.0000000' AS DateTime2), 740, CAST(N'2022-11-15' AS Date), 60, 60, 4, N'ACTIVE', N'Số sàn', 2008, 2, 49)
 GO
-INSERT [dbo].[car] ([id], [created_by], [description], [fuel], [latitude], [license_plates], [longitude], [modified_by], [modified_date], [price], [register_date], [sale_month], [sale_week], [seats], [status], [transmission], [year_of_manufacture], [account_supplier_id], [model_id]) VALUES (96, N'anonymousUser', N'LAND ROVER RANGE ROVER EVOQUE 2.0 FIRST EDITION 2012', N'Xăng', 0, N'60A-74.80', 0, N'anonymousUser', CAST(N'2022-11-15T16:54:04.0000000' AS DateTime2), 2000, CAST(N'2022-10-11' AS Date), 30, 20, 5, N'ACTIVE', N'Số sàn', 2012, 2, 152)
+INSERT [dbo].[car] ([id], [created_by], [description], [fuel], [latitude], [license_plates], [longitude], [modified_by], [modified_date], [price], [register_date], [sale_month], [sale_week], [seats], [status], [transmission], [year_of_manufacture], [account_supplier_id], [model_id]) VALUES (96, N'anonymousUser', N'LAND ROVER RANGE ROVER EVOQUE 2.0 FIRST EDITION 2012', N'Xăng', 0, N'60A-74.80', 0, N'anonymousUser', CAST(N'2022-11-15T16:54:04.0000000' AS DateTime2), 2000, CAST(N'2022-11-15' AS Date), 30, 20, 5, N'ACTIVE', N'Số sàn', 2012, 2, 152)
 GO
-INSERT [dbo].[car] ([id], [created_by], [description], [fuel], [latitude], [license_plates], [longitude], [modified_by], [modified_date], [price], [register_date], [sale_month], [sale_week], [seats], [status], [transmission], [year_of_manufacture], [account_supplier_id], [model_id]) VALUES (97, N'anonymousUser', N'NISSAN SUNNY 2019', N'Xăng', 0, N'30G-09231', 0, N'anonymousUser', CAST(N'2022-11-15T16:54:47.0000000' AS DateTime2), 680, CAST(N'2022-10-15' AS Date), 30, 10, 4, N'ACTIVE', N'Số tự động', 2019, 2, 258)
+INSERT [dbo].[car] ([id], [created_by], [description], [fuel], [latitude], [license_plates], [longitude], [modified_by], [modified_date], [price], [register_date], [sale_month], [sale_week], [seats], [status], [transmission], [year_of_manufacture], [account_supplier_id], [model_id]) VALUES (97, N'anonymousUser', N'NISSAN SUNNY 2019', N'Xăng', 0, N'30G-09231', 0, N'anonymousUser', CAST(N'2022-11-15T16:54:47.0000000' AS DateTime2), 680, CAST(N'2022-11-15' AS Date), 30, 10, 4, N'ACTIVE', N'Số tự động', 2019, 2, 258)
 GO
 INSERT [dbo].[car] ([id], [created_by], [description], [fuel], [latitude], [license_plates], [longitude], [modified_by], [modified_date], [price], [register_date], [sale_month], [sale_week], [seats], [status], [transmission], [year_of_manufacture], [account_supplier_id], [model_id]) VALUES (98, N'anonymousUser', N'OUTLANDER dk ngày 3/8/2022 xe gia đình máy xăng bản full đầy đủ tiện ích
-khách thử trải nghiệm nha', N'Xăng', 0, N'51K-398.92', 0, N'anonymousUser', CAST(N'2022-11-15T16:57:12.0000000' AS DateTime2), 2100, CAST(N'2022-10-15' AS Date), 30, 30, 7, N'ACTIVE', N'Số sàn', 2022, 2, 233)
+khách thử trải nghiệm nha', N'Xăng', 0, N'51K-398.92', 0, N'anonymousUser', CAST(N'2022-11-15T16:57:12.0000000' AS DateTime2), 2100, CAST(N'2022-11-15' AS Date), 30, 30, 7, N'ACTIVE', N'Số sàn', 2022, 2, 233)
 GO
 INSERT [dbo].[car] ([id], [created_by], [description], [fuel], [latitude], [license_plates], [longitude], [modified_by], [modified_date], [price], [register_date], [sale_month], [sale_week], [seats], [status], [transmission], [year_of_manufacture], [account_supplier_id], [model_id]) VALUES (99, N'anonymousUser', N'
 Vinfast Lux A Plus số tự động đăng ký tháng 3/2022.
 Xe gia đình mới đẹp, nội thất nguyên bản, sạch sẽ, bảo dưỡng thường xuyên, rửa xe miễn phí cho khách.
-Xe rộng rãi, an toàn, tiện nghi, phù hợp cho gia đình du lịch. Xe trang bị hệ thống cảm biến lùi, gạt mưa tự động, đèn pha tự động, camera hành trình, hệ thống giải trí AV cùng nhiều tiện nghi khác.', N'Xăng', 0, N'30H-60433', 0, N'anonymousUser', CAST(N'2022-11-15T16:57:38.0000000' AS DateTime2), 1500, CAST(N'2022-10-15' AS Date), 30, 10, 5, N'ACTIVE', N'Số tự động', 2022, 2, 333)
+Xe rộng rãi, an toàn, tiện nghi, phù hợp cho gia đình du lịch. Xe trang bị hệ thống cảm biến lùi, gạt mưa tự động, đèn pha tự động, camera hành trình, hệ thống giải trí AV cùng nhiều tiện nghi khác.', N'Xăng', 0, N'30H-60433', 0, N'anonymousUser', CAST(N'2022-11-15T16:57:38.0000000' AS DateTime2), 1500, CAST(N'2022-11-15' AS Date), 30, 10, 5, N'ACTIVE', N'Số tự động', 2022, 2, 333)
 GO
-INSERT [dbo].[car] ([id], [created_by], [description], [fuel], [latitude], [license_plates], [longitude], [modified_by], [modified_date], [price], [register_date], [sale_month], [sale_week], [seats], [status], [transmission], [year_of_manufacture], [account_supplier_id], [model_id]) VALUES (100, N'anonymousUser', N'Xe mới đăng kí 2/2022. Mua kết hợp đi gia đình và cho thuê. Ưu tiên gia đình hàng đầu nên đảm bảo sạch sẽ, cho khách hàng có những chuyến du lịch thú vị  cùng người thân của mình.', N'Dầu diesel', 0, N'51K-147.70', 0, N'anonymousUser', CAST(N'2022-11-15T17:00:11.0000000' AS DateTime2), 900, CAST(N'2022-10-15' AS Date), 10, 40, 7, N'ACTIVE', N'Số sàn', 2021, 2, 238)
+INSERT [dbo].[car] ([id], [created_by], [description], [fuel], [latitude], [license_plates], [longitude], [modified_by], [modified_date], [price], [register_date], [sale_month], [sale_week], [seats], [status], [transmission], [year_of_manufacture], [account_supplier_id], [model_id]) VALUES (100, N'anonymousUser', N'Xe mới đăng kí 2/2022. Mua kết hợp đi gia đình và cho thuê. Ưu tiên gia đình hàng đầu nên đảm bảo sạch sẽ, cho khách hàng có những chuyến du lịch thú vị  cùng người thân của mình.', N'Dầu diesel', 0, N'51K-147.70', 0, N'anonymousUser', CAST(N'2022-11-15T17:00:11.0000000' AS DateTime2), 900, CAST(N'2022-11-15' AS Date), 10, 40, 7, N'ACTIVE', N'Số sàn', 2021, 2, 238)
 GO
 INSERT [dbo].[car] ([id], [created_by], [description], [fuel], [latitude], [license_plates], [longitude], [modified_by], [modified_date], [price], [register_date], [sale_month], [sale_week], [seats], [status], [transmission], [year_of_manufacture], [account_supplier_id], [model_id]) VALUES (101, N'anonymousUser', N'
 Thiết kế ngoại thất xe Zotye Z8
 Ở hình dáng bên ngoài, Zotye Z8 không khác gì một chiếc xe Range Rover 2021 – xe hơi hạng sang đến từ Anh quốc – từ đầu xe, lưới tản nhiệt, đèn pha… đều toát lên vẻ sang trọng. Zotye Z8 to lớn và đồ sộ với kích thước tổng thể 4425 x 1730 x 1500 mm, theo phong cách thể thao đa dụng, toát lên vẻ oai phong lịch lãm.
-￼Phía trước xe gây ấn tượng bởi thiết kế thể thao, mạnh mẽ nhưng vẫn không kém phần sang trọng với lưới tản nhiệt hình lục giác cỡ lớn khác biệt, logo đặt giữa lưới tản nhiệt kèm theo camera 360 bên dưới logo. Phía dưới lưới tản nhiệt là hốc gió có thiết kế khá hầm hố, đặc biệt lại đi cùng với hoa văn đặc trưng của Trung Quốc. Đèn pha trước sử dụng công nghệ LED hiện đại.
+ Phía trước xe gây ấn tượng bởi thiết kế thể thao, mạnh mẽ nhưng vẫn không kém phần sang trọng với lưới tản nhiệt hình lục giác cỡ lớn khác biệt, logo đặt giữa lưới tản nhiệt kèm theo camera 360 bên dưới logo. Phía dưới lưới tản nhiệt là hốc gió có thiết kế khá hầm hố, đặc biệt lại đi cùng với hoa văn đặc trưng của Trung Quốc. Đèn pha trước sử dụng công nghệ LED hiện đại.
 Phần đầu xe gây ấn tượng bởi thiết kế mạnh mẽ nhưng không kém phần sang trọng với lưới tản nhiệt hình lục giác cỡ lớn khác biệt, logo được bố trí ngay vị trí chính diện. Phía dưới lưới tản nhiệt là hốc gió có thiết kế khá hầm hố. Đèn pha trước sử dụng công nghệ LED hiện đại.
-￼Zotye Z8 có kích thước bao gồm chiều dài 4.748 mm, chiều rộng 1.933 mm, chiều cao 1.697 mm, chiều dài trục cơ sở 1.850 mm và trọng lượng không tải của xe là 1.810kg.
+ Zotye Z8 có kích thước bao gồm chiều dài 4.748 mm, chiều rộng 1.933 mm, chiều cao 1.697 mm, chiều dài trục cơ sở 1.850 mm và trọng lượng không tải của xe là 1.810kg.
 Nhìn từ bên sườn xe, Z8 có thiết kế gần giống với Range Rover với phần mái thấp dần về phía sau. Hông xe kéo dài với những đường dập nổi cứng cáp giúp Z8 trông hầm hố hơn. Xe trang bị cảm biến chìa khóa thông minh ở tay nắm cửa, bậc lên xuống tự động đóng mở giúp người dùng thuận tiện hơn khi lên xe. Gương chiếu hậu tích hợp đèn xi-nhan dạng LED với tính năng gập điện cùng bộ mâm lớn có kích thước 19 inch tạo vẻ ngoài thu hút và khỏe khoắn hơn bao giờ hết.
-￼Tại cột A của xe được gắn logo hình chữ Z lạ mắt. Xe được trang bị bộ mâm kích thước 19 inch.
+ Tại cột A của xe được gắn logo hình chữ Z lạ mắt. Xe được trang bị bộ mâm kích thước 19 inch.
 Đuôi xe được thiết kế vô cùng đơn giản với cụm đèn hậu LED thanh mảnh giống như trên Jaguar F-Pace 2021, chi tiết giả ống xả cũng sử dụng họa tiết giống hốc hút gió phía trước và được bao quanh bởi viền crom sáng bóng. Ngoài ra ở đuôi xe còn có tên thương hiệu Zotye Auto.
-￼Đuôi xe được thiết kế vô cùng đơn giản với cụm đèn hậu LED thanh mảnh giống như trên Jaguar F-Pace, chi tiết giả ống xả cũng sử dụng họa tiết giống hốc hút gió phía trước và được bao quanh bởi viền crome sáng bóng. Ngoài ra ở đuôi xe còn có những chi tiết như tên thương hiệu Zotye Auto, phía dưới là camera lùi. Cửa cốp có khả năng đóng mở điện khá nhạy.
+ Đuôi xe được thiết kế vô cùng đơn giản với cụm đèn hậu LED thanh mảnh giống như trên Jaguar F-Pace, chi tiết giả ống xả cũng sử dụng họa tiết giống hốc hút gió phía trước và được bao quanh bởi viền crome sáng bóng. Ngoài ra ở đuôi xe còn có những chi tiết như tên thương hiệu Zotye Auto, phía dưới là camera lùi. Cửa cốp có khả năng đóng mở điện khá nhạy.
 
 Nội thất xe Zotye Z8
 Z8 có chiều dài cơ sở đạt 2850mm đem đến một khoang cabin cực kì rộng rãi, thoải mái, người ngồi trước và sau đều có khoảng để chân dư dả. Không chỉ vậy trần xe còn trang bị cửa sổ trời Panoramic giúp hành khách cảm nhận được sự thoáng đãng bên ngoài.
-￼Trên Zotye Z8 được trang bị khá nhiều công nghệ hiện đại như bậc lên xuống đóng/ mở điện như ở Range Rover, cửa hít, gương chiếu hậu tích hợp đèn báo rẽ, camera 360.
+ Trên Zotye Z8 được trang bị khá nhiều công nghệ hiện đại như bậc lên xuống đóng/ mở điện như ở Range Rover, cửa hít, gương chiếu hậu tích hợp đèn báo rẽ, camera 360.
 Bước vào trong xe, người dùng sẽ cảm thấy vô cùng ấn tượng và ngạc nhiên bởi chất liệu da màu kem khiến phần nền khoang nội thất trông lịch lãm hơn còn tông màu trầm trên bảng táp lô lại phần nào giúp xe trở nên sang trọng và khác biệt.
-￼Zotye Z8 được trang bị nội thất vô cùng tiện nghi và hiện đại bao gồm vô-lăng 3 chấu bọc da, trợ lực điện, tích hợp nhiều phím chức năng xử lý nhanh hỗ trợ người lái, lẫy chuyển số thể thao phía sau vô-lăng. Màn hình hiển thị thông tin về xe khi vận hành là màn hình LCD dạng điện tử với hình ảnh khá sắc nét
+ Zotye Z8 được trang bị nội thất vô cùng tiện nghi và hiện đại bao gồm vô-lăng 3 chấu bọc da, trợ lực điện, tích hợp nhiều phím chức năng xử lý nhanh hỗ trợ người lái, lẫy chuyển số thể thao phía sau vô-lăng. Màn hình hiển thị thông tin về xe khi vận hành là màn hình LCD dạng điện tử với hình ảnh khá sắc nét
 Nổi bật là vô lăng 3 chấu được bọc da màu nâu, tích hợp nút bấm và lẫy chuyển số. Cụm đồng hồ phía sau tay lái hoàn toàn bằng điện tử hiển thị đầy đủ thông số được phản hồi từ nhiều bộ phận khác nhau ở trên xe hỗ trợ người lái có cái nhìn trực quan hơn.
 Thiết kế ở cụm điều khiển, cần số, núm xoay chuyển chế độ vận hành hay cách bố trí nút bấm và thanh bám kết hợp giữa các ý tưởng từ các mẫu xe của Jaguar Land Rover và Porsche. Ngoài ra, Zotye Z8 còn sở hữu phanh tay điện tử, công nghệ ngắt động cơ tạm thời.
 
@@ -1644,15 +1637,15 @@ Zotye Z8 được trang bị rất nhiều công nghệ về an toàn không thu
 
 Ngoài ra Z8 còn có các thiết bị hỗ trợ an toàn khác như: cảm biến áp suất lốp, phanh ưu tiên, camera 360, hệ thống giám sát tình trạng lái xe và khung xe chịu lực nhằm hạn chế tối đa khả năng chấn thương cho hành khách.
 
-Xe sử dụng các hệ thống nhằm tăng tính an ninh giúp người lái an tâm hơn khi rời xe như hệ thống mã hóa khóa động cơ, hệ thống chống trộm và cảnh báo mở cửa.', N'Xăng', 0, N'30G-513.59', 0, N'anonymousUser', CAST(N'2022-11-15T17:00:11.0000000' AS DateTime2), 1168, CAST(N'2022-10-15' AS Date), 30, 10, 5, N'ACTIVE', N'Số tự động', 2018, 2, 347)
+Xe sử dụng các hệ thống nhằm tăng tính an ninh giúp người lái an tâm hơn khi rời xe như hệ thống mã hóa khóa động cơ, hệ thống chống trộm và cảnh báo mở cửa.', N'Xăng', 0, N'30G-513.59', 0, N'anonymousUser', CAST(N'2022-11-15T17:00:11.0000000' AS DateTime2), 1168, CAST(N'2022-11-15' AS Date), 30, 10, 5, N'ACTIVE', N'Số tự động', 2018, 2, 347)
 GO
 INSERT [dbo].[car] ([id], [created_by], [description], [fuel], [latitude], [license_plates], [longitude], [modified_by], [modified_date], [price], [register_date], [sale_month], [sale_week], [seats], [status], [transmission], [year_of_manufacture], [account_supplier_id], [model_id]) VALUES (102, N'anonymousUser', N'Mitsubishi Attrage 2020 với kiểu dáng hoàn toàn trẻ trung, hiện đại.
 - Khoang ngồi rộng rãi với số lượng 03 người thoải mái băng ghế sau.
 - Tiết kiệm nhiên liệu 4,5/100km
 - Xe mới 100% với trải nghiệm thú vị cùng các bạn
-- Trang bị màn hình Androin 10.0 giải trí trên quãng đường dài, Camera lùi và Camera hành trình giúp an toàn trong chuyến đi.', N'Dầu diesel', 0, N'51H-292.90', 0, N'anonymousUser', CAST(N'2022-11-15T17:02:12.0000000' AS DateTime2), 750, CAST(N'2022-10-15' AS Date), 40, 50, 5, N'ACTIVE', N'Số sàn', 2020, 3, 228)
+- Trang bị màn hình Androin 10.0 giải trí trên quãng đường dài, Camera lùi và Camera hành trình giúp an toàn trong chuyến đi.', N'Dầu diesel', 0, N'51H-292.90', 0, N'anonymousUser', CAST(N'2022-11-15T17:02:12.0000000' AS DateTime2), 750, CAST(N'2022-11-15' AS Date), 40, 50, 5, N'ACTIVE', N'Số sàn', 2020, 3, 228)
 GO
-INSERT [dbo].[car] ([id], [created_by], [description], [fuel], [latitude], [license_plates], [longitude], [modified_by], [modified_date], [price], [register_date], [sale_month], [sale_week], [seats], [status], [transmission], [year_of_manufacture], [account_supplier_id], [model_id]) VALUES (103, N'anonymousUser', N'xe mcar nhập số tự động đăng ký 6/2010.xe gia đình sử dụng đẹp nội thất nguyên bản sạch sẽ, bảo dưỡng định kỳ.xe rộng rãi an toàn tiện nghi phù hợp cho gia đình du lịch.xe trang bị phanh abs cảm biến lùi,2 túi khí.hệ thống giải trí AV cùng nhiều tiện nghi khác...', N'Xăng', 0, N'16N-513.59', 0, N'anonymousUser', CAST(N'2022-11-15T17:02:32.0000000' AS DateTime2), 380, CAST(N'2022-10-15' AS Date), 30, 10, 5, N'ACTIVE', N'Số tự động', 2010, 3, 292)
+INSERT [dbo].[car] ([id], [created_by], [description], [fuel], [latitude], [license_plates], [longitude], [modified_by], [modified_date], [price], [register_date], [sale_month], [sale_week], [seats], [status], [transmission], [year_of_manufacture], [account_supplier_id], [model_id]) VALUES (103, N'anonymousUser', N'xe mcar nhập số tự động đăng ký 6/2010.xe gia đình sử dụng đẹp nội thất nguyên bản sạch sẽ, bảo dưỡng định kỳ.xe rộng rãi an toàn tiện nghi phù hợp cho gia đình du lịch.xe trang bị phanh abs cảm biến lùi,2 túi khí.hệ thống giải trí AV cùng nhiều tiện nghi khác...', N'Xăng', 0, N'16N-513.59', 0, N'anonymousUser', CAST(N'2022-11-15T17:02:32.0000000' AS DateTime2), 380, CAST(N'2022-11-15' AS Date), 30, 10, 5, N'ACTIVE', N'Số tự động', 2010, 3, 292)
 GO
 INSERT [dbo].[car] ([id], [created_by], [description], [fuel], [latitude], [license_plates], [longitude], [modified_by], [modified_date], [price], [register_date], [sale_month], [sale_week], [seats], [status], [transmission], [year_of_manufacture], [account_supplier_id], [model_id]) VALUES (104, N'anonymousUser', N'Mitsubishi Triton số sàn máy dầu DK 05/2019
 
@@ -1663,57 +1656,72 @@ Xe lắp sẵn nắp thùng cao, có khoá thùng, chống nước chống bụi
 
 Xe đậu tại Phú Nhuận, rất gần trung tâm thành phố - dễ dàng di chuyển đến tất cả các quận huyện khác, gần sân bay, bến xe miền đông…
 
-Khu vực đậu/ nhận/ trả xe đường rộng vỉa hè thông thoáng, ngay khu Phan Xích Long đa dạng loại hình khách sạn/ ăn uống/ siêu thị/ tiện ích.', N'Dầu diesel', 0, N'51D-513.59', 0, N'anonymousUser', CAST(N'2022-11-15T17:04:05.0000000' AS DateTime2), 950, CAST(N'2022-10-15' AS Date), 50, 30, 5, N'ACTIVE', N'Số sàn', 2019, 3, 235)
+Khu vực đậu/ nhận/ trả xe đường rộng vỉa hè thông thoáng, ngay khu Phan Xích Long đa dạng loại hình khách sạn/ ăn uống/ siêu thị/ tiện ích.', N'Dầu diesel', 0, N'51D-513.59', 0, N'anonymousUser', CAST(N'2022-11-15T17:04:05.0000000' AS DateTime2), 950, CAST(N'2022-11-15' AS Date), 50, 30, 5, N'ACTIVE', N'Số sàn', 2019, 3, 235)
 GO
-INSERT [dbo].[car] ([id], [created_by], [description], [fuel], [latitude], [license_plates], [longitude], [modified_by], [modified_date], [price], [register_date], [sale_month], [sale_week], [seats], [status], [transmission], [year_of_manufacture], [account_supplier_id], [model_id]) VALUES (105, N'anonymousUser', N'MITSUBISHI TRITON MIVEC 2022', N'Dầu diesel', 0, N'62C-168.61', 0, N'anonymousUser', CAST(N'2022-11-15T17:05:43.0000000' AS DateTime2), 1100, CAST(N'2022-10-15' AS Date), 50, 30, 5, N'ACTIVE', N'Số sàn', 2022, 3, 236)
+INSERT [dbo].[car] ([id], [created_by], [description], [fuel], [latitude], [license_plates], [longitude], [modified_by], [modified_date], [price], [register_date], [sale_month], [sale_week], [seats], [status], [transmission], [year_of_manufacture], [account_supplier_id], [model_id]) VALUES (105, N'anonymousUser', N'MITSUBISHI TRITON MIVEC 2022', N'Dầu diesel', 0, N'62C-168.61', 0, N'anonymousUser', CAST(N'2022-11-15T17:05:43.0000000' AS DateTime2), 1100, CAST(N'2022-11-15' AS Date), 50, 30, 5, N'ACTIVE', N'Số sàn', 2022, 3, 236)
 GO
 INSERT [dbo].[car] ([id], [created_by], [description], [fuel], [latitude], [license_plates], [longitude], [modified_by], [modified_date], [price], [register_date], [sale_month], [sale_week], [seats], [status], [transmission], [year_of_manufacture], [account_supplier_id], [model_id]) VALUES (106, N'anonymousUser', N'TOYOTA INNOVA E 2017
-ƯU TIÊN KHÁCH THUÊ ĐẶT XE TẾT NHÂM DUẦN LẤY XE TỪ 28 TẾT', N'Xăng', 0, N'51F-89073', 0, N'anonymousUser', CAST(N'2022-11-15T17:06:39.0000000' AS DateTime2), 1000, CAST(N'2022-10-15' AS Date), 65, 60, 7, N'ACTIVE', N'Số sàn', 2017, 3, 309)
+ƯU TIÊN KHÁCH THUÊ ĐẶT XE TẾT NHÂM DUẦN LẤY XE TỪ 28 TẾT', N'Xăng', 0, N'51F-89073', 0, N'anonymousUser', CAST(N'2022-11-15T17:06:39.0000000' AS DateTime2), 1000, CAST(N'2022-11-15' AS Date), 65, 60, 7, N'ACTIVE', N'Số sàn', 2017, 3, 309)
 GO
 INSERT [dbo].[car] ([id], [created_by], [description], [fuel], [latitude], [license_plates], [longitude], [modified_by], [modified_date], [price], [register_date], [sale_month], [sale_week], [seats], [status], [transmission], [year_of_manufacture], [account_supplier_id], [model_id]) VALUES (107, N'anonymousUser', N'Xe vios Trắng sạch đẹp
 Xe gia đình kĩ càng
-Đi tiết kiệm xăng, lướt.', N'Xăng', 0, N'51H-72056', 0, N'anonymousUser', CAST(N'2022-11-15T17:09:20.0000000' AS DateTime2), 680, CAST(N'2022-10-15' AS Date), 35, 25, 7, N'ACTIVE', N'Số sàn', 2019, 3, 320)
+Đi tiết kiệm xăng, lướt.', N'Xăng', 0, N'51H-72056', 0, N'anonymousUser', CAST(N'2022-11-15T17:09:20.0000000' AS DateTime2), 680, CAST(N'2022-11-15' AS Date), 35, 25, 7, N'ACTIVE', N'Số sàn', 2019, 3, 320)
 GO
-INSERT [dbo].[car] ([id], [created_by], [description], [fuel], [latitude], [license_plates], [longitude], [modified_by], [modified_date], [price], [register_date], [sale_month], [sale_week], [seats], [status], [transmission], [year_of_manufacture], [account_supplier_id], [model_id]) VALUES (109, N'anonymousUser', N'Toyota Vios đăng ký tháng 08/2017, xe nhà sử dụng còn mới, biển số trắng, ko đăng ký kinh doanh vận tải nên ko có dán logo và quảng cáo trên xe, ghế bọc da, trải sàn da, sạch sẽ. Có sẵn bơm lốp điện tử trên xe, bảo dưỡng định kỳ theo tiêu chuẩn của hãng. Có giấy xác nhận xe đang thế chấp của ngân hàng nên không phải sợ CSGT đòi kiểm tra cà vẹt gốc.', N'Xăng', 0, N'51F-48719', 0, N'anonymousUser', CAST(N'2022-11-15T17:11:43.0000000' AS DateTime2), 600, CAST(N'2022-10-15' AS Date), 35, 25, 7, N'ACTIVE', N'Số sàn', 2017, 3, 320)
+INSERT [dbo].[car] ([id], [created_by], [description], [fuel], [latitude], [license_plates], [longitude], [modified_by], [modified_date], [price], [register_date], [sale_month], [sale_week], [seats], [status], [transmission], [year_of_manufacture], [account_supplier_id], [model_id]) VALUES (109, N'anonymousUser', N'Toyota Vios đăng ký tháng 08/2017, xe nhà sử dụng còn mới, biển số trắng, ko đăng ký kinh doanh vận tải nên ko có dán logo và quảng cáo trên xe, ghế bọc da, trải sàn da, sạch sẽ. Có sẵn bơm lốp điện tử trên xe, bảo dưỡng định kỳ theo tiêu chuẩn của hãng. Có giấy xác nhận xe đang thế chấp của ngân hàng nên không phải sợ CSGT đòi kiểm tra cà vẹt gốc.', N'Xăng', 0, N'51F-48719', 0, N'anonymousUser', CAST(N'2022-11-15T17:11:43.0000000' AS DateTime2), 600, CAST(N'2022-11-15' AS Date), 35, 25, 7, N'ACTIVE', N'Số sàn', 2017, 3, 320)
 GO
 INSERT [dbo].[car] ([id], [created_by], [description], [fuel], [latitude], [license_plates], [longitude], [modified_by], [modified_date], [price], [register_date], [sale_month], [sale_week], [seats], [status], [transmission], [year_of_manufacture], [account_supplier_id], [model_id]) VALUES (110, N'anonymousUser', N'Xe camry đang ky tháng 3 nam 2022
-Xe mới, đầy đủ tiện nghi', N'Xăng', 0, N'60K-67045', 0, N'anonymousUser', CAST(N'2022-11-15T17:13:52.0000000' AS DateTime2), 1500, CAST(N'2022-10-15' AS Date), 55, 53, 7, N'ACTIVE', N'Số sàn', 2022, 3, 294)
+Xe mới, đầy đủ tiện nghi', N'Xăng', 0, N'60K-67045', 0, N'anonymousUser', CAST(N'2022-11-15T17:13:52.0000000' AS DateTime2), 1500, CAST(N'2022-11-15' AS Date), 55, 53, 7, N'ACTIVE', N'Số sàn', 2022, 3, 294)
 GO
 INSERT [dbo].[car] ([id], [created_by], [description], [fuel], [latitude], [license_plates], [longitude], [modified_by], [modified_date], [price], [register_date], [sale_month], [sale_week], [seats], [status], [transmission], [year_of_manufacture], [account_supplier_id], [model_id]) VALUES (111, N'anonymousUser', N'Hyundai Kona bản tiêu chuẩn màu đen.
 Số tự động
-Xe có trang bị ghế trẻ em cho trẻ từ 5 tuổi trở xuống', N'Xăng', 0, N'A-197.89', 0, N'anonymousUser', CAST(N'2022-11-15T17:19:04.0000000' AS DateTime2), 1000, CAST(N'2022-10-11' AS Date), 40, 30, 4, N'ACTIVE', N'Số tự động', 2019, 3, 105)
+Xe có trang bị ghế trẻ em cho trẻ từ 5 tuổi trở xuống', N'Xăng', 0, N'A-197.89', 0, N'anonymousUser', CAST(N'2022-11-15T17:19:04.0000000' AS DateTime2), 1000, CAST(N'2022-11-15' AS Date), 40, 30, 4, N'ACTIVE', N'Số tự động', 2019, 3, 105)
 GO
 INSERT [dbo].[car] ([id], [created_by], [description], [fuel], [latitude], [license_plates], [longitude], [modified_by], [modified_date], [price], [register_date], [sale_month], [sale_week], [seats], [status], [transmission], [year_of_manufacture], [account_supplier_id], [model_id]) VALUES (113, N'anonymousUser', N'Xe số tự động, xe mới mua năm/2021, xe gia đình ít đi, chạy được 15.000km. Xe ít hao xăng 100km/6-7 lít.
-Có bản đồ cảnh báo tốc độ, camera hành trình, camera lùi. Màn hình lớn  zestech kết nối bluetooth, youtube giải trí.', N'Dầu diesel', 10, N'AB.126.45', 106, N'anonymousUser', CAST(N'2022-11-15T23:58:11.0000000' AS DateTime2), 720, CAST(N'2022-10-11' AS Date), 13, 20, 5, N'PAUSE', N'Số sàn', 2008, 26, 29)
+Có bản đồ cảnh báo tốc độ, camera hành trình, camera lùi. Màn hình lớn  zestech kết nối bluetooth, youtube giải trí.', N'Dầu diesel', 10, N'AB.126.45', 106, N'anonymousUser', CAST(N'2022-11-15T23:58:11.0000000' AS DateTime2), 720, CAST(N'2022-10-15' AS Date), 13, 20, 5, N'PAUSE', N'Số sàn', 2008, 26, 29)
 GO
 INSERT [dbo].[car] ([id], [created_by], [description], [fuel], [latitude], [license_plates], [longitude], [modified_by], [modified_date], [price], [register_date], [sale_month], [sale_week], [seats], [status], [transmission], [year_of_manufacture], [account_supplier_id], [model_id]) VALUES (114, N'anonymousUser', N'Xe số tự động, xe mới mua năm/2021, xe gia đình ít đi, chạy được 15.000km. Xe ít hao xăng 100km/6-7 lít.
-Có bản đồ cảnh báo tốc độ, camera hành trình, camera lùi. Màn hình lớn  zestech kết nối bluetooth, youtube giải trí.', N'Xăng', 10, N'A5.562.4', 106, N'anonymousUser', CAST(N'2022-11-16T00:00:41.0000000' AS DateTime2), 720, CAST(N'2021-11-15' AS Date), 21, 15, 5, N'ACTIVE', N'Số tự động', 2008, 26, 2)
+Có bản đồ cảnh báo tốc độ, camera hành trình, camera lùi. Màn hình lớn  zestech kết nối bluetooth, youtube giải trí.', N'Xăng', 10, N'A5.562.4', 106, N'anonymousUser', CAST(N'2022-11-16T00:00:41.0000000' AS DateTime2), 720, CAST(N'2021-11-16' AS Date), 21, 15, 5, N'ACTIVE', N'Số tự động', 2008, 26, 2)
 GO
 INSERT [dbo].[car] ([id], [created_by], [description], [fuel], [latitude], [license_plates], [longitude], [modified_by], [modified_date], [price], [register_date], [sale_month], [sale_week], [seats], [status], [transmission], [year_of_manufacture], [account_supplier_id], [model_id]) VALUES (115, N'anonymousUser', N'Xe số tự động, xe mới mua năm/2021, xe gia đình ít đi, chạy được 15.000km. Xe ít hao xăng 100km/6-7 lít.
-Có bản đồ cảnh báo tốc độ, camera hành trình, camera lùi. Màn hình lớn  zestech kết nối bluetooth, youtube giải trí.', N'Dầu diesel', 8, N'AN.89.2588', 106, N'anonymousUser', CAST(N'2022-11-16T00:03:24.0000000' AS DateTime2), 720, CAST(N'2022-10-11' AS Date), 19, 9, 4, N'ACTIVE', N'Số sàn', 2008, 26, 117)
+Có bản đồ cảnh báo tốc độ, camera hành trình, camera lùi. Màn hình lớn  zestech kết nối bluetooth, youtube giải trí.', N'Dầu diesel', 8, N'AN.89.2588', 106, N'anonymousUser', CAST(N'2022-11-16T00:03:24.0000000' AS DateTime2), 720, CAST(N'2022-11-16' AS Date), 19, 9, 4, N'ACTIVE', N'Số sàn', 2008, 26, 117)
 GO
-INSERT [dbo].[car] ([id], [created_by], [description], [fuel], [latitude], [license_plates], [longitude], [modified_by], [modified_date], [price], [register_date], [sale_month], [sale_week], [seats], [status], [transmission], [year_of_manufacture], [account_supplier_id], [model_id]) VALUES (116, N'anonymousUser', N'Xe sạch đẹp', N'Xăng', 0, N'51D-56246', 0, N'anonymousUser', CAST(N'2022-11-16T12:00:54.0000000' AS DateTime2), 1200, CAST(N'2022-11-05' AS Date), 30, 10, 4, N'ACTIVE', N'Số tự động', 2020, 21, 32)
+INSERT [dbo].[car] ([id], [created_by], [description], [fuel], [latitude], [license_plates], [longitude], [modified_by], [modified_date], [price], [register_date], [sale_month], [sale_week], [seats], [status], [transmission], [year_of_manufacture], [account_supplier_id], [model_id]) VALUES (116, N'anonymousUser', N'Xe sạch đẹp', N'Xăng', 0, N'51D-56246', 0, N'anonymousUser', CAST(N'2022-11-16T12:00:54.0000000' AS DateTime2), 1200, CAST(N'2022-11-16' AS Date), 30, 10, 4, N'ACTIVE', N'Số tự động', 2020, 21, 32)
 GO
-INSERT [dbo].[car] ([id], [created_by], [description], [fuel], [latitude], [license_plates], [longitude], [modified_by], [modified_date], [price], [register_date], [sale_month], [sale_week], [seats], [status], [transmission], [year_of_manufacture], [account_supplier_id], [model_id]) VALUES (117, N'anonymousUser', N'Xe gia đình còn rất mới, nội thất sạch đẹp, rất tiết kiệm nhiên liệu, máy êm', N'Xăng', 0, N'51G-62527', 0, N'anonymousUser', CAST(N'2022-11-16T12:04:24.0000000' AS DateTime2), 1200, CAST(N'2022-10-11' AS Date), 30, 10, 5, N'ACTIVE', N'Số tự động', 2007, 21, 40)
+INSERT [dbo].[car] ([id], [created_by], [description], [fuel], [latitude], [license_plates], [longitude], [modified_by], [modified_date], [price], [register_date], [sale_month], [sale_week], [seats], [status], [transmission], [year_of_manufacture], [account_supplier_id], [model_id]) VALUES (117, N'anonymousUser', N'Xe gia đình còn rất mới, nội thất sạch đẹp, rất tiết kiệm nhiên liệu, máy êm', N'Xăng', 0, N'51G-62527', 0, N'anonymousUser', CAST(N'2022-11-16T12:04:24.0000000' AS DateTime2), 1200, CAST(N'2022-11-16' AS Date), 30, 10, 5, N'ACTIVE', N'Số tự động', 2007, 21, 40)
 GO
-INSERT [dbo].[car] ([id], [created_by], [description], [fuel], [latitude], [license_plates], [longitude], [modified_by], [modified_date], [price], [register_date], [sale_month], [sale_week], [seats], [status], [transmission], [year_of_manufacture], [account_supplier_id], [model_id]) VALUES (118, N'anonymousUser', N'CHEVROLET AVEO 2018', N'Xăng', 0, N'51G-843.41', 0, N'anonymousUser', CAST(N'2022-11-16T12:05:17.0000000' AS DateTime2), 560, CAST(N'2022-10-11' AS Date), 70, 59, 4, N'ACTIVE', N'Số sàn', 2018, 15, 29)
+INSERT [dbo].[car] ([id], [created_by], [description], [fuel], [latitude], [license_plates], [longitude], [modified_by], [modified_date], [price], [register_date], [sale_month], [sale_week], [seats], [status], [transmission], [year_of_manufacture], [account_supplier_id], [model_id]) VALUES (118, N'anonymousUser', N'CHEVROLET AVEO 2018', N'Xăng', 0, N'51G-843.41', 0, N'anonymousUser', CAST(N'2022-11-16T12:05:17.0000000' AS DateTime2), 560, CAST(N'2022-11-16' AS Date), 70, 59, 4, N'ACTIVE', N'Số sàn', 2018, 15, 29)
 GO
-INSERT [dbo].[car] ([id], [created_by], [description], [fuel], [latitude], [license_plates], [longitude], [modified_by], [modified_date], [price], [register_date], [sale_month], [sale_week], [seats], [status], [transmission], [year_of_manufacture], [account_supplier_id], [model_id]) VALUES (119, N'anonymousUser', N'Chevrolet cruze số sàn 2017 xe gia đình sd mới đẹp', N'Xăng', 0, N'51F-478.81', 0, N'anonymousUser', CAST(N'2022-11-16T12:11:05.0000000' AS DateTime2), 585, CAST(N'2022-10-11' AS Date), 70, 40, 4, N'ACTIVE', N'Số sàn', 2017, 15, 36)
+INSERT [dbo].[car] ([id], [created_by], [description], [fuel], [latitude], [license_plates], [longitude], [modified_by], [modified_date], [price], [register_date], [sale_month], [sale_week], [seats], [status], [transmission], [year_of_manufacture], [account_supplier_id], [model_id]) VALUES (119, N'anonymousUser', N'Chevrolet cruze số sàn 2017 xe gia đình sd mới đẹp', N'Xăng', 0, N'51F-478.81', 0, N'anonymousUser', CAST(N'2022-11-16T12:11:05.0000000' AS DateTime2), 585, CAST(N'2022-11-16' AS Date), 70, 40, 4, N'ACTIVE', N'Số sàn', 2017, 15, 36)
 GO
-INSERT [dbo].[car] ([id], [created_by], [description], [fuel], [latitude], [license_plates], [longitude], [modified_by], [modified_date], [price], [register_date], [sale_month], [sale_week], [seats], [status], [transmission], [year_of_manufacture], [account_supplier_id], [model_id]) VALUES (120, N'anonymousUser', N'Chevrolet Lacetti 2011, tiết kiệm xăng,gia đình ít sử dụng, đặt cọc 6tr/tháng', N'Xăng', 0, N'51A-359.56', 0, N'anonymousUser', CAST(N'2022-11-16T12:14:54.0000000' AS DateTime2), 550, CAST(N'2022-10-15' AS Date), 60, 70, 4, N'ACTIVE', N'Số sàn', 2012, 15, 38)
+INSERT [dbo].[car] ([id], [created_by], [description], [fuel], [latitude], [license_plates], [longitude], [modified_by], [modified_date], [price], [register_date], [sale_month], [sale_week], [seats], [status], [transmission], [year_of_manufacture], [account_supplier_id], [model_id]) VALUES (120, N'anonymousUser', N'Chevrolet Lacetti 2011, tiết kiệm xăng,gia đình ít sử dụng, đặt cọc 6tr/tháng', N'Xăng', 0, N'51A-359.56', 0, N'anonymousUser', CAST(N'2022-11-16T12:14:54.0000000' AS DateTime2), 550, CAST(N'2022-11-16' AS Date), 60, 70, 4, N'ACTIVE', N'Số sàn', 2012, 15, 38)
 GO
-INSERT [dbo].[car] ([id], [created_by], [description], [fuel], [latitude], [license_plates], [longitude], [modified_by], [modified_date], [price], [register_date], [sale_month], [sale_week], [seats], [status], [transmission], [year_of_manufacture], [account_supplier_id], [model_id]) VALUES (121, N'anonymousUser', N'Chevrolet Lacetti 2011, tiết kiệm xăng,gia đình ít sử dụng, đặt cọc 6tr/tháng', N'Xăng', 0, N'51G-092.39', 0, N'anonymousUser', CAST(N'2022-11-16T12:17:04.0000000' AS DateTime2), 580, CAST(N'2022-10-15' AS Date), 55, 65, 4, N'ACTIVE', N'Số sàn', 2018, 15, 40)
+INSERT [dbo].[car] ([id], [created_by], [description], [fuel], [latitude], [license_plates], [longitude], [modified_by], [modified_date], [price], [register_date], [sale_month], [sale_week], [seats], [status], [transmission], [year_of_manufacture], [account_supplier_id], [model_id]) VALUES (121, N'anonymousUser', N'Chevrolet Lacetti 2011, tiết kiệm xăng,gia đình ít sử dụng, đặt cọc 6tr/tháng', N'Xăng', 0, N'51G-092.39', 0, N'anonymousUser', CAST(N'2022-11-16T12:17:04.0000000' AS DateTime2), 580, CAST(N'2022-11-16' AS Date), 55, 65, 4, N'ACTIVE', N'Số sàn', 2018, 15, 40)
 GO
-INSERT [dbo].[car] ([id], [created_by], [description], [fuel], [latitude], [license_plates], [longitude], [modified_by], [modified_date], [price], [register_date], [sale_month], [sale_week], [seats], [status], [transmission], [year_of_manufacture], [account_supplier_id], [model_id]) VALUES (122, N'anonymousUser', N'CHEVROLET TRAILBLAZER 2018', N'Dầu diesel', 0, N'51G-19637', 0, N'anonymousUser', CAST(N'2022-11-16T12:20:36.0000000' AS DateTime2), 1200, CAST(N'2022-10-15' AS Date), 30, 10, 7, N'ACTIVE', N'Số tự động', 2018, 21, 41)
+INSERT [dbo].[car] ([id], [created_by], [description], [fuel], [latitude], [license_plates], [longitude], [modified_by], [modified_date], [price], [register_date], [sale_month], [sale_week], [seats], [status], [transmission], [year_of_manufacture], [account_supplier_id], [model_id]) VALUES (122, N'anonymousUser', N'CHEVROLET TRAILBLAZER 2018', N'Dầu diesel', 0, N'51G-19637', 0, N'anonymousUser', CAST(N'2022-11-16T12:20:36.0000000' AS DateTime2), 1200, CAST(N'2022-11-16' AS Date), 30, 10, 7, N'ACTIVE', N'Số tự động', 2018, 21, 41)
 GO
-INSERT [dbo].[car] ([id], [created_by], [description], [fuel], [latitude], [license_plates], [longitude], [modified_by], [modified_date], [price], [register_date], [sale_month], [sale_week], [seats], [status], [transmission], [year_of_manufacture], [account_supplier_id], [model_id]) VALUES (123, N'anonymousUser', N'Xe đẹp thể thao cửa sổ trời màn hình DVD cảm biến', N'Xăng', 0, N'51H-401.67', 0, N'anonymousUser', CAST(N'2022-11-16T12:20:59.0000000' AS DateTime2), 720, CAST(N'2022-10-15' AS Date), 60, 60, 5, N'ACTIVE', N'Số tự động', 2022, 15, 36)
+INSERT [dbo].[car] ([id], [created_by], [description], [fuel], [latitude], [license_plates], [longitude], [modified_by], [modified_date], [price], [register_date], [sale_month], [sale_week], [seats], [status], [transmission], [year_of_manufacture], [account_supplier_id], [model_id]) VALUES (123, N'anonymousUser', N'Xe đẹp thể thao cửa sổ trời màn hình DVD cảm biến', N'Xăng', 0, N'51H-401.67', 0, N'anonymousUser', CAST(N'2022-11-16T12:20:59.0000000' AS DateTime2), 720, CAST(N'2022-11-16' AS Date), 60, 60, 5, N'ACTIVE', N'Số tự động', 2022, 15, 36)
 GO
-INSERT [dbo].[car] ([id], [created_by], [description], [fuel], [latitude], [license_plates], [longitude], [modified_by], [modified_date], [price], [register_date], [sale_month], [sale_week], [seats], [status], [transmission], [year_of_manufacture], [account_supplier_id], [model_id]) VALUES (124, N'anonymousUser', N'Xe Orlando đăng ký 11/2017 số Đồng Hồ hiện tại 35,000 Km. Xe còn rất mới do gia đình sử dụng ít đi lại. Đèn xe rất sáng. đi rất êm.', N'Xăng', 0, N'51G-122.52', 0, N'anonymousUser', CAST(N'2022-11-16T12:23:20.0000000' AS DateTime2), 990, CAST(N'2022-10-15' AS Date), 60, 55, 7, N'ACTIVE', N'Số tự động', 2017, 15, 39)
-GO
-INSERT [dbo].[car] ([id], [created_by], [description], [fuel], [latitude], [license_plates], [longitude], [modified_by], [modified_date], [price], [register_date], [sale_month], [sale_week], [seats], [status], [transmission], [year_of_manufacture], [account_supplier_id], [model_id]) VALUES (126, N'anonymousUser', N'Xe số tự động, xe mới mua năm/2021, xe gia đình ít đi, chạy được 15.000km. Xe ít hao xăng 100km/6-7 lít.
-Có bản đồ cảnh báo tốc độ, camera hành trình, camera lùi. Màn hình lớn  zestech kết nối bluetooth, youtube giải trí. Xe dep', N'Xăng', 22, N'AB123.59', 104, N'anonymousUser', CAST(N'2022-11-16T15:27:14.0000000' AS DateTime2), 1444, CAST(N'2022-11-16' AS Date), 31, 23, 4, N'ACTIVE', N'Số tự động', 2009, 26, 116)
+INSERT [dbo].[car] ([id], [created_by], [description], [fuel], [latitude], [license_plates], [longitude], [modified_by], [modified_date], [price], [register_date], [sale_month], [sale_week], [seats], [status], [transmission], [year_of_manufacture], [account_supplier_id], [model_id]) VALUES (124, N'anonymousUser', N'Xe Orlando đăng ký 11/2017 số Đồng Hồ hiện tại 35,000 Km. Xe còn rất mới do gia đình sử dụng ít đi lại. Đèn xe rất sáng. đi rất êm.', N'Xăng', 0, N'51G-122.52', 0, N'anonymousUser', CAST(N'2022-11-16T12:23:20.0000000' AS DateTime2), 990, CAST(N'2022-11-16' AS Date), 60, 55, 7, N'ACTIVE', N'Số tự động', 2017, 15, 39)
 GO
 INSERT [dbo].[car_feature] ([car_id], [feature_id]) VALUES (6, 1)
+GO
+INSERT [dbo].[car_feature] ([car_id], [feature_id]) VALUES (6, 2)
+GO
+INSERT [dbo].[car_feature] ([car_id], [feature_id]) VALUES (6, 3)
+GO
+INSERT [dbo].[car_feature] ([car_id], [feature_id]) VALUES (6, 9)
+GO
+INSERT [dbo].[car_feature] ([car_id], [feature_id]) VALUES (6, 10)
+GO
+INSERT [dbo].[car_feature] ([car_id], [feature_id]) VALUES (6, 12)
+GO
+INSERT [dbo].[car_feature] ([car_id], [feature_id]) VALUES (6, 14)
+GO
+INSERT [dbo].[car_feature] ([car_id], [feature_id]) VALUES (6, 15)
+GO
+INSERT [dbo].[car_feature] ([car_id], [feature_id]) VALUES (6, 16)
+GO
+INSERT [dbo].[car_feature] ([car_id], [feature_id]) VALUES (6, 17)
 GO
 INSERT [dbo].[car_feature] ([car_id], [feature_id]) VALUES (7, 1)
 GO
@@ -4201,27 +4209,15 @@ INSERT [dbo].[car_feature] ([car_id], [feature_id]) VALUES (124, 17)
 GO
 INSERT [dbo].[car_feature] ([car_id], [feature_id]) VALUES (124, 18)
 GO
-INSERT [dbo].[car_feature] ([car_id], [feature_id]) VALUES (126, 2)
-GO
-INSERT [dbo].[car_feature] ([car_id], [feature_id]) VALUES (126, 3)
-GO
-INSERT [dbo].[car_feature] ([car_id], [feature_id]) VALUES (126, 5)
-GO
-INSERT [dbo].[car_feature] ([car_id], [feature_id]) VALUES (126, 6)
-GO
-INSERT [dbo].[car_feature] ([car_id], [feature_id]) VALUES (126, 9)
-GO
-INSERT [dbo].[car_feature] ([car_id], [feature_id]) VALUES (126, 10)
-GO
-INSERT [dbo].[car_feature] ([car_id], [feature_id]) VALUES (126, 12)
-GO
-INSERT [dbo].[car_feature] ([car_id], [feature_id]) VALUES (126, 13)
-GO
-INSERT [dbo].[car_feature] ([car_id], [feature_id]) VALUES (126, 14)
-GO
-INSERT [dbo].[car_feature] ([car_id], [feature_id]) VALUES (126, 15)
-GO
 SET IDENTITY_INSERT [dbo].[car_image] ON 
+GO
+INSERT [dbo].[car_image] ([id], [created_by], [created_date], [image], [modified_by], [modified_date], [car_id]) VALUES (27, N'anonymousUser', CAST(N'2022-11-15' AS Date), N'https://firebasestorage.googleapis.com/v0/b/etransportationsys-trichoip.appspot.com/o/images%2F-RtaJ5rjgWwFcOZfJkj0QQ.jpgc0f3462e-d6ee-460d-b7f6-2a60e3ddf47d?alt=media&token=febddac0-98a1-4f69-a413-4b9a16b9ff7a', N'anonymousUser', CAST(N'2022-11-15T09:11:36.0000000' AS DateTime2), 6)
+GO
+INSERT [dbo].[car_image] ([id], [created_by], [created_date], [image], [modified_by], [modified_date], [car_id]) VALUES (28, N'anonymousUser', CAST(N'2022-11-15' AS Date), N'https://firebasestorage.googleapis.com/v0/b/etransportationsys-trichoip.appspot.com/o/images%2FQc0jZdeB5n8Kx_-JuKd3Aw.jpgd262d443-30f3-4fa8-83f3-8dd5e6932316?alt=media&token=4e340f4b-bc28-49b5-8c50-994909e7f296', N'anonymousUser', CAST(N'2022-11-15T09:11:36.0000000' AS DateTime2), 6)
+GO
+INSERT [dbo].[car_image] ([id], [created_by], [created_date], [image], [modified_by], [modified_date], [car_id]) VALUES (29, N'anonymousUser', CAST(N'2022-11-15' AS Date), N'https://firebasestorage.googleapis.com/v0/b/etransportationsys-trichoip.appspot.com/o/images%2FkEwFGnjYkygQQdcWFwM2ng.jpg5c60c7ac-b084-4e48-918f-e37d7042565f?alt=media&token=0831dbec-885c-4e2e-bb16-e58bd76c2b08', N'anonymousUser', CAST(N'2022-11-15T09:11:36.0000000' AS DateTime2), 6)
+GO
+INSERT [dbo].[car_image] ([id], [created_by], [created_date], [image], [modified_by], [modified_date], [car_id]) VALUES (30, N'anonymousUser', CAST(N'2022-11-15' AS Date), N'https://firebasestorage.googleapis.com/v0/b/etransportationsys-trichoip.appspot.com/o/images%2FS6iiRBFDIRV8hPSXtj0EDg.jpg0c3c2316-342e-4a48-9fe1-ca1ed3e149bd?alt=media&token=17e2eec3-73d6-4f05-a3ed-4cba1084c351', N'anonymousUser', CAST(N'2022-11-15T09:11:36.0000000' AS DateTime2), 6)
 GO
 INSERT [dbo].[car_image] ([id], [created_by], [created_date], [image], [modified_by], [modified_date], [car_id]) VALUES (31, N'anonymousUser', CAST(N'2022-11-15' AS Date), N'https://firebasestorage.googleapis.com/v0/b/etransportationsys-trichoip.appspot.com/o/images%2FstMN4xHg8juhq5dKL5t12Q.jpgd673d79a-0c5d-45ed-b51f-a6964302d49d?alt=media&token=27d9c959-a367-4585-9f62-a87b91f1c1e2', N'anonymousUser', CAST(N'2022-11-15T09:16:37.0000000' AS DateTime2), 7)
 GO
@@ -5104,24 +5100,6 @@ GO
 INSERT [dbo].[car_image] ([id], [created_by], [created_date], [image], [modified_by], [modified_date], [car_id]) VALUES (546, N'anonymousUser', CAST(N'2022-11-16' AS Date), N'https://firebasestorage.googleapis.com/v0/b/etransportationsys-trichoip.appspot.com/o/images%2F37pN2YzujAGSk0V91y5qxw.jpg1a3681c3-d338-4d89-be36-f04b28601027?alt=media&token=e14719eb-2aaf-47b8-b863-9ec60123ca21', N'anonymousUser', CAST(N'2022-11-16T12:23:20.0000000' AS DateTime2), 124)
 GO
 INSERT [dbo].[car_image] ([id], [created_by], [created_date], [image], [modified_by], [modified_date], [car_id]) VALUES (547, N'anonymousUser', CAST(N'2022-11-16' AS Date), N'https://firebasestorage.googleapis.com/v0/b/etransportationsys-trichoip.appspot.com/o/images%2F5d73LKgfrTiXmrYKeYV2VQ.jpg3f984540-0276-4840-be25-bbe893b84446?alt=media&token=4d3be7f2-7090-4a8e-bff0-cef8e058ebe1', N'anonymousUser', CAST(N'2022-11-16T12:23:20.0000000' AS DateTime2), 124)
-GO
-INSERT [dbo].[car_image] ([id], [created_by], [created_date], [image], [modified_by], [modified_date], [car_id]) VALUES (576, N'anonymousUser', CAST(N'2022-11-16' AS Date), N'https://firebasestorage.googleapis.com/v0/b/etransportationsys-trichoip.appspot.com/o/images%2FMU0NWL0xvtXK9egtivOIjg.jpgf21203b0-05b1-46d1-9e58-48134d42aada?alt=media&token=b1de58e0-88eb-4fd0-b644-59085a9a0f19', N'anonymousUser', CAST(N'2022-11-16T15:25:11.0000000' AS DateTime2), 126)
-GO
-INSERT [dbo].[car_image] ([id], [created_by], [created_date], [image], [modified_by], [modified_date], [car_id]) VALUES (577, N'anonymousUser', CAST(N'2022-11-16' AS Date), N'https://firebasestorage.googleapis.com/v0/b/etransportationsys-trichoip.appspot.com/o/images%2FF5NbbsbioozF_FmUaV0brw.jpg594e14ec-8d57-49d6-8009-ae2401a56645?alt=media&token=7761c67a-cc20-4c00-9eb4-3dd9837e06fe', N'anonymousUser', CAST(N'2022-11-16T15:25:11.0000000' AS DateTime2), 126)
-GO
-INSERT [dbo].[car_image] ([id], [created_by], [created_date], [image], [modified_by], [modified_date], [car_id]) VALUES (578, N'anonymousUser', CAST(N'2022-11-16' AS Date), N'https://firebasestorage.googleapis.com/v0/b/etransportationsys-trichoip.appspot.com/o/images%2FE8adWkul7EfRQHlc-pDk9A.jpg39cafb97-0f03-4b96-96c4-302259a7809e?alt=media&token=04604e16-4bfa-4540-bc4a-4472d8438f14', N'anonymousUser', CAST(N'2022-11-16T15:25:11.0000000' AS DateTime2), 126)
-GO
-INSERT [dbo].[car_image] ([id], [created_by], [created_date], [image], [modified_by], [modified_date], [car_id]) VALUES (592, N'anonymousUser', CAST(N'2023-03-15' AS Date), N'string', N'anonymousUser', CAST(N'2023-03-15T20:01:47.0000000' AS DateTime2), 6)
-GO
-INSERT [dbo].[car_image] ([id], [created_by], [created_date], [image], [modified_by], [modified_date], [car_id]) VALUES (593, N'anonymousUser', CAST(N'2023-03-15' AS Date), N'string', N'anonymousUser', CAST(N'2023-03-15T20:01:47.0000000' AS DateTime2), 6)
-GO
-INSERT [dbo].[car_image] ([id], [created_by], [created_date], [image], [modified_by], [modified_date], [car_id]) VALUES (594, N'anonymousUser', CAST(N'2023-03-15' AS Date), N'string', N'anonymousUser', CAST(N'2023-03-15T20:01:47.0000000' AS DateTime2), 6)
-GO
-INSERT [dbo].[car_image] ([id], [created_by], [created_date], [image], [modified_by], [modified_date], [car_id]) VALUES (595, N'anonymousUser', CAST(N'2023-03-15' AS Date), N'string', N'anonymousUser', CAST(N'2023-03-15T20:01:47.0000000' AS DateTime2), 6)
-GO
-INSERT [dbo].[car_image] ([id], [created_by], [created_date], [image], [modified_by], [modified_date], [car_id]) VALUES (596, N'anonymousUser', CAST(N'2023-03-15' AS Date), N'string', N'anonymousUser', CAST(N'2023-03-15T20:01:47.0000000' AS DateTime2), 6)
-GO
-INSERT [dbo].[car_image] ([id], [created_by], [created_date], [image], [modified_by], [modified_date], [car_id]) VALUES (597, N'anonymousUser', CAST(N'2023-03-15' AS Date), N'string', N'anonymousUser', CAST(N'2023-03-15T20:01:47.0000000' AS DateTime2), 6)
 GO
 SET IDENTITY_INSERT [dbo].[car_image] OFF
 GO
@@ -6677,7 +6655,7 @@ INSERT [dbo].[driving_license] ([id], [birth_date], [created_by], [created_date]
 GO
 INSERT [dbo].[driving_license] ([id], [birth_date], [created_by], [created_date], [image_front], [modified_by], [modified_date], [name], [number_driving_license], [status]) VALUES (12, CAST(N'2000-03-09' AS Date), N'anonymousUser', CAST(N'2022-11-15T17:51:05.0000000' AS DateTime2), N'https://firebasestorage.googleapis.com/v0/b/etransportationsys-trichoip.appspot.com/o/images%2Fgiay-phep-lai-xe-hang-a1.jpgec4bf441-c43e-4c39-b48c-857ff8b729eb?alt=media&token=ec3b5a86-a206-440a-b768-9280bee95417', N'anonymousUser', CAST(N'2022-11-15T18:12:35.0000000' AS DateTime2), N' Lê Bảo Vy', 48578641025, N'VERIFIED')
 GO
-INSERT [dbo].[driving_license] ([id], [birth_date], [created_by], [created_date], [image_front], [modified_by], [modified_date], [name], [number_driving_license], [status]) VALUES (13, CAST(N'2010-05-19' AS Date), N'anonymousUser', CAST(N'2022-11-15T17:52:49.0000000' AS DateTime2), N'https://firebasestorage.googleapis.com/v0/b/etransportationsys-trichoip.appspot.com/o/images%2Fcac-loai-bang-giay-xe.png3ed30948-6e18-4e7b-a532-e35a890c2ca8?alt=media&token=e122230e-8808-4a66-acf5-2079da3dc035', N'anonymousUser', CAST(N'2022-11-16T15:26:32.0000000' AS DateTime2), N'Lê Thành Đạt', 57865428930, N'VERIFIED')
+INSERT [dbo].[driving_license] ([id], [birth_date], [created_by], [created_date], [image_front], [modified_by], [modified_date], [name], [number_driving_license], [status]) VALUES (13, CAST(N'2010-05-19' AS Date), N'anonymousUser', CAST(N'2022-11-15T17:52:49.0000000' AS DateTime2), N'https://firebasestorage.googleapis.com/v0/b/etransportationsys-trichoip.appspot.com/o/images%2Fcac-loai-bang-giay-xe.png3ed30948-6e18-4e7b-a532-e35a890c2ca8?alt=media&token=e122230e-8808-4a66-acf5-2079da3dc035', N'anonymousUser', CAST(N'2022-11-15T18:12:43.0000000' AS DateTime2), N'Lê Thành Đạt', 57865428930, N'PENDING')
 GO
 INSERT [dbo].[driving_license] ([id], [birth_date], [created_by], [created_date], [image_front], [modified_by], [modified_date], [name], [number_driving_license], [status]) VALUES (15, CAST(N'2010-05-19' AS Date), N'anonymousUser', CAST(N'2022-11-15T17:55:29.0000000' AS DateTime2), N'https://firebasestorage.googleapis.com/v0/b/etransportationsys-trichoip.appspot.com/o/images%2F1_rvec_gmrs.jpg54aba0ce-fe6f-44bd-a06d-13cca83427d4?alt=media&token=360119b0-ccd0-4420-84ac-680d1095a6fd', N'anonymousUser', CAST(N'2022-11-15T18:12:46.0000000' AS DateTime2), N'Vũ Ngọc Thảo', 14575896203, N'FAILED')
 GO
@@ -6685,7 +6663,7 @@ INSERT [dbo].[driving_license] ([id], [birth_date], [created_by], [created_date]
 GO
 INSERT [dbo].[driving_license] ([id], [birth_date], [created_by], [created_date], [image_front], [modified_by], [modified_date], [name], [number_driving_license], [status]) VALUES (17, CAST(N'2000-05-17' AS Date), N'anonymousUser', CAST(N'2022-11-15T17:56:44.0000000' AS DateTime2), N'https://firebasestorage.googleapis.com/v0/b/etransportationsys-trichoip.appspot.com/o/images%2F1_rvec_gmrs.jpg54aba0ce-fe6f-44bd-a06d-13cca83427d4?alt=media&token=360119b0-ccd0-4420-84ac-680d1095a6fd', N'anonymousUser', CAST(N'2022-11-15T18:12:56.0000000' AS DateTime2), N'Nguyễn Hữu Duyên', 257856820452, N'VERIFIED')
 GO
-INSERT [dbo].[driving_license] ([id], [birth_date], [created_by], [created_date], [image_front], [modified_by], [modified_date], [name], [number_driving_license], [status]) VALUES (18, CAST(N'2004-03-26' AS Date), N'anonymousUser', CAST(N'2022-11-15T17:58:14.0000000' AS DateTime2), N'https://firebasestorage.googleapis.com/v0/b/etransportationsys-trichoip.appspot.com/o/images%2Fcap-doi-giay-phep-lai-xe.jpg0bc43474-a08b-4b56-b99c-d31e6583b56b?alt=media&token=0c200c70-f3e5-4a31-a4f8-f0879655bdf2', N'anonymousUser', CAST(N'2022-11-16T15:26:45.0000000' AS DateTime2), N'Trần Lan Chi', 475821058962, N'FAILED')
+INSERT [dbo].[driving_license] ([id], [birth_date], [created_by], [created_date], [image_front], [modified_by], [modified_date], [name], [number_driving_license], [status]) VALUES (18, CAST(N'2004-03-26' AS Date), N'anonymousUser', CAST(N'2022-11-15T17:58:14.0000000' AS DateTime2), N'https://firebasestorage.googleapis.com/v0/b/etransportationsys-trichoip.appspot.com/o/images%2Fcap-doi-giay-phep-lai-xe.jpg0bc43474-a08b-4b56-b99c-d31e6583b56b?alt=media&token=0c200c70-f3e5-4a31-a4f8-f0879655bdf2', N'anonymousUser', CAST(N'2022-11-15T18:13:00.0000000' AS DateTime2), N'Trần Lan Chi', 475821058962, N'PENDING')
 GO
 INSERT [dbo].[driving_license] ([id], [birth_date], [created_by], [created_date], [image_front], [modified_by], [modified_date], [name], [number_driving_license], [status]) VALUES (19, CAST(N'1988-02-29' AS Date), N'anonymousUser', CAST(N'2022-11-15T17:46:03.0000000' AS DateTime2), N'https://firebasestorage.googleapis.com/v0/b/etransportationsys-trichoip.appspot.com/o/images%2Fimages%20(1).jpg530f4521-f98a-467c-a308-feb1966fa991?alt=media&token=5bac2762-4a10-42af-9792-ec3e51e2df0c', N'anonymousUser', CAST(N'2022-11-15T17:46:55.0000000' AS DateTime2), N'Nguyễn Hoàng Minh Nguyệt', 11859806854, N'VERIFIED')
 GO
@@ -7527,8 +7505,6 @@ INSERT [dbo].[review] ([id], [content], [created_by], [modified_by], [modified_d
 GO
 INSERT [dbo].[review] ([id], [content], [created_by], [modified_by], [modified_date], [review_date], [star_review], [status]) VALUES (158, N'not good', N'anonymousUser', N'anonymousUser', CAST(N'2022-11-16T00:09:22.0000000' AS DateTime2), CAST(N'2022-11-16T00:09:22.0000000' AS DateTime2), 1, N'ACTIVE')
 GO
-INSERT [dbo].[review] ([id], [content], [created_by], [modified_by], [modified_date], [review_date], [star_review], [status]) VALUES (160, N'good', N'anonymousUser', N'anonymousUser', CAST(N'2022-11-16T15:21:20.0000000' AS DateTime2), CAST(N'2022-11-16T15:21:20.0000000' AS DateTime2), 5, N'ACTIVE')
-GO
 INSERT [dbo].[review] ([id], [content], [created_by], [modified_by], [modified_date], [review_date], [star_review], [status]) VALUES (161, N'tạm ổn ', N'anonymousUser', N'anonymousUser', CAST(N'2022-11-16T11:26:10.0000000' AS DateTime2), CAST(N'2022-11-16T11:26:10.0000000' AS DateTime2), 3, N'ACTIVE')
 GO
 INSERT [dbo].[review] ([id], [content], [created_by], [modified_by], [modified_date], [review_date], [star_review], [status]) VALUES (162, N'xe đẹp ', N'anonymousUser', N'anonymousUser', CAST(N'2022-11-16T11:26:19.0000000' AS DateTime2), CAST(N'2022-11-16T11:26:19.0000000' AS DateTime2), 3, N'ACTIVE')
@@ -7611,8 +7587,6 @@ INSERT [dbo].[review] ([id], [content], [created_by], [modified_by], [modified_d
 GO
 INSERT [dbo].[review] ([id], [content], [created_by], [modified_by], [modified_date], [review_date], [star_review], [status]) VALUES (202, N'Xe chạy ổn định', N'anonymousUser', N'anonymousUser', CAST(N'2022-11-16T11:54:25.0000000' AS DateTime2), CAST(N'2022-11-16T11:54:25.0000000' AS DateTime2), 5, N'ACTIVE')
 GO
-INSERT [dbo].[review] ([id], [content], [created_by], [modified_by], [modified_date], [review_date], [star_review], [status]) VALUES (203, N'XE TOT', N'anonymousUser', N'anonymousUser', CAST(N'2022-11-16T14:04:57.0000000' AS DateTime2), CAST(N'2022-11-16T14:04:57.0000000' AS DateTime2), 5, N'ACTIVE')
-GO
 SET IDENTITY_INSERT [dbo].[role] ON 
 GO
 INSERT [dbo].[role] ([id], [name]) VALUES (1, N'USER')
@@ -7624,8 +7598,6 @@ GO
 SET IDENTITY_INSERT [dbo].[voucher] ON 
 GO
 INSERT [dbo].[voucher] ([id], [code], [created_by], [created_date], [discription], [end_date], [image], [max_discount], [modified_by], [modified_date], [percentage], [start_date], [status]) VALUES (4, N'CODEME', N'anonymousUser', CAST(N'2022-11-15' AS Date), N'', CAST(N'2022-11-30' AS Date), N'https://n1-cstg.mioto.vn/g/2018/03/17/16/52.jpg', 20, N'anonymousUser', CAST(N'2022-11-15T23:57:28.0000000' AS DateTime2), 12, CAST(N'2022-11-15' AS Date), N'ACTIVE')
-GO
-INSERT [dbo].[voucher] ([id], [code], [created_by], [created_date], [discription], [end_date], [image], [max_discount], [modified_by], [modified_date], [percentage], [start_date], [status]) VALUES (5, N'LOP', N'anonymousUser', CAST(N'2022-11-16' AS Date), N'', CAST(N'2022-11-30' AS Date), N'https://n1-cstg.mioto.vn/g/2018/03/17/16/52.jpg', 25, N'anonymousUser', CAST(N'2022-11-16T15:27:33.0000000' AS DateTime2), 22, CAST(N'2022-11-23' AS Date), N'ACTIVE')
 GO
 SET IDENTITY_INSERT [dbo].[voucher] OFF
 GO
@@ -28833,13 +28805,13 @@ SET IDENTITY_INSERT [dbo].[ward] OFF
 GO
 SET ANSI_PADDING ON
 GO
-/****** Object:  Index [UKgex1lmaqpg0ir5g1f5eftyaa1]    Script Date: 24/03/2023 2:11:08 PM ******/
+/****** Object:  Index [UKgex1lmaqpg0ir5g1f5eftyaa1]    Script Date: 16/11/2022 12:31:24 PM ******/
 ALTER TABLE [dbo].[account] ADD  CONSTRAINT [UKgex1lmaqpg0ir5g1f5eftyaa1] UNIQUE NONCLUSTERED 
 (
 	[username] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, IGNORE_DUP_KEY = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 GO
-/****** Object:  Index [UK2g5kr7lkabla2ij2rhwsjwgp4]    Script Date: 24/03/2023 2:11:08 PM ******/
+/****** Object:  Index [UK2g5kr7lkabla2ij2rhwsjwgp4]    Script Date: 16/11/2022 12:31:24 PM ******/
 ALTER TABLE [dbo].[like_table] ADD  CONSTRAINT [UK2g5kr7lkabla2ij2rhwsjwgp4] UNIQUE NONCLUSTERED 
 (
 	[account_id] ASC,
@@ -28848,7 +28820,7 @@ ALTER TABLE [dbo].[like_table] ADD  CONSTRAINT [UK2g5kr7lkabla2ij2rhwsjwgp4] UNI
 GO
 SET ANSI_PADDING ON
 GO
-/****** Object:  Index [UKpvh1lqheshnjoekevvwla03xn]    Script Date: 24/03/2023 2:11:08 PM ******/
+/****** Object:  Index [UKpvh1lqheshnjoekevvwla03xn]    Script Date: 16/11/2022 12:31:24 PM ******/
 ALTER TABLE [dbo].[voucher] ADD  CONSTRAINT [UKpvh1lqheshnjoekevvwla03xn] UNIQUE NONCLUSTERED 
 (
 	[code] ASC
