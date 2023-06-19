@@ -1,3 +1,4 @@
 # *.yml
 *.java
+# !Car/**/*.java
 # !AccountServiceImpl.java
