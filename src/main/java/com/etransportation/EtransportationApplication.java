@@ -14,10 +14,11 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 @SecurityScheme(name = "token_auth", type = SecuritySchemeType.HTTP, scheme = "bearer", bearerFormat = "JWT")
 @OpenAPIDefinition(
     info = @Info(title = "Swagger for System", description = "This is list of endpoints and documentations of REST API for System", version = "1.0"),
-    servers = {
-        @Server(url = "http://localhost:8080", description = "Local development server"),
-        @Server(url = "http://localhost:5000", description = "Local production server"),
-    },
+    // servers = {
+    //     @Server(url = "https://etransportation-webapp-api.azurewebsites.net", description = "web server"),
+    //     @Server(url = "http://localhost:8080", description = "Local development server"),
+    //     @Server(url = "http://localhost:5000", description = "Local production server"),
+    // },
     tags = {
         @Tag(name = "authentication", description = "REST API endpoints for authentication"),
         @Tag(name = "timekeeping", description = "REST API endpoints for timekeeping"),
