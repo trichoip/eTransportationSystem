@@ -1,74 +1,43 @@
 package com.etransportation.config;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import com.etransportation.security.jwt.JwtAccessDeniedHandler;
+import com.etransportation.security.jwt.JwtAuthEntryPoint;
+import com.etransportation.security.jwt.JwtFilter;
+import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.http.HttpMethod;
-import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
-import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
-import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
+import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
-import org.springframework.security.config.annotation.web.configuration.WebSecurityCustomizer;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
-import com.etransportation.security.jwt.AuthEntryPointJwt;
-import com.etransportation.security.jwt.AuthTokenFilter;
-import com.etransportation.security.service.UserDetailsServiceImpl;
-
 @Configuration
-@EnableGlobalMethodSecurity(
-        // securedEnabled = true,
-        // jsr250Enabled = true,
-        prePostEnabled = true)
+@EnableWebSecurity
+@EnableMethodSecurity
+@RequiredArgsConstructor
 public class SecurityConfig {
 
+    private final JwtFilter jwtFilter;
+    private final JwtAuthEntryPoint unauthorizedHandler;
+    private final JwtAccessDeniedHandler accessDeniedHandler;
+    private final CorsConfig corsConfig;
+
     private static final String[] AUTH_WHITELIST = {
-            "/swagger-resources/**",
-            "/swagger-ui/**",
-            "/swagger-ui.html",
-            "/v2/api-docs",
-            "/webjars/**",
-            "/api/auth/**",
-            "/oauth2/**",
-            "/**/*swagger*/**",
-            "/info",
-            "/",
-
+        "/swagger-resources/**",
+        "/swagger-ui/**",
+        "/swagger-ui.html",
+        "/v2/api-docs",
+        "/webjars/**",
+        "/api/auth/**",
+        "/oauth2/**",
+        "/**/*swagger*/**",
+        "/info",
+        "/",
     };
-
-    @Autowired
-    private CorsConfig corsConfig;
-
-    @Autowired
-    UserDetailsServiceImpl userDetailsService;
-
-    @Autowired
-    private AuthEntryPointJwt unauthorizedHandler;
-
-    @Bean
-    public AuthTokenFilter authenticationJwtTokenFilter() {
-        return new AuthTokenFilter();
-    }
-
-    @Bean
-    public DaoAuthenticationProvider authenticationProvider() {
-        DaoAuthenticationProvider authProvider = new DaoAuthenticationProvider();
-
-        authProvider.setUserDetailsService(userDetailsService);
-        authProvider.setPasswordEncoder(passwordEncoder());
-
-        return authProvider;
-    }
-
-    @Bean
-    public AuthenticationManager authenticationManager(AuthenticationConfiguration authConfiguration) throws Exception {
-        return authConfiguration.getAuthenticationManager();
-    }
 
     @Bean
     public PasswordEncoder passwordEncoder() {
@@ -76,36 +45,49 @@ public class SecurityConfig {
     }
 
     @Bean
-    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-        http.cors().and().csrf().disable().addFilter(corsConfig.corsFilter())
-                .exceptionHandling().authenticationEntryPoint(unauthorizedHandler).and()
-                .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
-                .authorizeRequests()
-                // .antMatchers(HttpMethod.POST, "/api/account/**").permitAll()
-                .antMatchers("/api/account/**").permitAll()
-                .antMatchers("/api/car/**").permitAll()
-                .antMatchers("/api/city/**").permitAll()
-                .antMatchers("/api/book/**").permitAll()
-                .antMatchers("/api/check/**").permitAll()
-                .antMatchers("/api/admin/**").permitAll()
-                .antMatchers("/api/oauth2/**").permitAll()
-                // .antMatchers("/api/admin/**").hasAuthority("ADMIN")
-                .antMatchers("/api/voucher/**").permitAll()
-                .antMatchers("/api/feature/**").permitAll()
-                .antMatchers("/api/like/**").permitAll()
-                .anyRequest().authenticated();
-
-        http.authenticationProvider(authenticationProvider());
-
-        http.addFilterBefore(authenticationJwtTokenFilter(),
-                UsernamePasswordAuthenticationFilter.class);
-
-        return http.build();
+    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+        return http
+            .cors()
+            .and()
+            .csrf()
+            .disable()
+            .addFilter(corsConfig.corsFilter())
+            .addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class)
+            .sessionManagement()
+            .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+            .and()
+            .exceptionHandling()
+            .authenticationEntryPoint(unauthorizedHandler)
+            .and()
+            .exceptionHandling()
+            .accessDeniedHandler(accessDeniedHandler)
+            .and()
+            .authorizeHttpRequests()
+            .antMatchers(AUTH_WHITELIST)
+            .permitAll()
+            .antMatchers("/api/account/**")
+            .permitAll()
+            .antMatchers("/api/car/**")
+            .permitAll()
+            .antMatchers("/api/city/**")
+            .permitAll()
+            .antMatchers("/api/book/**")
+            .permitAll()
+            .antMatchers("/api/check/**")
+            .permitAll()
+            .antMatchers("/api/admin/**")
+            .permitAll()
+            .antMatchers("/api/oauth2/**")
+            .permitAll()
+            .antMatchers("/api/voucher/**")
+            .permitAll()
+            .antMatchers("/api/feature/**")
+            .permitAll()
+            .antMatchers("/api/like/**")
+            .permitAll()
+            .anyRequest()
+            .authenticated()
+            .and()
+            .build();
     }
-
-    @Bean
-    public WebSecurityCustomizer webSecurityCustomizer() {
-        return (web) -> web.ignoring().antMatchers(AUTH_WHITELIST);
-    }
-
 }
