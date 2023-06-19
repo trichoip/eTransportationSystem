@@ -1,0 +1,13 @@
+- cách 1
+    + cài ext Java prettier formatter
+    + không có thay đổi được cấu hình mặc định prettier
+    + để thay đổi được cấu hình mặc định prettier thì tạo file .prettierrc rùi cấu hình
+    + lưu ý sau khi thay đổi trong file .prettierrc thì reload windown mới có hiệu lực
+
+- cách 2
+    + nếu muốn dùng ext prettier chính hãng thì cài
+    + npm install prettier-plugin-java --save-dev (local folder)
+    + sử dụng cách 1 =>  npx prettier --write "**/*.java" (reformat all your Java files)
+    + sử dụng cách 2 => sài format on save là tự format
+    + lưu ý phải có node_modules mới sài được => chạy npm i để cài node_modules
+    
