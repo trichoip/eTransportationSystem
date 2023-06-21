@@ -8,7 +8,7 @@ import org.hibernate.validator.constraints.Length;
 @Data
 public class LoginRequest {
 
-    @Schema(example = "admin")
+    @Schema(example = "manage")
     @NotEmpty(message = "Username not be empty")
     @Length(min = 1, max = 100, message = "Username must be between 1 and 100 characters")
     private String username;

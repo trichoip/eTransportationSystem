@@ -1,5 +1,7 @@
 package com.etransportation.enums;
 
 public enum RoleAccount {
-    USER, ADMIN;
+    USER,
+    ADMIN,
+    MANAGER,
 }
