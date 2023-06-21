@@ -7,6 +7,7 @@ import com.etransportation.model.Company;
 import com.etransportation.model.Department;
 import com.etransportation.model.Role;
 import com.etransportation.model.Schedules;
+import com.etransportation.payload.dto.CompanyDto.CompanyList;
 import com.etransportation.payload.dto.CompanyDto.CompanyPost;
 import com.etransportation.payload.dto.DepartmentDto.DepartmentPost;
 import com.etransportation.payload.dto.EmployeeDto.EmployeeRegister;
@@ -23,6 +24,7 @@ import java.util.List;
 import javax.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
+import org.modelmapper.TypeToken;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -92,7 +94,8 @@ public class ManagementController {
     @Operation(tags = "timekeeping", security = @SecurityRequirement(name = "token_auth"))
     public ResponseEntity<?> getAllCompany() {
         List<Company> companies = companyRepository.findAll();
-        return ResponseEntity.ok(companies);
+        List<CompanyList> listCompany = modelMapper.map(companies, new TypeToken<List<CompanyList>>() {}.getType());
+        return ResponseEntity.ok(listCompany);
     }
 
     @PostMapping("/department")

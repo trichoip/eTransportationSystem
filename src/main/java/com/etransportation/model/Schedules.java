@@ -44,7 +44,6 @@ public class Schedules {
     private Date dateto;
 
     @ManyToOne
-    @JsonIgnore
     @JoinColumn(name = "company_id")
     private Company company;
 }

@@ -5,7 +5,13 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import lombok.Data;
 
+@Data
 public class DepartmentDto {
+
+    private Long id;
+
+    @NotBlank
+    private String name;
 
     @Data
     public static class DepartmentPost {

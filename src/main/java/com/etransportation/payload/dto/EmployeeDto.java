@@ -1,7 +1,6 @@
 package com.etransportation.payload.dto;
 
 import com.etransportation.enums.AccountGender;
-import com.etransportation.model.Department;
 import java.util.Date;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -34,6 +33,6 @@ public class EmployeeDto {
         private String thumnail;
 
         @NotNull
-        private Department department;
+        private DepartmentDto department;
     }
 }

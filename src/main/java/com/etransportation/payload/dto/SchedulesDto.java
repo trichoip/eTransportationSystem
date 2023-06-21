@@ -6,7 +6,18 @@ import java.util.Date;
 import javax.validation.constraints.NotNull;
 import lombok.Data;
 
+@Data
 public class SchedulesDto {
+
+    private Long id;
+
+    private Time timein;
+
+    private Time timeout;
+
+    private Date datefrom;
+
+    private Date dateto;
 
     @Data
     public static class SchedulesPost {
