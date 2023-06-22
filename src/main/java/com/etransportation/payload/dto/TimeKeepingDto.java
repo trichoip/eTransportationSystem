@@ -30,6 +30,6 @@ public class TimeKeepingDto {
         private String reason;
         private String comment;
 
-        private Schedules schedules;
+        private SchedulesDto schedules;
     }
 }
