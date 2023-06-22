@@ -29,6 +29,7 @@ import java.time.temporal.TemporalAdjusters;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.List;
+import java.util.stream.Collectors;
 import javax.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.Converter;
@@ -228,7 +229,7 @@ public class ManagementController {
                     .findByDateBetweenAndAccount_Id(startDate, endDate, employeeTimeKeeping.getId())
                     .stream()
                     .map(timekeepingEntity -> modelMapper.map(timekeepingEntity, TimeKeepingPost.class))
-                    .toList();
+                    .collect(Collectors.toList());
                 employeeTimeKeeping.setTimeKeepingList(timeKeepingPosts);
                 return employeeTimeKeeping;
             });
