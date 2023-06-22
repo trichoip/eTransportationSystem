@@ -1,8 +1,9 @@
 package com.etransportation.payload.dto;
 
 import com.etransportation.enums.TimeKeepingStatus;
-import com.etransportation.model.Schedules;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import lombok.Data;
 
 public class TimeKeepingDto {
@@ -31,5 +32,17 @@ public class TimeKeepingDto {
         private String comment;
 
         private SchedulesDto schedules;
+    }
+
+    @Data
+    public static class EmployeeTimeKeeping {
+
+        private Long id;
+
+        private String name;
+
+        private String avatar;
+
+        private List<TimeKeepingPost> timeKeepingList = new ArrayList<>();
     }
 }

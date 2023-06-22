@@ -11,6 +11,8 @@ public class SchedulesDto {
 
     private Long id;
 
+    private String name;
+
     private Time timein;
 
     private Time timeout;
@@ -23,6 +25,8 @@ public class SchedulesDto {
     public static class SchedulesPost {
 
         private Long id;
+
+        private String name;
 
         private Time timein;
 

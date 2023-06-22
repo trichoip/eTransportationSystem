@@ -58,3 +58,14 @@
 error: "like" ,"user"
 
 @org.springdoc.api.annotations.ParameterObject Pageable pageable
+
+// ManagementController => updateEmployee
+     // ! trong ManyToOne của account nếu dùng modelmapper để map DepartmentDto sang Department
+                // ! thì modelmapper chỉ mapper propertier của DepartmentDto sang Department
+                // ! cho nên khi add thì nó tạo mới Department nên không có attach nên nó sẽ không thay đổi nội dung của Department
+                // ! nếu mà update thì khi findbyid Department thì nó đang được attach, mà dùng modelmapper để map DepartmentDto sang Department thì nó sẽ mapper propertier của DepartmentDto sang Department
+                // !  mà chỉ map propertier thì Department vẫn đang đang được attach thì khi save nó sẽ thay đổi luôn nội dung của cha (Department)
+                // ! nếu muốn update chỉ thay đổi khóa phụ của cha thì có 3 cách:
+                // ! cách 1 : trước khi mapper thì set cha null vì set cha null thì mapper sẽ tạo mới class cha nên không còn được attach
+                // ! cách 2 : thay vì dùng DepartmentDto.class thì dùng Department.class trong accountdto vì mapper mà khác class thì nó mapper properties còn nếu cùng class entity thì nó truyền thằng class vào và không có map properties
+                // ! cách 3 : dùng TypeMap (cách này giống cách 2 mà dùng TypeMap)

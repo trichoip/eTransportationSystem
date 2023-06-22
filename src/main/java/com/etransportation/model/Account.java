@@ -131,9 +131,12 @@ public class Account extends Base {
     @PrimaryKeyJoinColumn
     private DrivingLicense drivingLicense;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "department_id")
     private Department department;
+
+    @OneToMany(mappedBy = "account")
+    private List<TimeKeeping> timeKeepings = new ArrayList<>();
 
     // getter and setter
 

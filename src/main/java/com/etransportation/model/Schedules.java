@@ -31,6 +31,8 @@ public class Schedules {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    private String name;
+
     private Time timein;
 
     private Time timeout;
