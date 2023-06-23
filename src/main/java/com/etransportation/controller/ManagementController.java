@@ -14,6 +14,7 @@ import com.etransportation.payload.dto.EmployeeDto.EmployeeRegister;
 import com.etransportation.payload.dto.SchedulesDto.SchedulesPost;
 import com.etransportation.payload.dto.TimeKeepingDto.EmployeeTimeKeeping;
 import com.etransportation.payload.dto.TimeKeepingDto.TimeKeepingPost;
+import com.etransportation.payload.dto.TimeKeepingDto.TimeKeepingPut;
 import com.etransportation.repository.AccountRepository;
 import com.etransportation.repository.CompanyRepository;
 import com.etransportation.repository.DepartmentRepository;
@@ -67,8 +68,26 @@ public class ManagementController {
     @Transactional(readOnly = true)
     @GetMapping("/employee")
     @Operation(tags = "timekeeping", security = @SecurityRequirement(name = "token_auth"))
-    public ResponseEntity<?> getAllEmployee(@org.springdoc.api.annotations.ParameterObject Pageable pageable) {
-        Page<Account> accounts = accountRepository.findDistinctByRoles_NameIn(new RoleAccount[] { RoleAccount.ADMIN, RoleAccount.MANAGER }, pageable);
+    public ResponseEntity<?> getAllEmployee(
+        @Schema(allowableValues = { "All", "ACTIVE", "RETIRED" }) @RequestParam(required = true) String status,
+        @org.springdoc.api.annotations.ParameterObject Pageable pageable
+    ) {
+        AccountStatus[] accountStatus = new AccountStatus[] { AccountStatus.ACTIVE, AccountStatus.RETIRED, AccountStatus.BLOCKED };
+        switch (status) {
+            case "All":
+                break;
+            case "RETIRED":
+                accountStatus = new AccountStatus[] { AccountStatus.RETIRED };
+                break;
+            case "ACTIVE":
+                accountStatus = new AccountStatus[] { AccountStatus.ACTIVE };
+                break;
+            default:
+                break;
+        }
+
+        RoleAccount[] roleAccounts = new RoleAccount[] { RoleAccount.ADMIN, RoleAccount.MANAGER };
+        Page<Account> accounts = accountRepository.findDistinctByRoles_NameInAndStatusIn(roleAccounts, pageable, accountStatus);
         List<EmployeeRegister> listEmployee = modelMapper.map(accounts.getContent(), new TypeToken<List<EmployeeRegister>>() {}.getType());
         return ResponseEntity.ok(new PageImpl<>(listEmployee, pageable, accounts.getTotalElements()));
     }
@@ -173,7 +192,7 @@ public class ManagementController {
     @Operation(
         tags = "timekeeping",
         security = @SecurityRequirement(name = "token_auth"),
-        description = "id khac 0 la update, id = 0 la add , format timein timeout => hh:mm:ss => 13:32:39 /n datefrom to format 2023-06-21"
+        description = "id khac 0 la update, id = 0 la add \n \n format timein timeout => hh:mm:ss => 13:32:39 /n datefrom to format 2023-06-21"
     )
     public ResponseEntity<?> saveSchedules(@Valid @RequestBody SchedulesPost schedulesPost) {
         if (!companyRepository.existsById(schedulesPost.getCompany().getId())) {
@@ -213,13 +232,28 @@ public class ManagementController {
     @GetMapping("/timekeeping")
     @Operation(tags = "timekeeping", security = @SecurityRequirement(name = "token_auth"))
     public ResponseEntity<?> getAllTimeKeeping(
+        @Schema(allowableValues = { "All", "ACTIVE", "RETIRED" }) @RequestParam(required = true) String status,
         @Schema(allowableValues = { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12" }) @RequestParam(required = true) int month,
         @Schema(allowableValues = { "2020", "2021", "2022", "2022", "2023", "2024", "2025" }) @RequestParam(required = true) int year, // //
         @org.springdoc.api.annotations.ParameterObject Pageable pageable
     ) {
+        AccountStatus[] accountStatus = new AccountStatus[] { AccountStatus.ACTIVE, AccountStatus.RETIRED, AccountStatus.BLOCKED };
+        switch (status) {
+            case "All":
+                break;
+            case "RETIRED":
+                accountStatus = new AccountStatus[] { AccountStatus.RETIRED };
+                break;
+            case "ACTIVE":
+                accountStatus = new AccountStatus[] { AccountStatus.ACTIVE };
+                break;
+            default:
+                break;
+        }
+        RoleAccount[] roleAccounts = new RoleAccount[] { RoleAccount.ADMIN, RoleAccount.MANAGER };
         Date startDate = DateConverter.convertToDateViaInstant(LocalDate.of(year, month, 01));
         Date endDate = DateConverter.convertToDateViaInstant(LocalDate.of(year, month, 01).with(TemporalAdjusters.lastDayOfMonth()));
-        Page<Account> accounts = accountRepository.findDistinctByRoles_NameIn(new RoleAccount[] { RoleAccount.ADMIN, RoleAccount.MANAGER }, pageable);
+        Page<Account> accounts = accountRepository.findDistinctByRoles_NameInAndStatusIn(roleAccounts, accountStatus, pageable);
         Page<EmployeeTimeKeeping> employeeTimeKeepings = accounts
             .map(accountEntity -> {
                 return modelMapper.map(accountEntity, EmployeeTimeKeeping.class);
@@ -234,5 +268,57 @@ public class ManagementController {
                 return employeeTimeKeeping;
             });
         return ResponseEntity.ok(employeeTimeKeepings);
+    }
+
+    @GetMapping("/timekeeping/{id}")
+    @Operation(tags = "timekeeping", security = @SecurityRequirement(name = "token_auth"))
+    public ResponseEntity<?> getAllTimeKeeping(
+        @Schema(allowableValues = { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12" }) @RequestParam(required = true) int month,
+        @Schema(allowableValues = { "2020", "2021", "2022", "2022", "2023", "2024", "2025" }) @RequestParam(required = true) int year, // //
+        @PathVariable Long id
+    ) {
+        Date startDate = DateConverter.convertToDateViaInstant(LocalDate.of(year, month, 01));
+        Date endDate = DateConverter.convertToDateViaInstant(LocalDate.of(year, month, 01).with(TemporalAdjusters.lastDayOfMonth()));
+
+        EmployeeTimeKeeping employeeTimeKeepingDto = accountRepository
+            .findDistinctByIdAndRoles_NameIn(id, new RoleAccount[] { RoleAccount.ADMIN, RoleAccount.MANAGER })
+            .map(accountEntity -> modelMapper.map(accountEntity, EmployeeTimeKeeping.class))
+            .map(employeeTimeKeeping -> {
+                List<TimeKeepingPost> timeKeepingPosts = timeKeepingRepository
+                    .findByDateBetweenAndAccount_Id(startDate, endDate, employeeTimeKeeping.getId())
+                    .stream()
+                    .map(timekeepingEntity -> modelMapper.map(timekeepingEntity, TimeKeepingPost.class))
+                    .collect(Collectors.toList());
+                employeeTimeKeeping.setTimeKeepingList(timeKeepingPosts);
+                return employeeTimeKeeping;
+            })
+            .orElseThrow(() -> new IllegalArgumentException("employee is not found!"));
+
+        return ResponseEntity.ok(employeeTimeKeepingDto);
+    }
+
+    @Transactional
+    @PutMapping("/timekeeping")
+    @Operation(
+        tags = "timekeeping",
+        security = @SecurityRequirement(name = "token_auth"),
+        description = "status_timein : IN_TIME , lATE_IN \n \n status_timeout : ON_TIME , EARLY_OUT  \n \n  format timein timeout => hh:mm:ss => 13:32:39 /n datefrom to format 2023-06-21 "
+    )
+    public ResponseEntity<?> updateTimeKeeping(@RequestBody TimeKeepingPut timeKeepingDto) {
+        // todo: chua xong
+        // if (timeKeepingDto.getId() == null) {
+        //     throw new IllegalArgumentException("update TimeKeeping cần có id");
+        // }
+        // TimeKeepingPut timeKeepingPut = timeKeepingRepository
+        //     .findById(timeKeepingDto.getId())
+        //     .map(entity -> {
+        //         modelMapper.map(timeKeepingDto, entity);
+        //         return entity;
+        //     })
+        //     .map(timeKeepingRepository::save)
+        //     .map(entity -> modelMapper.map(entity, TimeKeepingPut.class))
+        //     .orElseThrow(() -> new IllegalArgumentException("TimeKeeping not found"));
+
+        return ResponseEntity.ok("timeKeepingPut");
     }
 }

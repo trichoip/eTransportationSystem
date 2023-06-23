@@ -20,6 +20,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -42,6 +43,14 @@ public class TimeKeepingController {
         @RequestParam(required = true) Long schedulesId,
         Authentication authentication
     ) {
+        UserDetails userDetails = (UserDetails) authentication.getPrincipal();
+        if (userDetails.isEnabled() == false) {
+            throw new IllegalArgumentException("employee is RETIRED");
+        }
+        if (userDetails.isAccountNonLocked() == false) {
+            throw new IllegalArgumentException("employee is block");
+        }
+
         if (!schedulesRepository.existsById(schedulesId)) {
             throw new IllegalArgumentException("schedules khong ton tai");
         }
@@ -109,7 +118,7 @@ public class TimeKeepingController {
                 ((Time) timeKeeping.getTimein()).toLocalTime(),
                 ((Time) timeKeeping.getTimeout()).toLocalTime()
             );
-            timeKeeping.setTotalWorkingHours(durationWorkingHours.toMinutes());
+            timeKeeping.setTotalWorkingHours(durationWorkingHours.toMinutes() / 60);
 
             return ResponseEntity.ok(modelMapper.map(timeKeepingRepository.save(timeKeeping), TimeKeepingPost.class));
         } else {

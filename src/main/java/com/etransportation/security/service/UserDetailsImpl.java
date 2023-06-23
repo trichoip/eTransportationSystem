@@ -1,5 +1,6 @@
 package com.etransportation.security.service;
 
+import com.etransportation.enums.AccountStatus;
 import com.etransportation.model.Account;
 import java.util.Collection;
 import java.util.stream.Collectors;
@@ -12,11 +13,15 @@ public class UserDetailsImpl implements UserDetails {
     private String username;
     private String password;
     private Collection<? extends GrantedAuthority> authorities;
+    private Boolean isEnabled;
+    private Boolean isAccountNonLocked;
 
     public UserDetailsImpl(Account user) {
         this.username = user.getUsername();
         this.password = user.getPassword();
         this.authorities = user.getRoles().stream().map(role -> role.getName().name()).map(SimpleGrantedAuthority::new).collect(Collectors.toList());
+        this.isAccountNonLocked = user.getStatus() == AccountStatus.BLOCKED ? false : true;
+        this.isEnabled = user.getStatus() == AccountStatus.RETIRED ? false : true;
     }
 
     @Override
@@ -41,7 +46,7 @@ public class UserDetailsImpl implements UserDetails {
 
     @Override
     public boolean isAccountNonLocked() {
-        return true;
+        return isAccountNonLocked;
     }
 
     @Override
@@ -51,6 +56,6 @@ public class UserDetailsImpl implements UserDetails {
 
     @Override
     public boolean isEnabled() {
-        return true;
+        return isEnabled;
     }
 }
