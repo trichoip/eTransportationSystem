@@ -69,3 +69,49 @@ error: "like" ,"user"
                 // ! cách 1 : trước khi mapper thì set cha null vì set cha null thì mapper sẽ tạo mới class cha nên không còn được attach
                 // ! cách 2 : thay vì dùng DepartmentDto.class thì dùng Department.class trong accountdto vì mapper mà khác class thì nó mapper properties còn nếu cùng class entity thì nó truyền thằng class vào và không có map properties
                 // ! cách 3 : dùng TypeMap (cách này giống cách 2 mà dùng TypeMap)
+
+
+List<?> là một danh sách không xác định kiểu (List of unknown type). 
+Nó cho phép chứa các phần tử của bất kỳ kiểu dữ liệu nào,
+ nhưng thông tin về kiểu cụ thể của các phần tử trong danh sách bị ẩn đi.
+  Điều này đảm bảo tính linh hoạt,
+   nhưng đồng thời giới hạn khả năng truy xuất các phần tử từ danh sách. 
+   Ví dụ: List<?> có thể là List<String>, List<Integer>, hoặc bất kỳ loại List nào khác.
+
+ List<?> không thể ép kiểu trực tiếp như này
+List<String> stringList = (List<String>) myList; // Lỗi biên dịch
+
+mà chỉ có thể
+ List<?> myList = new ArrayList<>();
+// ... Thêm các phần tử vào danh sách
+
+Object element = myList.get(index);
+if (element instanceof String) {
+    String stringValue = (String) element; // Ép kiểu thành String
+    // Sử dụng stringValue làm gì đó...
+}
+
+
+
+
+
+List<Object> là một danh sách chứa các phần tử có kiểu dữ liệu là Object. 
+Object là một kiểu cơ sở mà tất cả các lớp khác đều kế thừa trong Java.
+ Vì vậy, List<Object> có thể chứa các đối tượng của bất kỳ kiểu lớp nào. 
+ Tuy nhiên, khi bạn truy xuất các phần tử từ danh sách List<Object>, 
+ bạn cần ép kiểu (cast) chúng thành kiểu dữ liệu phù hợp để sử dụng.
+
+Object có thể chứa list, class,...
+
+Object cast được 
+
+ Object attendance(String type, Long schedulesId, Authentication authentication); 
+ return new ResponseEntity<>("You already Check In today at: " + timeKeeping.getDate() + " " + timeKeeping.getTimein(),HttpStatus.BAD_REQUEST);
+
+Object attendance = timeKeepingService.attendance(type, schedulesId, authentication);
+ResponseEntity<?> responseEntity = (ResponseEntity<?>) attendance;
+
+
+
+
+

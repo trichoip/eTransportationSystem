@@ -1,0 +1,23 @@
+Real-time Database : ứng dung real-time tốt cho ứng dụng di dộng (flutter, android, ...), phía web client như js, react
+- còn rest api thì chỉ áp dụng dụng được lưu trữ, get database nosql , chứ không áp dụng được real-time
+
+- bên js thì có real-time api bằng cách :
+    + Polling:
+                    setInterval(function() {
+                // Gửi yêu cầu tới API để lấy dữ liệu mới
+                fetch('your-api-endpoint')
+                    .then(response => response.json())
+                    .then(data => {
+                    // Cập nhật giao diện với dữ liệu mới
+                    // ...
+                    })
+                    .catch(error => {
+                    // Xử lý lỗi (nếu có)
+                    });
+                }, 5000); // Thời gian định kỳ (ví dụ: 5 giây)
+
+
+    + WebSockets: 
+        + Socket.IO (node.js, spring boot, asp.net core)
+        + SignalR (asp.net core)
+        + WebSockets (asp.net core, spring boot)
