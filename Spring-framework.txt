@@ -144,6 +144,219 @@ ví dụ:
 
 
 
+- neu la Double , Integer, Long ... thi se co gia tri defaul la null
+- neu int , long , double ... thi se co gia tri default khac null
+
+
+  // @Override
+    // @Transactional
+    // // lay ra entity 1 rui set entity 2 trong entity 1 thi bi error
+    // // vd: account.setDrivingLicense -> error
+    // // chi loi khi co @Transactional -> xoa @Transactional fixbug
+    // public AccountInfoResponse findAccountById(Long id) {
+
+    // Account account = accountRepository.findById(id)
+    // .orElseThrow(() -> new IllegalArgumentException("Account is not found!"));
+
+    // if (account.getDrivingLicense() == null) {
+    // DrivingLicense drivingLicense = new DrivingLicense();
+    // drivingLicense.setStatus(DrivingLicenseStatus.NOTYET);
+    // account.setDrivingLicense(drivingLicense);
+    // }
+    // return modelMapper.map(account, AccountInfoResponse.class);
+    // }
+
+
+- nếu 1 class mà khong kế thừa từ ai thì hashcodeandequal sẽ so sánh tất cả các fiel trong class đó
+-nếu 1 class mà có extend từ 1 class cha thì hashcodeandequal thì mặc định là @EqualsAndHashCode(callSuper = false) 
+->có nghĩa là nó chỉ so sánh tất cả fiel trong class con chứ không so sanh gồm cả fiel class cha
+- nếu muốn so sánh tất cả fiel gồm class cha và con thì set "callSuper = true" vd: @EqualsAndHashCode(callSuper = true)
+
+
+- trong @onetomany one là father và many là child khi save father thì chỉ save father chứ không có save child , kể cả khi set father vào list child thì vẫn chỉ save father
+-nếu muốn save father mà tự động save child thì phải có cascade = CascadeType.ALL trong father
+- nếu đã có cascade = CascadeType.ALL trong father -> có 2 trường hợp đặc biệt
++nếu father có child mà child không có father thì khi save father thì vẫn save child nhưng fiel father_id trong child là null
++nếu father có child mà child có father thì khi save father thì trong db child có fiel father_id là id của father
+
+  // forenkey(child) onetoone khong can optional = false
+  // primekey(father) onetoone thi can optional = false de fech lazy hieu qua 
+  luu y: fetch = FetchType.LAZY, optional = false  nếu query father xong mà có xử lý gọi child ra thì nếu father có child thì sẽ không báo lỗi còn nếu father mà không có child thì sẽ có error 
+
+error: "like" ,"user"
+
+@org.springdoc.api.annotations.ParameterObject Pageable pageable
+@ParameterObject Pageable pageable
+
+// ManagementController => updateEmployee
+     // ! trong ManyToOne của account nếu dùng modelmapper để map DepartmentDto sang Department
+                // ! thì modelmapper chỉ mapper propertier của DepartmentDto sang Department
+                // ! cho nên khi add thì nó tạo mới Department nên không có attach nên nó sẽ không thay đổi nội dung của Department
+                // ! nếu mà update thì khi findbyid Department thì nó đang được attach, mà dùng modelmapper để map DepartmentDto sang Department thì nó sẽ mapper propertier của DepartmentDto sang Department
+                // !  mà chỉ map propertier thì Department vẫn đang đang được attach thì khi save nó sẽ thay đổi luôn nội dung của cha (Department)
+                // ! nếu muốn update chỉ thay đổi khóa phụ của cha thì có 3 cách:
+                // ! cách 1 : trước khi mapper thì set cha null vì set cha null thì mapper sẽ tạo mới class cha nên không còn được attach
+                // ! cách 2 : thay vì dùng DepartmentDto.class thì dùng Department.class trong accountdto vì mapper mà khác class thì nó mapper properties còn nếu cùng class entity thì nó truyền thằng class vào và không có map properties
+                // ! cách 3 : dùng TypeMap (cách này giống cách 2 mà dùng TypeMap)
+
+
+List<?> là một danh sách không xác định kiểu (List of unknown type). 
+Nó cho phép chứa các phần tử của bất kỳ kiểu dữ liệu nào,
+ nhưng thông tin về kiểu cụ thể của các phần tử trong danh sách bị ẩn đi.
+  Điều này đảm bảo tính linh hoạt,
+   nhưng đồng thời giới hạn khả năng truy xuất các phần tử từ danh sách. 
+   Ví dụ: List<?> có thể là List<String>, List<Integer>, hoặc bất kỳ loại List nào khác.
+
+ List<?> không thể ép kiểu trực tiếp như này
+List<String> stringList = (List<String>) myList; // Lỗi biên dịch
+
+mà chỉ có thể
+ List<?> myList = new ArrayList<>();
+// ... Thêm các phần tử vào danh sách
+
+Object element = myList.get(index);
+if (element instanceof String) {
+    String stringValue = (String) element; // Ép kiểu thành String
+    // Sử dụng stringValue làm gì đó...
+}
+
+
+
+
+
+List<Object> là một danh sách chứa các phần tử có kiểu dữ liệu là Object. 
+Object là một kiểu cơ sở mà tất cả các lớp khác đều kế thừa trong Java.
+ Vì vậy, List<Object> có thể chứa các đối tượng của bất kỳ kiểu lớp nào. 
+ Tuy nhiên, khi bạn truy xuất các phần tử từ danh sách List<Object>, 
+ bạn cần ép kiểu (cast) chúng thành kiểu dữ liệu phù hợp để sử dụng.
+
+Object có thể chứa list, class,...
+
+Object cast được 
+
+ Object attendance(String type, Long schedulesId, Authentication authentication); 
+ return new ResponseEntity<>("You already Check In today at: " + timeKeeping.getDate() + " " + timeKeeping.getTimein(),HttpStatus.BAD_REQUEST);
+
+Object attendance = timeKeepingService.attendance(type, schedulesId, authentication);
+ResponseEntity<?> responseEntity = (ResponseEntity<?>) attendance;
+
+
+
+cache:
+@EnableCaching
+
+cache áp dụng cho tất cả người dùng, nếu user 1 call api a  nó thực thi function nếu  user 2 call api  a thì nó không thực hiện function đó nữa mà nó trả dữ liệu của user 1 khi call api lần đâu
+
+nếu không có key thì cache mặc định nhận các param trong fuction làm key
+
+key phải là kiểu dữ liệu nguyên thủy hoặc object Serializable 
+
+authentication không là object nhưng không phải Serializable
+
+cho nên đối với api mà có dùng authentication thì phải thêm key vào để phân biệt mỗi người dùng
+
+
+ @Cacheable(value = "user", key = "#authentication.getName()")
+   @Cacheable(value = "user", key = "#authentication.name")
+   @Cacheable(value = "user", key = "#authentication.principal.username")
+
+   @Cacheable(value = "user", key = "#month + '-' + #year + '-' + #authentication.name")
+
+key : gồm nhiều param bằng => Spring Expression Language
+
+Pageable là class Serializable cho nên không cần cấu hình key cho Pageable
+
+ <dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-cache</artifactId>
+		</dependency>
+
+
+@Cacheable("addresses")
+public String getAddress(Customer customer) {...}
+
+@Cacheable({"addresses", "directory"})
+public String getAddress(Customer customer) {...}
+
+@CacheEvict(value="addresses", allEntries=true)
+public String getAddress(Customer customer) {...}
+
+@CachePut(value="addresses")
+public String getAddress(Customer customer) {...}
+
+@CachePut(value="addresses", condition="#customer.name=='Tom'")
+public String getAddress(Customer customer) {...}
+
+@CachePut(value="addresses", unless="#result.length()<64")
+public String getAddress(Customer customer) {...}
+
+@CacheEvict("addresses")
+@CacheEvict(value="directory", key=customer.name)
+public String getAddress(Customer customer) {...}
+
+@Caching(evict = { 
+  @CacheEvict("addresses"), 
+  @CacheEvict(value="directory", key="#customer.name") })
+public String getAddress(Customer customer) {...}
+
+
+@CacheConfig(cacheNames={"addresses"})
+public class CustomerDataService {
+
+    @Cacheable
+    public String getAddress(Customer customer) {...}
+}
+
+
+
+Java prettier formatter:
+- cách 1
+    + cài ext Java prettier formatter
+    + không có thay đổi được cấu hình mặc định prettier
+    + để thay đổi được cấu hình mặc định prettier thì tạo file .prettierrc rùi cấu hình
+    + lưu ý sau khi thay đổi trong file .prettierrc thì reload windown mới có hiệu lực
+
+- cách 2
+    + nếu muốn dùng ext prettier chính hãng thì cài
+    + npm install prettier-plugin-java --save-dev (local folder)
+    + sử dụng cách 1 =>  npx prettier --write "**/*.java" (reformat all your Java files)
+    + sử dụng cách 2 => sài format on save là tự format
+    + lưu ý phải có node_modules mới sài được => chạy npm i để cài node_modules
+
+
+realtime:
+Real-time Database : ứng dung real-time tốt cho ứng dụng di dộng (flutter, android, ...), phía web client như js, react
+- còn rest api thì chỉ áp dụng dụng được lưu trữ, get database nosql , chứ không áp dụng được real-time
+
+- bên js thì có real-time api bằng cách :
+    + Polling:
+                    setInterval(function() {
+                // Gửi yêu cầu tới API để lấy dữ liệu mới
+                fetch('your-api-endpoint')
+                    .then(response => response.json())
+                    .then(data => {
+                    // Cập nhật giao diện với dữ liệu mới
+                    // ...
+                    })
+                    .catch(error => {
+                    // Xử lý lỗi (nếu có)
+                    });
+                }, 5000); // Thời gian định kỳ (ví dụ: 5 giây)
+
+
+    + WebSockets: 
+        + Socket.IO (node.js, spring boot, asp.net core)
+        + SignalR (asp.net core)
+        + WebSockets (asp.net core, spring boot)
+
+    
+
+-notication 
+-email 
+-validate phone
+
+- deploy backend to docker to amazon
+
 
 
 
