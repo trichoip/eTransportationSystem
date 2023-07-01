@@ -36,6 +36,7 @@ public class SecurityConfig {
         "/oauth2/**",
         "/**/*swagger*/**",
         "/info",
+        "/api/faker/**",
         "/",
     };
 
