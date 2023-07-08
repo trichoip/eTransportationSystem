@@ -355,7 +355,7 @@ Real-time Database : ứng dung real-time tốt cho ứng dụng di dộng (flut
 -email 
 -validate phone
 
-- deploy backend to docker to amazon
+- deploy backend to docker to amazon aws
 
 
 
