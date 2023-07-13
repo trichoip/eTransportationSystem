@@ -1,13 +1,17 @@
 package com.etransportation.controller;
 
+import com.etransportation.payload.dto.EmployeeDto.EmployeeUpdate;
 import com.etransportation.service.EmployeeService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
+import javax.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -33,5 +37,17 @@ public class EmployeeController {
         Authentication authentication
     ) {
         return ResponseEntity.ok(employeeService.findAllTimeKeepingOfEmployee(month, year, authentication));
+    }
+
+    @PutMapping
+    @Operation(tags = "timekeeping", security = @SecurityRequirement(name = "token_auth"), description = "Gender enum =>  FEMALE, MALE, OTHER")
+    public ResponseEntity<?> updateEmployee(@Valid @RequestBody EmployeeUpdate employeeUpdate, Authentication authentication) {
+        return ResponseEntity.ok(employeeService.updateEmployee(employeeUpdate, authentication));
+    }
+
+    @GetMapping
+    @Operation(tags = "timekeeping", security = @SecurityRequirement(name = "token_auth"))
+    public ResponseEntity<?> getDetailEmployee(Authentication authentication) {
+        return ResponseEntity.ok(employeeService.findDetailEmployee(authentication));
     }
 }

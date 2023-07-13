@@ -35,4 +35,27 @@ public class EmployeeDto {
         @NotNull
         private DepartmentDto department;
     }
+
+    @Data
+    public static class EmployeeUpdate {
+
+        @NotBlank
+        private String name;
+
+        @NotBlank
+        private String password;
+
+        private AccountGender gender;
+
+        private Date birthDate;
+
+        private String email;
+
+        private String phone;
+        private String avatar;
+        private String thumnail;
+
+        @NotNull
+        private DepartmentDto department;
+    }
 }

@@ -1,10 +1,13 @@
 package com.etransportation.service.impl;
 
 import com.etransportation.model.Account;
+import com.etransportation.payload.dto.EmployeeDto.EmployeeRegister;
+import com.etransportation.payload.dto.EmployeeDto.EmployeeUpdate;
 import com.etransportation.payload.dto.SchedulesDto;
 import com.etransportation.payload.dto.TimeKeepingDto.EmployeeTimeKeeping;
 import com.etransportation.payload.dto.TimeKeepingDto.TimeKeepingPost;
 import com.etransportation.repository.AccountRepository;
+import com.etransportation.repository.DepartmentRepository;
 import com.etransportation.repository.TimeKeepingRepository;
 import com.etransportation.service.EmployeeService;
 import com.etransportation.util.DateConverter;
@@ -18,6 +21,7 @@ import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -28,6 +32,8 @@ public class EmployeeServiceImpl implements EmployeeService {
     private final AccountRepository accountRepository;
     private final TimeKeepingRepository timeKeepingRepository;
     private final ModelMapper modelMapper;
+    private final PasswordEncoder bCryptPasswordEncoder;
+    private final DepartmentRepository departmentRepository;
 
     @Transactional(readOnly = true)
     @Override
@@ -83,5 +89,56 @@ public class EmployeeServiceImpl implements EmployeeService {
                 return employeeTimeKeeping;
             })
             .orElseThrow(() -> new IllegalArgumentException("employee is not found!"));
+    }
+
+    @Override
+    @Transactional(readOnly = true)
+    public EmployeeRegister findDetailEmployee(Authentication authentication) {
+        UserDetails userDetails = (UserDetails) authentication.getPrincipal();
+        if (userDetails.isEnabled() == false) {
+            throw new IllegalArgumentException("employee is RETIRED");
+        }
+        if (userDetails.isAccountNonLocked() == false) {
+            throw new IllegalArgumentException("employee is block");
+        }
+
+        Account account = accountRepository
+            .findByUsername(authentication.getName())
+            .orElseThrow(() -> new IllegalArgumentException("employee not found"));
+        return modelMapper.map(account, EmployeeRegister.class);
+    }
+
+    @Override
+    @Transactional
+    public EmployeeRegister updateEmployee(EmployeeUpdate employeeUpdate, Authentication authentication) {
+        UserDetails userDetails = (UserDetails) authentication.getPrincipal();
+        if (userDetails.isEnabled() == false) {
+            throw new IllegalArgumentException("employee is RETIRED");
+        }
+        if (userDetails.isAccountNonLocked() == false) {
+            throw new IllegalArgumentException("employee is block");
+        }
+
+        EmployeeRegister account = accountRepository
+            .findByUsername(authentication.getName())
+            .map(empl -> {
+                if (!departmentRepository.existsById(employeeUpdate.getDepartment().getId())) {
+                    throw new IllegalArgumentException("department Id not found");
+                }
+                // ! lưu ý cần set null father để không còn attack
+                empl.setDepartment(null);
+                modelMapper.map(employeeUpdate, empl);
+                empl.setPassword(bCryptPasswordEncoder.encode(employeeUpdate.getPassword()));
+                return empl;
+            })
+            .map(accountRepository::save)
+            .map(empl -> modelMapper.map(empl, EmployeeRegister.class))
+            .map(empl -> {
+                empl.setPassword(employeeUpdate.getPassword());
+                return empl;
+            })
+            .orElseThrow(() -> new IllegalArgumentException("employee not found!"));
+
+        return account;
     }
 }

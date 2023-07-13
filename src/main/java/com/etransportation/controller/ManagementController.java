@@ -4,7 +4,6 @@ import com.etransportation.payload.dto.CompanyDto.CompanyPost;
 import com.etransportation.payload.dto.DepartmentDto.DepartmentPost;
 import com.etransportation.payload.dto.EmployeeDto.EmployeeRegister;
 import com.etransportation.payload.dto.SchedulesDto.SchedulesPost;
-import com.etransportation.payload.dto.TimeKeepingDto.TimeKeepingPut;
 import com.etransportation.service.ManagementService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -103,29 +102,5 @@ public class ManagementController {
         @PathVariable Long id
     ) {
         return ResponseEntity.ok(managementService.findAllTimeKeepingByEmployeeId(month, year, id));
-    }
-
-    @PutMapping("/timekeeping")
-    @Operation(
-        tags = "timekeeping",
-        security = @SecurityRequirement(name = "token_auth"),
-        description = "status_timein : IN_TIME , lATE_IN \n \n status_timeout : ON_TIME , EARLY_OUT  \n \n  format timein timeout => hh:mm:ss => 13:32:39 /n datefrom to format 2023-06-21 "
-    )
-    public ResponseEntity<?> updateTimeKeeping(@RequestBody TimeKeepingPut timeKeepingDto) {
-        // todo: chua xong
-        // if (timeKeepingDto.getId() == null) {
-        //     throw new IllegalArgumentException("update TimeKeeping cần có id");
-        // }
-        // TimeKeepingPut timeKeepingPut = timeKeepingRepository
-        //     .findById(timeKeepingDto.getId())
-        //     .map(entity -> {
-        //         modelMapper.map(timeKeepingDto, entity);
-        //         return entity;
-        //     })
-        //     .map(timeKeepingRepository::save)
-        //     .map(entity -> modelMapper.map(entity, TimeKeepingPut.class))
-        //     .orElseThrow(() -> new IllegalArgumentException("TimeKeeping not found"));
-
-        return ResponseEntity.ok("chua xong");
     }
 }

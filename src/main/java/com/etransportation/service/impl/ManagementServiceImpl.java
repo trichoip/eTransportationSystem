@@ -133,7 +133,7 @@ public class ManagementServiceImpl implements ManagementService {
                 //     .using((Converter<DepartmentDto, Department>) ctx -> modelMapper.map(ctx.getSource(), Department.class))
                 //     .map(EmployeeRegister::getDepartment, Account::setDepartment);
             });
-        accountRepository.getReferenceById(1L);
+
         EmployeeRegister account = accountRepository
             .findById(employeeRegister.getId())
             .map(empl -> {
