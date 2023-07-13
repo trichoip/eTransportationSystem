@@ -5,6 +5,7 @@ import com.etransportation.payload.dto.CompanyDto.CompanyList;
 import com.etransportation.payload.dto.CompanyDto.CompanyPost;
 import com.etransportation.payload.dto.DepartmentDto.DepartmentPost;
 import com.etransportation.payload.dto.EmployeeDto.EmployeeRegister;
+import com.etransportation.payload.dto.EmployeeDto.EmployeeUpdate;
 import com.etransportation.payload.dto.SchedulesDto.SchedulesPost;
 import com.etransportation.payload.dto.TimeKeepingDto.EmployeeTimeKeeping;
 import java.util.List;
@@ -18,7 +19,7 @@ public interface ManagementService {
 
     EmployeeRegister saveEmployee(EmployeeRegister employeeRegister);
 
-    EmployeeRegister updateEmployee(EmployeeRegister employeeRegister);
+    EmployeeRegister updateEmployee(EmployeeUpdate employeeUpdate, Long id);
 
     SchedulesPost saveSchedules(SchedulesPost schedulesPost);
 

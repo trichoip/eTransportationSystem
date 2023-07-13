@@ -42,9 +42,6 @@ public class EmployeeDto {
         @NotBlank
         private String name;
 
-        @NotBlank
-        private String password;
-
         private AccountGender gender;
 
         private Date birthDate;

@@ -3,6 +3,7 @@ package com.etransportation.controller;
 import com.etransportation.payload.dto.CompanyDto.CompanyPost;
 import com.etransportation.payload.dto.DepartmentDto.DepartmentPost;
 import com.etransportation.payload.dto.EmployeeDto.EmployeeRegister;
+import com.etransportation.payload.dto.EmployeeDto.EmployeeUpdate;
 import com.etransportation.payload.dto.SchedulesDto.SchedulesPost;
 import com.etransportation.service.ManagementService;
 import io.swagger.v3.oas.annotations.Operation;
@@ -49,10 +50,10 @@ public class ManagementController {
         return ResponseEntity.ok(managementService.saveEmployee(employeeRegister));
     }
 
-    @PutMapping("/employee")
+    @PutMapping("/employee/{id}")
     @Operation(tags = "timekeeping", security = @SecurityRequirement(name = "token_auth"), description = "Gender enum =>  FEMALE, MALE, OTHER")
-    public ResponseEntity<?> updateEmployee(@Valid @RequestBody EmployeeRegister employeeRegister) {
-        return ResponseEntity.ok(managementService.updateEmployee(employeeRegister));
+    public ResponseEntity<?> updateEmployee(@Valid @RequestBody EmployeeUpdate employeeUpdate, @PathVariable Long id) {
+        return ResponseEntity.ok(managementService.updateEmployee(employeeUpdate, id));
     }
 
     @PostMapping("/schedules")

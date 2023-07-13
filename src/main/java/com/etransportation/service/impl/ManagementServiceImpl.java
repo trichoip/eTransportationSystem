@@ -11,6 +11,7 @@ import com.etransportation.payload.dto.CompanyDto.CompanyList;
 import com.etransportation.payload.dto.CompanyDto.CompanyPost;
 import com.etransportation.payload.dto.DepartmentDto.DepartmentPost;
 import com.etransportation.payload.dto.EmployeeDto.EmployeeRegister;
+import com.etransportation.payload.dto.EmployeeDto.EmployeeUpdate;
 import com.etransportation.payload.dto.SchedulesDto.SchedulesPost;
 import com.etransportation.payload.dto.TimeKeepingDto.EmployeeTimeKeeping;
 import com.etransportation.payload.dto.TimeKeepingDto.TimeKeepingPost;
@@ -29,7 +30,6 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.stream.Collectors;
 import lombok.RequiredArgsConstructor;
-import org.modelmapper.Converter;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeToken;
 import org.springframework.data.domain.Page;
@@ -116,33 +116,23 @@ public class ManagementServiceImpl implements ManagementService {
 
     @Override
     @Transactional
-    public EmployeeRegister updateEmployee(EmployeeRegister employeeRegister) {
-        if (employeeRegister.getId() == null) {
-            throw new IllegalArgumentException("update employee cần có id");
-        }
-
+    public EmployeeRegister updateEmployee(EmployeeUpdate employeeUpdate, Long id) {
         ModelMapper modelMapperEmployeeRegister = new ModelMapper();
         modelMapperEmployeeRegister
             .createTypeMap(EmployeeRegister.class, Account.class)
             .addMappings(mapper -> {
-                mapper
-                    .using((Converter<String, String>) ctx -> bCryptPasswordEncoder.encode(ctx.getSource()))
-                    .map(EmployeeRegister::getPassword, Account::setPassword);
                 // ! cách 3:
                 // mapper
                 //     .using((Converter<DepartmentDto, Department>) ctx -> modelMapper.map(ctx.getSource(), Department.class))
                 //     .map(EmployeeRegister::getDepartment, Account::setDepartment);
             });
-
         EmployeeRegister account = accountRepository
-            .findById(employeeRegister.getId())
+            .findById(id)
             .map(empl -> {
-                if (!empl.getUsername().equals(employeeRegister.getUsername())) {
-                    if (accountRepository.existsByUsername(employeeRegister.getUsername())) {
-                        throw new IllegalArgumentException("username da ton tai");
-                    }
+                if (!empl.getRoles().stream().anyMatch(role -> role.getName() == RoleAccount.ADMIN || role.getName() == RoleAccount.MANAGER)) {
+                    throw new IllegalArgumentException("this account is USER , not manage or employee");
                 }
-                if (!departmentRepository.existsById(employeeRegister.getDepartment().getId())) {
+                if (!departmentRepository.existsById(employeeUpdate.getDepartment().getId())) {
                     throw new IllegalArgumentException("department Id not found");
                 }
                 // ! trong ManyToOne của account nếu dùng modelmapper để map DepartmentDto sang Department
@@ -155,17 +145,12 @@ public class ManagementServiceImpl implements ManagementService {
                 // ! cách 2 : thay vì dùng DepartmentDto.class thì dùng Department.class trong EmployeeRegister vì mapper mà khác class thì nó mapper properties còn nếu cùng class entity thì nó truyền thằng class vào và không có map properties , do truyền vào class nên nó không còn attach
                 // ! cách 3 : dùng TypeMap (cách này giống cách 2 mà dùng TypeMap)
                 empl.setDepartment(null);
-                modelMapperEmployeeRegister.map(employeeRegister, empl);
+                modelMapperEmployeeRegister.map(employeeUpdate, empl);
                 return empl;
             })
             .map(accountRepository::save)
             .map(empl -> modelMapper.map(empl, EmployeeRegister.class))
-            .map(empl -> {
-                empl.setPassword(employeeRegister.getPassword());
-                return empl;
-            })
             .orElseThrow(() -> new IllegalArgumentException("employee not found!"));
-
         return account;
     }
 

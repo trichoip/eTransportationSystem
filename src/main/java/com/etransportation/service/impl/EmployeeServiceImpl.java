@@ -21,7 +21,6 @@ import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -32,7 +31,6 @@ public class EmployeeServiceImpl implements EmployeeService {
     private final AccountRepository accountRepository;
     private final TimeKeepingRepository timeKeepingRepository;
     private final ModelMapper modelMapper;
-    private final PasswordEncoder bCryptPasswordEncoder;
     private final DepartmentRepository departmentRepository;
 
     @Transactional(readOnly = true)
@@ -128,15 +126,10 @@ public class EmployeeServiceImpl implements EmployeeService {
                 // ! lưu ý cần set null father để không còn attack
                 empl.setDepartment(null);
                 modelMapper.map(employeeUpdate, empl);
-                empl.setPassword(bCryptPasswordEncoder.encode(employeeUpdate.getPassword()));
                 return empl;
             })
             .map(accountRepository::save)
             .map(empl -> modelMapper.map(empl, EmployeeRegister.class))
-            .map(empl -> {
-                empl.setPassword(employeeUpdate.getPassword());
-                return empl;
-            })
             .orElseThrow(() -> new IllegalArgumentException("employee not found!"));
 
         return account;
