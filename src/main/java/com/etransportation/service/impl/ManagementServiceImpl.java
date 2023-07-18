@@ -15,6 +15,7 @@ import com.etransportation.payload.dto.EmployeeDto.EmployeeUpdate;
 import com.etransportation.payload.dto.SchedulesDto.SchedulesPost;
 import com.etransportation.payload.dto.TimeKeepingDto.EmployeeTimeKeeping;
 import com.etransportation.payload.dto.TimeKeepingDto.TimeKeepingPost;
+import com.etransportation.payload.dto.TimeKeepingDto.TimeKeepingPut;
 import com.etransportation.repository.AccountRepository;
 import com.etransportation.repository.CompanyRepository;
 import com.etransportation.repository.DepartmentRepository;
@@ -243,5 +244,21 @@ public class ManagementServiceImpl implements ManagementService {
     public Company saveCompany(CompanyPost companyPost) {
         Company company = modelMapper.map(companyPost, Company.class);
         return companyRepository.save(company);
+    }
+
+    @Override
+    public TimeKeepingPut updateTimeKeeping(TimeKeepingPut timeKeepingDto) {
+        if (timeKeepingDto.getId() == null) {
+            throw new IllegalArgumentException("update TimeKeeping cần có id");
+        }
+        return timeKeepingRepository
+            .findById(timeKeepingDto.getId())
+            .map(entity -> {
+                modelMapper.map(timeKeepingDto, entity);
+                return entity;
+            })
+            .map(timeKeepingRepository::save)
+            .map(entity -> modelMapper.map(entity, TimeKeepingPut.class))
+            .orElseThrow(() -> new IllegalArgumentException("TimeKeeping not found"));
     }
 }

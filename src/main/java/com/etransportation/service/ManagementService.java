@@ -8,6 +8,7 @@ import com.etransportation.payload.dto.EmployeeDto.EmployeeRegister;
 import com.etransportation.payload.dto.EmployeeDto.EmployeeUpdate;
 import com.etransportation.payload.dto.SchedulesDto.SchedulesPost;
 import com.etransportation.payload.dto.TimeKeepingDto.EmployeeTimeKeeping;
+import com.etransportation.payload.dto.TimeKeepingDto.TimeKeepingPut;
 import java.util.List;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -32,4 +33,6 @@ public interface ManagementService {
     Page<EmployeeTimeKeeping> findAllTimeKeepingOfAllEmployee(String status, int month, int year, Pageable pageable);
 
     EmployeeTimeKeeping findAllTimeKeepingByEmployeeId(int month, int year, Long id);
+
+    TimeKeepingPut updateTimeKeeping(TimeKeepingPut timeKeepingPut);
 }
