@@ -1,6 +1,6 @@
 USE [master]
 GO
-/****** Object:  Database [ETransportationSystem]    Script Date: 16/11/2022 12:31:23 PM ******/
+/****** Object:  Database [ETransportationSystem]    Script Date: 20/07/2023 11:47:18 PM ******/
 CREATE DATABASE [ETransportationSystem]
 
 GO
@@ -77,7 +77,7 @@ ALTER DATABASE [ETransportationSystem] SET QUERY_STORE = OFF
 GO
 USE [ETransportationSystem]
 GO
-/****** Object:  Table [dbo].[account]    Script Date: 16/11/2022 12:31:24 PM ******/
+/****** Object:  Table [dbo].[account]    Script Date: 20/07/2023 11:47:18 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -99,13 +99,14 @@ CREATE TABLE [dbo].[account](
 	[status] [varchar](15) NULL,
 	[thumnail] [varchar](255) NULL,
 	[username] [varchar](100) NOT NULL,
+	[department_id] [bigint] NULL,
 PRIMARY KEY CLUSTERED 
 (
 	[id] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[account_role]    Script Date: 16/11/2022 12:31:24 PM ******/
+/****** Object:  Table [dbo].[account_role]    Script Date: 20/07/2023 11:47:18 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -120,7 +121,7 @@ PRIMARY KEY CLUSTERED
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[address]    Script Date: 16/11/2022 12:31:24 PM ******/
+/****** Object:  Table [dbo].[address]    Script Date: 20/07/2023 11:47:18 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -141,7 +142,7 @@ PRIMARY KEY CLUSTERED
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[book]    Script Date: 16/11/2022 12:31:24 PM ******/
+/****** Object:  Table [dbo].[book]    Script Date: 20/07/2023 11:47:18 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -164,7 +165,7 @@ PRIMARY KEY CLUSTERED
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[brand]    Script Date: 16/11/2022 12:31:24 PM ******/
+/****** Object:  Table [dbo].[brand]    Script Date: 20/07/2023 11:47:18 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -178,7 +179,7 @@ PRIMARY KEY CLUSTERED
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[car]    Script Date: 16/11/2022 12:31:24 PM ******/
+/****** Object:  Table [dbo].[car]    Script Date: 20/07/2023 11:47:18 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -186,7 +187,7 @@ GO
 CREATE TABLE [dbo].[car](
 	[id] [bigint] NOT NULL,
 	[created_by] [nvarchar](50) NULL,
-	[description] [nvarchar](max) NULL,
+	[description] [ntext] NULL,
 	[fuel] [nvarchar](30) NULL,
 	[latitude] [float] NULL,
 	[license_plates] [varchar](15) NULL,
@@ -203,13 +204,13 @@ CREATE TABLE [dbo].[car](
 	[year_of_manufacture] [int] NULL,
 	[account_supplier_id] [bigint] NOT NULL,
 	[model_id] [bigint] NOT NULL,
-PRIMARY KEY CLUSTERED 
+ CONSTRAINT [PK__car__3213E83FD8C1BE80] PRIMARY KEY CLUSTERED 
 (
 	[id] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[car_feature]    Script Date: 16/11/2022 12:31:24 PM ******/
+/****** Object:  Table [dbo].[car_feature]    Script Date: 20/07/2023 11:47:18 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -224,7 +225,7 @@ PRIMARY KEY CLUSTERED
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[car_image]    Script Date: 16/11/2022 12:31:24 PM ******/
+/****** Object:  Table [dbo].[car_image]    Script Date: 20/07/2023 11:47:18 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -243,7 +244,7 @@ PRIMARY KEY CLUSTERED
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[city]    Script Date: 16/11/2022 12:31:24 PM ******/
+/****** Object:  Table [dbo].[city]    Script Date: 20/07/2023 11:47:18 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -259,7 +260,36 @@ PRIMARY KEY CLUSTERED
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[district]    Script Date: 16/11/2022 12:31:24 PM ******/
+/****** Object:  Table [dbo].[company]    Script Date: 20/07/2023 11:47:18 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[company](
+	[id] [bigint] IDENTITY(1,1) NOT NULL,
+	[name] [varchar](255) NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[department]    Script Date: 20/07/2023 11:47:18 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[department](
+	[id] [bigint] IDENTITY(1,1) NOT NULL,
+	[name] [varchar](255) NULL,
+	[company_id] [bigint] NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[district]    Script Date: 20/07/2023 11:47:18 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -275,7 +305,7 @@ PRIMARY KEY CLUSTERED
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[driving_license]    Script Date: 16/11/2022 12:31:24 PM ******/
+/****** Object:  Table [dbo].[driving_license]    Script Date: 20/07/2023 11:47:18 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -297,7 +327,7 @@ PRIMARY KEY CLUSTERED
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[feature]    Script Date: 16/11/2022 12:31:24 PM ******/
+/****** Object:  Table [dbo].[feature]    Script Date: 20/07/2023 11:47:18 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -312,7 +342,7 @@ PRIMARY KEY CLUSTERED
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[like_table]    Script Date: 16/11/2022 12:31:24 PM ******/
+/****** Object:  Table [dbo].[like_table]    Script Date: 20/07/2023 11:47:18 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -322,7 +352,7 @@ CREATE TABLE [dbo].[like_table](
 	[car_id] [bigint] NOT NULL
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[model]    Script Date: 16/11/2022 12:31:24 PM ******/
+/****** Object:  Table [dbo].[model]    Script Date: 20/07/2023 11:47:18 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -337,7 +367,7 @@ PRIMARY KEY CLUSTERED
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[notification]    Script Date: 16/11/2022 12:31:24 PM ******/
+/****** Object:  Table [dbo].[notification]    Script Date: 20/07/2023 11:47:18 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -346,40 +376,40 @@ CREATE TABLE [dbo].[notification](
 	[id] [bigint] IDENTITY(1,1) NOT NULL,
 	[created_by] [nvarchar](50) NULL,
 	[created_date] [datetime2](0) NULL,
-	[discription] [nvarchar](max) NULL,
+	[discription] [ntext] NULL,
 	[is_read] [bit] NULL,
 	[modified_by] [nvarchar](50) NULL,
 	[modified_date] [datetime2](0) NULL,
 	[short_discription] [nvarchar](255) NULL,
 	[title] [nvarchar](255) NULL,
 	[account_id] [bigint] NULL,
-PRIMARY KEY CLUSTERED 
+ CONSTRAINT [PK__notifica__3213E83F664760FD] PRIMARY KEY CLUSTERED 
 (
 	[id] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[review]    Script Date: 16/11/2022 12:31:24 PM ******/
+/****** Object:  Table [dbo].[review]    Script Date: 20/07/2023 11:47:18 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
 CREATE TABLE [dbo].[review](
 	[id] [bigint] NOT NULL,
-	[content] [nvarchar](max) NULL,
+	[content] [ntext] NULL,
 	[created_by] [nvarchar](50) NULL,
 	[modified_by] [nvarchar](50) NULL,
 	[modified_date] [datetime2](0) NULL,
 	[review_date] [datetime2](0) NULL,
 	[star_review] [int] NULL,
 	[status] [varchar](50) NULL,
-PRIMARY KEY CLUSTERED 
+ CONSTRAINT [PK__review__3213E83F02945AE8] PRIMARY KEY CLUSTERED 
 (
 	[id] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[role]    Script Date: 16/11/2022 12:31:24 PM ******/
+/****** Object:  Table [dbo].[role]    Script Date: 20/07/2023 11:47:18 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -393,7 +423,51 @@ PRIMARY KEY CLUSTERED
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[voucher]    Script Date: 16/11/2022 12:31:24 PM ******/
+/****** Object:  Table [dbo].[schedules]    Script Date: 20/07/2023 11:47:18 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[schedules](
+	[id] [bigint] IDENTITY(1,1) NOT NULL,
+	[datefrom] [date] NULL,
+	[dateto] [date] NULL,
+	[timein] [time](7) NULL,
+	[timeout] [time](7) NULL,
+	[company_id] [bigint] NULL,
+	[name] [varchar](255) NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[time_keeping]    Script Date: 20/07/2023 11:47:18 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[time_keeping](
+	[id] [bigint] IDENTITY(1,1) NOT NULL,
+	[comment] [varchar](255) NULL,
+	[date] [date] NULL,
+	[minutes_late] [bigint] NULL,
+	[minutes_out_early] [bigint] NULL,
+	[reason] [varchar](255) NULL,
+	[status_timein] [varchar](255) NULL,
+	[status_timeout] [varchar](255) NULL,
+	[timein] [time](7) NULL,
+	[timeout] [time](7) NULL,
+	[total_working_hours] [bigint] NULL,
+	[employee_id] [bigint] NULL,
+	[schedules_id] [bigint] NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[voucher]    Script Date: 20/07/2023 11:47:18 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -403,7 +477,7 @@ CREATE TABLE [dbo].[voucher](
 	[code] [varchar](50) NULL,
 	[created_by] [nvarchar](50) NULL,
 	[created_date] [date] NULL,
-	[discription] [nvarchar](max) NULL,
+	[discription] [ntext] NULL,
 	[end_date] [date] NULL,
 	[image] [varchar](255) NULL,
 	[max_discount] [int] NULL,
@@ -412,13 +486,13 @@ CREATE TABLE [dbo].[voucher](
 	[percentage] [int] NULL,
 	[start_date] [date] NULL,
 	[status] [varchar](15) NULL,
-PRIMARY KEY CLUSTERED 
+ CONSTRAINT [PK__voucher__3213E83FDB1E7023] PRIMARY KEY CLUSTERED 
 (
 	[id] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[ward]    Script Date: 16/11/2022 12:31:24 PM ******/
+/****** Object:  Table [dbo].[ward]    Script Date: 20/07/2023 11:47:18 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -436,75 +510,73 @@ PRIMARY KEY CLUSTERED
 GO
 SET IDENTITY_INSERT [dbo].[account] ON 
 GO
-INSERT [dbo].[account] ([id], [avatar], [balance], [birth_date], [created_by], [email], [gender], [join_date], [modified_by], [modified_date], [name], [password], [phone], [status], [thumnail], [username]) VALUES (1, N'https://lh3.googleusercontent.com/a/ALm5wu2yKXSVAdjmPU-2tCizZpP1sasaH8sZILZdegM1=s96-c', NULL, CAST(N'1999-01-06' AS Date), N'anonymousUser', N'trinmse150418@fpt.edu.vn', N'MALE', CAST(N'2022-11-14' AS Date), N'anonymousUser', CAST(N'2022-11-14T23:50:15.0000000' AS DateTime2), N'Nguyen Minh Tri (K15 HCM)', N'$2a$10$nAAjrPk0EwT28qoDSnzuIeyyWP/OOg8ANjOoOFRZYaBQGWXrZzdca', NULL, N'ACTIVE', N'https://firebasestorage.googleapis.com/v0/b/etransportationsys-trichoip.appspot.com/o/images%2FCanh-dep-o-Nhat-Ban-Nui-Fuji-1.jpg92f54c9a-21da-477a-83d1-20a9deb114a0?alt=media&token=ce7ce2f0-33d2-4d8e-ae52-249d3d38a94e', N'trinmse150418')
+INSERT [dbo].[account] ([id], [avatar], [balance], [birth_date], [created_by], [email], [gender], [join_date], [modified_by], [modified_date], [name], [password], [phone], [status], [thumnail], [username], [department_id]) VALUES (1, N'manager', NULL, CAST(N'1999-01-06' AS Date), N'anonymousUser', N'manager', N'MALE', CAST(N'2022-11-14' AS Date), N'anonymousUser', CAST(N'2022-11-14T23:50:15.0000000' AS DateTime2), N'manager', N'$2a$12$.30DfB.mcn1vwF6lzvETNuQ8CipNh9NQb4w9jJSJ/IWM.bwIDWDMm', NULL, N'ACTIVE', N'https://firebasestorage.googleapis.com/v0/b/etransportationsys-trichoip.appspot.com/o/images%2FCanh-dep-o-Nhat-Ban-Nui-Fuji-1.jpg92f54c9a-21da-477a-83d1-20a9deb114a0?alt=media&token=ce7ce2f0-33d2-4d8e-ae52-249d3d38a94e', N'manage', 1)
 GO
-INSERT [dbo].[account] ([id], [avatar], [balance], [birth_date], [created_by], [email], [gender], [join_date], [modified_by], [modified_date], [name], [password], [phone], [status], [thumnail], [username]) VALUES (2, N'https://lh3.googleusercontent.com/a/ALm5wu3yOa2tXCNQIHLF0LpN7W7V_-aAPvk3k5ZOjUBh=s96-c', NULL, CAST(N'1999-01-06' AS Date), N'anonymousUser', N'minhtri9546@gmail.com', N'MALE', CAST(N'2022-11-14' AS Date), N'anonymousUser', CAST(N'2022-11-14T23:51:00.0000000' AS DateTime2), N'Trí Nguyễn Minh', N'$2a$10$.mg1rxkDbpW6reJAVKhCm.OepiWtU0Rs9MUXcSF/WyX3qO3anj3kq', NULL, N'ACTIVE', N'https://firebasestorage.googleapis.com/v0/b/etransportationsys-trichoip.appspot.com/o/images%2FCanh-dep-o-Nhat-Ban-Nui-Fuji-1.jpg92f54c9a-21da-477a-83d1-20a9deb114a0?alt=media&token=ce7ce2f0-33d2-4d8e-ae52-249d3d38a94e', N'minhtri9546')
+INSERT [dbo].[account] ([id], [avatar], [balance], [birth_date], [created_by], [email], [gender], [join_date], [modified_by], [modified_date], [name], [password], [phone], [status], [thumnail], [username], [department_id]) VALUES (2, N'manager', NULL, CAST(N'1999-01-06' AS Date), N'anonymousUser', N'user', N'MALE', CAST(N'2022-11-14' AS Date), N'anonymousUser', CAST(N'2022-11-14T23:51:00.0000000' AS DateTime2), N'user1', N'$2a$12$.30DfB.mcn1vwF6lzvETNuQ8CipNh9NQb4w9jJSJ/IWM.bwIDWDMm', NULL, N'ACTIVE', N'https://firebasestorage.googleapis.com/v0/b/etransportationsys-trichoip.appspot.com/o/images%2FCanh-dep-o-Nhat-Ban-Nui-Fuji-1.jpg92f54c9a-21da-477a-83d1-20a9deb114a0?alt=media&token=ce7ce2f0-33d2-4d8e-ae52-249d3d38a94e', N'user1', NULL)
 GO
-INSERT [dbo].[account] ([id], [avatar], [balance], [birth_date], [created_by], [email], [gender], [join_date], [modified_by], [modified_date], [name], [password], [phone], [status], [thumnail], [username]) VALUES (3, N'https://lh3.googleusercontent.com/a/ALm5wu18IpMCDLtAR5JYn-aaZzL0uF5uBUGk2D4oV_23=s96-c', NULL, CAST(N'1999-01-06' AS Date), N'anonymousUser', N'choipubg10@gmail.com', N'MALE', CAST(N'2022-11-14' AS Date), N'anonymousUser', CAST(N'2022-11-14T23:51:11.0000000' AS DateTime2), N'Tri Tri', N'$2a$10$Wjx1FwSKs4trghBUkiDOZ.0UCx6PRUjujXuMlFuFaOUkKbyG8eQiu', NULL, N'ACTIVE', N'https://firebasestorage.googleapis.com/v0/b/etransportationsys-trichoip.appspot.com/o/images%2FCanh-dep-o-Nhat-Ban-Nui-Fuji-1.jpg92f54c9a-21da-477a-83d1-20a9deb114a0?alt=media&token=ce7ce2f0-33d2-4d8e-ae52-249d3d38a94e', N'choipubg10')
+INSERT [dbo].[account] ([id], [avatar], [balance], [birth_date], [created_by], [email], [gender], [join_date], [modified_by], [modified_date], [name], [password], [phone], [status], [thumnail], [username], [department_id]) VALUES (3, N'manager', NULL, CAST(N'1999-01-06' AS Date), N'anonymousUser', N'user', N'MALE', CAST(N'2022-11-14' AS Date), N'anonymousUser', CAST(N'2022-11-14T23:51:11.0000000' AS DateTime2), N'user2', N'$2a$12$.30DfB.mcn1vwF6lzvETNuQ8CipNh9NQb4w9jJSJ/IWM.bwIDWDMm', NULL, N'ACTIVE', N'https://firebasestorage.googleapis.com/v0/b/etransportationsys-trichoip.appspot.com/o/images%2FCanh-dep-o-Nhat-Ban-Nui-Fuji-1.jpg92f54c9a-21da-477a-83d1-20a9deb114a0?alt=media&token=ce7ce2f0-33d2-4d8e-ae52-249d3d38a94e', N'user2', NULL)
 GO
-INSERT [dbo].[account] ([id], [avatar], [balance], [birth_date], [created_by], [email], [gender], [join_date], [modified_by], [modified_date], [name], [password], [phone], [status], [thumnail], [username]) VALUES (4, N'https://lh3.googleusercontent.com/a/ALm5wu2LeZQ9Sk8-pji0CsYYA9HDClVL5nhUvIzJIYu5aQ=s96-c', NULL, CAST(N'1999-01-06' AS Date), N'anonymousUser', NULL, N'MALE', CAST(N'2022-11-15' AS Date), N'anonymousUser', CAST(N'2022-11-15T00:05:39.0000000' AS DateTime2), N'dragoncute', N'$2a$10$HwM4l7teXeRq8CmB.I5NtOEf9s/9oSRKl5rCYnLjJXcxeOet2qCLe', NULL, N'ACTIVE', N'https://firebasestorage.googleapis.com/v0/b/etransportationsys-trichoip.appspot.com/o/images%2FCanh-dep-o-Nhat-Ban-Nui-Fuji-1.jpg92f54c9a-21da-477a-83d1-20a9deb114a0?alt=media&token=ce7ce2f0-33d2-4d8e-ae52-249d3d38a94e', N'longpc')
+INSERT [dbo].[account] ([id], [avatar], [balance], [birth_date], [created_by], [email], [gender], [join_date], [modified_by], [modified_date], [name], [password], [phone], [status], [thumnail], [username], [department_id]) VALUES (4, N'https://lh3.googleusercontent.com/a/ALm5wu2LeZQ9Sk8-pji0CsYYA9HDClVL5nhUvIzJIYu5aQ=s96-c', NULL, CAST(N'1999-01-06' AS Date), N'anonymousUser', N'admin', N'MALE', CAST(N'2022-11-15' AS Date), N'anonymousUser', CAST(N'2022-11-15T00:05:39.0000000' AS DateTime2), N'dragoncute', N'$2a$12$.30DfB.mcn1vwF6lzvETNuQ8CipNh9NQb4w9jJSJ/IWM.bwIDWDMm', NULL, N'ACTIVE', N'https://firebasestorage.googleapis.com/v0/b/etransportationsys-trichoip.appspot.com/o/images%2FCanh-dep-o-Nhat-Ban-Nui-Fuji-1.jpg92f54c9a-21da-477a-83d1-20a9deb114a0?alt=media&token=ce7ce2f0-33d2-4d8e-ae52-249d3d38a94e', N'admin1', 1)
 GO
-INSERT [dbo].[account] ([id], [avatar], [balance], [birth_date], [created_by], [email], [gender], [join_date], [modified_by], [modified_date], [name], [password], [phone], [status], [thumnail], [username]) VALUES (5, N'https://lh3.googleusercontent.com/a/ALm5wu37zZJMPfUCGoaq03IMTJkrlFS9u_odwgywX3Utsg=s96-c', NULL, CAST(N'2001-03-30' AS Date), N'anonymousUser', N'ngoductuan30301@gmail.com', N'MALE', CAST(N'2022-11-15' AS Date), N'anonymousUser', CAST(N'2022-11-15T17:17:32.0000000' AS DateTime2), N'Đức Tuấn', N'$2a$10$uGvy/HRqfEIyII8Z5OoEUOe7uO0AFUk2pMbcGwuJCC2StQlSxP4iK', NULL, N'ACTIVE', N'https://firebasestorage.googleapis.com/v0/b/etransportationsys-trichoip.appspot.com/o/images%2FCanh-dep-o-Nhat-Ban-Nui-Fuji-1.jpg92f54c9a-21da-477a-83d1-20a9deb114a0?alt=media&token=ce7ce2f0-33d2-4d8e-ae52-249d3d38a94e', N'ngoductuan30301')
+INSERT [dbo].[account] ([id], [avatar], [balance], [birth_date], [created_by], [email], [gender], [join_date], [modified_by], [modified_date], [name], [password], [phone], [status], [thumnail], [username], [department_id]) VALUES (5, N'https://lh3.googleusercontent.com/a/ALm5wu37zZJMPfUCGoaq03IMTJkrlFS9u_odwgywX3Utsg=s96-c', NULL, CAST(N'2001-03-30' AS Date), N'anonymousUser', N'admin', N'MALE', CAST(N'2022-11-15' AS Date), N'anonymousUser', CAST(N'2022-11-15T17:17:32.0000000' AS DateTime2), N'Đức Tuấn', N'$2a$12$.30DfB.mcn1vwF6lzvETNuQ8CipNh9NQb4w9jJSJ/IWM.bwIDWDMm', NULL, N'ACTIVE', N'https://firebasestorage.googleapis.com/v0/b/etransportationsys-trichoip.appspot.com/o/images%2FCanh-dep-o-Nhat-Ban-Nui-Fuji-1.jpg92f54c9a-21da-477a-83d1-20a9deb114a0?alt=media&token=ce7ce2f0-33d2-4d8e-ae52-249d3d38a94e', N'admin2', 1)
 GO
-INSERT [dbo].[account] ([id], [avatar], [balance], [birth_date], [created_by], [email], [gender], [join_date], [modified_by], [modified_date], [name], [password], [phone], [status], [thumnail], [username]) VALUES (6, N'https://lh3.googleusercontent.com/a/ALm5wu1DJLXqEuwwqT30CNqbxwGniFF9tBpNMfFQ9QeG=s96-c', NULL, CAST(N'2001-01-22' AS Date), N'anonymousUser', N'dainpse150682@fpt.edu.vn', N'MALE', CAST(N'2022-11-15' AS Date), N'anonymousUser', CAST(N'2022-11-15T09:12:36.0000000' AS DateTime2), N'Nguyen Phuong Dai ', N'$2a$10$uH6dw9zDT0ElV7qI2qbMVOICfKdUVk6UVgH0I41QFnOU8Qm5uhTTO', NULL, N'ACTIVE', N'https://firebasestorage.googleapis.com/v0/b/etransportationsys-trichoip.appspot.com/o/images%2FCanh-dep-o-Nhat-Ban-Nui-Fuji-1.jpg92f54c9a-21da-477a-83d1-20a9deb114a0?alt=media&token=ce7ce2f0-33d2-4d8e-ae52-249d3d38a94e', N'dainpse150682')
+INSERT [dbo].[account] ([id], [avatar], [balance], [birth_date], [created_by], [email], [gender], [join_date], [modified_by], [modified_date], [name], [password], [phone], [status], [thumnail], [username], [department_id]) VALUES (6, N'https://lh3.googleusercontent.com/a/ALm5wu1DJLXqEuwwqT30CNqbxwGniFF9tBpNMfFQ9QeG=s96-c', NULL, CAST(N'2001-01-22' AS Date), N'anonymousUser', N'admin', N'MALE', CAST(N'2022-11-15' AS Date), N'anonymousUser', CAST(N'2022-11-15T09:12:36.0000000' AS DateTime2), N'Nguyen Phuong Dai ', N'$2a$12$.30DfB.mcn1vwF6lzvETNuQ8CipNh9NQb4w9jJSJ/IWM.bwIDWDMm', NULL, N'ACTIVE', N'https://firebasestorage.googleapis.com/v0/b/etransportationsys-trichoip.appspot.com/o/images%2FCanh-dep-o-Nhat-Ban-Nui-Fuji-1.jpg92f54c9a-21da-477a-83d1-20a9deb114a0?alt=media&token=ce7ce2f0-33d2-4d8e-ae52-249d3d38a94e', N'admin3', 1)
 GO
-INSERT [dbo].[account] ([id], [avatar], [balance], [birth_date], [created_by], [email], [gender], [join_date], [modified_by], [modified_date], [name], [password], [phone], [status], [thumnail], [username]) VALUES (8, N'https://lh3.googleusercontent.com/a/ALm5wu3SQCBCtTwbtZdo3gciVYsAaNT88SCSzMAs1rr7=s96-c', NULL, CAST(N'2001-04-29' AS Date), N'anonymousUser', N'capngoclong@gmail.com', N'MALE', CAST(N'2022-11-15' AS Date), N'anonymousUser', CAST(N'2022-11-15T12:16:51.0000000' AS DateTime2), N'Ngọc Long', N'$2a$10$sNFoqWjcp4NwyT5go7tRYO2O2bEU7IbgT1ttLPd8nHWt57ibJi1Ia', NULL, N'ACTIVE', N'https://firebasestorage.googleapis.com/v0/b/etransportationsys-trichoip.appspot.com/o/images%2FCanh-dep-o-Nhat-Ban-Nui-Fuji-1.jpg92f54c9a-21da-477a-83d1-20a9deb114a0?alt=media&token=ce7ce2f0-33d2-4d8e-ae52-249d3d38a94e', N'capngoclong')
+INSERT [dbo].[account] ([id], [avatar], [balance], [birth_date], [created_by], [email], [gender], [join_date], [modified_by], [modified_date], [name], [password], [phone], [status], [thumnail], [username], [department_id]) VALUES (8, N'https://lh3.googleusercontent.com/a/ALm5wu3SQCBCtTwbtZdo3gciVYsAaNT88SCSzMAs1rr7=s96-c', NULL, CAST(N'2001-04-29' AS Date), N'anonymousUser', N'capngoclong@gmail.com', N'MALE', CAST(N'2022-11-15' AS Date), N'anonymousUser', CAST(N'2022-11-15T12:16:51.0000000' AS DateTime2), N'Ngọc Long', N'$2a$10$sNFoqWjcp4NwyT5go7tRYO2O2bEU7IbgT1ttLPd8nHWt57ibJi1Ia', NULL, N'ACTIVE', N'https://firebasestorage.googleapis.com/v0/b/etransportationsys-trichoip.appspot.com/o/images%2FCanh-dep-o-Nhat-Ban-Nui-Fuji-1.jpg92f54c9a-21da-477a-83d1-20a9deb114a0?alt=media&token=ce7ce2f0-33d2-4d8e-ae52-249d3d38a94e', N'capngoclong', NULL)
 GO
-INSERT [dbo].[account] ([id], [avatar], [balance], [birth_date], [created_by], [email], [gender], [join_date], [modified_by], [modified_date], [name], [password], [phone], [status], [thumnail], [username]) VALUES (9, N'https://lh3.googleusercontent.com/a/ALm5wu2LeZQ9Sk8-pji0CsYYA9HDClVL5nhUvIzJIYu5aQ=s96-c', NULL, CAST(N'1999-01-06' AS Date), N'anonymousUser', N'longnlp14@gmail.com', N'MALE', CAST(N'2022-11-15' AS Date), N'anonymousUser', CAST(N'2022-11-15T13:11:06.0000000' AS DateTime2), N'Long Trần', N'$2a$10$U8eeEO74Se7VHso2aeaXq.kLzIP0tDzdmpOszyZ.AL8TemWWsMp8q', NULL, N'ACTIVE', N'https://firebasestorage.googleapis.com/v0/b/etransportationsys-trichoip.appspot.com/o/images%2F1656872931_827_Top-500-hinh-anh-nguoi-mau-Bikini-dep-sexy-nong.jpg613d41d9-730d-47a3-a3d2-355b44ef8638?alt=media&token=3e44519d-c713-492f-bf32-d44e44a2fc52', N'longnlp14')
+INSERT [dbo].[account] ([id], [avatar], [balance], [birth_date], [created_by], [email], [gender], [join_date], [modified_by], [modified_date], [name], [password], [phone], [status], [thumnail], [username], [department_id]) VALUES (9, N'https://lh3.googleusercontent.com/a/ALm5wu2LeZQ9Sk8-pji0CsYYA9HDClVL5nhUvIzJIYu5aQ=s96-c', NULL, CAST(N'1999-01-06' AS Date), N'anonymousUser', N'longnlp14@gmail.com', N'MALE', CAST(N'2022-11-15' AS Date), N'anonymousUser', CAST(N'2022-11-15T13:11:06.0000000' AS DateTime2), N'Long Trần', N'$2a$10$U8eeEO74Se7VHso2aeaXq.kLzIP0tDzdmpOszyZ.AL8TemWWsMp8q', NULL, N'ACTIVE', N'https://firebasestorage.googleapis.com/v0/b/etransportationsys-trichoip.appspot.com/o/images%2F1656872931_827_Top-500-hinh-anh-nguoi-mau-Bikini-dep-sexy-nong.jpg613d41d9-730d-47a3-a3d2-355b44ef8638?alt=media&token=3e44519d-c713-492f-bf32-d44e44a2fc52', N'longnlp14', NULL)
 GO
-INSERT [dbo].[account] ([id], [avatar], [balance], [birth_date], [created_by], [email], [gender], [join_date], [modified_by], [modified_date], [name], [password], [phone], [status], [thumnail], [username]) VALUES (11, N'https://firebasestorage.googleapis.com/v0/b/etransportationsys-trichoip.appspot.com/o/images%2Fimages.jpg4547c8d7-4aee-4662-bc3c-3aca140deb0a?alt=media&token=009ab86c-0e81-4169-bda7-b59e2b302189', NULL, CAST(N'1974-07-25' AS Date), N'anonymousUser', NULL, N'MALE', CAST(N'2022-11-15' AS Date), N'anonymousUser', CAST(N'2022-11-15T17:38:20.0000000' AS DateTime2), N'Đức Tuấn ', N'$2a$10$YMMR9FXODVqm4CIrw6zjYOQd5/lwUMHCfez5QH8F7ijZUMH0j.acO', NULL, N'ACTIVE', N'https://firebasestorage.googleapis.com/v0/b/etransportationsys-trichoip.appspot.com/o/images%2FCanh-dep-o-Nhat-Ban-Nui-Fuji-1.jpg92f54c9a-21da-477a-83d1-20a9deb114a0?alt=media&token=ce7ce2f0-33d2-4d8e-ae52-249d3d38a94e', N'ngoductuan')
+INSERT [dbo].[account] ([id], [avatar], [balance], [birth_date], [created_by], [email], [gender], [join_date], [modified_by], [modified_date], [name], [password], [phone], [status], [thumnail], [username], [department_id]) VALUES (11, N'https://firebasestorage.googleapis.com/v0/b/etransportationsys-trichoip.appspot.com/o/images%2Fimages.jpg4547c8d7-4aee-4662-bc3c-3aca140deb0a?alt=media&token=009ab86c-0e81-4169-bda7-b59e2b302189', NULL, CAST(N'1974-07-25' AS Date), N'anonymousUser', NULL, N'MALE', CAST(N'2022-11-15' AS Date), N'anonymousUser', CAST(N'2022-11-15T17:38:20.0000000' AS DateTime2), N'Đức Tuấn ', N'$2a$10$YMMR9FXODVqm4CIrw6zjYOQd5/lwUMHCfez5QH8F7ijZUMH0j.acO', NULL, N'ACTIVE', N'https://firebasestorage.googleapis.com/v0/b/etransportationsys-trichoip.appspot.com/o/images%2FCanh-dep-o-Nhat-Ban-Nui-Fuji-1.jpg92f54c9a-21da-477a-83d1-20a9deb114a0?alt=media&token=ce7ce2f0-33d2-4d8e-ae52-249d3d38a94e', N'ngoductuan', NULL)
 GO
-INSERT [dbo].[account] ([id], [avatar], [balance], [birth_date], [created_by], [email], [gender], [join_date], [modified_by], [modified_date], [name], [password], [phone], [status], [thumnail], [username]) VALUES (12, N'https://firebasestorage.googleapis.com/v0/b/etransportationsys-trichoip.appspot.com/o/images%2Fhinh-nen-thien-nhien-phong-canh-dep-4_043141001.jpgf909ac3b-e39a-48c8-8c7e-c742805be217?alt=media&token=2398c11d-47fe-4417-aca9-8fb6125f4831', NULL, CAST(N'1999-01-06' AS Date), N'anonymousUser', NULL, N'FEMALE', CAST(N'2022-11-15' AS Date), N'anonymousUser', CAST(N'2022-11-15T17:32:47.0000000' AS DateTime2), N'Bảo Vy', N'$2a$10$Q8Q0dtALxvq1U07WCLGwie6jBY89rTLmuJPQ4BjUPg5OjRP.rgaUq', NULL, N'ACTIVE', N'https://firebasestorage.googleapis.com/v0/b/etransportationsys-trichoip.appspot.com/o/images%2Ft%E1%BA%A3i%20xu%E1%BB%91ng%20(3).jfif29e22492-7d17-4618-844e-3715b858a42e?alt=media&token=cc0600de-e44a-4bb7-9390-e028550bff51', N'pebivn4000')
+INSERT [dbo].[account] ([id], [avatar], [balance], [birth_date], [created_by], [email], [gender], [join_date], [modified_by], [modified_date], [name], [password], [phone], [status], [thumnail], [username], [department_id]) VALUES (12, N'https://firebasestorage.googleapis.com/v0/b/etransportationsys-trichoip.appspot.com/o/images%2Fhinh-nen-thien-nhien-phong-canh-dep-4_043141001.jpgf909ac3b-e39a-48c8-8c7e-c742805be217?alt=media&token=2398c11d-47fe-4417-aca9-8fb6125f4831', NULL, CAST(N'1999-01-06' AS Date), N'anonymousUser', NULL, N'FEMALE', CAST(N'2022-11-15' AS Date), N'anonymousUser', CAST(N'2022-11-15T17:32:47.0000000' AS DateTime2), N'Bảo Vy', N'$2a$10$Q8Q0dtALxvq1U07WCLGwie6jBY89rTLmuJPQ4BjUPg5OjRP.rgaUq', NULL, N'ACTIVE', N'https://firebasestorage.googleapis.com/v0/b/etransportationsys-trichoip.appspot.com/o/images%2Ft%E1%BA%A3i%20xu%E1%BB%91ng%20(3).jfif29e22492-7d17-4618-844e-3715b858a42e?alt=media&token=cc0600de-e44a-4bb7-9390-e028550bff51', N'pebivn4000', NULL)
 GO
-INSERT [dbo].[account] ([id], [avatar], [balance], [birth_date], [created_by], [email], [gender], [join_date], [modified_by], [modified_date], [name], [password], [phone], [status], [thumnail], [username]) VALUES (13, N'https://firebasestorage.googleapis.com/v0/b/etransportationsys-trichoip.appspot.com/o/images%2Fhinh-nen-thien-nhien-phong-canh-dep-4_043141001.jpgf909ac3b-e39a-48c8-8c7e-c742805be217?alt=media&token=2398c11d-47fe-4417-aca9-8fb6125f4831', NULL, CAST(N'2001-04-12' AS Date), N'anonymousUser', NULL, N'MALE', CAST(N'2022-11-15' AS Date), N'anonymousUser', CAST(N'2022-11-15T17:33:34.0000000' AS DateTime2), N'Thành Đạt', N'$2a$10$F3S5UWsTiq6T.851EFWpgeWFy7mxd6OxZ6PJfUH00uNJVXiVZQAO.', NULL, N'ACTIVE', N'https://firebasestorage.googleapis.com/v0/b/etransportationsys-trichoip.appspot.com/o/images%2Fhinh-nen-phong-canh-dep-1.jpgc6a2b9e9-1f07-4dbc-94f6-9d6e8ab4eb49?alt=media&token=c495e1ad-60d5-4564-b85b-b6fe43bfde19', N'pebivn5000')
+INSERT [dbo].[account] ([id], [avatar], [balance], [birth_date], [created_by], [email], [gender], [join_date], [modified_by], [modified_date], [name], [password], [phone], [status], [thumnail], [username], [department_id]) VALUES (13, N'https://firebasestorage.googleapis.com/v0/b/etransportationsys-trichoip.appspot.com/o/images%2Fhinh-nen-thien-nhien-phong-canh-dep-4_043141001.jpgf909ac3b-e39a-48c8-8c7e-c742805be217?alt=media&token=2398c11d-47fe-4417-aca9-8fb6125f4831', NULL, CAST(N'2001-04-12' AS Date), N'anonymousUser', NULL, N'MALE', CAST(N'2022-11-15' AS Date), N'anonymousUser', CAST(N'2022-11-15T17:33:34.0000000' AS DateTime2), N'Thành Đạt', N'$2a$10$F3S5UWsTiq6T.851EFWpgeWFy7mxd6OxZ6PJfUH00uNJVXiVZQAO.', NULL, N'ACTIVE', N'https://firebasestorage.googleapis.com/v0/b/etransportationsys-trichoip.appspot.com/o/images%2Fhinh-nen-phong-canh-dep-1.jpgc6a2b9e9-1f07-4dbc-94f6-9d6e8ab4eb49?alt=media&token=c495e1ad-60d5-4564-b85b-b6fe43bfde19', N'pebivn5000', NULL)
 GO
-INSERT [dbo].[account] ([id], [avatar], [balance], [birth_date], [created_by], [email], [gender], [join_date], [modified_by], [modified_date], [name], [password], [phone], [status], [thumnail], [username]) VALUES (14, N'https://firebasestorage.googleapis.com/v0/b/etransportationsys-trichoip.appspot.com/o/images%2Fimages.jpg4547c8d7-4aee-4662-bc3c-3aca140deb0a?alt=media&token=009ab86c-0e81-4169-bda7-b59e2b302189', NULL, CAST(N'2000-07-20' AS Date), N'anonymousUser', NULL, N'MALE', CAST(N'2022-11-15' AS Date), N'anonymousUser', CAST(N'2022-11-15T17:37:45.0000000' AS DateTime2), N'Trí Gầy ', N'$2a$10$79YwexRTsfFf5zxmoI03h.xYaKDpraBa4jriBDsq466Rrlid6jC4G', NULL, N'ACTIVE', N'https://firebasestorage.googleapis.com/v0/b/etransportationsys-trichoip.appspot.com/o/images%2FCanh-dep-o-Nhat-Ban-Nui-Fuji-1.jpg92f54c9a-21da-477a-83d1-20a9deb114a0?alt=media&token=ce7ce2f0-33d2-4d8e-ae52-249d3d38a94e', N'tringu123')
+INSERT [dbo].[account] ([id], [avatar], [balance], [birth_date], [created_by], [email], [gender], [join_date], [modified_by], [modified_date], [name], [password], [phone], [status], [thumnail], [username], [department_id]) VALUES (14, N'https://firebasestorage.googleapis.com/v0/b/etransportationsys-trichoip.appspot.com/o/images%2Fimages.jpg4547c8d7-4aee-4662-bc3c-3aca140deb0a?alt=media&token=009ab86c-0e81-4169-bda7-b59e2b302189', NULL, CAST(N'2000-07-20' AS Date), N'anonymousUser', NULL, N'MALE', CAST(N'2022-11-15' AS Date), N'anonymousUser', CAST(N'2022-11-15T17:37:45.0000000' AS DateTime2), N'Trí Gầy ', N'$2a$10$79YwexRTsfFf5zxmoI03h.xYaKDpraBa4jriBDsq466Rrlid6jC4G', NULL, N'ACTIVE', N'https://firebasestorage.googleapis.com/v0/b/etransportationsys-trichoip.appspot.com/o/images%2FCanh-dep-o-Nhat-Ban-Nui-Fuji-1.jpg92f54c9a-21da-477a-83d1-20a9deb114a0?alt=media&token=ce7ce2f0-33d2-4d8e-ae52-249d3d38a94e', N'tringu123', NULL)
 GO
-INSERT [dbo].[account] ([id], [avatar], [balance], [birth_date], [created_by], [email], [gender], [join_date], [modified_by], [modified_date], [name], [password], [phone], [status], [thumnail], [username]) VALUES (15, N'https://firebasestorage.googleapis.com/v0/b/etransportationsys-trichoip.appspot.com/o/images%2Fhinh-nen-thien-nhien-phong-canh-dep-4_043141001.jpgf909ac3b-e39a-48c8-8c7e-c742805be217?alt=media&token=2398c11d-47fe-4417-aca9-8fb6125f4831', NULL, CAST(N'2001-03-08' AS Date), N'anonymousUser', NULL, N'MALE', CAST(N'2022-11-15' AS Date), N'anonymousUser', CAST(N'2022-11-15T17:54:48.0000000' AS DateTime2), N'Vũ Ngọc Thảo', N'$2a$10$9uMXi.v5YvWHLAN1zVaQa.uVjzarTp7BFlsOMjlRjmvzdmWE5RoN2', NULL, N'ACTIVE', N'https://firebasestorage.googleapis.com/v0/b/etransportationsys-trichoip.appspot.com/o/images%2Fhinh-nen-thien-nhien-phong-canh-dep-4_043141001.jpg30fc310f-8a6f-4657-9dcb-5c5150f6d4f0?alt=media&token=c9f5e350-1899-4706-a040-378787f5d291', N'pebivn7000')
+INSERT [dbo].[account] ([id], [avatar], [balance], [birth_date], [created_by], [email], [gender], [join_date], [modified_by], [modified_date], [name], [password], [phone], [status], [thumnail], [username], [department_id]) VALUES (15, N'https://firebasestorage.googleapis.com/v0/b/etransportationsys-trichoip.appspot.com/o/images%2Fhinh-nen-thien-nhien-phong-canh-dep-4_043141001.jpgf909ac3b-e39a-48c8-8c7e-c742805be217?alt=media&token=2398c11d-47fe-4417-aca9-8fb6125f4831', NULL, CAST(N'2001-03-08' AS Date), N'anonymousUser', NULL, N'MALE', CAST(N'2022-11-15' AS Date), N'anonymousUser', CAST(N'2022-11-15T17:54:48.0000000' AS DateTime2), N'Vũ Ngọc Thảo', N'$2a$10$9uMXi.v5YvWHLAN1zVaQa.uVjzarTp7BFlsOMjlRjmvzdmWE5RoN2', NULL, N'ACTIVE', N'https://firebasestorage.googleapis.com/v0/b/etransportationsys-trichoip.appspot.com/o/images%2Fhinh-nen-thien-nhien-phong-canh-dep-4_043141001.jpg30fc310f-8a6f-4657-9dcb-5c5150f6d4f0?alt=media&token=c9f5e350-1899-4706-a040-378787f5d291', N'pebivn7000', NULL)
 GO
-INSERT [dbo].[account] ([id], [avatar], [balance], [birth_date], [created_by], [email], [gender], [join_date], [modified_by], [modified_date], [name], [password], [phone], [status], [thumnail], [username]) VALUES (16, N'https://firebasestorage.googleapis.com/v0/b/etransportationsys-trichoip.appspot.com/o/images%2Fhinh-nen-phong-canh-dep-nhat-1.jpg46ea1497-1bb2-46e9-8b7c-d32e2ea5ac12?alt=media&token=8f964e6f-3563-4ef6-b2ae-0df65aaeb09c', NULL, CAST(N'2004-02-13' AS Date), N'anonymousUser', NULL, N'MALE', CAST(N'2022-11-15' AS Date), N'anonymousUser', CAST(N'2022-11-15T17:36:02.0000000' AS DateTime2), N'Chu Dương', N'$2a$10$FfCLvhmdPYt4L335WLteJeN121OpyusYhrgGyva/uh9iAr/8SHePa', NULL, N'ACTIVE', N'https://firebasestorage.googleapis.com/v0/b/etransportationsys-trichoip.appspot.com/o/images%2Fhinh-nen-phong-canh-dep-cho-may-tinh-12.jpg703eab2c-bb72-4484-aa6e-e4764d832cda?alt=media&token=9d96730c-ed55-4354-8bc4-7983cbccb992', N'phuongdai1')
+INSERT [dbo].[account] ([id], [avatar], [balance], [birth_date], [created_by], [email], [gender], [join_date], [modified_by], [modified_date], [name], [password], [phone], [status], [thumnail], [username], [department_id]) VALUES (16, N'https://firebasestorage.googleapis.com/v0/b/etransportationsys-trichoip.appspot.com/o/images%2Fhinh-nen-phong-canh-dep-nhat-1.jpg46ea1497-1bb2-46e9-8b7c-d32e2ea5ac12?alt=media&token=8f964e6f-3563-4ef6-b2ae-0df65aaeb09c', NULL, CAST(N'2004-02-13' AS Date), N'anonymousUser', NULL, N'MALE', CAST(N'2022-11-15' AS Date), N'anonymousUser', CAST(N'2022-11-15T17:36:02.0000000' AS DateTime2), N'Chu Dương', N'$2a$10$FfCLvhmdPYt4L335WLteJeN121OpyusYhrgGyva/uh9iAr/8SHePa', NULL, N'ACTIVE', N'https://firebasestorage.googleapis.com/v0/b/etransportationsys-trichoip.appspot.com/o/images%2Fhinh-nen-phong-canh-dep-cho-may-tinh-12.jpg703eab2c-bb72-4484-aa6e-e4764d832cda?alt=media&token=9d96730c-ed55-4354-8bc4-7983cbccb992', N'phuongdai1', NULL)
 GO
-INSERT [dbo].[account] ([id], [avatar], [balance], [birth_date], [created_by], [email], [gender], [join_date], [modified_by], [modified_date], [name], [password], [phone], [status], [thumnail], [username]) VALUES (17, N'https://firebasestorage.googleapis.com/v0/b/etransportationsys-trichoip.appspot.com/o/images%2Fimages.jfif61df35af-b162-40d2-96ae-a7144eb0938b?alt=media&token=a09181c1-9b8d-46f4-be33-dbd4cfdc8411', NULL, CAST(N'1995-03-09' AS Date), N'anonymousUser', NULL, N'MALE', CAST(N'2022-11-15' AS Date), N'anonymousUser', CAST(N'2022-11-15T17:37:36.0000000' AS DateTime2), N'Hữu Duyên', N'$2a$10$8Xoz9tfc/XpLSWYaanrDQOtpRZC4vF/63mFq868163pY889uNYQ0m', NULL, N'ACTIVE', N'https://firebasestorage.googleapis.com/v0/b/etransportationsys-trichoip.appspot.com/o/images%2FKhung-c%E1%BA%A3nh-thi%C3%AAn-nhi%C3%AAn-m%C3%B9a-thu-scaled.jpeg3f3d01d6-56f8-469a-a565-7cab27c62def?alt=media&token=8f3e8ab7-c0eb-4071-b334-e108ceb036ad', N'phuongdai2')
+INSERT [dbo].[account] ([id], [avatar], [balance], [birth_date], [created_by], [email], [gender], [join_date], [modified_by], [modified_date], [name], [password], [phone], [status], [thumnail], [username], [department_id]) VALUES (17, N'https://firebasestorage.googleapis.com/v0/b/etransportationsys-trichoip.appspot.com/o/images%2Fimages.jfif61df35af-b162-40d2-96ae-a7144eb0938b?alt=media&token=a09181c1-9b8d-46f4-be33-dbd4cfdc8411', NULL, CAST(N'1995-03-09' AS Date), N'anonymousUser', NULL, N'MALE', CAST(N'2022-11-15' AS Date), N'anonymousUser', CAST(N'2022-11-15T17:37:36.0000000' AS DateTime2), N'Hữu Duyên', N'$2a$10$8Xoz9tfc/XpLSWYaanrDQOtpRZC4vF/63mFq868163pY889uNYQ0m', NULL, N'ACTIVE', N'https://firebasestorage.googleapis.com/v0/b/etransportationsys-trichoip.appspot.com/o/images%2FKhung-c%E1%BA%A3nh-thi%C3%AAn-nhi%C3%AAn-m%C3%B9a-thu-scaled.jpeg3f3d01d6-56f8-469a-a565-7cab27c62def?alt=media&token=8f3e8ab7-c0eb-4071-b334-e108ceb036ad', N'phuongdai2', NULL)
 GO
-INSERT [dbo].[account] ([id], [avatar], [balance], [birth_date], [created_by], [email], [gender], [join_date], [modified_by], [modified_date], [name], [password], [phone], [status], [thumnail], [username]) VALUES (18, N'https://firebasestorage.googleapis.com/v0/b/etransportationsys-trichoip.appspot.com/o/images%2Fimages%20(1).jfif30dfd13c-cb5c-49b6-8c48-267a7b1ccce4?alt=media&token=1bd5c93f-cb59-48f7-9109-0a9275d4b274', NULL, CAST(N'1982-05-12' AS Date), N'anonymousUser', NULL, N'FEMALE', CAST(N'2022-11-15' AS Date), N'anonymousUser', CAST(N'2022-11-15T17:39:44.0000000' AS DateTime2), N'Lan Chi', N'$2a$10$MA9QGDbpr5qDYdZfAPXDVudtAY0rCjbY9EfUpvk7WEDHEt8b8xeiC', NULL, N'ACTIVE', N'https://firebasestorage.googleapis.com/v0/b/etransportationsys-trichoip.appspot.com/o/images%2Fimages%20(1).jfif98fafdb8-5b2d-435a-a411-0d7149014ef7?alt=media&token=4d563a20-3a4e-4749-8229-ae5aedc6e2a5', N'phuongdai3')
+INSERT [dbo].[account] ([id], [avatar], [balance], [birth_date], [created_by], [email], [gender], [join_date], [modified_by], [modified_date], [name], [password], [phone], [status], [thumnail], [username], [department_id]) VALUES (18, N'https://firebasestorage.googleapis.com/v0/b/etransportationsys-trichoip.appspot.com/o/images%2Fimages%20(1).jfif30dfd13c-cb5c-49b6-8c48-267a7b1ccce4?alt=media&token=1bd5c93f-cb59-48f7-9109-0a9275d4b274', NULL, CAST(N'1982-05-12' AS Date), N'anonymousUser', NULL, N'FEMALE', CAST(N'2022-11-15' AS Date), N'anonymousUser', CAST(N'2022-11-15T17:39:44.0000000' AS DateTime2), N'Lan Chi', N'$2a$10$MA9QGDbpr5qDYdZfAPXDVudtAY0rCjbY9EfUpvk7WEDHEt8b8xeiC', NULL, N'ACTIVE', N'https://firebasestorage.googleapis.com/v0/b/etransportationsys-trichoip.appspot.com/o/images%2Fimages%20(1).jfif98fafdb8-5b2d-435a-a411-0d7149014ef7?alt=media&token=4d563a20-3a4e-4749-8229-ae5aedc6e2a5', N'phuongdai3', NULL)
 GO
-INSERT [dbo].[account] ([id], [avatar], [balance], [birth_date], [created_by], [email], [gender], [join_date], [modified_by], [modified_date], [name], [password], [phone], [status], [thumnail], [username]) VALUES (19, N'https://firebasestorage.googleapis.com/v0/b/etransportationsys-trichoip.appspot.com/o/images%2Fphoto-1570917013020-a6966d3ee863.jpga92432b1-3712-4def-a49f-349dccb1069c?alt=media&token=a13f9290-72e0-45b2-820b-38e4c626bff5', NULL, CAST(N'2002-03-23' AS Date), N'anonymousUser', NULL, N'FEMALE', CAST(N'2022-11-15' AS Date), N'anonymousUser', CAST(N'2022-11-15T17:47:09.0000000' AS DateTime2), N'Hoàng Hồng', N'$2a$10$hTIV6mUqSsp8eXxPXNNyaejBsNHkj8.paQJyXXK/TutW/UelT5EIW', NULL, N'ACTIVE', N'https://firebasestorage.googleapis.com/v0/b/etransportationsys-trichoip.appspot.com/o/images%2FCanh-dep-o-Nhat-Ban-Nui-Fuji-1.jpg01cbef19-ade6-4737-86ad-cf1cb72b4eed?alt=media&token=1855977a-84aa-4ba5-81f4-6a6c84cdc40f', N'triga')
+INSERT [dbo].[account] ([id], [avatar], [balance], [birth_date], [created_by], [email], [gender], [join_date], [modified_by], [modified_date], [name], [password], [phone], [status], [thumnail], [username], [department_id]) VALUES (19, N'https://firebasestorage.googleapis.com/v0/b/etransportationsys-trichoip.appspot.com/o/images%2Fphoto-1570917013020-a6966d3ee863.jpga92432b1-3712-4def-a49f-349dccb1069c?alt=media&token=a13f9290-72e0-45b2-820b-38e4c626bff5', NULL, CAST(N'2002-03-23' AS Date), N'anonymousUser', NULL, N'FEMALE', CAST(N'2022-11-15' AS Date), N'anonymousUser', CAST(N'2022-11-15T17:47:09.0000000' AS DateTime2), N'Hoàng Hồng', N'$2a$10$hTIV6mUqSsp8eXxPXNNyaejBsNHkj8.paQJyXXK/TutW/UelT5EIW', NULL, N'ACTIVE', N'https://firebasestorage.googleapis.com/v0/b/etransportationsys-trichoip.appspot.com/o/images%2FCanh-dep-o-Nhat-Ban-Nui-Fuji-1.jpg01cbef19-ade6-4737-86ad-cf1cb72b4eed?alt=media&token=1855977a-84aa-4ba5-81f4-6a6c84cdc40f', N'triga', NULL)
 GO
-INSERT [dbo].[account] ([id], [avatar], [balance], [birth_date], [created_by], [email], [gender], [join_date], [modified_by], [modified_date], [name], [password], [phone], [status], [thumnail], [username]) VALUES (20, N'https://firebasestorage.googleapis.com/v0/b/etransportationsys-trichoip.appspot.com/o/images%2Fphoto-1582391156858-efc9933740b6.jfif96419951-c02e-45e2-aa69-7efdbf6ed335?alt=media&token=05a6d094-9921-4d7d-a4eb-8c138fc09d94', NULL, CAST(N'1999-04-06' AS Date), N'anonymousUser', NULL, N'MALE', CAST(N'2022-11-15' AS Date), N'anonymousUser', CAST(N'2022-11-15T17:42:43.0000000' AS DateTime2), N'Nam Minh', N'$2a$10$DrZQKExqF2Eum4D/MFgfJ.QScYEAQo4EvKnnM7cluWdlBFBF2aVvS', NULL, N'ACTIVE', N'https://firebasestorage.googleapis.com/v0/b/etransportationsys-trichoip.appspot.com/o/images%2Fphoto-1582391156858-efc9933740b6%20(1).jfifcf251779-0bda-48ad-9551-e97a118e2f33?alt=media&token=eb4fcae8-d3d9-4bc9-9a1e-0b8bf3b1877e', N'phuongdai4')
+INSERT [dbo].[account] ([id], [avatar], [balance], [birth_date], [created_by], [email], [gender], [join_date], [modified_by], [modified_date], [name], [password], [phone], [status], [thumnail], [username], [department_id]) VALUES (20, N'https://firebasestorage.googleapis.com/v0/b/etransportationsys-trichoip.appspot.com/o/images%2Fphoto-1582391156858-efc9933740b6.jfif96419951-c02e-45e2-aa69-7efdbf6ed335?alt=media&token=05a6d094-9921-4d7d-a4eb-8c138fc09d94', NULL, CAST(N'1999-04-06' AS Date), N'anonymousUser', NULL, N'MALE', CAST(N'2022-11-15' AS Date), N'anonymousUser', CAST(N'2022-11-15T17:42:43.0000000' AS DateTime2), N'Nam Minh', N'$2a$10$DrZQKExqF2Eum4D/MFgfJ.QScYEAQo4EvKnnM7cluWdlBFBF2aVvS', NULL, N'ACTIVE', N'https://firebasestorage.googleapis.com/v0/b/etransportationsys-trichoip.appspot.com/o/images%2Fphoto-1582391156858-efc9933740b6%20(1).jfifcf251779-0bda-48ad-9551-e97a118e2f33?alt=media&token=eb4fcae8-d3d9-4bc9-9a1e-0b8bf3b1877e', N'phuongdai4', NULL)
 GO
-INSERT [dbo].[account] ([id], [avatar], [balance], [birth_date], [created_by], [email], [gender], [join_date], [modified_by], [modified_date], [name], [password], [phone], [status], [thumnail], [username]) VALUES (21, N'https://firebasestorage.googleapis.com/v0/b/etransportationsys-trichoip.appspot.com/o/images%2Ft%E1%BA%A3i%20xu%E1%BB%91ng%20(1).jpg512b6dc4-eae7-4528-a0ce-2a2b04a70779?alt=media&token=516363dc-efd9-4d77-9bf9-18c95065b3e7', NULL, CAST(N'1996-09-13' AS Date), N'anonymousUser', NULL, N'MALE', CAST(N'2022-11-15' AS Date), N'anonymousUser', CAST(N'2022-11-15T17:54:27.0000000' AS DateTime2), N'Trần An ', N'$2a$10$usx1PpYRxrJ2dVzlab3QuO6ZaQeXjKHZCsrFDfY7N6smwgTtMyDtq', NULL, N'ACTIVE', N'https://firebasestorage.googleapis.com/v0/b/etransportationsys-trichoip.appspot.com/o/images%2FJwN3-6JnP8tuYj2bIgPu0Q.jpg43a42c9c-d4de-4fcb-9560-2c74ec96652a?alt=media&token=4e38ba2d-63db-4405-b6a1-58f8f4e4018e', N'ductuan')
+INSERT [dbo].[account] ([id], [avatar], [balance], [birth_date], [created_by], [email], [gender], [join_date], [modified_by], [modified_date], [name], [password], [phone], [status], [thumnail], [username], [department_id]) VALUES (21, N'https://firebasestorage.googleapis.com/v0/b/etransportationsys-trichoip.appspot.com/o/images%2Ft%E1%BA%A3i%20xu%E1%BB%91ng%20(1).jpg512b6dc4-eae7-4528-a0ce-2a2b04a70779?alt=media&token=516363dc-efd9-4d77-9bf9-18c95065b3e7', NULL, CAST(N'1996-09-13' AS Date), N'anonymousUser', NULL, N'MALE', CAST(N'2022-11-15' AS Date), N'anonymousUser', CAST(N'2022-11-15T17:54:27.0000000' AS DateTime2), N'Trần An ', N'$2a$10$usx1PpYRxrJ2dVzlab3QuO6ZaQeXjKHZCsrFDfY7N6smwgTtMyDtq', NULL, N'ACTIVE', N'https://firebasestorage.googleapis.com/v0/b/etransportationsys-trichoip.appspot.com/o/images%2FJwN3-6JnP8tuYj2bIgPu0Q.jpg43a42c9c-d4de-4fcb-9560-2c74ec96652a?alt=media&token=4e38ba2d-63db-4405-b6a1-58f8f4e4018e', N'ductuan', NULL)
 GO
-INSERT [dbo].[account] ([id], [avatar], [balance], [birth_date], [created_by], [email], [gender], [join_date], [modified_by], [modified_date], [name], [password], [phone], [status], [thumnail], [username]) VALUES (22, N'https://firebasestorage.googleapis.com/v0/b/etransportationsys-trichoip.appspot.com/o/images%2Fhinh-nen-phong-canh-dep-nhat-1.jpg46ea1497-1bb2-46e9-8b7c-d32e2ea5ac12?alt=media&token=8f964e6f-3563-4ef6-b2ae-0df65aaeb09c', NULL, CAST(N'2000-07-14' AS Date), N'anonymousUser', NULL, N'MALE', CAST(N'2022-11-15' AS Date), N'anonymousUser', CAST(N'2022-11-15T17:57:37.0000000' AS DateTime2), N'Xuân Tú ', N'$2a$10$khuso8Ct8.d2/Z3T5jfcSOS9Q01Bg6L1OYwCD5Qm6K7eO1nuL4fBW', NULL, N'ACTIVE', N'https://firebasestorage.googleapis.com/v0/b/etransportationsys-trichoip.appspot.com/o/images%2F1656872931_827_Top-500-hinh-anh-nguoi-mau-Bikini-dep-sexy-nong.jpg613d41d9-730d-47a3-a3d2-355b44ef8638?alt=media&token=3e44519d-c713-492f-bf32-d44e44a2fc52', N'ngotuan')
+INSERT [dbo].[account] ([id], [avatar], [balance], [birth_date], [created_by], [email], [gender], [join_date], [modified_by], [modified_date], [name], [password], [phone], [status], [thumnail], [username], [department_id]) VALUES (22, N'https://firebasestorage.googleapis.com/v0/b/etransportationsys-trichoip.appspot.com/o/images%2Fhinh-nen-phong-canh-dep-nhat-1.jpg46ea1497-1bb2-46e9-8b7c-d32e2ea5ac12?alt=media&token=8f964e6f-3563-4ef6-b2ae-0df65aaeb09c', NULL, CAST(N'2000-07-14' AS Date), N'anonymousUser', NULL, N'MALE', CAST(N'2022-11-15' AS Date), N'anonymousUser', CAST(N'2022-11-15T17:57:37.0000000' AS DateTime2), N'Xuân Tú ', N'$2a$10$khuso8Ct8.d2/Z3T5jfcSOS9Q01Bg6L1OYwCD5Qm6K7eO1nuL4fBW', NULL, N'ACTIVE', N'https://firebasestorage.googleapis.com/v0/b/etransportationsys-trichoip.appspot.com/o/images%2F1656872931_827_Top-500-hinh-anh-nguoi-mau-Bikini-dep-sexy-nong.jpg613d41d9-730d-47a3-a3d2-355b44ef8638?alt=media&token=3e44519d-c713-492f-bf32-d44e44a2fc52', N'ngotuan', NULL)
 GO
-INSERT [dbo].[account] ([id], [avatar], [balance], [birth_date], [created_by], [email], [gender], [join_date], [modified_by], [modified_date], [name], [password], [phone], [status], [thumnail], [username]) VALUES (23, N'https://firebasestorage.googleapis.com/v0/b/etransportationsys-trichoip.appspot.com/o/images%2Fimages%20(4).jpg0ef43e2a-1184-43ee-aee7-6c785c0f7e16?alt=media&token=7f3a9719-5d2c-4af1-9d9c-d9697f081a93', NULL, CAST(N'1995-08-18' AS Date), N'anonymousUser', NULL, N'MALE', CAST(N'2022-11-15' AS Date), N'anonymousUser', CAST(N'2022-11-15T18:22:25.0000000' AS DateTime2), N'Tấn Sang ', N'$2a$10$SbiRd9uDDzyacrEeahjyHeHbkperoC6lBe9byQG0djWybbgs7bNOi', NULL, N'ACTIVE', N'https://firebasestorage.googleapis.com/v0/b/etransportationsys-trichoip.appspot.com/o/images%2F1656872931_827_Top-500-hinh-anh-nguoi-mau-Bikini-dep-sexy-nong.jpg613d41d9-730d-47a3-a3d2-355b44ef8638?alt=media&token=3e44519d-c713-492f-bf32-d44e44a2fc52', N'tuanngo')
+INSERT [dbo].[account] ([id], [avatar], [balance], [birth_date], [created_by], [email], [gender], [join_date], [modified_by], [modified_date], [name], [password], [phone], [status], [thumnail], [username], [department_id]) VALUES (23, N'https://firebasestorage.googleapis.com/v0/b/etransportationsys-trichoip.appspot.com/o/images%2Fimages%20(4).jpg0ef43e2a-1184-43ee-aee7-6c785c0f7e16?alt=media&token=7f3a9719-5d2c-4af1-9d9c-d9697f081a93', NULL, CAST(N'1995-08-18' AS Date), N'anonymousUser', NULL, N'MALE', CAST(N'2022-11-15' AS Date), N'anonymousUser', CAST(N'2022-11-15T18:22:25.0000000' AS DateTime2), N'Tấn Sang ', N'$2a$10$SbiRd9uDDzyacrEeahjyHeHbkperoC6lBe9byQG0djWybbgs7bNOi', NULL, N'ACTIVE', N'https://firebasestorage.googleapis.com/v0/b/etransportationsys-trichoip.appspot.com/o/images%2F1656872931_827_Top-500-hinh-anh-nguoi-mau-Bikini-dep-sexy-nong.jpg613d41d9-730d-47a3-a3d2-355b44ef8638?alt=media&token=3e44519d-c713-492f-bf32-d44e44a2fc52', N'tuanngo', NULL)
 GO
-INSERT [dbo].[account] ([id], [avatar], [balance], [birth_date], [created_by], [email], [gender], [join_date], [modified_by], [modified_date], [name], [password], [phone], [status], [thumnail], [username]) VALUES (24, N'https://lh3.googleusercontent.com/a/ALm5wu38nVONJQEF1XmDw2s0_7cWd9QOSbZKAqWF3YDF=s96-c', NULL, NULL, N'anonymousUser', N'tran.huu.loc.lop9a2@gmail.com', N'MALE', CAST(N'2022-11-15' AS Date), N'anonymousUser', CAST(N'2022-11-15T21:36:06.0000000' AS DateTime2), N'Hữu Lộc Trần', N'$2a$10$CgVDCH9KM7MycHwaua8c3OPY3CaadHFNOGyAh2QgSt3HWBZphihzG', NULL, N'ACTIVE', NULL, N'tran.huu.loc.lop9a2')
+INSERT [dbo].[account] ([id], [avatar], [balance], [birth_date], [created_by], [email], [gender], [join_date], [modified_by], [modified_date], [name], [password], [phone], [status], [thumnail], [username], [department_id]) VALUES (24, N'https://lh3.googleusercontent.com/a/ALm5wu38nVONJQEF1XmDw2s0_7cWd9QOSbZKAqWF3YDF=s96-c', NULL, NULL, N'anonymousUser', N'tran.huu.loc.lop9a2@gmail.com', N'MALE', CAST(N'2022-11-15' AS Date), N'anonymousUser', CAST(N'2022-11-15T21:36:06.0000000' AS DateTime2), N'Hữu Lộc Trần', N'$2a$10$CgVDCH9KM7MycHwaua8c3OPY3CaadHFNOGyAh2QgSt3HWBZphihzG', NULL, N'ACTIVE', NULL, N'tran.huu.loc.lop9a2', NULL)
 GO
-INSERT [dbo].[account] ([id], [avatar], [balance], [birth_date], [created_by], [email], [gender], [join_date], [modified_by], [modified_date], [name], [password], [phone], [status], [thumnail], [username]) VALUES (25, N'https://lh3.googleusercontent.com/a/ALm5wu3lBH0MIHEuqBFXyAFYxywcXOY6ooTcNEf58I1r=s96-c', NULL, NULL, N'anonymousUser', N'hohuy2072001@gmail.com', N'MALE', CAST(N'2022-11-15' AS Date), N'anonymousUser', CAST(N'2022-11-15T21:41:17.0000000' AS DateTime2), N'5351_Hồ Nguyễn Đức Huy', N'$2a$10$DMPAbpMDWgFI6BbnONc/S.BIEI5tfFfUhYoFXFyYnmyn1nXPkPlim', NULL, N'ACTIVE', NULL, N'hohuy2072001')
+INSERT [dbo].[account] ([id], [avatar], [balance], [birth_date], [created_by], [email], [gender], [join_date], [modified_by], [modified_date], [name], [password], [phone], [status], [thumnail], [username], [department_id]) VALUES (25, N'https://lh3.googleusercontent.com/a/ALm5wu3lBH0MIHEuqBFXyAFYxywcXOY6ooTcNEf58I1r=s96-c', NULL, NULL, N'anonymousUser', N'hohuy2072001@gmail.com', N'MALE', CAST(N'2022-11-15' AS Date), N'anonymousUser', CAST(N'2022-11-15T21:41:17.0000000' AS DateTime2), N'5351_Hồ Nguyễn Đức Huy', N'$2a$10$DMPAbpMDWgFI6BbnONc/S.BIEI5tfFfUhYoFXFyYnmyn1nXPkPlim', NULL, N'ACTIVE', NULL, N'hohuy2072001', NULL)
 GO
-INSERT [dbo].[account] ([id], [avatar], [balance], [birth_date], [created_by], [email], [gender], [join_date], [modified_by], [modified_date], [name], [password], [phone], [status], [thumnail], [username]) VALUES (26, N'https://firebasestorage.googleapis.com/v0/b/etransportationsys-trichoip.appspot.com/o/images%2Fphoto-1600271772357-fdbc8b298eb1.jpgd7679785-e650-4e85-a9f1-ad55969b44e3?alt=media&token=83f44415-ed3a-4c7a-ac13-d1eb5e1ae2dd', NULL, CAST(N'2022-11-10' AS Date), N'anonymousUser', NULL, N'FEMALE', CAST(N'2022-11-15' AS Date), N'anonymousUser', CAST(N'2022-11-16T00:05:52.0000000' AS DateTime2), N'Nguyen Van A', N'$2a$10$G8AKmf.J3WTFC4Yg2dAnz.hMnKq5dlfxSqrloO25oQsaTNPHXZAym', NULL, N'ACTIVE', NULL, N'usertest')
+INSERT [dbo].[account] ([id], [avatar], [balance], [birth_date], [created_by], [email], [gender], [join_date], [modified_by], [modified_date], [name], [password], [phone], [status], [thumnail], [username], [department_id]) VALUES (26, N'https://firebasestorage.googleapis.com/v0/b/etransportationsys-trichoip.appspot.com/o/images%2Fphoto-1600271772357-fdbc8b298eb1.jpgd7679785-e650-4e85-a9f1-ad55969b44e3?alt=media&token=83f44415-ed3a-4c7a-ac13-d1eb5e1ae2dd', NULL, CAST(N'2022-11-10' AS Date), N'anonymousUser', NULL, N'FEMALE', CAST(N'2022-11-15' AS Date), N'anonymousUser', CAST(N'2022-11-16T00:05:52.0000000' AS DateTime2), N'Nguyen Van A', N'$2a$10$G8AKmf.J3WTFC4Yg2dAnz.hMnKq5dlfxSqrloO25oQsaTNPHXZAym', NULL, N'ACTIVE', NULL, N'usertest', NULL)
 GO
-INSERT [dbo].[account] ([id], [avatar], [balance], [birth_date], [created_by], [email], [gender], [join_date], [modified_by], [modified_date], [name], [password], [phone], [status], [thumnail], [username]) VALUES (27, N'https://firebasestorage.googleapis.com/v0/b/etransportationsys-trichoip.appspot.com/o/images%2Fphoto-1517153192978-b2e379ac0710.jpgf193a3f8-71dd-46f3-bd87-892a6d8d3ee9?alt=media&token=30764338-ef0d-49dd-a9d8-5e9863ac6e4f', NULL, NULL, N'anonymousUser', NULL, NULL, CAST(N'2022-11-15' AS Date), N'anonymousUser', CAST(N'2022-11-15T23:56:26.0000000' AS DateTime2), N'ADMIN', N'$2a$10$bFrvb0VccpTqqmZ1v3KNh.DkqzixwAyYAivN3m5EBvPmSzNNI32Va', NULL, N'ACTIVE', NULL, N'admin')
+INSERT [dbo].[account] ([id], [avatar], [balance], [birth_date], [created_by], [email], [gender], [join_date], [modified_by], [modified_date], [name], [password], [phone], [status], [thumnail], [username], [department_id]) VALUES (27, N'https://firebasestorage.googleapis.com/v0/b/etransportationsys-trichoip.appspot.com/o/images%2Fphoto-1517153192978-b2e379ac0710.jpgf193a3f8-71dd-46f3-bd87-892a6d8d3ee9?alt=media&token=30764338-ef0d-49dd-a9d8-5e9863ac6e4f', NULL, NULL, N'anonymousUser', NULL, NULL, CAST(N'2022-11-15' AS Date), N'anonymousUser', CAST(N'2022-11-15T23:56:26.0000000' AS DateTime2), N'ADMIN', N'$2a$10$bFrvb0VccpTqqmZ1v3KNh.DkqzixwAyYAivN3m5EBvPmSzNNI32Va', NULL, N'ACTIVE', NULL, N'admin11', NULL)
 GO
-INSERT [dbo].[account] ([id], [avatar], [balance], [birth_date], [created_by], [email], [gender], [join_date], [modified_by], [modified_date], [name], [password], [phone], [status], [thumnail], [username]) VALUES (28, N'https://lh3.googleusercontent.com/a/ALm5wu1ty7erBtZny2FLMjZWPr_0ar3CjCXuMHG8Mn8_=s96-c', NULL, NULL, N'anonymousUser', N'longlcnse150508@fpt.edu.vn', N'MALE', CAST(N'2022-11-16' AS Date), N'anonymousUser', CAST(N'2022-11-16T11:24:34.0000000' AS DateTime2), N'Le Cap Ngoc Long (K15 HCM)', N'$2a$10$.g0tHQGJK3B6VGRyBZQNnecSZy40UH64MADWoeYvhtA6qPRBEStU.', NULL, N'ACTIVE', NULL, N'longlcnse150508')
+INSERT [dbo].[account] ([id], [avatar], [balance], [birth_date], [created_by], [email], [gender], [join_date], [modified_by], [modified_date], [name], [password], [phone], [status], [thumnail], [username], [department_id]) VALUES (28, N'https://lh3.googleusercontent.com/a/ALm5wu1ty7erBtZny2FLMjZWPr_0ar3CjCXuMHG8Mn8_=s96-c', NULL, NULL, N'anonymousUser', N'longlcnse150508@fpt.edu.vn', N'MALE', CAST(N'2022-11-16' AS Date), N'anonymousUser', CAST(N'2022-11-16T11:24:34.0000000' AS DateTime2), N'Le Cap Ngoc Long (K15 HCM)', N'$2a$10$.g0tHQGJK3B6VGRyBZQNnecSZy40UH64MADWoeYvhtA6qPRBEStU.', NULL, N'ACTIVE', NULL, N'longlcnse150508', NULL)
 GO
 SET IDENTITY_INSERT [dbo].[account] OFF
 GO
-INSERT [dbo].[account_role] ([account_id], [role_id]) VALUES (1, 1)
-GO
 INSERT [dbo].[account_role] ([account_id], [role_id]) VALUES (1, 2)
+GO
+INSERT [dbo].[account_role] ([account_id], [role_id]) VALUES (1, 3)
 GO
 INSERT [dbo].[account_role] ([account_id], [role_id]) VALUES (2, 1)
 GO
 INSERT [dbo].[account_role] ([account_id], [role_id]) VALUES (3, 1)
 GO
-INSERT [dbo].[account_role] ([account_id], [role_id]) VALUES (4, 1)
-GO
 INSERT [dbo].[account_role] ([account_id], [role_id]) VALUES (4, 2)
 GO
-INSERT [dbo].[account_role] ([account_id], [role_id]) VALUES (5, 1)
+INSERT [dbo].[account_role] ([account_id], [role_id]) VALUES (5, 2)
 GO
-INSERT [dbo].[account_role] ([account_id], [role_id]) VALUES (6, 1)
+INSERT [dbo].[account_role] ([account_id], [role_id]) VALUES (6, 2)
 GO
 INSERT [dbo].[account_role] ([account_id], [role_id]) VALUES (8, 1)
 GO
@@ -543,8 +615,6 @@ GO
 INSERT [dbo].[account_role] ([account_id], [role_id]) VALUES (26, 1)
 GO
 INSERT [dbo].[account_role] ([account_id], [role_id]) VALUES (27, 1)
-GO
-INSERT [dbo].[account_role] ([account_id], [role_id]) VALUES (27, 2)
 GO
 INSERT [dbo].[account_role] ([account_id], [role_id]) VALUES (28, 1)
 GO
@@ -1257,14 +1327,12 @@ GO
 SET IDENTITY_INSERT [dbo].[brand] OFF
 GO
 INSERT [dbo].[car] ([id], [created_by], [description], [fuel], [latitude], [license_plates], [longitude], [modified_by], [modified_date], [price], [register_date], [sale_month], [sale_week], [seats], [status], [transmission], [year_of_manufacture], [account_supplier_id], [model_id]) VALUES (6, N'anonymousUser', N'Xe Chevrolet spark Van 2 chỗ, xe gia đình không chạy dịch vụ, xe mới, nội thất sạch sẽ, tiện lợi cho 2 người đi phượt chở đồ thoải mái, về quê thăm gia đình ngon lành cành đào! Xe cực kỳ tiết kiệm xăng! Nhỏ gọn dễ di chuyển trên mọi nẽo đường!
-Nghe nhạc trên mọi hành trình, âm thanh sống động, trang bị camera hành trình, lùi...', N'Xăng', 0, N'51D-426.73', 0, N'anonymousUser', CAST(N'2022-11-15T10:06:34.0000000' AS DateTime2), 1400, CAST(N'2022-11-15' AS Date), 30, 10, 5, N'ACTIVE', N'Số tự động', 2016, 2, 37)
+Nghe nhạc ', N'Xăng', 0, N'51D-426.73', 0, N'anonymousUser', CAST(N'2022-11-15T10:06:34.0000000' AS DateTime2), 1400, CAST(N'2022-11-15' AS Date), 30, 10, 5, N'ACTIVE', N'Số tự động', 2016, 2, 37)
 GO
 INSERT [dbo].[car] ([id], [created_by], [description], [fuel], [latitude], [license_plates], [longitude], [modified_by], [modified_date], [price], [register_date], [sale_month], [sale_week], [seats], [status], [transmission], [year_of_manufacture], [account_supplier_id], [model_id]) VALUES (7, N'anonymousUser', N'Chevrolet Spark 2018 bản full option, có màn hình mylink. Kết nối bluetooth, camera lùi, cảm biến toàn xe
 Xe mới đăng kiểm tháng 10/2018.
 Xe chưa từng chạy dịch vụ, chỉ chạy trong gia đình
-Xe có bảo hiểm 2 chiều và thẻ cứu hộ chính hãng Chevrolet 3 năm.
-Xe rất mới, màu đỏ tươi, không dán quảng cáo hay logo gì của công ty. Nên rất phù hợp thuê xe đi du lịch, tiếp khách.
-Xe gia đình chạy, mới bảo dưỡng vào tháng 10/2019 nên chạy xe rất mượt.', N'Xăng', 0, N'71A-055.97', 0, N'anonymousUser', CAST(N'2022-11-15T10:06:39.0000000' AS DateTime2), 900, CAST(N'2022-11-15' AS Date), 60, 30, 5, N'ACTIVE', N'Số sàn', 2018, 22, 40)
+Xe có bảo hiểm 2 chiều và thẻ cứu hộ chính hãng Chevrolet 3 năm', N'Xăng', 0, N'71A-055.97', 0, N'anonymousUser', CAST(N'2022-11-15T10:06:39.0000000' AS DateTime2), 900, CAST(N'2022-11-15' AS Date), 60, 30, 5, N'ACTIVE', N'Số sàn', 2018, 22, 40)
 GO
 INSERT [dbo].[car] ([id], [created_by], [description], [fuel], [latitude], [license_plates], [longitude], [modified_by], [modified_date], [price], [register_date], [sale_month], [sale_week], [seats], [status], [transmission], [year_of_manufacture], [account_supplier_id], [model_id]) VALUES (8, N'anonymousUser', N'Nhà ít đi nên mình muốn cho thuê xe Focus tự lái.
 Xe số tự động, rộng rãi, máy 1.8 rất khoẻ. Các bạn chạy về quê chở người chở đồ thì rất thoải mái.', N'Xăng', 0, N'30F-26957', 0, N'anonymousUser', CAST(N'2022-11-15T09:20:36.0000000' AS DateTime2), 639, CAST(N'2022-11-15' AS Date), 40, 40, 5, N'ACTIVE', N'Số tự động', 2015, 2, 29)
@@ -1282,8 +1350,7 @@ INSERT [dbo].[car] ([id], [created_by], [description], [fuel], [latitude], [lice
 - hỗ trợ lên dốc/ đổ dốc
 -2 dàn lạnh
 - cân bằng điện tử
-- hệ thống chống lật
-- hệ thống MyLink kết nối được với điện thoại, xem youtube', N'Dầu diesel', 0, N'51H-075.21', 0, N'anonymousUser', CAST(N'2022-11-15T09:27:52.0000000' AS DateTime2), 1900, CAST(N'2022-11-15' AS Date), 30, 10, 7, N'ACTIVE', N'Số sàn', 2019, 21, 41)
+- h', N'Dầu diesel', 0, N'51H-075.21', 0, N'anonymousUser', CAST(N'2022-11-15T09:27:52.0000000' AS DateTime2), 1900, CAST(N'2022-11-15' AS Date), 30, 10, 7, N'ACTIVE', N'Số sàn', 2019, 21, 41)
 GO
 INSERT [dbo].[car] ([id], [created_by], [description], [fuel], [latitude], [license_plates], [longitude], [modified_by], [modified_date], [price], [register_date], [sale_month], [sale_week], [seats], [status], [transmission], [year_of_manufacture], [account_supplier_id], [model_id]) VALUES (12, N'anonymousUser', N'
 Xe Orlando đăng ký 11/2017 số Đồng Hồ hiện tại 35,000 Km. Xe còn rất mới do gia đình sử dụng ít đi lại. Đèn xe rất sáng. đi rất êm.', N'Dầu diesel', 0, N'51G-122.52', 0, N'anonymousUser', CAST(N'2022-11-15T09:30:47.0000000' AS DateTime2), 1630, CAST(N'2022-11-15' AS Date), 55, 50, 7, N'ACTIVE', N'Số sàn', 2017, 21, 39)
@@ -1296,7 +1363,7 @@ INSERT [dbo].[car] ([id], [created_by], [description], [fuel], [latitude], [lice
 - Cam lùi, cam hành trình.
 - Xe gia đình không bị ám mùi xe.
 - Thường xuyên bảo trì bảo dưỡng và khử khuẩn.
-- Tiêu hao nhiên liêu: Nội thành [sdt] ; Ngoại thành [sdt]', N'Dầu diesel', 0, N'51G-122.52', 0, N'anonymousUser', CAST(N'2022-11-15T09:33:52.0000000' AS DateTime2), 1050, CAST(N'2022-11-15' AS Date), 40, 30, 7, N'ACTIVE', N'Số sàn', 2013, 21, 29)
+- Tiêu hao ', N'Dầu diesel', 0, N'51G-122.52', 0, N'anonymousUser', CAST(N'2022-11-15T09:33:52.0000000' AS DateTime2), 1050, CAST(N'2022-11-15' AS Date), 40, 30, 7, N'ACTIVE', N'Số sàn', 2013, 21, 29)
 GO
 INSERT [dbo].[car] ([id], [created_by], [description], [fuel], [latitude], [license_plates], [longitude], [modified_by], [modified_date], [price], [register_date], [sale_month], [sale_week], [seats], [status], [transmission], [year_of_manufacture], [account_supplier_id], [model_id]) VALUES (15, N'anonymousUser', N'XE ĐẸP DÙNG ĐI TIẾP KHÁCH VIP', N'Dầu diesel', 0, N'30F-89098', 0, N'anonymousUser', CAST(N'2022-11-15T09:36:26.0000000' AS DateTime2), 1730, CAST(N'2022-11-15' AS Date), 60, 70, 5, N'ACTIVE', N'Số tự động', 2009, 21, 38)
 GO
@@ -1307,17 +1374,13 @@ Pegeout 2008 GT Line ( bản cao cấp nhất )
 Thương hiệu Pegeout đến từ pháp, với tiêu chuẩn châu âu ( Mới nhận xe được 10 ngày )
 - Full Tính năng an toàn cho hành khách và người lái
 - Cách âm tốt nhất phân khúc, xe gia đình sử dụng
-- Chủ xe vui tính, nhiệt tình, Xe có trang bị sáp thơm cao cấp và nước hoa xe của nhật
-- kho nhạc nhiều thể loại với hệ thống âm thanh loa nổi tiếng Focal của pháp -8 loa
-- kết nối điện thoại thông minh aple carplay và androi microlink
-- Xe hỗ trợ : Cam hành trình trước và sau, canhr báo va chạm và phanh chủ động, hỗ trợ giữ làn, giới hạn tốc độ, ga tự động....không thiếu gì cả
-- Mọi vi phạm điều khoản thuê xe của quý khách đều đc thực hiện nghiêm chỉnh và chi tiết nhất.', N'Dầu diesel', 0, N'30H-78737', 0, N'anonymousUser', CAST(N'2022-11-15T09:41:08.0000000' AS DateTime2), 1300, CAST(N'2022-11-15' AS Date), 40, 35, 5, N'ACTIVE', N'Số tự động', 2022, 20, 35)
+- Chủ xe vui tính, ', N'Dầu diesel', 0, N'30H-78737', 0, N'anonymousUser', CAST(N'2022-11-15T09:41:08.0000000' AS DateTime2), 1300, CAST(N'2022-11-15' AS Date), 40, 35, 5, N'ACTIVE', N'Số tự động', 2022, 20, 35)
 GO
 INSERT [dbo].[car] ([id], [created_by], [description], [fuel], [latitude], [license_plates], [longitude], [modified_by], [modified_date], [price], [register_date], [sale_month], [sale_week], [seats], [status], [transmission], [year_of_manufacture], [account_supplier_id], [model_id]) VALUES (18, N'anonymousUser', N'KIA RONDO Số tự động máy xăng mới lấy 19/09/2019 êm ái sạch sẽ xe nhà đi nên rất kỹ', N'Dầu diesel', 0, N'51G-962.68', 0, N'anonymousUser', CAST(N'2022-11-15T09:43:44.0000000' AS DateTime2), 1350, CAST(N'2022-11-15' AS Date), 50, 30, 5, N'ACTIVE', N'Số sàn', 2019, 20, 36)
 GO
 INSERT [dbo].[car] ([id], [created_by], [description], [fuel], [latitude], [license_plates], [longitude], [modified_by], [modified_date], [price], [register_date], [sale_month], [sale_week], [seats], [status], [transmission], [year_of_manufacture], [account_supplier_id], [model_id]) VALUES (19, N'anonymousUser', N'Xe sạch sẽ phục vụ nhiệt tình', N'Dầu diesel', 0, N'37A-43027', 0, N'anonymousUser', CAST(N'2022-11-15T09:45:27.0000000' AS DateTime2), 920, CAST(N'2022-11-15' AS Date), 50, 45, 5, N'ACTIVE', N'Số tự động', 2019, 20, 34)
 GO
-INSERT [dbo].[car] ([id], [created_by], [description], [fuel], [latitude], [license_plates], [longitude], [modified_by], [modified_date], [price], [register_date], [sale_month], [sale_week], [seats], [status], [transmission], [year_of_manufacture], [account_supplier_id], [model_id]) VALUES (20, N'anonymousUser', N'Xe Mazda 3 bản Sport đăng ký 12/2020, số tự động. Xe sạch sẽ thơm tho. Chủ xe nghiện độđã nâng cấp ghế massage & làm mát kèm sấy ghế, bi laser đi buổi tối yên tâm. Xe trang bị led nội thất và trần sao đẹp lung linh. Camera hành trình Vietmap cảnh báo giới hạn tốc độ, camera phạt nguội bằng giọng nói. Hệ thống giải trí qua cổng Apple Carplay, Android Auto, Bluetooth. Hệ thống âm thanh giải trí 8 loa Bose.', N'Dầu diesel', 0, N'98A-52323', 0, N'anonymousUser', CAST(N'2022-11-15T09:48:24.0000000' AS DateTime2), 950, CAST(N'2022-11-15' AS Date), 50, 45, 5, N'ACTIVE', N'Số tự động', 2020, 19, 36)
+INSERT [dbo].[car] ([id], [created_by], [description], [fuel], [latitude], [license_plates], [longitude], [modified_by], [modified_date], [price], [register_date], [sale_month], [sale_week], [seats], [status], [transmission], [year_of_manufacture], [account_supplier_id], [model_id]) VALUES (20, N'anonymousUser', N'Xe Mazda 3 bản Sport đăng ký 12/2020, số tự động. Xe sạch sẽ thơm tho. Chủ xe nghiện độđã nâng cấp ghế massage & làm mát kèm sấy ghế, bi laser đi buổi tối yên tâm. Xe trang bị led nội thất và trần sao đẹp lung linh. Camera hành trình Vietmap cảnh báo giới', N'Dầu diesel', 0, N'98A-52323', 0, N'anonymousUser', CAST(N'2022-11-15T09:48:24.0000000' AS DateTime2), 950, CAST(N'2022-11-15' AS Date), 50, 45, 5, N'ACTIVE', N'Số tự động', 2020, 19, 36)
 GO
 INSERT [dbo].[car] ([id], [created_by], [description], [fuel], [latitude], [license_plates], [longitude], [modified_by], [modified_date], [price], [register_date], [sale_month], [sale_week], [seats], [status], [transmission], [year_of_manufacture], [account_supplier_id], [model_id]) VALUES (21, N'anonymousUser', N'TOYOTA VIOS E 2020, xe mới sạch sẽ, bảo dưỡng định kỳ 5000km, vệ sinh trước khi giao khách. ', N'Dầu diesel', 0, N'49A-311.16', 0, N'anonymousUser', CAST(N'2022-11-15T09:48:26.0000000' AS DateTime2), 1020, CAST(N'2022-11-15' AS Date), 60, 60, 5, N'ACTIVE', N'Số sàn', 2020, 19, 32)
 GO
@@ -1327,8 +1390,7 @@ INSERT [dbo].[car] ([id], [created_by], [description], [fuel], [latitude], [lice
 Cross corolla xe gầm cao nhập khẩu hoàn toàn 100%.
 Đặc biệt xe siêu mới lấy giữa tháng 9/2020 xu hướng đi trước thời đại và màu ghế sang trọng đẳng cấp (nâu đỏ)
 Hệ thống an toàn 7 túi khí và cảm biến an toàn
-Thương hiệu toyota trang bị hệ thống chỉ đường bằng giọng nói và cảnh báo vượt tốc độ
-Ghế trẻ em phù hợp cho trẻ từ 3-6 tuổi', N'Dầu diesel', 0, N'51H-365.68', 0, N'anonymousUser', CAST(N'2022-11-15T09:54:45.0000000' AS DateTime2), 1470, CAST(N'2022-11-15' AS Date), 70, 20, 5, N'ACTIVE', N'Số sàn', 2020, 19, 42)
+Thương hiệu toyota trang bị hệ thống chỉ đ', N'Dầu diesel', 0, N'51H-365.68', 0, N'anonymousUser', CAST(N'2022-11-15T09:54:45.0000000' AS DateTime2), 1470, CAST(N'2022-11-15' AS Date), 70, 20, 5, N'ACTIVE', N'Số sàn', 2020, 19, 42)
 GO
 INSERT [dbo].[car] ([id], [created_by], [description], [fuel], [latitude], [license_plates], [longitude], [modified_by], [modified_date], [price], [register_date], [sale_month], [sale_week], [seats], [status], [transmission], [year_of_manufacture], [account_supplier_id], [model_id]) VALUES (24, N'anonymousUser', N'HUYNDAI i10 2018', N'Dầu diesel', 0, N'30F-30524', 0, N'anonymousUser', CAST(N'2022-11-15T09:58:27.0000000' AS DateTime2), 600, CAST(N'2022-11-15' AS Date), 55, 60, 5, N'ACTIVE', N'Số tự động', 2018, 18, 32)
 GO
@@ -1337,8 +1399,7 @@ GO
 INSERT [dbo].[car] ([id], [created_by], [description], [fuel], [latitude], [license_plates], [longitude], [modified_by], [modified_date], [price], [register_date], [sale_month], [sale_week], [seats], [status], [transmission], [year_of_manufacture], [account_supplier_id], [model_id]) VALUES (26, N'anonymousUser', N'Vinfast mãnh liệt tinh thần Việt!!!
 Vinfast Fadil là mẫu xe số tự động đời mới đăng kí tháng 10/2019
 Xe gia đình mới đẹp, nội thất nguyên bản, sạch sẽ bảo dưỡng thường xuyên, rửa xe miễn phí cho khách.
-Xe rộng rãi , an toàn, tiện nghi phù hợp cho gia đình đi du lịch hoặc công việc ở xa
-Xe được trang bị camera 360 giúp nhìn được xung quanh xe cùng với đó là màn hình giải trí android 11in với rất nhiều tính năng như vietmap, zingmp3, youtube,...', N'Xăng', 0, N'66A-101.89', 0, N'anonymousUser', CAST(N'2022-11-15T10:04:00.0000000' AS DateTime2), 1110, CAST(N'2022-11-15' AS Date), 30, 30, 4, N'ACTIVE', N'Số tự động', 2019, 18, 39)
+Xe rộng rãi , an toàn, tiện nghi phù hợp cho gia đ', N'Xăng', 0, N'66A-101.89', 0, N'anonymousUser', CAST(N'2022-11-15T10:04:00.0000000' AS DateTime2), 1110, CAST(N'2022-11-15' AS Date), 30, 30, 4, N'ACTIVE', N'Số tự động', 2019, 18, 39)
 GO
 INSERT [dbo].[car] ([id], [created_by], [description], [fuel], [latitude], [license_plates], [longitude], [modified_by], [modified_date], [price], [register_date], [sale_month], [sale_week], [seats], [status], [transmission], [year_of_manufacture], [account_supplier_id], [model_id]) VALUES (27, N'anonymousUser', N'
 Xe số tự động, xe mới mua năm/2021, xe gia đình ít đi, chạy được 15.000km. Xe ít hao xăng 100km/6-7 lít.
@@ -1398,11 +1459,11 @@ GO
 INSERT [dbo].[car] ([id], [created_by], [description], [fuel], [latitude], [license_plates], [longitude], [modified_by], [modified_date], [price], [register_date], [sale_month], [sale_week], [seats], [status], [transmission], [year_of_manufacture], [account_supplier_id], [model_id]) VALUES (45, N'anonymousUser', N'Gia đình có xe Vinfast Fadil (số tự động) 2021.Đã tích hợp cam lùi,màn hình android cam hành trình. Bạn nào có như cầu thuê xin hãy đặt hoặc lh [sdt] Xin cảm ơn', N'Dầu diesel', 0, N'15A-81137', 0, N'anonymousUser', CAST(N'2022-11-15T10:54:22.0000000' AS DateTime2), 600, CAST(N'2022-11-15' AS Date), 60, 55, 5, N'ACTIVE', N'Số sàn', 2021, 14, 332)
 GO
 INSERT [dbo].[car] ([id], [created_by], [description], [fuel], [latitude], [license_plates], [longitude], [modified_by], [modified_date], [price], [register_date], [sale_month], [sale_week], [seats], [status], [transmission], [year_of_manufacture], [account_supplier_id], [model_id]) VALUES (46, N'anonymousUser', N'
-Xe Hyundai số sàn đăng ký tháng 5 năm 2019 xe gia đình đẹp nguyên bản, xe bảo dưỡng thường xuyên rửa xe miễn phí cho khách. Xe rộng rãi an toàn thích hợp cho gia đình đi du lịch đi chơi. Trang bị cảm biến lùi hệ thống giải trí AV, cùng nhiều tiện nghi khác', N'Dầu diesel', 0, N'99A-47942', 0, N'anonymousUser', CAST(N'2022-11-15T10:57:36.0000000' AS DateTime2), 450, CAST(N'2022-11-15' AS Date), 45, 55, 5, N'ACTIVE', N'Số sàn', 2019, 14, 98)
+Xe Hyundai số sàn đăng ký tháng 5 năm 2019 xe gia đình đẹp nguyên bản, xe bảo dưỡng thường xuyên rửa xe miễn phí cho khách. Xe rộng rãi an toàn thích hợp cho gia đình đi du lịch đi chơi. Trang bị cảm biến lùi hệ thống giải trí AV, cùng nhiều tiện nghi k', N'Dầu diesel', 0, N'99A-47942', 0, N'anonymousUser', CAST(N'2022-11-15T10:57:36.0000000' AS DateTime2), 450, CAST(N'2022-11-15' AS Date), 45, 55, 5, N'ACTIVE', N'Số sàn', 2019, 14, 98)
 GO
 INSERT [dbo].[car] ([id], [created_by], [description], [fuel], [latitude], [license_plates], [longitude], [modified_by], [modified_date], [price], [register_date], [sale_month], [sale_week], [seats], [status], [transmission], [year_of_manufacture], [account_supplier_id], [model_id]) VALUES (47, N'anonymousUser', N'Xe mazda 3 xe gia đình sạch sẽ 👍🏻👍🏻🏞', N'Xăng', 0, N'73A-08248', 0, N'anonymousUser', CAST(N'2022-11-15T10:58:47.0000000' AS DateTime2), 1000, CAST(N'2022-11-15' AS Date), 9, 16, 4, N'ACTIVE', N'Số tự động', 2015, 14, 164)
 GO
-INSERT [dbo].[car] ([id], [created_by], [description], [fuel], [latitude], [license_plates], [longitude], [modified_by], [modified_date], [price], [register_date], [sale_month], [sale_week], [seats], [status], [transmission], [year_of_manufacture], [account_supplier_id], [model_id]) VALUES (48, N'anonymousUser', N'Huynhdai santafe số tự động đăng ký thá 4/2018. Xe gia đình mới đep . Nội thất nguyen bản, sạch sẽ , bảo dưỡng thường xuyen, rửa xe miễn phi cho khách.Xe rộng  rãi,an toàn, tiện nghi phù hợp cho gia đình đi du lich . Xe được trang bị hệ thống đầy đủ và hiện đại', N'Xăng', 0, N'43A-33872', 0, N'anonymousUser', CAST(N'2022-11-15T11:02:57.0000000' AS DateTime2), 1062, CAST(N'2022-11-15' AS Date), 33, 26, 7, N'ACTIVE', N'Số tự động', 2018, 14, 106)
+INSERT [dbo].[car] ([id], [created_by], [description], [fuel], [latitude], [license_plates], [longitude], [modified_by], [modified_date], [price], [register_date], [sale_month], [sale_week], [seats], [status], [transmission], [year_of_manufacture], [account_supplier_id], [model_id]) VALUES (48, N'anonymousUser', N'Huynhdai santafe số tự động đăng ký thá 4/2018. Xe gia đình mới đep . Nội thất nguyen bản, sạch sẽ , bảo dưỡng thường xuyen, rửa xe miễn phi cho khách.Xe rộng  rãi,an toàn, tiện nghi phù hợp cho gia đình đi du lich . Xe được trang bị hệ thống đầy đủ và hi', N'Xăng', 0, N'43A-33872', 0, N'anonymousUser', CAST(N'2022-11-15T11:02:57.0000000' AS DateTime2), 1062, CAST(N'2022-11-15' AS Date), 33, 26, 7, N'ACTIVE', N'Số tự động', 2018, 14, 106)
 GO
 INSERT [dbo].[car] ([id], [created_by], [description], [fuel], [latitude], [license_plates], [longitude], [modified_by], [modified_date], [price], [register_date], [sale_month], [sale_week], [seats], [status], [transmission], [year_of_manufacture], [account_supplier_id], [model_id]) VALUES (49, N'anonymousUser', N'xe đã dán thu phí ETC , rất tiện lợi
 suzuki xl7 xe gia đình sử dụng rất mới
@@ -1410,18 +1471,12 @@ luôn sạch sẽ thơm tho , không có mùi khó chịu
 xe rất rộng rãi , thoáng
 xe đi cực kì tiết kiệm xăng
 màn hình 10in kết nối apple carplay , android auto đầy đủ
-camera hành trình xịn cảnh báo biển báo , tốc độ tránh mất bánh mì oan
-camera cặp lề phải tiện lợi trong đường dân cư chật hẹp
-camera lùi cảm biến
-các chức năng an toàn trên xe ABS , BA , ESP , EBD , O/D ( tính năng khi leo dốc đèo )
-•••••••••••••••• ĐẶC BIỆT ••••••••••••••
- KHÔNG PHỤ PHÍ RỬA XE
-(TRỪ TRƯỜNG HỢP XE QUÁ DƠ HOẶC CÓ MÙI)', N'Dầu diesel', 0, N'51A-13116', 0, N'anonymousUser', CAST(N'2022-11-15T11:03:27.0000000' AS DateTime2), 750, CAST(N'2022-11-15' AS Date), 60, 59, 7, N'ACTIVE', N'Số sàn', 2021, 14, 291)
+camera hành trìn', N'Dầu diesel', 0, N'51A-13116', 0, N'anonymousUser', CAST(N'2022-11-15T11:03:27.0000000' AS DateTime2), 750, CAST(N'2022-11-15' AS Date), 60, 59, 7, N'ACTIVE', N'Số sàn', 2021, 14, 291)
 GO
 INSERT [dbo].[car] ([id], [created_by], [description], [fuel], [latitude], [license_plates], [longitude], [modified_by], [modified_date], [price], [register_date], [sale_month], [sale_week], [seats], [status], [transmission], [year_of_manufacture], [account_supplier_id], [model_id]) VALUES (50, N'anonymousUser', N'Mercedes C250 Exclusive độ Full Body kit C63 ĐKLĐ T12/2017
 Xe cá nhân sử dụng, ít đi, giữ xe, Nội thất kem sang trọng, sạch sẽ, bảo dưỡng định kỳ thường xuyên, độ đẹp và chất.
 Xe rộng rãi, an toàn, tiện nghi, phù hợp cho dự tiệc và đám cưới
-Trang bị đầy đủ hệ thống an toàn, cảnh báo làn đường, cảnh báo va chạm, hệ thống giải trí 13 loa Burmester , gạt mưa và đèn auto, cửa sổ trời cùng rất nhiều tiện nghi khác', N'Dầu diesel', 0, N'51H-78329', 0, N'anonymousUser', CAST(N'2022-11-15T11:05:18.0000000' AS DateTime2), 750, CAST(N'2022-11-15' AS Date), 60, 59, 7, N'ACTIVE', N'Số sàn', 2017, 13, 187)
+Trang bị đầ', N'Dầu diesel', 0, N'51H-78329', 0, N'anonymousUser', CAST(N'2022-11-15T11:05:18.0000000' AS DateTime2), 750, CAST(N'2022-11-15' AS Date), 60, 59, 7, N'ACTIVE', N'Số sàn', 2017, 13, 187)
 GO
 INSERT [dbo].[car] ([id], [created_by], [description], [fuel], [latitude], [license_plates], [longitude], [modified_by], [modified_date], [price], [register_date], [sale_month], [sale_week], [seats], [status], [transmission], [year_of_manufacture], [account_supplier_id], [model_id]) VALUES (51, N'anonymousUser', N'Honda civic 2020 xe gia đình ít đi . Đẹp sạch sẻ', N'Xăng', 0, N'49A-31980', 0, N'anonymousUser', CAST(N'2022-11-15T11:06:11.0000000' AS DateTime2), 1100, CAST(N'2022-11-15' AS Date), 60, 14, 7, N'ACTIVE', N'Số tự động', 2020, 13, 81)
 GO
@@ -1436,8 +1491,7 @@ Ssangyong XLV số tự động đăng ký 2019
 Xe gia đình mới đẹp ít đi.
 Nội thất nguyên bản, sạch đẹp.
 Xe rộng rãi an toàn tiện nghi được bảo dưỡng thường xuyên.
-Hệ thống camera cảm biến lùi, gạt mưa tự động, hệ thống giải trí AV, phần mềm cảnh báo tốc độ điều hướng trên xa lộ. 
-Khoang sau rộng rãi để đuợc nhiều hành lý.', N'Dầu diesel', 0, N'51G-74928', 0, N'anonymousUser', CAST(N'2022-11-15T11:11:34.0000000' AS DateTime2), 690, CAST(N'2022-11-15' AS Date), 65, 55, 5, N'ACTIVE', N'Số sàn', 2018, 13, 276)
+Hệ thống camera cảm biến lùi, gạt mưa tự động, hệ thống giải trí AV, phần mềm cảnh báo tốc độ ', N'Dầu diesel', 0, N'51G-74928', 0, N'anonymousUser', CAST(N'2022-11-15T11:11:34.0000000' AS DateTime2), 690, CAST(N'2022-11-15' AS Date), 65, 55, 5, N'ACTIVE', N'Số sàn', 2018, 13, 276)
 GO
 INSERT [dbo].[car] ([id], [created_by], [description], [fuel], [latitude], [license_plates], [longitude], [modified_by], [modified_date], [price], [register_date], [sale_month], [sale_week], [seats], [status], [transmission], [year_of_manufacture], [account_supplier_id], [model_id]) VALUES (55, N'anonymousUser', N'Xe BEJING X7 với những tính năng công nghệ an toàn và ứng dụng hàng đầu trong phân khúc. Mang lại bạn sự hài lòng và tiện nghi.', N'Xăng', 0, N'61K-08711', 0, N'anonymousUser', CAST(N'2022-11-15T11:13:28.0000000' AS DateTime2), 1100, CAST(N'2022-11-15' AS Date), 65, 30, 5, N'ACTIVE', N'Số tự động', 2020, 12, 9)
 GO
@@ -1447,12 +1501,7 @@ Cảm ơn anh chị đã ủng hộ.', N'Dầu diesel', 0, N'49A-31116', 0, N'an
 GO
 INSERT [dbo].[car] ([id], [created_by], [description], [fuel], [latitude], [license_plates], [longitude], [modified_by], [modified_date], [price], [register_date], [sale_month], [sale_week], [seats], [status], [transmission], [year_of_manufacture], [account_supplier_id], [model_id]) VALUES (57, N'anonymousUser', N'BMW 320i 2015', N'Xăng', 0, N'51F-59389', 0, N'anonymousUser', CAST(N'2022-11-15T11:15:50.0000000' AS DateTime2), 1800, CAST(N'2022-11-15' AS Date), 67, 25, 5, N'ACTIVE', N'Số tự động', 2016, 12, 14)
 GO
-INSERT [dbo].[car] ([id], [created_by], [description], [fuel], [latitude], [license_plates], [longitude], [modified_by], [modified_date], [price], [register_date], [sale_month], [sale_week], [seats], [status], [transmission], [year_of_manufacture], [account_supplier_id], [model_id]) VALUES (58, N'anonymousUser', N'Xe Captiva đậm chất Mỹ mang đến cảm giác lái đầm chắc. Kiểu dáng thể thao, nam tính, mạnh mẽ, rộng rãi 7 chỗ. Nhiều trang bị an toàn & hiện đại như: số tự động, ga tự động, phanh tay điện tử, cảm biến áp suất lốp, ABS, hỗ trợ đổ đèo, camera lùi, cảm biến trước sau, cảnh báo điểm mù, camera hành trình, bản đồ vietmap, chế độ lái Eco giúp tiết kiệm nhiên liệu, cửa sổ trời, kết nối Bluetooth & Apple Carplay, gạt mưa & đèn pha tự động... Đặc biệt xe có hệ thống điều hoà lọc ion khử khuẩn giúp không khí trong xe sạch sẽ và dễ chịu hơn.
-
-Xe gia đình chăm sóc & bảo dưỡng kỹ lưỡng, đầy đủ, sạch sẽ. 
-Phù hợp đi công tác, du lịch khắp nơi cùng gđ 7 người. Gầm cao, máy khoẻ sẽ mang lại những cảm giác thích thú & hài lòng khi cầm lái Captiva.
-
-*Lưu ý: Xe đăng ký kinh doanh nên biển số vàng.', N'Xăng', 0, N'51F-70954', 0, N'anonymousUser', CAST(N'2022-11-15T11:19:12.0000000' AS DateTime2), 950, CAST(N'2022-11-15' AS Date), 63, 9, 7, N'ACTIVE', N'Số tự động', 2016, 12, 31)
+INSERT [dbo].[car] ([id], [created_by], [description], [fuel], [latitude], [license_plates], [longitude], [modified_by], [modified_date], [price], [register_date], [sale_month], [sale_week], [seats], [status], [transmission], [year_of_manufacture], [account_supplier_id], [model_id]) VALUES (58, N'anonymousUser', N'Xe Captiva đậm chất Mỹ mang đến cảm giác lái đầm chắc. Kiểu dáng thể thao, nam tính, mạnh mẽ, rộng rãi 7 chỗ. Nhiều trang bị an toàn & hiện đại như: số tự động, ga tự động, phanh tay điện tử, cảm biến áp suất lốp, ABS, hỗ trợ đổ đèo, camera lùi, cảm biến ', N'Xăng', 0, N'51F-70954', 0, N'anonymousUser', CAST(N'2022-11-15T11:19:12.0000000' AS DateTime2), 950, CAST(N'2022-11-15' AS Date), 63, 9, 7, N'ACTIVE', N'Số tự động', 2016, 12, 31)
 GO
 INSERT [dbo].[car] ([id], [created_by], [description], [fuel], [latitude], [license_plates], [longitude], [modified_by], [modified_date], [price], [register_date], [sale_month], [sale_week], [seats], [status], [transmission], [year_of_manufacture], [account_supplier_id], [model_id]) VALUES (59, N'anonymousUser', N'CHEVROLET AVEO 2018 mới va đẹp. ít hao xăng. bảo dưỡng định kì. chủ xe dễ tính nếu khách hàng hợp tác dễ thương. hân hạnh được phục vụ.', N'Xăng', 0, N'67A-09029', 0, N'anonymousUser', CAST(N'2022-11-15T11:22:01.0000000' AS DateTime2), 550, CAST(N'2022-11-15' AS Date), 43, 14, 7, N'ACTIVE', N'Số sàn', 2018, 12, 29)
 GO
@@ -1489,8 +1538,7 @@ Sạch sẽ, tiện nghi. Kết nối Carplay, Android Auto
 
 Giờ nhận xe: sau 21h30
 Giờ trả xe: trước 20h
-Thu phí vệ sinh 300k nếu nôn ói, hút thuốc lá trong xe
-Xe có hỗ trợ bảo hiểm 2 chiều', N'Dầu diesel', 0, N'51H-09895', 0, N'anonymousUser', CAST(N'2022-11-15T12:01:00.0000000' AS DateTime2), 1600, CAST(N'2022-11-15' AS Date), 69, 24, 7, N'ACTIVE', N'Số sàn', 2019, 8, 55)
+Thu phí vệ ', N'Dầu diesel', 0, N'51H-09895', 0, N'anonymousUser', CAST(N'2022-11-15T12:01:00.0000000' AS DateTime2), 1600, CAST(N'2022-11-15' AS Date), 69, 24, 7, N'ACTIVE', N'Số sàn', 2019, 8, 55)
 GO
 INSERT [dbo].[car] ([id], [created_by], [description], [fuel], [latitude], [license_plates], [longitude], [modified_by], [modified_date], [price], [register_date], [sale_month], [sale_week], [seats], [status], [transmission], [year_of_manufacture], [account_supplier_id], [model_id]) VALUES (70, N'anonymousUser', N'Xe Honda HRV sản xuất năm 2018
 Xe gia đình mới, ít sử dụng, nội thất nguyên bản, sạch sẽ , mới, bảo dưỡng thường xuyên.
@@ -1505,13 +1553,13 @@ Xe rộng rãi an toàn tiện nghi ,
 Xe trang bị hệ thống cảm biến lùi , gạt mưa tự động , đèn pha tự động , Camera hành trình .', N'Dầu diesel', 0, N'49A-60032', 0, N'anonymousUser', CAST(N'2022-11-15T12:16:03.0000000' AS DateTime2), 1100, CAST(N'2022-11-15' AS Date), 2, 11, 5, N'ACTIVE', N'Số sàn', 2020, 8, 108)
 GO
 INSERT [dbo].[car] ([id], [created_by], [description], [fuel], [latitude], [license_plates], [longitude], [modified_by], [modified_date], [price], [register_date], [sale_month], [sale_week], [seats], [status], [transmission], [year_of_manufacture], [account_supplier_id], [model_id]) VALUES (73, N'anonymousUser', N'
-Mazda 2 màu trắng số tự động, đăng ký tháng 11/2016. Xe gia đình ít dử dụng, mới đẹp, nội thất nguyên bản, sạch sẽ, bão dưỡng thường xuyên, bảo hiểm 2 chiều đầy đủ. Xe rộng rãi, an toàn, tiện nghi, phù hợp cho gia đình du lịch hoặc công tác. Xe được trang bị hệ thống cảm biến lùi, gạt mưa tự động, đèn pha tự động, hệ thống giải trí cùng nhiều tiện nghi khác...', N'Xăng', 0, N'5H-041.59', 0, N'anonymousUser', CAST(N'2022-11-15T12:34:35.0000000' AS DateTime2), 780, CAST(N'2022-11-15' AS Date), 69, 30, 5, N'ACTIVE', N'Số sàn', 2016, 6, 162)
+Mazda 2 màu trắng số tự động, đăng ký tháng 11/2016. Xe gia đình ít dử dụng, mới đẹp, nội thất nguyên bản, sạch sẽ, bão dưỡng thường xuyên, bảo hiểm 2 chiều đầy đủ. Xe rộng rãi, an toàn, tiện nghi, phù hợp cho gia đình du lịch hoặc công tác. Xe được tra', N'Xăng', 0, N'5H-041.59', 0, N'anonymousUser', CAST(N'2022-11-15T12:34:35.0000000' AS DateTime2), 780, CAST(N'2022-11-15' AS Date), 69, 30, 5, N'ACTIVE', N'Số sàn', 2016, 6, 162)
 GO
 INSERT [dbo].[car] ([id], [created_by], [description], [fuel], [latitude], [license_plates], [longitude], [modified_by], [modified_date], [price], [register_date], [sale_month], [sale_week], [seats], [status], [transmission], [year_of_manufacture], [account_supplier_id], [model_id]) VALUES (74, N'anonymousUser', N'
 Mazda 3 số tự động đăng ký tháng 11/2020.
 Xe gia đình mới đẹp, nội thất zin, sạch sẽ, bão dưỡng thường xuyên. Rữa xe miễn phí cho khách.
 Xe rộng rãi, an toàn phù hợp cho gia đình du lịch. 
-Xe trang bị camera lùi, gạt mưa tự động, đèn pha tự động, camera hành trình cùng nhiều tiện nghi khác.', N'Xăng', 0, N'51H-494.94', 0, N'anonymousUser', CAST(N'2022-11-15T12:38:49.0000000' AS DateTime2), 850, CAST(N'2022-11-15' AS Date), 60, 24, 5, N'ACTIVE', N'Số sàn', 2020, 6, 164)
+Xe trang bị camera lùi, gạt mưa tự động, đèn pha tự động, cam', N'Xăng', 0, N'51H-494.94', 0, N'anonymousUser', CAST(N'2022-11-15T12:38:49.0000000' AS DateTime2), 850, CAST(N'2022-11-15' AS Date), 60, 24, 5, N'ACTIVE', N'Số sàn', 2020, 6, 164)
 GO
 INSERT [dbo].[car] ([id], [created_by], [description], [fuel], [latitude], [license_plates], [longitude], [modified_by], [modified_date], [price], [register_date], [sale_month], [sale_week], [seats], [status], [transmission], [year_of_manufacture], [account_supplier_id], [model_id]) VALUES (76, N'anonymousUser', N'Mazda-CX5 Luxury đăng kí tháng 9/2022
 Xe mới đẹp, bảo dưỡng thường xuyên, sạch sẽ…
@@ -1521,14 +1569,13 @@ GO
 INSERT [dbo].[car] ([id], [created_by], [description], [fuel], [latitude], [license_plates], [longitude], [modified_by], [modified_date], [price], [register_date], [sale_month], [sale_week], [seats], [status], [transmission], [year_of_manufacture], [account_supplier_id], [model_id]) VALUES (79, N'anonymousUser', N'
 Mazda 6.2.0 Prenium bản full option mâm 19", năm sản xuất 2017, biển số Quận 3, TP.HCM.
 Xe gia đình ít sử dụng, đẹp như mới, nội thất nguyên bản, rất sạch sẽ, bảo dưỡng thường xuyên.
-Xe rất rộng rãi, an toàn, đầy đủ tiện nghi: Màn hình cảm ứng, màn hình HUB hỗ trợ lái xe, hệ thống giải trí kết nối USB, bluetooth, 11 loa Bose âm thanh nổi, kết nối điện thoại rảnh tay, bản đồ, ghế lái chỉnh điện, nhớ vị trí, rèm che nắng phía sau chỉnh điện, cửa sổ trời chỉnh điện...
-Xe trang bị rất nhiều option: Cảnh báo lệch làn, cảnh báo va chạm trước sau, cảnh báo điểm mù, cảm biến áp suất lốp, bơm bánh xe tự động, camera lùi, gạt mưa tự động, đèn pha tự động, phanh tay điện tử, cần sang số trên vô lăng, kiểm soát tốc độ tự động Cruiser Control... tất cả đều còn mới và hoạt động rất tốt.', N'Dầu diesel', 0, N'60A-811.64', 0, N'anonymousUser', CAST(N'2022-11-15T12:50:50.0000000' AS DateTime2), 1100, CAST(N'2022-11-15' AS Date), 40, 30, 5, N'ACTIVE', N'Số tự động', 2017, 6, 166)
+Xe rất rộng rãi, an toàn, đầy đủ tiện nghi: Màn hình cảm ứng, màn hì', N'Dầu diesel', 0, N'60A-811.64', 0, N'anonymousUser', CAST(N'2022-11-15T12:50:50.0000000' AS DateTime2), 1100, CAST(N'2022-11-15' AS Date), 40, 30, 5, N'ACTIVE', N'Số tự động', 2017, 6, 166)
 GO
 INSERT [dbo].[car] ([id], [created_by], [description], [fuel], [latitude], [license_plates], [longitude], [modified_by], [modified_date], [price], [register_date], [sale_month], [sale_week], [seats], [status], [transmission], [year_of_manufacture], [account_supplier_id], [model_id]) VALUES (80, N'anonymousUser', N'
 Mazda BT-50 số tự động 2017.
 Xe gia đình mới đẹp, nội thất nguyên bản, có màng hình aroid.
 Xe rộng rãi, an toàn, phù hợp gđ du lịch.
-Xe trang bị cảm biến lùi, camera lùi, camera hành trình, đèn tự động, gạt mưa tự động, hệ thống giải trí AV Cùng nhiều tiện nghi khác…', N'Dầu diesel', 0, N'60C-360.76', 0, N'anonymousUser', CAST(N'2022-11-15T13:02:45.0000000' AS DateTime2), 900, CAST(N'2022-11-15' AS Date), 30, 25, 5, N'ACTIVE', N'Số tự động', 2017, 6, 169)
+Xe trang bị cảm biến lùi, camera lùi, camera hành trình, đèn tự động, gạt mưa tự động, hệ thống giải trí AV Cùng nhiề', N'Dầu diesel', 0, N'60C-360.76', 0, N'anonymousUser', CAST(N'2022-11-15T13:02:45.0000000' AS DateTime2), 900, CAST(N'2022-11-15' AS Date), 30, 25, 5, N'ACTIVE', N'Số tự động', 2017, 6, 169)
 GO
 INSERT [dbo].[car] ([id], [created_by], [description], [fuel], [latitude], [license_plates], [longitude], [modified_by], [modified_date], [price], [register_date], [sale_month], [sale_week], [seats], [status], [transmission], [year_of_manufacture], [account_supplier_id], [model_id]) VALUES (82, N'anonymousUser', N'MAZDA CX8 2021', N'Dầu diesel', 0, N'51H-903.98', 0, N'anonymousUser', CAST(N'2022-11-15T13:10:16.0000000' AS DateTime2), 1500, CAST(N'2022-11-15' AS Date), 35, 15, 5, N'ACTIVE', N'Số sàn', 2021, 6, 174)
 GO
@@ -1541,10 +1588,7 @@ Bán tải D-max LS Prestige 3.0,2 cầu, Số tự động (Công suất 177hp)
 
 1. Xe gia đình mới đẹp.
 2. Nội thất nguyên bản, ghế da, sạch sẽ, không bị ám mùi.
-3. Trang bị phụ trợ: Camera hành trình, camera cập lề, Camera lùi, cảm biến lùi. Màn hình cảm ứng có Apple Carplay.
-4. Tính năng an toàn: 6 túi khí, đầy đủ hệ thống an toàn như cân bằng điện tử, kiểm soát lực kéo, hỗ trợ xuống dốc,…
-5. Quan trọng là xe bán tải to bự và cao, nên chạy sẽ thoải mái hơn các xe mini khác
-6. Thùng xe không nắp', N'Dầu diesel', 0, N'51D-633.37', 0, N'anonymousUser', CAST(N'2022-11-15T13:30:26.0000000' AS DateTime2), 1000, CAST(N'2022-11-15' AS Date), 45, 25, 5, N'ACTIVE', N'Số sàn', 2020, 5, 112)
+3. Trang bị phụ trợ: Camera hành trình, camera cập lề, Camera lùi, cảm biến lùi. Màn hình c', N'Dầu diesel', 0, N'51D-633.37', 0, N'anonymousUser', CAST(N'2022-11-15T13:30:26.0000000' AS DateTime2), 1000, CAST(N'2022-11-15' AS Date), 45, 25, 5, N'ACTIVE', N'Số sàn', 2020, 5, 112)
 GO
 INSERT [dbo].[car] ([id], [created_by], [description], [fuel], [latitude], [license_plates], [longitude], [modified_by], [modified_date], [price], [register_date], [sale_month], [sale_week], [seats], [status], [transmission], [year_of_manufacture], [account_supplier_id], [model_id]) VALUES (86, N'anonymousUser', N'Isuzu số sàn 7 chỗ sạch sẽ đa dụng, trang bị đầy đủ màn hình cam de, nghe nhạc giải trí, đầy đủ tiện nghi', N'Dầu diesel', 0, N'52F-2223', 0, N'anonymousUser', CAST(N'2022-11-15T13:35:01.0000000' AS DateTime2), 1000, CAST(N'2022-11-15' AS Date), 50, 51, 7, N'ACTIVE', N'Số sàn', 2007, 5, 113)
 GO
@@ -1564,7 +1608,7 @@ GO
 INSERT [dbo].[car] ([id], [created_by], [description], [fuel], [latitude], [license_plates], [longitude], [modified_by], [modified_date], [price], [register_date], [sale_month], [sale_week], [seats], [status], [transmission], [year_of_manufacture], [account_supplier_id], [model_id]) VALUES (93, N'anonymousUser', N'Kia Morning Si số sàn, đăng ký 10/2017. xe gia đình sử dụng.ổn định, tiết kiệm nhiên liệu.xe mới , đẹp..nội thất nguyên bản.', N'Xăng', 0, N'29A-400.32', 0, N'anonymousUser', CAST(N'2022-11-15T16:45:49.0000000' AS DateTime2), 800, CAST(N'2022-11-15' AS Date), 30, 40, 5, N'ACTIVE', N'Số sàn', 2011, 2, 132)
 GO
 INSERT [dbo].[car] ([id], [created_by], [description], [fuel], [latitude], [license_plates], [longitude], [modified_by], [modified_date], [price], [register_date], [sale_month], [sale_week], [seats], [status], [transmission], [year_of_manufacture], [account_supplier_id], [model_id]) VALUES (94, N'anonymousUser', N'Thiết kế ngoại thất xe Zotye Z8
-Ở hình dáng bên ngoài, Zotye Z8 không khác gì một chiếc xe Range Rover 2021 – xe hơi hạng sang đến từ Anh quốc – từ đầu xe, lưới tản nhiệt, đèn pha… đều toát lên vẻ sang trọng. Zotye Z8 to lớn và đồ sộ với kích thước tổng thể 4425 x 1730 x 1500 mm, theo phong cách thể thao đa dụng, toát lên vẻ oai phong lịch lãm.', N'Xăng', 0, N'30G-369.70', 0, N'anonymousUser', CAST(N'2022-11-15T16:47:43.0000000' AS DateTime2), 1168, CAST(N'2022-11-15' AS Date), 57, 33, 4, N'ACTIVE', N'Số sàn', 2018, 2, 347)
+Ở hình dáng bên ngoài, Zotye Z8 không khác gì một chiếc xe Range Rover 2021 – xe hơi hạng sang đến từ Anh quốc – từ đầu xe, lưới tản nhiệt, đèn pha… đều toát lên vẻ sang trọng. Zotye Z8 to lớn và đồ sộ với kích thước tổng ', N'Xăng', 0, N'30G-369.70', 0, N'anonymousUser', CAST(N'2022-11-15T16:47:43.0000000' AS DateTime2), 1168, CAST(N'2022-11-15' AS Date), 57, 33, 4, N'ACTIVE', N'Số sàn', 2018, 2, 347)
 GO
 INSERT [dbo].[car] ([id], [created_by], [description], [fuel], [latitude], [license_plates], [longitude], [modified_by], [modified_date], [price], [register_date], [sale_month], [sale_week], [seats], [status], [transmission], [year_of_manufacture], [account_supplier_id], [model_id]) VALUES (95, N'anonymousUser', N'Daewoo Matiz 2008 số sàn
 Nhỏ gọn, tiết kiệm xăng
@@ -1580,83 +1624,28 @@ GO
 INSERT [dbo].[car] ([id], [created_by], [description], [fuel], [latitude], [license_plates], [longitude], [modified_by], [modified_date], [price], [register_date], [sale_month], [sale_week], [seats], [status], [transmission], [year_of_manufacture], [account_supplier_id], [model_id]) VALUES (99, N'anonymousUser', N'
 Vinfast Lux A Plus số tự động đăng ký tháng 3/2022.
 Xe gia đình mới đẹp, nội thất nguyên bản, sạch sẽ, bảo dưỡng thường xuyên, rửa xe miễn phí cho khách.
-Xe rộng rãi, an toàn, tiện nghi, phù hợp cho gia đình du lịch. Xe trang bị hệ thống cảm biến lùi, gạt mưa tự động, đèn pha tự động, camera hành trình, hệ thống giải trí AV cùng nhiều tiện nghi khác.', N'Xăng', 0, N'30H-60433', 0, N'anonymousUser', CAST(N'2022-11-15T16:57:38.0000000' AS DateTime2), 1500, CAST(N'2022-11-15' AS Date), 30, 10, 5, N'ACTIVE', N'Số tự động', 2022, 2, 333)
+Xe rộng rãi, an toàn, tiện nghi, phù hợp cho gia đình du lịch. Xe trang bị hệ thống cảm biến lùi,', N'Xăng', 0, N'30H-60433', 0, N'anonymousUser', CAST(N'2022-11-15T16:57:38.0000000' AS DateTime2), 1500, CAST(N'2022-11-15' AS Date), 30, 10, 5, N'ACTIVE', N'Số tự động', 2022, 2, 333)
 GO
 INSERT [dbo].[car] ([id], [created_by], [description], [fuel], [latitude], [license_plates], [longitude], [modified_by], [modified_date], [price], [register_date], [sale_month], [sale_week], [seats], [status], [transmission], [year_of_manufacture], [account_supplier_id], [model_id]) VALUES (100, N'anonymousUser', N'Xe mới đăng kí 2/2022. Mua kết hợp đi gia đình và cho thuê. Ưu tiên gia đình hàng đầu nên đảm bảo sạch sẽ, cho khách hàng có những chuyến du lịch thú vị  cùng người thân của mình.', N'Dầu diesel', 0, N'51K-147.70', 0, N'anonymousUser', CAST(N'2022-11-15T17:00:11.0000000' AS DateTime2), 900, CAST(N'2022-11-15' AS Date), 10, 40, 7, N'ACTIVE', N'Số sàn', 2021, 2, 238)
 GO
 INSERT [dbo].[car] ([id], [created_by], [description], [fuel], [latitude], [license_plates], [longitude], [modified_by], [modified_date], [price], [register_date], [sale_month], [sale_week], [seats], [status], [transmission], [year_of_manufacture], [account_supplier_id], [model_id]) VALUES (101, N'anonymousUser', N'
 Thiết kế ngoại thất xe Zotye Z8
-Ở hình dáng bên ngoài, Zotye Z8 không khác gì một chiếc xe Range Rover 2021 – xe hơi hạng sang đến từ Anh quốc – từ đầu xe, lưới tản nhiệt, đèn pha… đều toát lên vẻ sang trọng. Zotye Z8 to lớn và đồ sộ với kích thước tổng thể 4425 x 1730 x 1500 mm, theo phong cách thể thao đa dụng, toát lên vẻ oai phong lịch lãm.
- Phía trước xe gây ấn tượng bởi thiết kế thể thao, mạnh mẽ nhưng vẫn không kém phần sang trọng với lưới tản nhiệt hình lục giác cỡ lớn khác biệt, logo đặt giữa lưới tản nhiệt kèm theo camera 360 bên dưới logo. Phía dưới lưới tản nhiệt là hốc gió có thiết kế khá hầm hố, đặc biệt lại đi cùng với hoa văn đặc trưng của Trung Quốc. Đèn pha trước sử dụng công nghệ LED hiện đại.
-Phần đầu xe gây ấn tượng bởi thiết kế mạnh mẽ nhưng không kém phần sang trọng với lưới tản nhiệt hình lục giác cỡ lớn khác biệt, logo được bố trí ngay vị trí chính diện. Phía dưới lưới tản nhiệt là hốc gió có thiết kế khá hầm hố. Đèn pha trước sử dụng công nghệ LED hiện đại.
- Zotye Z8 có kích thước bao gồm chiều dài 4.748 mm, chiều rộng 1.933 mm, chiều cao 1.697 mm, chiều dài trục cơ sở 1.850 mm và trọng lượng không tải của xe là 1.810kg.
-Nhìn từ bên sườn xe, Z8 có thiết kế gần giống với Range Rover với phần mái thấp dần về phía sau. Hông xe kéo dài với những đường dập nổi cứng cáp giúp Z8 trông hầm hố hơn. Xe trang bị cảm biến chìa khóa thông minh ở tay nắm cửa, bậc lên xuống tự động đóng mở giúp người dùng thuận tiện hơn khi lên xe. Gương chiếu hậu tích hợp đèn xi-nhan dạng LED với tính năng gập điện cùng bộ mâm lớn có kích thước 19 inch tạo vẻ ngoài thu hút và khỏe khoắn hơn bao giờ hết.
- Tại cột A của xe được gắn logo hình chữ Z lạ mắt. Xe được trang bị bộ mâm kích thước 19 inch.
-Đuôi xe được thiết kế vô cùng đơn giản với cụm đèn hậu LED thanh mảnh giống như trên Jaguar F-Pace 2021, chi tiết giả ống xả cũng sử dụng họa tiết giống hốc hút gió phía trước và được bao quanh bởi viền crom sáng bóng. Ngoài ra ở đuôi xe còn có tên thương hiệu Zotye Auto.
- Đuôi xe được thiết kế vô cùng đơn giản với cụm đèn hậu LED thanh mảnh giống như trên Jaguar F-Pace, chi tiết giả ống xả cũng sử dụng họa tiết giống hốc hút gió phía trước và được bao quanh bởi viền crome sáng bóng. Ngoài ra ở đuôi xe còn có những chi tiết như tên thương hiệu Zotye Auto, phía dưới là camera lùi. Cửa cốp có khả năng đóng mở điện khá nhạy.
-
-Nội thất xe Zotye Z8
-Z8 có chiều dài cơ sở đạt 2850mm đem đến một khoang cabin cực kì rộng rãi, thoải mái, người ngồi trước và sau đều có khoảng để chân dư dả. Không chỉ vậy trần xe còn trang bị cửa sổ trời Panoramic giúp hành khách cảm nhận được sự thoáng đãng bên ngoài.
- Trên Zotye Z8 được trang bị khá nhiều công nghệ hiện đại như bậc lên xuống đóng/ mở điện như ở Range Rover, cửa hít, gương chiếu hậu tích hợp đèn báo rẽ, camera 360.
-Bước vào trong xe, người dùng sẽ cảm thấy vô cùng ấn tượng và ngạc nhiên bởi chất liệu da màu kem khiến phần nền khoang nội thất trông lịch lãm hơn còn tông màu trầm trên bảng táp lô lại phần nào giúp xe trở nên sang trọng và khác biệt.
- Zotye Z8 được trang bị nội thất vô cùng tiện nghi và hiện đại bao gồm vô-lăng 3 chấu bọc da, trợ lực điện, tích hợp nhiều phím chức năng xử lý nhanh hỗ trợ người lái, lẫy chuyển số thể thao phía sau vô-lăng. Màn hình hiển thị thông tin về xe khi vận hành là màn hình LCD dạng điện tử với hình ảnh khá sắc nét
-Nổi bật là vô lăng 3 chấu được bọc da màu nâu, tích hợp nút bấm và lẫy chuyển số. Cụm đồng hồ phía sau tay lái hoàn toàn bằng điện tử hiển thị đầy đủ thông số được phản hồi từ nhiều bộ phận khác nhau ở trên xe hỗ trợ người lái có cái nhìn trực quan hơn.
-Thiết kế ở cụm điều khiển, cần số, núm xoay chuyển chế độ vận hành hay cách bố trí nút bấm và thanh bám kết hợp giữa các ý tưởng từ các mẫu xe của Jaguar Land Rover và Porsche. Ngoài ra, Zotye Z8 còn sở hữu phanh tay điện tử, công nghệ ngắt động cơ tạm thời.
-
-Trau chuốt kỹ lưỡng và biết cách chăm sóc người dùng, ghế ngồi của Z8 được bọc da mềm mại đi kèm các tính năng như: ghế lái chỉnh điện 6 hướng, ghế phụ 4 hướng đồng thời ghế sau bên trái/phải chỉnh cơ 4 hướng.
-
-Tiện nghi trang bị trên xe
-
-Zotye Z8 bứt phá mọi giới hạn khi có mức tiện nghi thuộc vào phân khúc cao cấp, xe sử dụng điều hòa tự động 2 vùng độc lập, có lọc không khí với bộ lọc ion cùng cửa gió ở hàng ghế sau.
-
-Xe được trang bị màn hình giải trí cảm ứng có kích thước 10 inch được đặt dọc giống như trên Volvo hay Tesla, tích hợp rất nhiều công nghệ hiện đại mà nhiều mẫu SUV 5 chỗ tầm trung không có. Hệ thống âm thanh có thiết kế gần giống với loại Burmester sử dụng trên xe Mercedes-Benz.
-
-Xe sở hữu hệ thống thông tin giải trí gồm: màn hình cảm ứng 10 inch sử dụng hệ điều hành Android, kết nối USB/Bletooth cùng 8 loa cao cấp mang đến âm thanh sống động nhất trên những chuyến đi dài.
-
-Ghế lái và ghế phụ đều có khả năng chỉnh điện đa hướng, ghế phụ còn có thể điều chỉnh từ phía sau thông qua nút bấm gắn tại thành ghế và có tới 2 ngăn chứa đồ đều có khả năng mở điện hiện đại. Tựa ghế thêu chữ Zotye. Xe được trang bị cửa sổ trời toàn cảnh chỉnh điện.
-
-Ngoài ra xe còn thực hiện một cuộc cách mạng mới khi ứng dụng hoàn toàn các công nghệ hiện đại nhằm tăng tính tiện ích như: tấm chắn nắng có đèn, hộp đựng kính, sạc 12V, cửa hít, sạc không dây, chìa khóa thông minh, mở cốp thông minh bằng chân, cốp điện, 4 cửa kính chỉnh điện và chống rung, điều khiển đóng mở cửa kính từ xa.
-
-Ngăn chứa đồ có dung tích lên đến 850L và có thể gấp hàng ghế thứ 2để tăng dung tích khoang chứa.Chế độ vận hành
-
-Dưới nắp capo của Zotye Z8 là khối động cơ 2.0L Turbo, DOHC sản sinh công suất tối đa 190 mã lực tại vòng tua 4000 vòng/ phút, mô men xoắn cực đại 250 Nm. Toàn bộ sức mạnh được truyền xuống hệ dẫn động cầu trước thông qua hộp số tự động 8 cấp giúp Z8 mạnh mẽ và phóng khoáng hơn khi lao vút trên đường.
-
-Zotye Z8 được trang bị khối động cơ 2.0L Turbo, tạo ra công suất tối đa 188 mã lực tại 5.000 vòng/phút, mô-men xoắn cực đại 250Nm tại 2.400–4.400 vòng/phút. Hộp số là loại tự động 8 cấp.
-
-Không chỉ vậy, xe còn khéo léo trang bị các thiết bị hỗ trợ vận hành tối ưu như lẫy chuyển số sau tay lái giúp người lái thao tác dễ dàng. Với tay lái trợ lực điện tài xế sẽ cảm thấy hứng thú hơn khi điều khiển xe với một chiếc vô lăng nhẹ và linh hoạt.
-
-Mẫu xe Z8 này có gầm cao 165 mm nên khá hạn chế, nhiều khả năng sẽ gặp khó khăn khi phải di chuyển ở những cung đường có địa hình hiểm trở. Lốp xe khá dày 235/55R19 tạo cảm giác êm ái khi đi vào vùng offroad
-
-Tại Trung Quốc, Zotye là thương hiệu xe hơi giá rẻ rất nổi tiếng. Tại Việt Nam, thương hiệu này cũng được biết đến thông qua mẫu xe Sport 2.0 Turbo.
-
-Xe có hệ thống phanh trước dạng đĩa có lỗ thông hơi, phanh sau dạng đĩa, hệ thống treo trước/sau dạng độc lập và đa điểm giúp hành khách ít nhiều giảm đi cảm giác gằn xóc khi đi ngồi trên ô tô.
-
-An toàn và an ninh
-Không thua kém bất kỳ mẫu xe nào trên thế giới khi Zotye Z8 trang bị hệ thống an toàn ở mức “đỉnh cao” như: chống bó cứng phanh ABS, phân bổ lực phanh điện tử EBD, cân bằng điện tử ESC, hệ thống chống trơn trợt TCS traction control, hỗ trợ lực phanh khẩn cấp và hỗ trợ khởi hành ngang dốc cùng 6 túi khí
-Zotye Z8 được trang bị rất nhiều công nghệ về an toàn không thua kém bất kỳ một dòng xe nào cùng phân khúc mà giá rẻ rất nhiều
-
-Ngoài ra Z8 còn có các thiết bị hỗ trợ an toàn khác như: cảm biến áp suất lốp, phanh ưu tiên, camera 360, hệ thống giám sát tình trạng lái xe và khung xe chịu lực nhằm hạn chế tối đa khả năng chấn thương cho hành khách.
-
-Xe sử dụng các hệ thống nhằm tăng tính an ninh giúp người lái an tâm hơn khi rời xe như hệ thống mã hóa khóa động cơ, hệ thống chống trộm và cảnh báo mở cửa.', N'Xăng', 0, N'30G-513.59', 0, N'anonymousUser', CAST(N'2022-11-15T17:00:11.0000000' AS DateTime2), 1168, CAST(N'2022-11-15' AS Date), 30, 10, 5, N'ACTIVE', N'Số tự động', 2018, 2, 347)
+Ở hình dáng bên ngoài, Zotye Z8 không khác gì một chiếc xe Range Rover 2021 – xe hơi hạng sang đến từ Anh quốc – từ đầu xe, lưới tản nhiệt, đèn pha… đều toát lên vẻ sang trọng. Zotye Z8 to lớn và đồ sộ với kích thước tổn', N'Xăng', 0, N'30G-513.59', 0, N'anonymousUser', CAST(N'2022-11-15T17:00:11.0000000' AS DateTime2), 1168, CAST(N'2022-11-15' AS Date), 30, 10, 5, N'ACTIVE', N'Số tự động', 2018, 2, 347)
 GO
 INSERT [dbo].[car] ([id], [created_by], [description], [fuel], [latitude], [license_plates], [longitude], [modified_by], [modified_date], [price], [register_date], [sale_month], [sale_week], [seats], [status], [transmission], [year_of_manufacture], [account_supplier_id], [model_id]) VALUES (102, N'anonymousUser', N'Mitsubishi Attrage 2020 với kiểu dáng hoàn toàn trẻ trung, hiện đại.
 - Khoang ngồi rộng rãi với số lượng 03 người thoải mái băng ghế sau.
 - Tiết kiệm nhiên liệu 4,5/100km
 - Xe mới 100% với trải nghiệm thú vị cùng các bạn
-- Trang bị màn hình Androin 10.0 giải trí trên quãng đường dài, Camera lùi và Camera hành trình giúp an toàn trong chuyến đi.', N'Dầu diesel', 0, N'51H-292.90', 0, N'anonymousUser', CAST(N'2022-11-15T17:02:12.0000000' AS DateTime2), 750, CAST(N'2022-11-15' AS Date), 40, 50, 5, N'ACTIVE', N'Số sàn', 2020, 3, 228)
+- Trang bị màn hình Androin 10', N'Dầu diesel', 0, N'51H-292.90', 0, N'anonymousUser', CAST(N'2022-11-15T17:02:12.0000000' AS DateTime2), 750, CAST(N'2022-11-15' AS Date), 40, 50, 5, N'ACTIVE', N'Số sàn', 2020, 3, 228)
 GO
-INSERT [dbo].[car] ([id], [created_by], [description], [fuel], [latitude], [license_plates], [longitude], [modified_by], [modified_date], [price], [register_date], [sale_month], [sale_week], [seats], [status], [transmission], [year_of_manufacture], [account_supplier_id], [model_id]) VALUES (103, N'anonymousUser', N'xe mcar nhập số tự động đăng ký 6/2010.xe gia đình sử dụng đẹp nội thất nguyên bản sạch sẽ, bảo dưỡng định kỳ.xe rộng rãi an toàn tiện nghi phù hợp cho gia đình du lịch.xe trang bị phanh abs cảm biến lùi,2 túi khí.hệ thống giải trí AV cùng nhiều tiện nghi khác...', N'Xăng', 0, N'16N-513.59', 0, N'anonymousUser', CAST(N'2022-11-15T17:02:32.0000000' AS DateTime2), 380, CAST(N'2022-11-15' AS Date), 30, 10, 5, N'ACTIVE', N'Số tự động', 2010, 3, 292)
+INSERT [dbo].[car] ([id], [created_by], [description], [fuel], [latitude], [license_plates], [longitude], [modified_by], [modified_date], [price], [register_date], [sale_month], [sale_week], [seats], [status], [transmission], [year_of_manufacture], [account_supplier_id], [model_id]) VALUES (103, N'anonymousUser', N'xe mcar nhập số tự động đăng ký 6/2010.xe gia đình sử dụng đẹp nội thất nguyên bản sạch sẽ, bảo dưỡng định kỳ.xe rộng rãi an toàn tiện nghi phù hợp cho gia đình du lịch.xe trang bị phanh abs cảm biến lùi,2 túi khí.hệ thống giải trí AV cùng nhiều tiện nghi', N'Xăng', 0, N'16N-513.59', 0, N'anonymousUser', CAST(N'2022-11-15T17:02:32.0000000' AS DateTime2), 380, CAST(N'2022-11-15' AS Date), 30, 10, 5, N'ACTIVE', N'Số tự động', 2010, 3, 292)
 GO
 INSERT [dbo].[car] ([id], [created_by], [description], [fuel], [latitude], [license_plates], [longitude], [modified_by], [modified_date], [price], [register_date], [sale_month], [sale_week], [seats], [status], [transmission], [year_of_manufacture], [account_supplier_id], [model_id]) VALUES (104, N'anonymousUser', N'Mitsubishi Triton số sàn máy dầu DK 05/2019
 
 Xe chạy kỹ, bảo dưỡng định kỳ, số sàn êm nhẹ.
 Trang bị camera lùi, xạc usb, đầu dvd, bluetooth, máy lạnh tốt, sạch sẽ.
 
-Xe lắp sẵn nắp thùng cao, có khoá thùng, chống nước chống bụi, an toàn và tiện lợi cho hành lý.
-
-Xe đậu tại Phú Nhuận, rất gần trung tâm thành phố - dễ dàng di chuyển đến tất cả các quận huyện khác, gần sân bay, bến xe miền đông…
-
-Khu vực đậu/ nhận/ trả xe đường rộng vỉa hè thông thoáng, ngay khu Phan Xích Long đa dạng loại hình khách sạn/ ăn uống/ siêu thị/ tiện ích.', N'Dầu diesel', 0, N'51D-513.59', 0, N'anonymousUser', CAST(N'2022-11-15T17:04:05.0000000' AS DateTime2), 950, CAST(N'2022-11-15' AS Date), 50, 30, 5, N'ACTIVE', N'Số sàn', 2019, 3, 235)
+Xe lắp sẵn nắp thùng cao, có khoá thùng, chống nước chống bụi, an toàn và tiện lợi ch', N'Dầu diesel', 0, N'51D-513.59', 0, N'anonymousUser', CAST(N'2022-11-15T17:04:05.0000000' AS DateTime2), 950, CAST(N'2022-11-15' AS Date), 50, 30, 5, N'ACTIVE', N'Số sàn', 2019, 3, 235)
 GO
 INSERT [dbo].[car] ([id], [created_by], [description], [fuel], [latitude], [license_plates], [longitude], [modified_by], [modified_date], [price], [register_date], [sale_month], [sale_week], [seats], [status], [transmission], [year_of_manufacture], [account_supplier_id], [model_id]) VALUES (105, N'anonymousUser', N'MITSUBISHI TRITON MIVEC 2022', N'Dầu diesel', 0, N'62C-168.61', 0, N'anonymousUser', CAST(N'2022-11-15T17:05:43.0000000' AS DateTime2), 1100, CAST(N'2022-11-15' AS Date), 50, 30, 5, N'ACTIVE', N'Số sàn', 2022, 3, 236)
 GO
@@ -1667,7 +1656,7 @@ INSERT [dbo].[car] ([id], [created_by], [description], [fuel], [latitude], [lice
 Xe gia đình kĩ càng
 Đi tiết kiệm xăng, lướt.', N'Xăng', 0, N'51H-72056', 0, N'anonymousUser', CAST(N'2022-11-15T17:09:20.0000000' AS DateTime2), 680, CAST(N'2022-11-15' AS Date), 35, 25, 7, N'ACTIVE', N'Số sàn', 2019, 3, 320)
 GO
-INSERT [dbo].[car] ([id], [created_by], [description], [fuel], [latitude], [license_plates], [longitude], [modified_by], [modified_date], [price], [register_date], [sale_month], [sale_week], [seats], [status], [transmission], [year_of_manufacture], [account_supplier_id], [model_id]) VALUES (109, N'anonymousUser', N'Toyota Vios đăng ký tháng 08/2017, xe nhà sử dụng còn mới, biển số trắng, ko đăng ký kinh doanh vận tải nên ko có dán logo và quảng cáo trên xe, ghế bọc da, trải sàn da, sạch sẽ. Có sẵn bơm lốp điện tử trên xe, bảo dưỡng định kỳ theo tiêu chuẩn của hãng. Có giấy xác nhận xe đang thế chấp của ngân hàng nên không phải sợ CSGT đòi kiểm tra cà vẹt gốc.', N'Xăng', 0, N'51F-48719', 0, N'anonymousUser', CAST(N'2022-11-15T17:11:43.0000000' AS DateTime2), 600, CAST(N'2022-11-15' AS Date), 35, 25, 7, N'ACTIVE', N'Số sàn', 2017, 3, 320)
+INSERT [dbo].[car] ([id], [created_by], [description], [fuel], [latitude], [license_plates], [longitude], [modified_by], [modified_date], [price], [register_date], [sale_month], [sale_week], [seats], [status], [transmission], [year_of_manufacture], [account_supplier_id], [model_id]) VALUES (109, N'anonymousUser', N'Toyota Vios đăng ký tháng 08/2017, xe nhà sử dụng còn mới, biển số trắng, ko đăng ký kinh doanh vận tải nên ko có dán logo và quảng cáo trên xe, ghế bọc da, trải sàn da, sạch sẽ. Có sẵn bơm lốp điện tử trên xe, bảo dưỡng định kỳ theo tiêu chuẩn của hãng. ', N'Xăng', 0, N'51F-48719', 0, N'anonymousUser', CAST(N'2022-11-15T17:11:43.0000000' AS DateTime2), 600, CAST(N'2022-11-15' AS Date), 35, 25, 7, N'ACTIVE', N'Số sàn', 2017, 3, 320)
 GO
 INSERT [dbo].[car] ([id], [created_by], [description], [fuel], [latitude], [license_plates], [longitude], [modified_by], [modified_date], [price], [register_date], [sale_month], [sale_week], [seats], [status], [transmission], [year_of_manufacture], [account_supplier_id], [model_id]) VALUES (110, N'anonymousUser', N'Xe camry đang ky tháng 3 nam 2022
 Xe mới, đầy đủ tiện nghi', N'Xăng', 0, N'60K-67045', 0, N'anonymousUser', CAST(N'2022-11-15T17:13:52.0000000' AS DateTime2), 1500, CAST(N'2022-11-15' AS Date), 55, 53, 7, N'ACTIVE', N'Số sàn', 2022, 3, 294)
@@ -5233,6 +5222,22 @@ INSERT [dbo].[city] ([id], [code], [image], [name]) VALUES (96, N'CaMau', N'http
 GO
 SET IDENTITY_INSERT [dbo].[city] OFF
 GO
+SET IDENTITY_INSERT [dbo].[company] ON 
+GO
+INSERT [dbo].[company] ([id], [name]) VALUES (1, N'FPT')
+GO
+INSERT [dbo].[company] ([id], [name]) VALUES (2, N'Clind')
+GO
+SET IDENTITY_INSERT [dbo].[company] OFF
+GO
+SET IDENTITY_INSERT [dbo].[department] ON 
+GO
+INSERT [dbo].[department] ([id], [name], [company_id]) VALUES (1, N'IT', 1)
+GO
+INSERT [dbo].[department] ([id], [name], [company_id]) VALUES (2, N'Cloud', 2)
+GO
+SET IDENTITY_INSERT [dbo].[department] OFF
+GO
 SET IDENTITY_INSERT [dbo].[district] ON 
 GO
 INSERT [dbo].[district] ([id], [code], [name], [city_id]) VALUES (1, N'BaDinh', N'Quận Ba Đình', 1)
@@ -7593,11 +7598,65 @@ INSERT [dbo].[role] ([id], [name]) VALUES (1, N'USER')
 GO
 INSERT [dbo].[role] ([id], [name]) VALUES (2, N'ADMIN')
 GO
+INSERT [dbo].[role] ([id], [name]) VALUES (3, N'MANAGER')
+GO
 SET IDENTITY_INSERT [dbo].[role] OFF
+GO
+SET IDENTITY_INSERT [dbo].[schedules] ON 
+GO
+INSERT [dbo].[schedules] ([id], [datefrom], [dateto], [timein], [timeout], [company_id], [name]) VALUES (1, CAST(N'2022-06-21' AS Date), CAST(N'2030-06-21' AS Date), CAST(N'08:00:00' AS Time), CAST(N'17:30:00' AS Time), 1, N'Ca 1')
+GO
+INSERT [dbo].[schedules] ([id], [datefrom], [dateto], [timein], [timeout], [company_id], [name]) VALUES (2, CAST(N'2022-06-21' AS Date), CAST(N'2030-06-21' AS Date), CAST(N'07:30:00' AS Time), CAST(N'17:00:00' AS Time), 1, N'Ca 2')
+GO
+SET IDENTITY_INSERT [dbo].[schedules] OFF
+GO
+SET IDENTITY_INSERT [dbo].[time_keeping] ON 
+GO
+INSERT [dbo].[time_keeping] ([id], [comment], [date], [minutes_late], [minutes_out_early], [reason], [status_timein], [status_timeout], [timein], [timeout], [total_working_hours], [employee_id], [schedules_id]) VALUES (1, NULL, CAST(N'2023-07-18' AS Date), NULL, 961, NULL, N'IN_TIME', N'EARLY_OUT', CAST(N'01:28:05' AS Time), CAST(N'01:28:32' AS Time), 0, 1, 1)
+GO
+INSERT [dbo].[time_keeping] ([id], [comment], [date], [minutes_late], [minutes_out_early], [reason], [status_timein], [status_timeout], [timein], [timeout], [total_working_hours], [employee_id], [schedules_id]) VALUES (2, NULL, CAST(N'2023-07-18' AS Date), 63, 505, NULL, N'lATE_IN', N'EARLY_OUT', CAST(N'08:33:55' AS Time), CAST(N'08:34:19' AS Time), 0, 1, 2)
+GO
+INSERT [dbo].[time_keeping] ([id], [comment], [date], [minutes_late], [minutes_out_early], [reason], [status_timein], [status_timeout], [timein], [timeout], [total_working_hours], [employee_id], [schedules_id]) VALUES (4, N'auto', CAST(N'2023-07-19' AS Date), NULL, 5, NULL, N'IN_TIME', N'EARLY_OUT', CAST(N'07:01:00' AS Time), CAST(N'16:55:00' AS Time), 9, 1, 2)
+GO
+INSERT [dbo].[time_keeping] ([id], [comment], [date], [minutes_late], [minutes_out_early], [reason], [status_timein], [status_timeout], [timein], [timeout], [total_working_hours], [employee_id], [schedules_id]) VALUES (5, N'auto', CAST(N'2023-07-19' AS Date), 54, NULL, NULL, N'lATE_IN', N'ON_TIME', CAST(N'08:24:00' AS Time), CAST(N'17:31:00' AS Time), 9, 4, 2)
+GO
+INSERT [dbo].[time_keeping] ([id], [comment], [date], [minutes_late], [minutes_out_early], [reason], [status_timein], [status_timeout], [timein], [timeout], [total_working_hours], [employee_id], [schedules_id]) VALUES (6, N'auto', CAST(N'2023-07-19' AS Date), 25, 16, NULL, N'lATE_IN', N'EARLY_OUT', CAST(N'08:25:00' AS Time), CAST(N'17:14:00' AS Time), 8, 5, 1)
+GO
+INSERT [dbo].[time_keeping] ([id], [comment], [date], [minutes_late], [minutes_out_early], [reason], [status_timein], [status_timeout], [timein], [timeout], [total_working_hours], [employee_id], [schedules_id]) VALUES (7, N'auto', CAST(N'2023-07-20' AS Date), NULL, 87, NULL, N'IN_TIME', N'EARLY_OUT', CAST(N'07:55:00' AS Time), CAST(N'16:03:00' AS Time), 8, 1, 1)
+GO
+INSERT [dbo].[time_keeping] ([id], [comment], [date], [minutes_late], [minutes_out_early], [reason], [status_timein], [status_timeout], [timein], [timeout], [total_working_hours], [employee_id], [schedules_id]) VALUES (8, N'auto', CAST(N'2023-07-20' AS Date), 80, 56, NULL, N'lATE_IN', N'EARLY_OUT', CAST(N'08:50:00' AS Time), CAST(N'16:04:00' AS Time), 7, 4, 2)
+GO
+INSERT [dbo].[time_keeping] ([id], [comment], [date], [minutes_late], [minutes_out_early], [reason], [status_timein], [status_timeout], [timein], [timeout], [total_working_hours], [employee_id], [schedules_id]) VALUES (9, N'auto', CAST(N'2023-07-20' AS Date), NULL, 34, NULL, N'IN_TIME', N'EARLY_OUT', CAST(N'07:38:00' AS Time), CAST(N'16:56:00' AS Time), 9, 5, 1)
+GO
+INSERT [dbo].[time_keeping] ([id], [comment], [date], [minutes_late], [minutes_out_early], [reason], [status_timein], [status_timeout], [timein], [timeout], [total_working_hours], [employee_id], [schedules_id]) VALUES (11, N'auto', CAST(N'2023-07-21' AS Date), NULL, 78, NULL, N'IN_TIME', N'EARLY_OUT', CAST(N'07:11:00' AS Time), CAST(N'16:12:00' AS Time), 9, 1, 1)
+GO
+INSERT [dbo].[time_keeping] ([id], [comment], [date], [minutes_late], [minutes_out_early], [reason], [status_timein], [status_timeout], [timein], [timeout], [total_working_hours], [employee_id], [schedules_id]) VALUES (12, N'auto', CAST(N'2023-07-21' AS Date), 1, 1, NULL, N'lATE_IN', N'EARLY_OUT', CAST(N'07:31:00' AS Time), CAST(N'16:59:00' AS Time), 9, 5, 2)
+GO
+INSERT [dbo].[time_keeping] ([id], [comment], [date], [minutes_late], [minutes_out_early], [reason], [status_timein], [status_timeout], [timein], [timeout], [total_working_hours], [employee_id], [schedules_id]) VALUES (13, N'auto', CAST(N'2023-07-21' AS Date), 43, NULL, NULL, N'lATE_IN', N'ON_TIME', CAST(N'08:13:00' AS Time), CAST(N'17:05:00' AS Time), 8, 6, 2)
+GO
+INSERT [dbo].[time_keeping] ([id], [comment], [date], [minutes_late], [minutes_out_early], [reason], [status_timein], [status_timeout], [timein], [timeout], [total_working_hours], [employee_id], [schedules_id]) VALUES (14, N'auto', CAST(N'2023-07-17' AS Date), NULL, 49, NULL, N'IN_TIME', N'EARLY_OUT', CAST(N'07:06:00' AS Time), CAST(N'16:41:00' AS Time), 9, 1, 1)
+GO
+INSERT [dbo].[time_keeping] ([id], [comment], [date], [minutes_late], [minutes_out_early], [reason], [status_timein], [status_timeout], [timein], [timeout], [total_working_hours], [employee_id], [schedules_id]) VALUES (15, N'auto', CAST(N'2023-07-17' AS Date), NULL, 61, NULL, N'IN_TIME', N'EARLY_OUT', CAST(N'07:59:00' AS Time), CAST(N'16:29:00' AS Time), 8, 4, 1)
+GO
+INSERT [dbo].[time_keeping] ([id], [comment], [date], [minutes_late], [minutes_out_early], [reason], [status_timein], [status_timeout], [timein], [timeout], [total_working_hours], [employee_id], [schedules_id]) VALUES (16, N'auto', CAST(N'2023-07-17' AS Date), 36, NULL, NULL, N'lATE_IN', N'ON_TIME', CAST(N'08:36:00' AS Time), CAST(N'17:47:00' AS Time), 9, 5, 1)
+GO
+SET IDENTITY_INSERT [dbo].[time_keeping] OFF
 GO
 SET IDENTITY_INSERT [dbo].[voucher] ON 
 GO
-INSERT [dbo].[voucher] ([id], [code], [created_by], [created_date], [discription], [end_date], [image], [max_discount], [modified_by], [modified_date], [percentage], [start_date], [status]) VALUES (4, N'CODEME', N'anonymousUser', CAST(N'2022-11-15' AS Date), N'', CAST(N'2022-11-30' AS Date), N'https://n1-cstg.mioto.vn/g/2018/03/17/16/52.jpg', 20, N'anonymousUser', CAST(N'2022-11-15T23:57:28.0000000' AS DateTime2), 12, CAST(N'2022-11-15' AS Date), N'ACTIVE')
+INSERT [dbo].[voucher] ([id], [code], [created_by], [created_date], [discription], [end_date], [image], [max_discount], [modified_by], [modified_date], [percentage], [start_date], [status]) VALUES (4, N'CODEME', N'anonymousUser', CAST(N'2022-11-15' AS Date), N'Xe nội thất đẹp, động cơ êm, giá cả hợp lý !!!', CAST(N'2022-11-30' AS Date), N'https://n1-cstg.mioto.vn/g/2018/03/17/16/52.jpg', 20, N'anonymousUser', CAST(N'2022-11-15T23:57:28.0000000' AS DateTime2), 12, CAST(N'2022-11-15' AS Date), N'ACTIVE')
+GO
+INSERT [dbo].[voucher] ([id], [code], [created_by], [created_date], [discription], [end_date], [image], [max_discount], [modified_by], [modified_date], [percentage], [start_date], [status]) VALUES (5, N'ZXC', N'anonymousUser', CAST(N'2022-11-22' AS Date), N'', CAST(N'2022-11-27' AS Date), N'https://n1-cstg.mioto.vn/g/2018/03/17/16/52.jpg', 37, N'anonymousUser', CAST(N'2022-12-07T01:18:46.0000000' AS DateTime2), 31, CAST(N'2022-11-22' AS Date), N'EXPIRED')
+GO
+INSERT [dbo].[voucher] ([id], [code], [created_by], [created_date], [discription], [end_date], [image], [max_discount], [modified_by], [modified_date], [percentage], [start_date], [status]) VALUES (6, N'ZXCZXC', N'anonymousUser', CAST(N'2022-12-20' AS Date), N'', CAST(N'2022-12-23' AS Date), N'https://n1-cstg.mioto.vn/g/2018/03/17/16/52.jpg', 42, N'anonymousUser', CAST(N'2023-01-27T23:08:10.0000000' AS DateTime2), 66, CAST(N'2022-12-20' AS Date), N'EXPIRED')
+GO
+INSERT [dbo].[voucher] ([id], [code], [created_by], [created_date], [discription], [end_date], [image], [max_discount], [modified_by], [modified_date], [percentage], [start_date], [status]) VALUES (7, N'CA', N'anonymousUser', CAST(N'2023-06-19' AS Date), N'', CAST(N'2023-06-21' AS Date), N'https://n1-cstg.mioto.vn/g/2018/03/17/16/52.jpg', 30, N'anonymousUser', CAST(N'2023-06-19T06:32:53.0000000' AS DateTime2), 10, CAST(N'2023-06-21' AS Date), N'ACTIVE')
+GO
+INSERT [dbo].[voucher] ([id], [code], [created_by], [created_date], [discription], [end_date], [image], [max_discount], [modified_by], [modified_date], [percentage], [start_date], [status]) VALUES (8, N'ÁDASDASD', N'anonymousUser', CAST(N'2023-06-19' AS Date), N'', CAST(N'2023-06-21' AS Date), N'https://n1-cstg.mioto.vn/g/2018/03/17/16/52.jpg', 30, N'anonymousUser', CAST(N'2023-06-19T06:33:10.0000000' AS DateTime2), 10, CAST(N'2023-06-21' AS Date), N'ACTIVE')
+GO
+INSERT [dbo].[voucher] ([id], [code], [created_by], [created_date], [discription], [end_date], [image], [max_discount], [modified_by], [modified_date], [percentage], [start_date], [status]) VALUES (9, N'123123', N'anonymousUser', CAST(N'2023-06-29' AS Date), N'', CAST(N'2023-06-30' AS Date), N'https://n1-cstg.mioto.vn/g/2018/03/17/16/52.jpg', 30, N'anonymousUser', CAST(N'2023-06-29T18:35:50.0000000' AS DateTime2), 10, CAST(N'2023-06-30' AS Date), N'ACTIVE')
+GO
+INSERT [dbo].[voucher] ([id], [code], [created_by], [created_date], [discription], [end_date], [image], [max_discount], [modified_by], [modified_date], [percentage], [start_date], [status]) VALUES (10, N'GOOD', N'anonymousUser', CAST(N'2023-06-29' AS Date), N'', CAST(N'2023-07-15' AS Date), N'https://n1-cstg.mioto.vn/g/2018/03/17/16/52.jpg', 55, N'anonymousUser', CAST(N'2023-06-29T18:36:18.0000000' AS DateTime2), 10, CAST(N'2023-07-01' AS Date), N'ACTIVE')
 GO
 SET IDENTITY_INSERT [dbo].[voucher] OFF
 GO
@@ -28805,13 +28864,13 @@ SET IDENTITY_INSERT [dbo].[ward] OFF
 GO
 SET ANSI_PADDING ON
 GO
-/****** Object:  Index [UKgex1lmaqpg0ir5g1f5eftyaa1]    Script Date: 16/11/2022 12:31:24 PM ******/
+/****** Object:  Index [UKgex1lmaqpg0ir5g1f5eftyaa1]    Script Date: 20/07/2023 11:47:19 PM ******/
 ALTER TABLE [dbo].[account] ADD  CONSTRAINT [UKgex1lmaqpg0ir5g1f5eftyaa1] UNIQUE NONCLUSTERED 
 (
 	[username] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, IGNORE_DUP_KEY = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 GO
-/****** Object:  Index [UK2g5kr7lkabla2ij2rhwsjwgp4]    Script Date: 16/11/2022 12:31:24 PM ******/
+/****** Object:  Index [UK2g5kr7lkabla2ij2rhwsjwgp4]    Script Date: 20/07/2023 11:47:19 PM ******/
 ALTER TABLE [dbo].[like_table] ADD  CONSTRAINT [UK2g5kr7lkabla2ij2rhwsjwgp4] UNIQUE NONCLUSTERED 
 (
 	[account_id] ASC,
@@ -28820,11 +28879,16 @@ ALTER TABLE [dbo].[like_table] ADD  CONSTRAINT [UK2g5kr7lkabla2ij2rhwsjwgp4] UNI
 GO
 SET ANSI_PADDING ON
 GO
-/****** Object:  Index [UKpvh1lqheshnjoekevvwla03xn]    Script Date: 16/11/2022 12:31:24 PM ******/
+/****** Object:  Index [UKpvh1lqheshnjoekevvwla03xn]    Script Date: 20/07/2023 11:47:19 PM ******/
 ALTER TABLE [dbo].[voucher] ADD  CONSTRAINT [UKpvh1lqheshnjoekevvwla03xn] UNIQUE NONCLUSTERED 
 (
 	[code] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, IGNORE_DUP_KEY = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+GO
+ALTER TABLE [dbo].[account]  WITH CHECK ADD  CONSTRAINT [FK5l70ejb7b4p3fvj8as9clgtwo] FOREIGN KEY([department_id])
+REFERENCES [dbo].[department] ([id])
+GO
+ALTER TABLE [dbo].[account] CHECK CONSTRAINT [FK5l70ejb7b4p3fvj8as9clgtwo]
 GO
 ALTER TABLE [dbo].[account_role]  WITH CHECK ADD  CONSTRAINT [FK1f8y4iy71kb1arff79s71j0dh] FOREIGN KEY([account_id])
 REFERENCES [dbo].[account] ([id])
@@ -28896,6 +28960,11 @@ REFERENCES [dbo].[car] ([id])
 GO
 ALTER TABLE [dbo].[car_image] CHECK CONSTRAINT [FK91nl01tvyj0xus5j92voo4ht1]
 GO
+ALTER TABLE [dbo].[department]  WITH CHECK ADD  CONSTRAINT [FKh1m88q0f7sc0mk76kju4kcn6f] FOREIGN KEY([company_id])
+REFERENCES [dbo].[company] ([id])
+GO
+ALTER TABLE [dbo].[department] CHECK CONSTRAINT [FKh1m88q0f7sc0mk76kju4kcn6f]
+GO
 ALTER TABLE [dbo].[district]  WITH CHECK ADD  CONSTRAINT [FKsgx09prp6sk2f0we38bf2dtal] FOREIGN KEY([city_id])
 REFERENCES [dbo].[city] ([id])
 GO
@@ -28930,6 +28999,21 @@ ALTER TABLE [dbo].[review]  WITH CHECK ADD  CONSTRAINT [FKdfvvph8r2jqrhy24rl70jg
 REFERENCES [dbo].[book] ([id])
 GO
 ALTER TABLE [dbo].[review] CHECK CONSTRAINT [FKdfvvph8r2jqrhy24rl70jggix]
+GO
+ALTER TABLE [dbo].[schedules]  WITH CHECK ADD  CONSTRAINT [FK2kiml9qi5yyhvl7j2inf2jyam] FOREIGN KEY([company_id])
+REFERENCES [dbo].[company] ([id])
+GO
+ALTER TABLE [dbo].[schedules] CHECK CONSTRAINT [FK2kiml9qi5yyhvl7j2inf2jyam]
+GO
+ALTER TABLE [dbo].[time_keeping]  WITH CHECK ADD  CONSTRAINT [FK2o9h45xr86aljtc1klv57ntt7] FOREIGN KEY([employee_id])
+REFERENCES [dbo].[account] ([id])
+GO
+ALTER TABLE [dbo].[time_keeping] CHECK CONSTRAINT [FK2o9h45xr86aljtc1klv57ntt7]
+GO
+ALTER TABLE [dbo].[time_keeping]  WITH CHECK ADD  CONSTRAINT [FKlu1xkfamki77sceaf0u2cn85h] FOREIGN KEY([schedules_id])
+REFERENCES [dbo].[schedules] ([id])
+GO
+ALTER TABLE [dbo].[time_keeping] CHECK CONSTRAINT [FKlu1xkfamki77sceaf0u2cn85h]
 GO
 ALTER TABLE [dbo].[ward]  WITH CHECK ADD  CONSTRAINT [FKslko72wj5nauqvsgefqkvwpsb] FOREIGN KEY([district_id])
 REFERENCES [dbo].[district] ([id])

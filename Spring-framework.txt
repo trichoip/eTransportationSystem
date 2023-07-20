@@ -361,8 +361,11 @@ Real-time Database : ứng dung real-time tốt cho ứng dụng di dộng (flut
 
 
 
-
-
+- chuyển database từ sql server sang mysql
+    - mysql workbend -> Database Wizard
+    - lưu ý: một số data type sql server khi chuyển sang mysql sẽ bị lỗi
+    - nvarchar(max) max trong mysql không có nên phải đổi lại khác max (nhu ntext) để tránh bị lỗi khi chuyển đổi
+    - sau khi chuyển đổi thì các table không auto increment
 
 
 

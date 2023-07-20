@@ -8,7 +8,7 @@ COPY src ./src
 ENV DB_HOST=host.docker.internal
 ENV DB_USERNAME=root
 ENV DB_PASSWORD=
-ENV DB_DATABASE=etransportation
+ENV DB_DATABASE=etransportationsystem
 CMD ["./mvnw", "spring-boot:run", "-Dspring-boot.run.profiles=docker"]
 # CMD ["./mvnw", "spring-boot:run", "-Pdocker"]
 
