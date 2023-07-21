@@ -15,7 +15,9 @@ import com.etransportation.service.AccountService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 import javax.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -136,5 +138,14 @@ public class AccountController {
         }
         accountService.updateDriverLicenseInfo(driverLicenseInfoRequest);
         return ResponseEntity.ok("Cập nhật thành công");
+    }
+
+    @GetMapping("/paypal")
+    public ResponseEntity<?> paypal() {
+        Map<String, String[]> map = new HashMap<>();
+        map.put("paypal", new String[] { "sb-kk6pm22027434@business.example.com", "3o9^RD7}" });
+        map.put("receive", new String[] { "sb-z47src21290005@business.example.com", "0FCkuV<u" });
+        map.put("link", new String[] { "https://www.sandbox.paypal.com/mep/dashboard" });
+        return ResponseEntity.ok(map);
     }
 }
