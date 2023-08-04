@@ -318,7 +318,9 @@ Java prettier formatter:
 
 - cách 2
     + nếu muốn dùng ext prettier chính hãng thì cài
-    + npm install prettier-plugin-java --save-dev (local folder)
+    + npm install prettier-plugin-java --save-dev (local folder) 
+	- lưu ý: version 2.2.0 bị lỗi, back về version 2.1.0 là hết lỗi
+	- npm install prettier-plugin-java@2.1.0 --save-dev
     + sử dụng cách 1 =>  npx prettier --write "**/*.java" (reformat all your Java files)
     + sử dụng cách 2 => sài format on save là tự format
     + lưu ý phải có node_modules mới sài được => chạy npm i để cài node_modules
