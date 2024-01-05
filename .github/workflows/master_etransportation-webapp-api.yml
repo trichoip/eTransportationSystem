@@ -53,7 +53,7 @@ jobs:
                   package: "*.jar"
 
     push_to_backend:
-        name: Push Docker image to Docker Hub
+        name: Push Backend
         runs-on: ubuntu-latest
         steps:
             - name: Check out the repo
@@ -69,7 +69,7 @@ jobs:
               id: meta
               uses: docker/metadata-action@9ec57ed1fcdbf14dcef7dfbe97b2010124a938b7
               with:
-                  images: dockerracdockerrac/etransportation-backend-springboot
+                  images: dockerracdockerrac/etransportation-backend-springboot:latest
 
             - name: Build and push Docker image
               uses: docker/build-push-action@3b5e8027fcad23fda98b2e3ac259d8d67585f671
@@ -81,7 +81,7 @@ jobs:
                   labels: ${{ steps.meta.outputs.labels }}
 
     push_to_database:
-        name: Push Docker image to Docker Hub
+        name: Push Database
         runs-on: ubuntu-latest
         steps:
             - name: Check out the repo
@@ -97,7 +97,7 @@ jobs:
               id: meta
               uses: docker/metadata-action@9ec57ed1fcdbf14dcef7dfbe97b2010124a938b7
               with:
-                  images: dockerracdockerrac/etransportation-db-mysql
+                  images: dockerracdockerrac/etransportation-db-mysql:latest
 
             - name: Build and push Docker image
               uses: docker/build-push-action@3b5e8027fcad23fda98b2e3ac259d8d67585f671
