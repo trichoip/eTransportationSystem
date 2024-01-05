@@ -4,6 +4,9 @@ WORKDIR /app
 COPY .mvn/ .mvn
 COPY mvnw pom.xml ./
 
+# nếu bị lỗi ./mvnw: Permission denied thì 
+RUN chmod +x mvnw
+
 # nếu bị lỗi ./mvnw: not found thì có 2 cách 2 sửa
 # cách 1 thêm 2 dòng bên dưới
 # RUN apt-get update && apt-get install -y dos2unix
